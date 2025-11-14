@@ -270,9 +270,9 @@ export default function PortfolioPage() {
     activeFilter === "All" ? writingLinks : writingLinks.filter((item) => item.categories.includes(activeFilter))
 
   const growthStrategyProjects = workSamples.filter(p => p.categories.includes("Growth Strategy"))
-  const productDesignProjects = [...workSamples.filter(p => p.categories.includes("Product Design")), ...moreDesignWork.filter(d => d.categories.includes("Product Design"))]
+  const productDesignProjects = workSamples.filter(p => p.categories.includes("Product Design"))
   const caseStudyProjects = workSamples.filter(p => p.categories.includes("Case Studies"))
-  const visualDesignProjects = [...workSamples.filter(p => p.categories.includes("Visual Design")), ...moreDesignWork.filter(d => d.categories.includes("Visual Design"))]
+  const visualDesignProjects = workSamples.filter(p => p.categories.includes("Visual Design"))
 
   const scrollLeft = () => {
     if (scrollContainerRef.current) {
@@ -792,7 +792,7 @@ export default function PortfolioPage() {
 
         {/* Writing Section */}
         <section data-section="Writing" className="container mx-auto px-6 py-16 scroll-mt-32 fade-in-up">
-          <h2 className="text-4xl font-bold mb-12 text-center gradient-text">
+          <h2 className="text-3xl font-bold mb-12 text-center gradient-text">
             Writing
           </h2>
 
