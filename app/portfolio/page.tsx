@@ -11,6 +11,7 @@ export default function PortfolioPage() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
   const scrollContainerRef = useRef<HTMLDivElement>(null)
   const [isHovering, setIsHovering] = useState(false)
+  const [activeSection, setActiveSection] = useState<string>("Growth Strategy")
 
   useEffect(() => {
     const observerOptions = {
@@ -33,7 +34,50 @@ export default function PortfolioPage() {
     return () => observer.disconnect()
   }, [activeFilter])
 
+  useEffect(() => {
+    const sectionObserverOptions = {
+      threshold: 0.3,
+      rootMargin: '-100px 0px -50% 0px'
+    }
+
+    const sectionObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const sectionId = entry.target.getAttribute('data-section')
+          if (sectionId) {
+            setActiveSection(sectionId)
+          }
+        }
+      })
+    }, sectionObserverOptions)
+
+    const sections = document.querySelectorAll('[data-section]')
+    sections.forEach((section) => sectionObserver.observe(section))
+
+    return () => sectionObserver.disconnect()
+  }, [])
+
   const categories = ["All", "Growth Strategy", "Product Design", "Case Studies", "Visual Design", "Writing"]
+
+  const scrollToSection = (category: string) => {
+    if (category === "All") {
+      window.scrollTo({ top: 0, behavior: 'smooth' })
+      return
+    }
+    
+    const section = document.querySelector(`[data-section="${category}"]`)
+    if (section) {
+      const offset = 120 // Account for sticky header
+      const elementPosition = section.getBoundingClientRect().top
+      const offsetPosition = elementPosition + window.pageYOffset - offset
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      })
+    }
+    setActiveFilter(category)
+  }
 
   const workSamples = [
     {
@@ -225,9 +269,10 @@ export default function PortfolioPage() {
   const filteredWritingLinks =
     activeFilter === "All" ? writingLinks : writingLinks.filter((item) => item.categories.includes(activeFilter))
 
-  const showWorkSamples = filteredWorkSamples.length > 0
-  const showMoreDesignWork = filteredMoreDesignWork.length > 0
-  const showWriting = filteredWritingLinks.length > 0
+  const growthStrategyProjects = workSamples.filter(p => p.categories.includes("Growth Strategy"))
+  const productDesignProjects = [...workSamples.filter(p => p.categories.includes("Product Design")), ...moreDesignWork.filter(d => d.categories.includes("Product Design"))]
+  const caseStudyProjects = workSamples.filter(p => p.categories.includes("Case Studies"))
+  const visualDesignProjects = [...workSamples.filter(p => p.categories.includes("Visual Design")), ...moreDesignWork.filter(d => d.categories.includes("Visual Design"))]
 
   const scrollLeft = () => {
     if (scrollContainerRef.current) {
@@ -363,184 +408,410 @@ export default function PortfolioPage() {
           </div>
         </section>
 
-        {/* Filter Buttons */}
-        <section className="container mx-auto px-6 pb-8 fade-in-up">
-          <div className="flex flex-wrap gap-3">
-            {categories.map((category) => (
-              <button
-                key={category}
-                onClick={() => setActiveFilter(category)}
-                className={`px-6 py-3 rounded-xl font-medium transition-all duration-300 ${
-                  activeFilter === category
-                    ? "bg-gradient-to-r from-purple-500 to-blue-500 text-white shadow-lg shadow-purple-500/25"
-                    : "backdrop-blur-xl bg-card/40 border border-white/10 hover:border-purple-500/30"
+        <section className="sticky top-0 z-40 backdrop-blur-xl bg-background/80 border-b border-white/10 mb-8">
+          <div className="container mx-auto px-6 py-4">
+            <div className="flex flex-wrap gap-3 justify-center">
+              {categories.map((category) => (
+                <button
+                  key={category}
+                  onClick={() => scrollToSection(category)}
+                  className={`px-6 py-3 rounded-xl font-medium transition-all duration-300 cursor-pointer ${
+                    activeSection === category || (category === "All" && activeSection === "")
+                      ? "bg-gradient-to-r from-purple-500 to-blue-500 text-white shadow-lg shadow-purple-500/25"
+                      : "backdrop-blur-xl bg-card/40 border border-white/10 hover:border-purple-500/50 hover:bg-card/60 hover:shadow-md hover:scale-105"
+                  }`}
+                >
+                  {category}
+                </button>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section data-section="Growth Strategy" className="container mx-auto px-6 py-12 scroll-mt-32">
+          <h2 className="text-4xl font-bold mb-8 bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
+            Growth Strategy
+          </h2>
+          <div className="space-y-16">
+            {growthStrategyProjects.map((project, index) => (
+              <div
+                key={project.id}
+                className={`group backdrop-blur-xl bg-card/40 border border-white/10 rounded-3xl overflow-hidden hover:border-purple-500/30 transition-all duration-500 ${
+                  index % 2 === 0 ? 'fade-in-left' : 'fade-in-right'
                 }`}
+                style={{ animationDelay: `${index * 100}ms` }}
               >
-                {category}
-              </button>
+                <div className="grid md:grid-cols-5 gap-8 p-8">
+                  <div className="md:col-span-3 relative aspect-video rounded-2xl overflow-hidden bg-black/20">
+                    <Image
+                      src={project.image || "/placeholder.svg"}
+                      alt={project.title}
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-700"
+                    />
+                  </div>
+
+                  <div className="md:col-span-2 flex flex-col justify-center space-y-4">
+                    <div className="inline-flex items-center gap-2 text-sm font-medium" style={{ color: "#8f1efb" }}>
+                      <span className="w-2 h-2 rounded-full" style={{ backgroundColor: "#8f1efb" }}></span>
+                      {project.category}
+                    </div>
+
+                    <h3 className="text-2xl font-bold text-balance">{project.title}</h3>
+
+                    <p className="text-balance leading-relaxed" style={{ color: "#20221e" }}>
+                      {project.description}
+                    </p>
+
+                    <div className="flex flex-wrap gap-2">
+                      {project.tags.map((tag) => (
+                        <span
+                          key={tag}
+                          className="px-3 py-1 rounded-full text-xs font-medium bg-white/80 backdrop-blur-sm"
+                          style={{ color: "#8f1efb", border: "1px solid #d2cbdb" }}
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+
+                    {project.link ? (
+                      <Link
+                        href={project.link}
+                        className="mt-4 inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-purple-500 to-blue-500 text-white font-medium hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300 w-fit group cursor-pointer"
+                      >
+                        View case study
+                        <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                      </Link>
+                    ) : (
+                      <button className="mt-4 inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-purple-500 to-blue-500 text-white font-medium hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300 w-fit group cursor-pointer">
+                        View case study
+                        <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                      </button>
+                    )}
+                  </div>
+                </div>
+              </div>
             ))}
           </div>
         </section>
 
-        {/* Work Samples - Single Column */}
-        {showWorkSamples && (
-          <section className="container mx-auto px-6 py-12">
-            <div className="space-y-16">
-              {/* Staggered fade-in animations to each project card */}
-              {filteredWorkSamples.map((project, index) => (
-                <div
-                  key={project.id}
-                  className={`group backdrop-blur-xl bg-card/40 border border-white/10 rounded-3xl overflow-hidden hover:border-purple-500/30 transition-all duration-500 ${
-                    index % 2 === 0 ? 'fade-in-left' : 'fade-in-right'
-                  }`}
-                  style={{ animationDelay: `${index * 100}ms` }}
-                >
-                  <div className="grid md:grid-cols-5 gap-8 p-8">
-                    {/* Image - Takes 3/5 */}
-                    <div className="md:col-span-3 relative aspect-video rounded-2xl overflow-hidden bg-black/20">
-                      <Image
-                        src={project.image || "/placeholder.svg"}
-                        alt={project.title}
-                        fill
-                        className="object-cover group-hover:scale-105 transition-transform duration-700"
-                      />
-                    </div>
-
-                    {/* Content - Takes 2/5 */}
-                    <div className="md:col-span-2 flex flex-col justify-center space-y-4">
-                      <div className="inline-flex items-center gap-2 text-sm font-medium" style={{ color: "#8f1efb" }}>
-                        <span className="w-2 h-2 rounded-full" style={{ backgroundColor: "#8f1efb" }}></span>
-                        {project.category}
-                      </div>
-
-                      <h3 className="text-2xl font-bold text-balance">{project.title}</h3>
-
-                      <p className="text-balance leading-relaxed" style={{ color: "#20221e" }}>
-                        {project.description}
-                      </p>
-
-                      <div className="flex flex-wrap gap-2">
-                        {project.tags.map((tag) => (
-                          <span
-                            key={tag}
-                            className="px-3 py-1 rounded-full text-xs font-medium bg-white/80 backdrop-blur-sm"
-                            style={{ color: "#8f1efb", border: "1px solid #d2cbdb" }}
-                          >
-                            {tag}
-                          </span>
-                        ))}
-                      </div>
-
-                      {project.link ? (
-                        <Link
-                          href={project.link}
-                          className="mt-4 inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-purple-500 to-blue-500 text-white font-medium hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300 w-fit group"
-                        >
-                          View case study
-                          <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-                        </Link>
-                      ) : (
-                        <button className="mt-4 inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-purple-500 to-blue-500 text-white font-medium hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300 w-fit group">
-                          View case study
-                          <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-                        </button>
-                      )}
-                    </div>
+        <section data-section="Product Design" className="container mx-auto px-6 py-12 scroll-mt-32">
+          <h2 className="text-4xl font-bold mb-8 bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
+            Product Design
+          </h2>
+          <div className="space-y-16">
+            {workSamples.filter(p => p.categories.includes("Product Design")).map((project, index) => (
+              <div
+                key={project.id}
+                className={`group backdrop-blur-xl bg-card/40 border border-white/10 rounded-3xl overflow-hidden hover:border-purple-500/30 transition-all duration-500 ${
+                  index % 2 === 0 ? 'fade-in-left' : 'fade-in-right'
+                }`}
+                style={{ animationDelay: `${index * 100}ms` }}
+              >
+                <div className="grid md:grid-cols-5 gap-8 p-8">
+                  <div className="md:col-span-3 relative aspect-video rounded-2xl overflow-hidden bg-black/20">
+                    <Image
+                      src={project.image || "/placeholder.svg"}
+                      alt={project.title}
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-700"
+                    />
                   </div>
-                </div>
-              ))}
-            </div>
-          </section>
-        )}
 
-        {/* More Design Work */}
-        {showMoreDesignWork && (
-          <section className="container mx-auto px-6 py-16 fade-in-scale">
-            <h2 className="text-4xl font-bold mb-4 text-center bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
-              More design work
-            </h2>
-            <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto text-balance">
-              Selected work from 2015-2020 showcasing brand identity, marketing, and product design across tech and entertainment industries
-            </p>
+                  <div className="md:col-span-2 flex flex-col justify-center space-y-4">
+                    <div className="inline-flex items-center gap-2 text-sm font-medium" style={{ color: "#8f1efb" }}>
+                      <span className="w-2 h-2 rounded-full" style={{ backgroundColor: "#8f1efb" }}></span>
+                      {project.category}
+                    </div>
 
-            <div className="relative">
-              {/* Left Arrow */}
-              <button
-                onClick={scrollLeft}
-                className="absolute left-0 top-1/2 -translate-y-1/2 z-10 w-12 h-12 rounded-full bg-gradient-to-r from-purple-500 to-blue-500 text-white flex items-center justify-center hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300"
-                aria-label="Scroll left"
-              >
-                <ChevronLeft className="w-6 h-6" />
-              </button>
+                    <h3 className="text-2xl font-bold text-balance">{project.title}</h3>
 
-              {/* Right Arrow */}
-              <button
-                onClick={scrollRight}
-                className="absolute right-0 top-1/2 -translate-y-1/2 z-10 w-12 h-12 rounded-full bg-gradient-to-r from-purple-500 to-blue-500 text-white flex items-center justify-center hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300"
-                aria-label="Scroll right"
-              >
-                <ChevronRight className="w-6 h-6" />
-              </button>
+                    <p className="text-balance leading-relaxed" style={{ color: "#20221e" }}>
+                      {project.description}
+                    </p>
 
-              <div 
-                className="relative px-14"
-                onMouseEnter={() => setIsHovering(true)}
-                onMouseLeave={() => setIsHovering(false)}
-              >
-                <div ref={scrollContainerRef} className="overflow-x-auto scrollbar-hide pb-4">
-                  <div className="flex gap-6 min-w-max">
-                    {filteredMoreDesignWork.map((item, index) => (
-                      <button
-                        key={index}
-                        onClick={() => openLightbox(index)}
-                        className="group backdrop-blur-xl bg-card/40 border border-white/10 rounded-2xl overflow-hidden hover:border-purple-500/30 transition-all duration-500 w-[400px] flex-shrink-0 cursor-pointer"
+                    <div className="flex flex-wrap gap-2">
+                      {project.tags.map((tag) => (
+                        <span
+                          key={tag}
+                          className="px-3 py-1 rounded-full text-xs font-medium bg-white/80 backdrop-blur-sm"
+                          style={{ color: "#8f1efb", border: "1px solid #d2cbdb" }}
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+
+                    {project.link ? (
+                      <Link
+                        href={project.link}
+                        className="mt-4 inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-purple-500 to-blue-500 text-white font-medium hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300 w-fit group cursor-pointer"
                       >
-                        <div className="relative w-full aspect-[4/3]">
-                          <Image
-                            src={item.image || "/placeholder.svg"}
-                            alt={item.title}
-                            fill
-                            className="object-cover group-hover:scale-105 transition-transform duration-700"
-                          />
-                        </div>
-                        <div className="p-6">
-                          <p className="text-sm font-medium text-balance">{item.title}</p>
-                        </div>
+                        View case study
+                        <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                      </Link>
+                    ) : (
+                      <button className="mt-4 inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-purple-500 to-blue-500 text-white font-medium hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300 w-fit group cursor-pointer">
+                        View case study
+                        <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                       </button>
-                    ))}
+                    )}
                   </div>
                 </div>
               </div>
-            </div>
-          </section>
-        )}
+            ))}
+          </div>
 
-        {/* Writing Section */}
-        {showWriting && (
-          <section className="container mx-auto px-6 py-16 fade-in-up">
-            <h2 className="text-4xl font-bold mb-12 text-center bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
-              Writing
-            </h2>
+          {/* Product Design from More Design Work */}
+          <div className="mt-16 relative">
+            <button
+              onClick={scrollLeft}
+              className="absolute left-0 top-1/2 -translate-y-1/2 z-10 w-12 h-12 rounded-full bg-gradient-to-r from-purple-500 to-blue-500 text-white flex items-center justify-center hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300 cursor-pointer"
+              aria-label="Scroll left"
+            >
+              <ChevronLeft className="w-6 h-6" />
+            </button>
 
-            <div className="max-w-3xl mx-auto backdrop-blur-xl bg-card/40 border border-white/10 rounded-3xl p-8">
-              <ul className="space-y-4">
-                {filteredWritingLinks.map((article, index) => (
-                  <li key={index}>
-                    <a
-                      href={article.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-start gap-3 text-purple-400 hover:text-purple-300 transition-colors group"
+            <button
+              onClick={scrollRight}
+              className="absolute right-0 top-1/2 -translate-y-1/2 z-10 w-12 h-12 rounded-full bg-gradient-to-r from-purple-500 to-blue-500 text-white flex items-center justify-center hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300 cursor-pointer"
+              aria-label="Scroll right"
+            >
+              <ChevronRight className="w-6 h-6" />
+            </button>
+
+            <div 
+              className="relative px-14"
+              onMouseEnter={() => setIsHovering(true)}
+              onMouseLeave={() => setIsHovering(false)}
+            >
+              <div ref={scrollContainerRef} className="overflow-x-auto scrollbar-hide pb-4">
+                <div className="flex gap-6 min-w-max">
+                  {moreDesignWork.filter(d => d.categories.includes("Product Design")).map((item, index) => (
+                    <button
+                      key={index}
+                      onClick={() => openLightbox(index)}
+                      className="group backdrop-blur-xl bg-card/40 border border-white/10 rounded-2xl overflow-hidden hover:border-purple-500/30 transition-all duration-500 w-[400px] flex-shrink-0 cursor-pointer"
                     >
-                      <ArrowUpRight className="w-4 h-4 mt-1 flex-shrink-0 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-                      <span className="text-balance">{article.title}</span>
-                    </a>
-                  </li>
-                ))}
-              </ul>
+                      <div className="relative w-full aspect-[4/3]">
+                        <Image
+                          src={item.image || "/placeholder.svg"}
+                          alt={item.title}
+                          fill
+                          className="object-cover group-hover:scale-105 transition-transform duration-700"
+                        />
+                      </div>
+                      <div className="p-6">
+                        <p className="text-sm font-medium text-balance">{item.title}</p>
+                      </div>
+                    </button>
+                  ))}
+                </div>
+              </div>
             </div>
-          </section>
-        )}
+          </div>
+        </section>
+
+        <section data-section="Case Studies" className="container mx-auto px-6 py-12 scroll-mt-32">
+          <h2 className="text-4xl font-bold mb-8 bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
+            Case Studies
+          </h2>
+          <div className="space-y-16">
+            {caseStudyProjects.map((project, index) => (
+              <div
+                key={project.id}
+                className={`group backdrop-blur-xl bg-card/40 border border-white/10 rounded-3xl overflow-hidden hover:border-purple-500/30 transition-all duration-500 ${
+                  index % 2 === 0 ? 'fade-in-left' : 'fade-in-right'
+                }`}
+                style={{ animationDelay: `${index * 100}ms` }}
+              >
+                <div className="grid md:grid-cols-5 gap-8 p-8">
+                  <div className="md:col-span-3 relative aspect-video rounded-2xl overflow-hidden bg-black/20">
+                    <Image
+                      src={project.image || "/placeholder.svg"}
+                      alt={project.title}
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-700"
+                    />
+                  </div>
+
+                  <div className="md:col-span-2 flex flex-col justify-center space-y-4">
+                    <div className="inline-flex items-center gap-2 text-sm font-medium" style={{ color: "#8f1efb" }}>
+                      <span className="w-2 h-2 rounded-full" style={{ backgroundColor: "#8f1efb" }}></span>
+                      {project.category}
+                    </div>
+
+                    <h3 className="text-2xl font-bold text-balance">{project.title}</h3>
+
+                    <p className="text-balance leading-relaxed" style={{ color: "#20221e" }}>
+                      {project.description}
+                    </p>
+
+                    <div className="flex flex-wrap gap-2">
+                      {project.tags.map((tag) => (
+                        <span
+                          key={tag}
+                          className="px-3 py-1 rounded-full text-xs font-medium bg-white/80 backdrop-blur-sm"
+                          style={{ color: "#8f1efb", border: "1px solid #d2cbdb" }}
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+
+                    {project.link ? (
+                      <Link
+                        href={project.link}
+                        className="mt-4 inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-purple-500 to-blue-500 text-white font-medium hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300 w-fit group cursor-pointer"
+                      >
+                        View case study
+                        <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                      </Link>
+                    ) : (
+                      <button className="mt-4 inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-purple-500 to-blue-500 text-white font-medium hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300 w-fit group cursor-pointer">
+                        View case study
+                        <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                      </button>
+                    )}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section data-section="Visual Design" className="container mx-auto px-6 py-12 scroll-mt-32">
+          <h2 className="text-4xl font-bold mb-8 bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
+            Visual Design
+          </h2>
+          
+          {/* Work samples with Visual Design category */}
+          <div className="space-y-16 mb-16">
+            {workSamples.filter(p => p.categories.includes("Visual Design")).map((project, index) => (
+              <div
+                key={project.id}
+                className={`group backdrop-blur-xl bg-card/40 border border-white/10 rounded-3xl overflow-hidden hover:border-purple-500/30 transition-all duration-500 ${
+                  index % 2 === 0 ? 'fade-in-left' : 'fade-in-right'
+                }`}
+                style={{ animationDelay: `${index * 100}ms` }}
+              >
+                <div className="grid md:grid-cols-5 gap-8 p-8">
+                  <div className="md:col-span-3 relative aspect-video rounded-2xl overflow-hidden bg-black/20">
+                    <Image
+                      src={project.image || "/placeholder.svg"}
+                      alt={project.title}
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-700"
+                    />
+                  </div>
+
+                  <div className="md:col-span-2 flex flex-col justify-center space-y-4">
+                    <div className="inline-flex items-center gap-2 text-sm font-medium" style={{ color: "#8f1efb" }}>
+                      <span className="w-2 h-2 rounded-full" style={{ backgroundColor: "#8f1efb" }}></span>
+                      {project.category}
+                    </div>
+
+                    <h3 className="text-2xl font-bold text-balance">{project.title}</h3>
+
+                    <p className="text-balance leading-relaxed" style={{ color: "#20221e" }}>
+                      {project.description}
+                    </p>
+
+                    <div className="flex flex-wrap gap-2">
+                      {project.tags.map((tag) => (
+                        <span
+                          key={tag}
+                          className="px-3 py-1 rounded-full text-xs font-medium bg-white/80 backdrop-blur-sm"
+                          style={{ color: "#8f1efb", border: "1px solid #d2cbdb" }}
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Gallery from More Design Work */}
+          <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto text-balance">
+            Selected work from 2015-2020 showcasing brand identity, marketing, and visual design
+          </p>
+
+          <div className="relative">
+            <button
+              onClick={scrollLeft}
+              className="absolute left-0 top-1/2 -translate-y-1/2 z-10 w-12 h-12 rounded-full bg-gradient-to-r from-purple-500 to-blue-500 text-white flex items-center justify-center hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300 cursor-pointer"
+              aria-label="Scroll left"
+            >
+              <ChevronLeft className="w-6 h-6" />
+            </button>
+
+            <button
+              onClick={scrollRight}
+              className="absolute right-0 top-1/2 -translate-y-1/2 z-10 w-12 h-12 rounded-full bg-gradient-to-r from-purple-500 to-blue-500 text-white flex items-center justify-center hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300 cursor-pointer"
+              aria-label="Scroll right"
+            >
+              <ChevronRight className="w-6 h-6" />
+            </button>
+
+            <div 
+              className="relative px-14"
+              onMouseEnter={() => setIsHovering(true)}
+              onMouseLeave={() => setIsHovering(false)}
+            >
+              <div ref={scrollContainerRef} className="overflow-x-auto scrollbar-hide pb-4">
+                <div className="flex gap-6 min-w-max">
+                  {moreDesignWork.filter(d => d.categories.includes("Visual Design")).map((item, index) => (
+                    <button
+                      key={index}
+                      onClick={() => openLightbox(index)}
+                      className="group backdrop-blur-xl bg-card/40 border border-white/10 rounded-2xl overflow-hidden hover:border-purple-500/30 transition-all duration-500 w-[400px] flex-shrink-0 cursor-pointer"
+                    >
+                      <div className="relative w-full aspect-[4/3]">
+                        <Image
+                          src={item.image || "/placeholder.svg"}
+                          alt={item.title}
+                          fill
+                          className="object-cover group-hover:scale-105 transition-transform duration-700"
+                        />
+                      </div>
+                      <div className="p-6">
+                        <p className="text-sm font-medium text-balance">{item.title}</p>
+                      </div>
+                    </button>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section data-section="Writing" className="container mx-auto px-6 py-16 scroll-mt-32 fade-in-up">
+          <h2 className="text-4xl font-bold mb-12 text-center bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
+            Writing
+          </h2>
+
+          <div className="max-w-3xl mx-auto backdrop-blur-xl bg-card/40 border border-white/10 rounded-3xl p-8">
+            <ul className="space-y-6">
+              {writingLinks.map((article, index) => (
+                <li key={index}>
+                  <a
+                    href={article.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-start gap-3 text-purple-500 hover:text-purple-600 transition-colors group cursor-pointer text-lg"
+                  >
+                    <ArrowUpRight className="w-5 h-5 mt-1 flex-shrink-0 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                    <span className="text-balance font-medium">{article.title}</span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
 
         {/* CTA */}
         <section className="container mx-auto px-6 py-16 fade-in-scale">
@@ -551,7 +822,7 @@ export default function PortfolioPage() {
             </p>
             <a
               href="mailto:hello@andigalpern.com"
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-gradient-to-r from-purple-500 to-blue-500 text-white font-medium hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300"
+              className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-gradient-to-r from-purple-500 to-blue-500 text-white font-medium hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300 cursor-pointer"
             >
               Get in touch
               <ArrowUpRight className="w-5 h-5" />
@@ -598,7 +869,7 @@ export default function PortfolioPage() {
           {/* Close Button */}
           <button
             onClick={closeLightbox}
-            className="absolute top-6 right-6 w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-all duration-300"
+            className="absolute top-6 right-6 w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-all duration-300 cursor-pointer"
             aria-label="Close lightbox"
           >
             <X className="w-6 h-6" />
@@ -607,7 +878,7 @@ export default function PortfolioPage() {
           {/* Previous Button */}
           <button
             onClick={prevImage}
-            className="absolute left-6 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-gradient-to-r from-purple-500 to-blue-500 text-white flex items-center justify-center hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300"
+            className="absolute left-6 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-gradient-to-r from-purple-500 to-blue-500 text-white flex items-center justify-center hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300 cursor-pointer"
             aria-label="Previous image"
           >
             <ChevronLeft className="w-6 h-6" />
@@ -616,7 +887,7 @@ export default function PortfolioPage() {
           {/* Next Button */}
           <button
             onClick={nextImage}
-            className="absolute right-6 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-gradient-to-r from-purple-500 to-blue-500 text-white flex items-center justify-center hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300"
+            className="absolute right-6 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-gradient-to-r from-purple-500 to-blue-500 text-white flex items-center justify-center hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300 cursor-pointer"
             aria-label="Next image"
           >
             <ChevronRight className="w-6 h-6" />

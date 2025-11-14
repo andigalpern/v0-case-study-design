@@ -311,8 +311,8 @@ export default function HomePage() {
                   <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">
                     Vibe Coded with AI
                   </h2>
-                  <div className="space-y-4 text-lg leading-relaxed text-white/90">
-                    <p>
+                  <div className="space-y-4 text-lg leading-relaxed">
+                    <p className="white">
                       This entire portfolio was built using{" "}
                       <a
                         href="https://v0.dev"
@@ -324,7 +324,7 @@ export default function HomePage() {
                       </a>
                       {" "}— an AI-powered design and development tool that turns natural language into production-ready code.
                     </p>
-                    <p>
+                    <p className="white">
                       I curated the content, wrote case studies, art directed the visual design, selected color schemes, and directed layouts. Then I let AI handle the implementation — React components, Next.js routing, responsive layouts, and glassmorphic styling.
                     </p>
                     <p className="text-blue-200 font-medium">
