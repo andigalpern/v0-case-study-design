@@ -2,11 +2,36 @@
 
 import Image from "next/image"
 import Link from "next/link"
-import { ArrowUpRight } from 'lucide-react'
-import { useState } from "react"
+import { ArrowUpRight, ChevronLeft, ChevronRight, X } from 'lucide-react'
+import { useState, useRef, useEffect } from "react"
 
 export default function PortfolioPage() {
   const [activeFilter, setActiveFilter] = useState<string>("All")
+  const [lightboxOpen, setLightboxOpen] = useState(false)
+  const [currentImageIndex, setCurrentImageIndex] = useState(0)
+  const scrollContainerRef = useRef<HTMLDivElement>(null)
+  const [isHovering, setIsHovering] = useState(false)
+
+  useEffect(() => {
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -100px 0px'
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate-in')
+        }
+      })
+    }, observerOptions)
+
+    // Observe all animatable elements
+    const elements = document.querySelectorAll('.fade-in-up, .fade-in-left, .fade-in-right, .fade-in-scale')
+    elements.forEach((el) => observer.observe(el))
+
+    return () => observer.disconnect()
+  }, [activeFilter])
 
   const categories = ["All", "Growth Strategy", "Product Design", "Case Studies", "Visual Design", "Writing"]
 
@@ -92,72 +117,101 @@ export default function PortfolioPage() {
       categories: ["Visual Design"],
     },
     {
+      title: "Smule App Interface Design",
+      image: "/images/smule-app-interface.webp",
+      categories: ["Product Design"],
+    },
+    {
+      title: "Smule Song Page - Dream a Little Dream",
+      image: "/images/smule-dream-little-dream.webp",
+      categories: ["Product Design"],
+    },
+    {
       title: "StarGreetz ads for Disney",
       image: "/images/stargreetz-disney-ads-v2.jpg",
       categories: ["Visual Design"],
     },
     {
-      title: "Smyle music app, product design",
-      image: "/modern-music-app.png",
-      categories: ["Product Design"],
+      title: "CloudApp Sign-Up Page Design",
+      image: "/images/cloudapp-signup.png",
+      categories: ["Visual Design", "Product Design"],
     },
     {
-      title: "CloudMart infographic",
-      image: "/cloud-marketplace-infographic.jpg",
+      title: "Founders Friday London Event Design",
+      image: "/images/founders-friday-london.png",
       categories: ["Visual Design"],
     },
     {
-      title: "Founders Network, event branding advertisement",
-      image: "/founders-friday-event.jpg",
-      categories: ["Visual Design"],
-    },
-    { title: "Team Sports branding", image: "/team-sports-logo.jpg", categories: ["Visual Design"] },
-    {
-      title: "Sundance Catalogue Packaging Design",
-      image: "/sundance-packaging.jpg",
+      title: "Ralph the Reindeer Holiday Tag Design",
+      image: "/images/ralph-reindeer-tag.png",
       categories: ["Visual Design"],
     },
   ]
 
   const writingLinks = [
     {
-      title: "Lead Gen Strategies using New Veritas ebook",
-      url: "http://www.slideshare.net/cwebber23/lead-gen-strategies-using-new-veritas-ebook-073114",
+      title: "Adobe.com: Designing for Accessible Experiences at Scale",
+      url: "https://xd.adobe.com/ideas/perspectives/leadership-insights/accessibility-design-scale/",
       categories: ["Writing"],
     },
     {
-      title: "Crossing the Product Experience Design Chasm",
-      url: "https://www.linkedin.com/pulse/crossing-product-experience-design-chasm-andi-galpern",
+      title: "Meet the Experience Design Team Behind Adobe XD CC",
+      url: "https://xd.adobe.com/ideas/perspectives/profiles-interviews/meet-experience-design-team-behind-adobe-xd/",
       categories: ["Writing"],
     },
     {
-      title: "How to Never in Your Entire Work During Email Composition",
-      url: "https://www.linkedin.com/pulse/how-never-your-entire-work-during-email-andi-galpern",
+      title: "User Research At LinkedIn With Sunny Patel",
+      url: "https://xd.adobe.com/ideas/perspectives/profiles-interviews/user-research-linkedin-sunny-patel/",
       categories: ["Writing"],
     },
     {
-      title: "Understanding Growth in Product for Designers (Podcast)",
-      url: "https://share.transistor.fm/s/2fb8e8a0",
+      title: "How to Design a User-Friendly SaaS Pricing Page with Examples",
+      url: "https://xd.adobe.com/ideas/process/information-architecture/saas-pricing-page-design-examples/",
       categories: ["Writing"],
     },
     {
-      title: "Growth-Focused Content for SaaS companies",
-      url: "https://www.caseyaccidental.com/growth-content-saas",
+      title: "7 Presentation Design Tips To Wow Your Audience",
+      url: "https://xd.adobe.com/ideas/process/ui-design/7-presentation-design-tips/",
       categories: ["Writing"],
     },
     {
-      title: "Growth Design Q&A",
-      url: "https://growth.design/case-studies/andi-galpern-growth-design",
+      title: "How to Create a Case Study for your UX and Product Design Portfolio",
+      url: "https://xd.adobe.com/ideas/career-tips/ux-design-portfolio-case-study/",
       categories: ["Writing"],
     },
     {
-      title: "Design for Growth: an interview with Andi Galpern",
-      url: "https://www.invisionapp.com/inside-design/andi-galpern-growth-design/",
+      title: "Scaling Design Patterns at Eventbrite",
+      url: "https://xd.adobe.com/ideas/perspectives/profiles-interviews/scaling-design-patterns-eventbrite/",
       categories: ["Writing"],
     },
     {
-      title: "The Importance of Qualitative Data When Growing Your Product",
-      url: "https://review.firstround.com/the-importance-of-qualitative-data-when-growing-your-product",
+      title: "How to Convince your Boss to Pay for a Conference",
+      url: "https://xd.adobe.com/ideas/career-tips/convince-boss-pay-conference/",
+      categories: ["Writing"],
+    },
+    {
+      title: "The Best Sketch Plugins for Product Designers in 2018",
+      url: "https://xd.adobe.com/ideas/process/ui-design/best-sketch-plugins-product-designers/",
+      categories: ["Writing"],
+    },
+    {
+      title: "Meet Khoi Vinh, Principal Designer at Adobe",
+      url: "https://xd.adobe.com/ideas/perspectives/profiles-interviews/meet-khoi-vinh-principal-designer-adobe/",
+      categories: ["Writing"],
+    },
+    {
+      title: "Market Research vs. User Research",
+      url: "https://xd.adobe.com/ideas/process/user-research/market-research-vs-user-research/",
+      categories: ["Writing"],
+    },
+    {
+      title: "Shopify blog: Essential App Marketing: 11 Ways to Successfully Promote Your App",
+      url: "https://www.shopify.com/partners/blog/app-marketing",
+      categories: ["Writing"],
+    },
+    {
+      title: "productdesign.tips: What is Product Design?",
+      url: "https://productdesign.tips/what-is-product-design/",
       categories: ["Writing"],
     },
   ]
@@ -174,6 +228,83 @@ export default function PortfolioPage() {
   const showWorkSamples = filteredWorkSamples.length > 0
   const showMoreDesignWork = filteredMoreDesignWork.length > 0
   const showWriting = filteredWritingLinks.length > 0
+
+  const scrollLeft = () => {
+    if (scrollContainerRef.current) {
+      scrollContainerRef.current.scrollBy({ left: -420, behavior: 'smooth' })
+    }
+  }
+
+  const scrollRight = () => {
+    if (scrollContainerRef.current) {
+      scrollContainerRef.current.scrollBy({ left: 420, behavior: 'smooth' })
+    }
+  }
+
+  const openLightbox = (index: number) => {
+    setCurrentImageIndex(index)
+    setLightboxOpen(true)
+  }
+
+  const closeLightbox = () => {
+    setLightboxOpen(false)
+  }
+
+  const nextImage = () => {
+    setCurrentImageIndex((prev) => (prev + 1) % filteredMoreDesignWork.length)
+  }
+
+  const prevImage = () => {
+    setCurrentImageIndex((prev) => (prev - 1 + filteredMoreDesignWork.length) % filteredMoreDesignWork.length)
+  }
+
+  useEffect(() => {
+    if (!scrollContainerRef.current || isHovering) return
+
+    const container = scrollContainerRef.current
+    const scrollSpeed = 0.5 // pixels per frame
+    let animationFrameId: number
+
+    const autoScroll = () => {
+      if (container) {
+        container.scrollLeft += scrollSpeed
+
+        // Loop back to beginning when reaching the end
+        if (container.scrollLeft >= container.scrollWidth - container.clientWidth) {
+          container.scrollLeft = 0
+        }
+      }
+      animationFrameId = requestAnimationFrame(autoScroll)
+    }
+
+    animationFrameId = requestAnimationFrame(autoScroll)
+
+    return () => {
+      if (animationFrameId) {
+        cancelAnimationFrame(animationFrameId)
+      }
+    }
+  }, [isHovering])
+
+  useEffect(() => {
+    if (!lightboxOpen) return
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'ArrowLeft') {
+        prevImage()
+      } else if (e.key === 'ArrowRight') {
+        nextImage()
+      } else if (e.key === 'Escape') {
+        closeLightbox()
+      }
+    }
+
+    window.addEventListener('keydown', handleKeyDown)
+
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown)
+    }
+  }, [lightboxOpen, currentImageIndex, filteredMoreDesignWork.length])
 
   return (
     <div className="min-h-screen relative">
@@ -217,7 +348,7 @@ export default function PortfolioPage() {
         </header>
 
         {/* Hero */}
-        <section className="container mx-auto px-6 py-16">
+        <section className="container mx-auto px-6 py-16 fade-in-up">
           <div className="max-w-3xl">
             <h1 className="text-5xl md:text-6xl font-bold mb-6 text-balance" style={{ color: "#20221e" }}>
               Work Samples
@@ -232,7 +363,8 @@ export default function PortfolioPage() {
           </div>
         </section>
 
-        <section className="container mx-auto px-6 pb-8">
+        {/* Filter Buttons */}
+        <section className="container mx-auto px-6 pb-8 fade-in-up">
           <div className="flex flex-wrap gap-3">
             {categories.map((category) => (
               <button
@@ -254,10 +386,14 @@ export default function PortfolioPage() {
         {showWorkSamples && (
           <section className="container mx-auto px-6 py-12">
             <div className="space-y-16">
-              {filteredWorkSamples.map((project) => (
+              {/* Staggered fade-in animations to each project card */}
+              {filteredWorkSamples.map((project, index) => (
                 <div
                   key={project.id}
-                  className="group backdrop-blur-xl bg-card/40 border border-white/10 rounded-3xl overflow-hidden hover:border-purple-500/30 transition-all duration-500"
+                  className={`group backdrop-blur-xl bg-card/40 border border-white/10 rounded-3xl overflow-hidden hover:border-purple-500/30 transition-all duration-500 ${
+                    index % 2 === 0 ? 'fade-in-left' : 'fade-in-right'
+                  }`}
+                  style={{ animationDelay: `${index * 100}ms` }}
                 >
                   <div className="grid md:grid-cols-5 gap-8 p-8">
                     {/* Image - Takes 3/5 */}
@@ -319,37 +455,69 @@ export default function PortfolioPage() {
 
         {/* More Design Work */}
         {showMoreDesignWork && (
-          <section className="container mx-auto px-6 py-16">
-            <h2 className="text-4xl font-bold mb-12 text-center bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
+          <section className="container mx-auto px-6 py-16 fade-in-scale">
+            <h2 className="text-4xl font-bold mb-4 text-center bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
               More design work
             </h2>
+            <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto text-balance">
+              Selected work from 2015-2020 showcasing brand identity, marketing, and product design across tech and entertainment industries
+            </p>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {filteredMoreDesignWork.map((item, index) => (
-                <div
-                  key={index}
-                  className="group backdrop-blur-xl bg-card/40 border border-white/10 rounded-2xl overflow-hidden hover:border-purple-500/30 transition-all duration-500"
-                >
-                  <div className="relative aspect-square bg-black/20">
-                    <Image
-                      src={item.image || "/placeholder.svg"}
-                      alt={item.title}
-                      fill
-                      className="object-cover group-hover:scale-105 transition-transform duration-700"
-                    />
-                  </div>
-                  <div className="p-6">
-                    <p className="text-sm font-medium text-balance">{item.title}</p>
+            <div className="relative">
+              {/* Left Arrow */}
+              <button
+                onClick={scrollLeft}
+                className="absolute left-0 top-1/2 -translate-y-1/2 z-10 w-12 h-12 rounded-full bg-gradient-to-r from-purple-500 to-blue-500 text-white flex items-center justify-center hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300"
+                aria-label="Scroll left"
+              >
+                <ChevronLeft className="w-6 h-6" />
+              </button>
+
+              {/* Right Arrow */}
+              <button
+                onClick={scrollRight}
+                className="absolute right-0 top-1/2 -translate-y-1/2 z-10 w-12 h-12 rounded-full bg-gradient-to-r from-purple-500 to-blue-500 text-white flex items-center justify-center hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300"
+                aria-label="Scroll right"
+              >
+                <ChevronRight className="w-6 h-6" />
+              </button>
+
+              <div 
+                className="relative px-14"
+                onMouseEnter={() => setIsHovering(true)}
+                onMouseLeave={() => setIsHovering(false)}
+              >
+                <div ref={scrollContainerRef} className="overflow-x-auto scrollbar-hide pb-4">
+                  <div className="flex gap-6 min-w-max">
+                    {filteredMoreDesignWork.map((item, index) => (
+                      <button
+                        key={index}
+                        onClick={() => openLightbox(index)}
+                        className="group backdrop-blur-xl bg-card/40 border border-white/10 rounded-2xl overflow-hidden hover:border-purple-500/30 transition-all duration-500 w-[400px] flex-shrink-0 cursor-pointer"
+                      >
+                        <div className="relative w-full aspect-[4/3]">
+                          <Image
+                            src={item.image || "/placeholder.svg"}
+                            alt={item.title}
+                            fill
+                            className="object-cover group-hover:scale-105 transition-transform duration-700"
+                          />
+                        </div>
+                        <div className="p-6">
+                          <p className="text-sm font-medium text-balance">{item.title}</p>
+                        </div>
+                      </button>
+                    ))}
                   </div>
                 </div>
-              ))}
+              </div>
             </div>
           </section>
         )}
 
         {/* Writing Section */}
         {showWriting && (
-          <section className="container mx-auto px-6 py-16">
+          <section className="container mx-auto px-6 py-16 fade-in-up">
             <h2 className="text-4xl font-bold mb-12 text-center bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
               Writing
             </h2>
@@ -375,7 +543,7 @@ export default function PortfolioPage() {
         )}
 
         {/* CTA */}
-        <section className="container mx-auto px-6 py-16">
+        <section className="container mx-auto px-6 py-16 fade-in-scale">
           <div className="backdrop-blur-xl bg-gradient-to-br from-purple-500/10 to-blue-500/10 border border-white/10 rounded-3xl p-12 text-center">
             <h2 className="text-3xl font-bold mb-4">Ready to work together?</h2>
             <p className="text-muted-foreground mb-8 max-w-xl mx-auto text-balance">
@@ -424,6 +592,52 @@ export default function PortfolioPage() {
           </div>
         </footer>
       </div>
+
+      {lightboxOpen && (
+        <div className="fixed inset-0 z-50 bg-black/90 backdrop-blur-xl flex items-center justify-center p-6">
+          {/* Close Button */}
+          <button
+            onClick={closeLightbox}
+            className="absolute top-6 right-6 w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-all duration-300"
+            aria-label="Close lightbox"
+          >
+            <X className="w-6 h-6" />
+          </button>
+
+          {/* Previous Button */}
+          <button
+            onClick={prevImage}
+            className="absolute left-6 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-gradient-to-r from-purple-500 to-blue-500 text-white flex items-center justify-center hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300"
+            aria-label="Previous image"
+          >
+            <ChevronLeft className="w-6 h-6" />
+          </button>
+
+          {/* Next Button */}
+          <button
+            onClick={nextImage}
+            className="absolute right-6 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-gradient-to-r from-purple-500 to-blue-500 text-white flex items-center justify-center hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300"
+            aria-label="Next image"
+          >
+            <ChevronRight className="w-6 h-6" />
+          </button>
+
+          {/* Image Container */}
+          <div className="max-w-6xl w-full">
+            <div className="relative w-full aspect-[4/3] mb-6">
+              <Image
+                src={filteredMoreDesignWork[currentImageIndex]?.image || "/placeholder.svg"}
+                alt={filteredMoreDesignWork[currentImageIndex]?.title || "Design work"}
+                fill
+                className="object-contain"
+              />
+            </div>
+            <h3 className="text-xl font-medium text-white text-center">
+              {filteredMoreDesignWork[currentImageIndex]?.title}
+            </h3>
+          </div>
+        </div>
+      )}
     </div>
   )
 }
