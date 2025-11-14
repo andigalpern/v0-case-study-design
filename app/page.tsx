@@ -2,7 +2,7 @@
 
 import Image from "next/image"
 import Link from "next/link"
-import { ArrowUpRight, Sparkles } from "lucide-react"
+import { ArrowUpRight, Sparkles, Code2, Zap, Cpu } from 'lucide-react'
 
 export default function HomePage() {
   const featuredWorks = [
@@ -18,7 +18,7 @@ export default function HomePage() {
     },
     {
       id: 2,
-      title: "Adobe Growth",
+      title: "Scaling Activation Globally for Adobe Creative Cloud",
       category: "Adobe",
       description:
         "Multi-channel activation strategy and trial-to-paid funnel optimization across 7 global markets for Adobe Creative Cloud.",
@@ -28,7 +28,7 @@ export default function HomePage() {
     },
     {
       id: 3,
-      title: "Duolingo Scuba Dive App test",
+      title: "Scuba Diving App Design Test",
       category: "Product Design",
       description:
         "Mobile app design for a social scuba diving platform featuring dive logging, location discovery, and community features.",
@@ -38,7 +38,7 @@ export default function HomePage() {
     },
     {
       id: 4,
-      title: "BTL mortgage",
+      title: "Adobe HelpX: 3D Interface Design",
       category: "Product Design",
       description:
         "Interactive 3D blueprint-style interface design for Adobe HelpX tutorial platform with component-based learning modules.",
@@ -52,18 +52,20 @@ export default function HomePage() {
       category: "Content Design",
       description:
         "Comprehensive ebook template design for Zapier showcasing workflow automation features, user testimonials, and key product benefits.",
-      image: "/images/zapier-ebook-3d.jpg",
+      image: "/images/ebook.png",
       tags: ["Editorial", "Template", "Marketing"],
       link: "#",
     },
   ]
 
   const companies = [
-    { name: "Adobe", logo: "https://www.adobe.com/favicon.ico" },
-    { name: "Disney", logo: "https://www.disney.com/favicon.ico" },
-    { name: "Informatica", logo: "https://www.informatica.com/favicon.ico" },
-    { name: "Patreon", logo: "https://www.patreon.com/favicon.ico" },
-    { name: "Zapier", logo: "https://zapier.com/favicon.ico" },
+    { name: "Adobe", logo: "/adobe-logo.svg" },
+    { name: "Informatica", logo: "/informatica-logo.svg" },
+    { name: "Smule", logo: "/smule-logo.png" },
+    { name: "Cisco", logo: "/cisco-logo.svg" },
+    { name: "Patreon", logo: "/patreon-logo.svg" },
+    { name: "Zapier", logo: "/zapier-logo.png" },
+    { name: "Guitar Center", logo: "/guitar-center-logo.svg" },
   ]
 
   return (
@@ -120,18 +122,17 @@ export default function HomePage() {
               </h1>
               <div className="space-y-4 text-lg leading-relaxed" style={{ color: "#20221e" }}>
                 <p>
-                  I'm an Sr. Product Designer (focused on both B2B and B2C) or Product Manager. I'm at the sweet spot of
-                  design and technical skills and empathy for both the company and the customer.
+                  I'm a Product Designer who lives at the intersection of Growth, AI, and human-centered design. For
+                  more than 14 years, I've helped companies of every size—from global teams at Adobe and Informatica to
+                  scrappy, fast-moving startups—turn complex problems into clear, effective digital experiences that
+                  actually drive results. My work blends design, growth strategy, and marketing to increase leads, boost
+                  revenue, and build products people genuinely want to use.
                 </p>
                 <p>
-                  I'm known for my growth mindset and my ability to lead cross-functional teams to deliver products that
-                  drive business growth and delight users. I thrive in fast-paced environments where I can wear multiple
-                  hats and make a real impact.
-                </p>
-                <p>
-                  My work spans diverse domains — from marketing growth strategy, product design, and user experience to
-                  product management. My work brings deep design thinking, rapid experimentation, and go-to-market
-                  strategy, and I write clean copy.
+                  I'm also a Women Techmakers Ambassador for Google, where I mentor people in tech and help them grow
+                  their careers. I've attended Google I/O every year since 2015, which keeps me plugged into the latest
+                  AI and product innovations. And as the founder of Cascade SF, I've spent years building communities,
+                  hosting events, and championing professional growth across the design and tech world.
                 </p>
               </div>
             </div>
@@ -148,16 +149,15 @@ export default function HomePage() {
         {/* Companies I've Designed For */}
         <section className="container mx-auto px-6 py-12">
           <p className="text-center text-sm text-muted-foreground mb-8">Companies I've designed for include:</p>
-          <div className="flex flex-wrap justify-center items-center gap-12">
+          <div className="flex flex-wrap justify-center items-center gap-16">
             {companies.map((company) => (
               <div
                 key={company.name}
-                className="flex items-center gap-3 opacity-60 hover:opacity-100 transition-opacity"
+                className="flex items-center justify-center opacity-70 hover:opacity-100 transition-opacity"
               >
-                <div className="relative w-8 h-8">
-                  <Image src={company.logo || "/placeholder.svg"} alt={company.name} fill className="object-contain" />
+                <div className="relative h-16 w-40">
+                  <Image src={company.logo || "/placeholder.svg"} alt={`${company.name} logo`} fill className="object-contain" />
                 </div>
-                <span className="text-lg font-medium">{company.name}</span>
               </div>
             ))}
           </div>
@@ -294,37 +294,98 @@ export default function HomePage() {
         </section>
 
         {/* Built with v0 Section */}
-        <section className="container mx-auto px-6 py-16">
-          <div className="backdrop-blur-xl bg-gradient-to-br from-purple-500/10 to-blue-500/10 border border-white/10 rounded-3xl p-12">
-            <div className="flex items-start gap-4 mb-6">
-              <Sparkles className="w-8 h-8 text-purple-400 flex-shrink-0" />
-              <div>
-                <h2 className="text-3xl font-bold mb-4" style={{ color: "#20221e" }}>
-                  Built with v0 by Vercel
-                </h2>
-                <div className="space-y-4 text-lg leading-relaxed" style={{ color: "#20221e" }}>
-                  <p>
-                    This entire portfolio site was vibe-coded using{" "}
-                    <a
-                      href="https://v0.dev"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-purple-500 hover:text-purple-400 underline"
-                    >
-                      v0.dev
-                    </a>
-                    , Vercel's AI-powered design and development tool.
-                  </p>
-                  <p>
-                    I curated all the content, wrote the case studies, art directed the visual design, selected the
-                    color schemes, directed the layout structure, and let AI handle the implementation magic. The result
-                    is a modern, glassmorphic portfolio with smooth interactions and trendy aesthetics — all built
-                    through natural language prompts.
-                  </p>
-                  <p className="text-base italic">
-                    This approach showcases my ability to leverage cutting-edge tools, direct creative vision, and ship
-                    beautiful products quickly — a key skill for modern product designers and managers.
-                  </p>
+        <section className="container mx-auto px-6 py-24">
+          <div className="relative overflow-hidden rounded-[2.5rem] bg-gradient-to-br from-purple-900 to-blue-900 border border-purple-500/30">
+            
+            <div className="relative z-10 p-12 md:p-16">
+              {/* Badge */}
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/20 border border-white/40 backdrop-blur-sm mb-8">
+                <Sparkles className="w-4 h-4 text-white" />
+                <span className="text-sm font-medium text-white">AI-Powered Development</span>
+              </div>
+
+              {/* Main Content */}
+              <div className="grid md:grid-cols-2 gap-12 items-center">
+                {/* Left - Text */}
+                <div>
+                  <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">
+                    Vibe Coded with AI
+                  </h2>
+                  <div className="space-y-4 text-lg leading-relaxed text-white/90">
+                    <p>
+                      This entire portfolio was built using{" "}
+                      <a
+                        href="https://v0.dev"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-blue-200 hover:text-blue-100 underline underline-offset-2 font-medium"
+                      >
+                        v0 by Vercel
+                      </a>
+                      {" "}— an AI-powered design and development tool that turns natural language into production-ready code.
+                    </p>
+                    <p>
+                      I curated the content, wrote case studies, art directed the visual design, selected color schemes, and directed layouts. Then I let AI handle the implementation — React components, Next.js routing, responsive layouts, and glassmorphic styling.
+                    </p>
+                    <p className="text-blue-200 font-medium">
+                      This is the future of product development: strategic thinking + creative direction + AI execution.
+                    </p>
+                  </div>
+                </div>
+
+                {/* Right - Tech Stack Cards */}
+                <div className="space-y-4">
+                  {/* Tech Stack Card */}
+                  <div className="bg-white/15 border border-white/30 rounded-2xl p-6">
+                    <div className="flex items-start gap-4">
+                      <div className="w-10 h-10 rounded-lg bg-white/20 flex items-center justify-center flex-shrink-0">
+                        <Code2 className="w-5 h-5 text-white" />
+                      </div>
+                      <div>
+                        <h3 className="text-lg font-bold text-white mb-2">Tech Stack</h3>
+                        <div className="flex flex-wrap gap-2">
+                          {["React", "Next.js", "TypeScript", "Tailwind CSS", "Node.js"].map((tech) => (
+                            <span
+                              key={tech}
+                              className="px-3 py-1 rounded-lg bg-white/20 text-xs font-medium text-white border border-white/30"
+                            >
+                              {tech}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Speed Card */}
+                  <div className="bg-white/15 border border-white/30 rounded-2xl p-6">
+                    <div className="flex items-start gap-4">
+                      <div className="w-10 h-10 rounded-lg bg-white/20 flex items-center justify-center flex-shrink-0">
+                        <Zap className="w-5 h-5 text-white" />
+                      </div>
+                      <div>
+                        <h3 className="text-lg font-bold text-white mb-2">Built in Hours, Not Days</h3>
+                        <p className="text-sm text-white/80 leading-relaxed">
+                          From concept to deployed site in a fraction of the time traditional development would take.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* AI-Powered Card */}
+                  <div className="bg-white/15 border border-white/30 rounded-2xl p-6">
+                    <div className="flex items-start gap-4">
+                      <div className="w-10 h-10 rounded-lg bg-white/20 flex items-center justify-center flex-shrink-0">
+                        <Cpu className="w-5 h-5 text-white" />
+                      </div>
+                      <div>
+                        <h3 className="text-lg font-bold text-white mb-2">AI-Assisted Iteration</h3>
+                        <p className="text-sm text-white/80 leading-relaxed">
+                          Rapid prototyping and refinement through conversational prompts and real-time previews.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
