@@ -82,28 +82,29 @@ export default function HomePage() {
         <header className="border-b border-white/10 backdrop-blur-xl bg-background/30">
           <div className="container mx-auto px-6 py-6">
             <nav className="flex items-center justify-between">
+              {/* Increased name size from text-2xl to text-3xl */}
               <Link
                 href="/"
-                className="text-2xl font-bold bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent"
+                className="text-3xl font-bold bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent"
               >
                 andi galpern
               </Link>
               <div className="flex gap-8 items-center">
                 <Link
                   href="/portfolio"
-                  className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+                  className="text-lg font-medium text-muted-foreground hover:text-foreground transition-colors"
                 >
                   Portfolio
                 </Link>
                 <Link
                   href="/home"
-                  className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+                  className="text-lg font-medium text-muted-foreground hover:text-foreground transition-colors"
                 >
                   About
                 </Link>
                 <a
                   href="mailto:andi@andixd.com"
-                  className="px-6 py-2 rounded-lg bg-gradient-to-r from-purple-500 to-blue-500 text-white text-sm font-medium hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300"
+                  className="px-6 py-2 rounded-lg bg-gradient-to-r from-purple-500 to-blue-500 text-white text-lg font-medium hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300 cursor-pointer"
                 >
                   Contact
                 </a>

@@ -367,23 +367,23 @@ export default function PortfolioPage() {
             <nav className="flex items-center justify-between">
               <Link
                 href="/home"
-                className="text-2xl font-bold bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent"
+                className="text-3xl font-bold bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent"
               >
                 andi galpern
               </Link>
               <div className="flex gap-8 items-center">
-                <Link href="/portfolio" className="text-sm font-medium text-foreground">
+                <Link href="/portfolio" className="text-lg font-medium text-foreground">
                   Portfolio
                 </Link>
                 <Link
                   href="/home"
-                  className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+                  className="text-lg font-medium text-muted-foreground hover:text-foreground transition-colors"
                 >
                   About
                 </Link>
                 <a
                   href="mailto:andi@andixd.com"
-                  className="px-6 py-2 rounded-lg bg-gradient-to-r from-purple-500 to-blue-500 text-white text-sm font-medium hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300"
+                  className="px-6 py-2 rounded-lg bg-gradient-to-r from-purple-500 to-blue-500 text-white text-lg font-medium hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300 cursor-pointer"
                 >
                   Contact
                 </a>
@@ -415,7 +415,7 @@ export default function PortfolioPage() {
                 <button
                   key={category}
                   onClick={() => scrollToSection(category)}
-                  className={`px-6 py-3 rounded-xl font-medium transition-all duration-300 cursor-pointer ${
+                  className={`px-6 py-3 rounded-xl font-medium transition-all duration-300 cursor-pointer text-lg ${
                     activeSection === category || (category === "All" && activeSection === "")
                       ? "bg-gradient-to-r from-purple-500 to-blue-500 text-white shadow-lg shadow-purple-500/25"
                       : "backdrop-blur-xl bg-card/40 border border-white/10 hover:border-purple-500/50 hover:bg-card/60 hover:shadow-md hover:scale-105"
