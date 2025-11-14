@@ -72,14 +72,14 @@ export default function HomePage() {
     <div className="min-h-screen relative">
       {/* Gradient orbs background */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-20 -left-40 w-96 h-96 bg-gradient-to-br from-purple-500/20 to-blue-500/20 rounded-full blur-3xl" />
-        <div className="absolute top-1/3 -right-40 w-[600px] h-[600px] bg-gradient-to-br from-blue-500/20 to-purple-500/20 rounded-full blur-3xl" />
-        <div className="absolute bottom-20 left-1/4 w-96 h-96 bg-gradient-to-br from-purple-400/10 to-blue-400/10 rounded-full blur-3xl" />
+        <div className="absolute top-20 -left-40 w-96 h-96 gradient-bg-purple-blue rounded-full blur-3xl" />
+        <div className="absolute top-1/3 -right-40 w-[600px] h-[600px] gradient-bg-purple-blue rounded-full blur-3xl" />
+        <div className="absolute bottom-20 left-1/4 w-96 h-96 gradient-bg-purple-blue rounded-full blur-3xl" />
       </div>
 
       <div className="relative z-10">
         {/* Header */}
-        <header className="border-b border-white/10 backdrop-blur-xl bg-background/30">
+        <header className="header border-b border-white/10 backdrop-blur-xl bg-background/30">
           <div className="container mx-auto px-6 py-6">
             <nav className="flex items-center justify-between">
               {/* Increased name size from text-2xl to text-3xl */}
@@ -118,10 +118,10 @@ export default function HomePage() {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             {/* Left - Text Content */}
             <div>
-              <h1 className="text-5xl md:text-6xl font-bold mb-6 text-balance" style={{ color: "#20221e" }}>
+              <h1 className="text-5xl md:text-6xl font-bold mb-6 text-balance text-brand-gray-dark">
                 Hi there! I'm Andi.
               </h1>
-              <div className="space-y-4 text-lg leading-relaxed" style={{ color: "#20221e" }}>
+              <div className="space-y-4 text-lg leading-relaxed text-brand-gray-dark">
                 <p>
                   I'm a Product Designer who lives at the intersection of Growth, AI, and human-centered design. For
                   more than 14 years, I've helped companies of every size—from global teams at Adobe and Informatica to
@@ -140,7 +140,7 @@ export default function HomePage() {
 
             {/* Right - Photo */}
             <div className="relative">
-              <div className="relative aspect-square rounded-3xl overflow-hidden backdrop-blur-xl bg-card/40 border border-white/10">
+              <div className="relative aspect-square rounded-3xl overflow-hidden card-glass bg-card/40 border border-white/10">
                 <Image src="/images/image.png" alt="Andi Galpern" fill className="object-cover" />
               </div>
             </div>
@@ -166,7 +166,7 @@ export default function HomePage() {
 
         {/* Featured Works */}
         <section className="container mx-auto px-6 py-16">
-          <h2 className="text-4xl font-bold mb-12 text-center" style={{ color: "#20221e" }}>
+          <h2 className="text-4xl font-bold mb-12 text-center text-brand-gray-dark">
             Featured Works
           </h2>
 
@@ -174,7 +174,7 @@ export default function HomePage() {
             {featuredWorks.map((project) => (
               <div
                 key={project.id}
-                className="group backdrop-blur-xl bg-card/40 border border-white/10 rounded-3xl overflow-hidden hover:border-purple-500/30 transition-all duration-500"
+                className="group card-glass-hover backdrop-blur-xl bg-card/40 border border-white/10 rounded-3xl overflow-hidden hover:border-purple-500/30 transition-all duration-500"
               >
                 <div className="grid md:grid-cols-5 gap-8 p-8">
                   {/* Image */}
@@ -189,14 +189,14 @@ export default function HomePage() {
 
                   {/* Content */}
                   <div className="md:col-span-2 flex flex-col justify-center space-y-4">
-                    <div className="inline-flex items-center gap-2 text-sm font-medium" style={{ color: "#8f1efb" }}>
-                      <span className="w-2 h-2 rounded-full" style={{ backgroundColor: "#8f1efb" }}></span>
+                    <div className="inline-flex items-center gap-2 text-sm font-medium text-brand-purple">
+                      <span className="w-2 h-2 rounded-full bg-[var(--brand-purple)]"></span>
                       {project.category}
                     </div>
 
                     <h3 className="text-2xl font-bold text-balance">{project.title}</h3>
 
-                    <p className="text-balance leading-relaxed" style={{ color: "#20221e" }}>
+                    <p className="text-balance leading-relaxed text-brand-gray-dark">
                       {project.description}
                     </p>
 
@@ -204,8 +204,7 @@ export default function HomePage() {
                       {project.tags.map((tag) => (
                         <span
                           key={tag}
-                          className="px-3 py-1 rounded-full text-xs font-medium bg-white/80 backdrop-blur-sm"
-                          style={{ color: "#8f1efb", border: "1px solid #d2cbdb" }}
+                          className="badge-outline px-3 py-1 rounded-full text-xs font-medium bg-white/80 backdrop-blur-sm"
                         >
                           {tag}
                         </span>
@@ -214,7 +213,7 @@ export default function HomePage() {
 
                     <Link
                       href={project.link}
-                      className="mt-4 inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-purple-500 to-blue-500 text-white font-medium hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300 w-fit group"
+                      className="mt-4 btn-primary inline-flex items-center gap-2 w-fit group"
                     >
                       View case study
                       <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
@@ -228,7 +227,7 @@ export default function HomePage() {
           <div className="text-center mt-12">
             <Link
               href="/portfolio"
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-gradient-to-r from-purple-500 to-blue-500 text-white font-medium hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300"
+              className="btn-primary inline-flex items-center gap-2"
             >
               View all work
               <ArrowUpRight className="w-5 h-5" />
@@ -238,65 +237,49 @@ export default function HomePage() {
 
         {/* My Skills */}
         <section className="container mx-auto px-6 py-16">
-          <h2 className="text-4xl font-bold mb-12 text-center" style={{ color: "#20221e" }}>
+          <h2 className="text-4xl font-bold mb-12 text-center text-brand-gray-dark">
             My Skills
           </h2>
 
           <div className="relative max-w-5xl mx-auto">
             {/* Large purple blob background */}
-            <div className="absolute inset-0 bg-gradient-to-br from-purple-400/30 via-purple-300/20 to-blue-400/30 rounded-full blur-3xl -z-10" />
+            <div className="absolute inset-0 gradient-bg-purple-blue rounded-full blur-3xl -z-10" />
 
             <div className="grid md:grid-cols-2 gap-6">
-              {/* Top Left */}
-              <div className="backdrop-blur-xl bg-white/60 border border-white/40 rounded-3xl p-8">
-                <h3 className="text-2xl font-bold mb-4" style={{ color: "#8f1efb" }}>
-                  Product Design with a Growth Mindset
-                </h3>
-                <p className="leading-relaxed" style={{ color: "#20221e" }}>
-                  I design with a focus on user engagement and business outcomes. I use data and user research to inform
-                  my design decisions, and I'm always looking for ways to improve the user experience and drive growth.
-                </p>
-              </div>
-
-              {/* Top Right */}
-              <div className="backdrop-blur-xl bg-white/60 border border-white/40 rounded-3xl p-8">
-                <h3 className="text-2xl font-bold mb-4" style={{ color: "#8f1efb" }}>
-                  Marketing Design
-                </h3>
-                <p className="leading-relaxed" style={{ color: "#20221e" }}>
-                  Creating compelling visual narratives for campaigns, landing pages, and content that converts. Expert
-                  in A/B testing and data-driven design optimization.
-                </p>
-              </div>
-
-              {/* Bottom Left */}
-              <div className="backdrop-blur-xl bg-white/60 border border-white/40 rounded-3xl p-8">
-                <h3 className="text-2xl font-bold mb-4" style={{ color: "#8f1efb" }}>
-                  Content Strategy
-                </h3>
-                <p className="leading-relaxed" style={{ color: "#20221e" }}>
-                  Developing comprehensive content strategies that align with business goals, audience needs, and SEO
-                  best practices. From concept to execution.
-                </p>
-              </div>
-
-              {/* Bottom Right */}
-              <div className="backdrop-blur-xl bg-white/60 border border-white/40 rounded-3xl p-8">
-                <h3 className="text-2xl font-bold mb-4" style={{ color: "#8f1efb" }}>
-                  Product Management
-                </h3>
-                <p className="leading-relaxed" style={{ color: "#20221e" }}>
-                  Leading cross-functional teams through the entire product lifecycle, from ideation to launch. Skilled
-                  in roadmap planning, prioritization, and stakeholder management.
-                </p>
-              </div>
+              {[
+                {
+                  title: "Product Design with a Growth Mindset",
+                  description: "I design with a focus on user engagement and business outcomes. I use data and user research to inform my design decisions, and I'm always looking for ways to improve the user experience and drive growth."
+                },
+                {
+                  title: "Marketing Design",
+                  description: "Creating compelling visual narratives for campaigns, landing pages, and content that converts. Expert in A/B testing and data-driven design optimization."
+                },
+                {
+                  title: "Content Strategy",
+                  description: "Developing comprehensive content strategies that align with business goals, audience needs, and SEO best practices. From concept to execution."
+                },
+                {
+                  title: "Product Management",
+                  description: "Leading cross-functional teams through the entire product lifecycle, from ideation to launch. Skilled in roadmap planning, prioritization, and stakeholder management."
+                }
+              ].map((skill, index) => (
+                <div key={index} className="card-stat backdrop-blur-xl bg-white/60 border border-white/40 rounded-3xl p-8">
+                  <h3 className="text-2xl font-bold mb-4 text-brand-purple">
+                    {skill.title}
+                  </h3>
+                  <p className="leading-relaxed text-brand-gray-dark">
+                    {skill.description}
+                  </p>
+                </div>
+              ))}
             </div>
           </div>
         </section>
 
         {/* Built with v0 Section */}
         <section className="container mx-auto px-6 py-24">
-          <div className="relative overflow-hidden rounded-[2.5rem] bg-gradient-to-br from-purple-900 to-blue-900 border border-purple-500/30">
+          <div className="relative overflow-hidden rounded-[2.5rem] gradient-section-purple border border-purple-500/30">
             
             <div className="relative z-10 p-12 md:p-16">
               {/* Badge */}
@@ -395,8 +378,8 @@ export default function HomePage() {
 
         {/* Let's Grow Together CTA */}
         <section className="container mx-auto px-6 py-16">
-          <div className="backdrop-blur-xl bg-gradient-to-br from-purple-500/10 to-blue-500/10 border border-white/10 rounded-3xl p-12 text-center">
-            <h2 className="text-3xl font-bold mb-4" style={{ color: "#20221e" }}>
+          <div className="backdrop-blur-xl gradient-bg-purple-blue border border-white/10 rounded-3xl p-12 text-center">
+            <h2 className="text-3xl font-bold mb-4 text-brand-gray-dark">
               Let's grow together
             </h2>
             <p className="text-muted-foreground mb-8 max-w-xl mx-auto text-balance text-lg">
@@ -405,7 +388,7 @@ export default function HomePage() {
             </p>
             <a
               href="mailto:andi@andixd.com"
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-gradient-to-r from-purple-500 to-blue-500 text-white font-medium hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300"
+              className="btn-primary inline-flex items-center gap-2"
             >
               Schedule a conversation
               <ArrowUpRight className="w-5 h-5" />
@@ -414,7 +397,7 @@ export default function HomePage() {
         </section>
 
         {/* Footer */}
-        <footer className="border-t border-white/10 backdrop-blur-xl bg-background/30">
+        <footer className="header border-t border-white/10 backdrop-blur-xl bg-background/30">
           <div className="container mx-auto px-6 py-8">
             <div className="flex flex-col md:flex-row justify-between items-center gap-4">
               <p className="text-sm text-muted-foreground">© 2025 Andi Galpern. All rights reserved.</p>

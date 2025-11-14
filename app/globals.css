@@ -3,9 +3,7 @@
 
 @custom-variant dark (&:is(.dark *));
 
-/* Comprehensive design system with custom properties */
 :root {
-  /* Base colors */
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
   --card: oklch(1 0 0);
@@ -25,15 +23,11 @@
   --border: oklch(0.922 0 0);
   --input: oklch(0.922 0 0);
   --ring: oklch(0.708 0 0);
-  
-  /* Chart colors */
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
   --chart-3: oklch(0.398 0.07 227.392);
   --chart-4: oklch(0.828 0.189 84.429);
   --chart-5: oklch(0.769 0.188 70.08);
-  
-  /* Sidebar */
   --sidebar: oklch(0.985 0 0);
   --sidebar-foreground: oklch(0.145 0 0);
   --sidebar-primary: oklch(0.205 0 0);
@@ -42,8 +36,6 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
-  
-  /* Brand colors - Design System */
   --brand-purple: #8f1efb;
   --brand-purple-light: #a855f7;
   --brand-purple-dark: #7c3aed;
@@ -54,52 +46,7 @@
   --brand-gray-dark: #20221e;
   --brand-gray-medium: #6b7280;
   --brand-gray-light: #d2cbdb;
-  
-  /* Spacing scale */
-  --spacing-xs: 0.5rem;
-  --spacing-sm: 1rem;
-  --spacing-md: 1.5rem;
-  --spacing-lg: 2rem;
-  --spacing-xl: 3rem;
-  --spacing-2xl: 4rem;
-  --spacing-3xl: 6rem;
-  
-  /* Border radius */
-  --radius-sm: 0.5rem;
-  --radius-md: 0.75rem;
-  --radius-lg: 1rem;
-  --radius-xl: 1.5rem;
-  --radius-2xl: 2rem;
-  --radius-3xl: 3rem;
   --radius: 0.625rem;
-  
-  /* Shadows */
-  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
-  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
-  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1);
-  --shadow-purple: 0 10px 40px -10px rgb(143 30 251 / 0.3);
-  --shadow-blue: 0 10px 40px -10px rgb(59 130 246 / 0.3);
-  
-  /* Typography scale */
-  --font-size-xs: 0.75rem;
-  --font-size-sm: 0.875rem;
-  --font-size-base: 1rem;
-  --font-size-lg: 1.125rem;
-  --font-size-xl: 1.25rem;
-  --font-size-2xl: 1.5rem;
-  --font-size-3xl: 1.875rem;
-  --font-size-4xl: 2.25rem;
-  --font-size-5xl: 3rem;
-  --font-size-6xl: 3.75rem;
-  --font-size-7xl: 4.5rem;
-  
-  /* Line heights */
-  --leading-tight: 1.25;
-  --leading-snug: 1.375;
-  --leading-normal: 1.5;
-  --leading-relaxed: 1.625;
-  --leading-loose: 2;
 }
 
 .dark {
@@ -187,7 +134,6 @@
     @apply bg-background text-foreground font-sans antialiased;
   }
   
-  /* Design system typography classes */
   h1 {
     @apply text-5xl md:text-6xl font-black leading-tight text-balance;
     color: var(--brand-gray-dark);
@@ -210,85 +156,167 @@
 }
 
 @layer components {
-  /* Reusable component classes */
-  
-  /* Buttons */
   .btn-primary {
-    @apply px-6 py-3 rounded-xl bg-gradient-to-r from-purple-500 to-blue-500 text-white font-semibold hover:shadow-xl hover:shadow-purple-500/30 transition-all duration-300 hover:scale-105 cursor-pointer;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.75rem;
+    background: linear-gradient(to right, #8f1efb, #3b82f6);
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 10px 40px -10px rgba(143, 30, 251, 0.3);
+  }
+  
+  .btn-primary:hover {
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+    transform: scale(1.05);
   }
   
   .btn-secondary {
-    @apply px-6 py-3 rounded-xl backdrop-blur-xl bg-card/40 border border-white/10 hover:border-purple-500/30 font-medium transition-all duration-300 cursor-pointer;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.75rem;
+    backdrop-filter: blur(24px);
+    background: rgba(255, 255, 255, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s;
   }
   
-  /* Cards */
+  .btn-secondary:hover {
+    border-color: rgba(143, 30, 251, 0.3);
+  }
+  
   .card-glass {
-    @apply backdrop-blur-xl bg-card/40 border border-white/10 rounded-3xl;
+    backdrop-filter: blur(24px);
+    background: rgba(255, 255, 255, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 1.5rem;
+    padding: 2rem;
   }
   
   .card-glass-hover {
-    @apply backdrop-blur-xl bg-card/40 border border-white/10 rounded-3xl hover:border-purple-500/30 transition-all duration-500;
+    backdrop-filter: blur(24px);
+    background: rgba(255, 255, 255, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 1.5rem;
+    transition: all 0.5s;
+  }
+  
+  .card-glass-hover:hover {
+    border-color: rgba(143, 30, 251, 0.3);
   }
   
   .card-stat {
-    @apply backdrop-blur-xl bg-white/60 border-2 border-white/40 rounded-3xl p-8 text-center hover:scale-105 transition-transform duration-300 shadow-xl;
+    backdrop-filter: blur(24px);
+    background: rgba(255, 255, 255, 0.6);
+    border: 2px solid rgba(255, 255, 255, 0.4);
+    border-radius: 1.5rem;
+    padding: 2rem;
+    text-align: center;
+    transition: transform 0.3s;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .card-stat:hover {
+    transform: scale(1.05);
   }
   
   .card-content {
-    @apply backdrop-blur-xl bg-white/70 border-2 border-white/50 rounded-3xl p-10 shadow-xl;
+    backdrop-filter: blur(24px);
+    background: rgba(255, 255, 255, 0.7);
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    border-radius: 1.5rem;
+    padding: 2.5rem;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
   }
   
-  /* Badges */
   .badge {
-    @apply inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-purple-600 to-blue-600 text-white text-sm font-bold shadow-lg;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: 9999px;
+    background: linear-gradient(to right, #8f1efb, #3b82f6);
+    color: white;
+    font-size: 0.875rem;
+    font-weight: 700;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
   }
   
   .badge-outline {
-    @apply px-3 py-1 rounded-full text-xs font-medium bg-white/80 backdrop-blur-sm border;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(4px);
+    border: 1px solid var(--brand-gray-light);
     color: var(--brand-purple);
-    border-color: var(--brand-gray-light);
   }
   
-  /* Section numbering */
   .section-number {
-    @apply inline-flex items-center gap-3 px-6 py-3 rounded-full bg-gradient-to-r from-purple-600 to-blue-600 text-white mb-8 shadow-lg;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1.5rem;
+    border-radius: 9999px;
+    background: linear-gradient(to right, #8f1efb, #3b82f6);
+    color: white;
+    margin-bottom: 2rem;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
   }
   
   .section-number-alt {
-    @apply inline-flex items-center gap-3 px-6 py-3 rounded-full bg-white/20 backdrop-blur-xl border-2 border-white/30 mb-8;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1.5rem;
+    border-radius: 9999px;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(24px);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    margin-bottom: 2rem;
   }
   
-  /* Header */
   .header {
-    @apply border-b border-white/10 backdrop-blur-xl bg-background/30;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(24px);
+    background: rgba(255, 255, 255, 0.3);
   }
   
   .header-case-study {
-    @apply border-b border-white/20 backdrop-blur-xl bg-white/40;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(24px);
+    background: rgba(255, 255, 255, 0.4);
   }
   
-  /* Gradients */
   .gradient-text {
-    @apply bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent;
+    background: linear-gradient(to right, #a855f7, #60a5fa);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
   }
   
   .gradient-text-bold {
-    @apply bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent;
+    background: linear-gradient(to right, #8f1efb, #3b82f6);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
   }
   
   .gradient-bg-purple-blue {
-    @apply bg-gradient-to-br from-purple-500/20 to-blue-500/20;
+    background: linear-gradient(to bottom right, rgba(143, 30, 251, 0.2), rgba(59, 130, 246, 0.2));
   }
   
   .gradient-section-purple {
-    @apply bg-gradient-to-br from-purple-600 to-blue-600;
+    background: linear-gradient(to bottom right, #8f1efb, #3b82f6);
   }
   
   .gradient-section-light {
     @apply bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50;
   }
   
-  /* Spacing utilities */
   .section-padding {
     @apply py-16 md:py-20;
   }
@@ -312,7 +340,6 @@
     scrollbar-width: none;
   }
   
-  /* Text color utilities using design tokens */
   .text-brand-purple {
     color: var(--brand-purple);
   }
@@ -325,13 +352,11 @@
     color: var(--brand-gray-medium);
   }
   
-  /* Adding white text class for specific use cases */
   p.white {
     color: #ffffff !important;
   }
 }
 
-/* Scroll animations */
 @keyframes fadeInUp {
   from {
     opacity: 0;

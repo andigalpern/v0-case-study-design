@@ -395,12 +395,12 @@ export default function PortfolioPage() {
         {/* Hero */}
         <section className="container mx-auto px-6 py-16 fade-in-up">
           <div className="max-w-3xl">
-            <h1 className="text-5xl md:text-6xl font-bold mb-6 text-balance" style={{ color: "#20221e" }}>
+            <h1 className="text-5xl md:text-6xl font-bold mb-6 text-balance text-brand-gray-dark">
               Work Samples
             </h1>
-            <p className="text-xl text-balance" style={{ color: "#20221e" }}>
+            <p className="text-xl text-balance text-brand-gray-dark">
               View recent work samples in product design, content strategy, and marketing. Want to see more projects?{" "}
-              <a href="mailto:andi@andixd.com" className="text-purple-400 hover:text-purple-300 underline">
+              <a href="mailto:andi@andixd.com" className="text-brand-purple hover:opacity-80 underline cursor-pointer">
                 E-mail me at andi@andixd.com
               </a>
               .
@@ -408,6 +408,7 @@ export default function PortfolioPage() {
           </div>
         </section>
 
+        {/* Sticky Navigation */}
         <section className="sticky top-0 z-40 backdrop-blur-xl bg-background/80 border-b border-white/10 mb-8">
           <div className="container mx-auto px-6 py-4">
             <div className="flex flex-wrap gap-3 justify-center">
@@ -428,15 +429,16 @@ export default function PortfolioPage() {
           </div>
         </section>
 
+        {/* Growth Strategy Section */}
         <section data-section="Growth Strategy" className="container mx-auto px-6 py-12 scroll-mt-32">
-          <h2 className="text-4xl font-bold mb-8 bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
+          <h2 className="text-4xl font-bold mb-8 gradient-text">
             Growth Strategy
           </h2>
           <div className="space-y-16">
             {growthStrategyProjects.map((project, index) => (
               <div
                 key={project.id}
-                className={`group backdrop-blur-xl bg-card/40 border border-white/10 rounded-3xl overflow-hidden hover:border-purple-500/30 transition-all duration-500 ${
+                className={`group card-glass-hover ${
                   index % 2 === 0 ? 'fade-in-left' : 'fade-in-right'
                 }`}
                 style={{ animationDelay: `${index * 100}ms` }}
@@ -452,14 +454,14 @@ export default function PortfolioPage() {
                   </div>
 
                   <div className="md:col-span-2 flex flex-col justify-center space-y-4">
-                    <div className="inline-flex items-center gap-2 text-sm font-medium" style={{ color: "#8f1efb" }}>
-                      <span className="w-2 h-2 rounded-full" style={{ backgroundColor: "#8f1efb" }}></span>
+                    <div className="inline-flex items-center gap-2 text-sm font-medium text-brand-purple">
+                      <span className="w-2 h-2 rounded-full bg-[var(--brand-purple)]"></span>
                       {project.category}
                     </div>
 
                     <h3 className="text-2xl font-bold text-balance">{project.title}</h3>
 
-                    <p className="text-balance leading-relaxed" style={{ color: "#20221e" }}>
+                    <p className="text-balance leading-relaxed text-brand-gray-dark">
                       {project.description}
                     </p>
 
@@ -467,8 +469,7 @@ export default function PortfolioPage() {
                       {project.tags.map((tag) => (
                         <span
                           key={tag}
-                          className="px-3 py-1 rounded-full text-xs font-medium bg-white/80 backdrop-blur-sm"
-                          style={{ color: "#8f1efb", border: "1px solid #d2cbdb" }}
+                          className="badge-outline"
                         >
                           {tag}
                         </span>
@@ -478,13 +479,13 @@ export default function PortfolioPage() {
                     {project.link ? (
                       <Link
                         href={project.link}
-                        className="mt-4 inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-purple-500 to-blue-500 text-white font-medium hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300 w-fit group cursor-pointer"
+                        className="mt-4 btn-primary inline-flex items-center gap-2 w-fit group"
                       >
                         View case study
                         <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                       </Link>
                     ) : (
-                      <button className="mt-4 inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-purple-500 to-blue-500 text-white font-medium hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300 w-fit group cursor-pointer">
+                      <button className="mt-4 btn-primary inline-flex items-center gap-2 w-fit group">
                         View case study
                         <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                       </button>
@@ -496,15 +497,16 @@ export default function PortfolioPage() {
           </div>
         </section>
 
+        {/* Product Design Section */}
         <section data-section="Product Design" className="container mx-auto px-6 py-12 scroll-mt-32">
-          <h2 className="text-4xl font-bold mb-8 bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
+          <h2 className="text-4xl font-bold mb-8 gradient-text">
             Product Design
           </h2>
           <div className="space-y-16">
-            {workSamples.filter(p => p.categories.includes("Product Design")).map((project, index) => (
+            {productDesignProjects.map((project, index) => (
               <div
                 key={project.id}
-                className={`group backdrop-blur-xl bg-card/40 border border-white/10 rounded-3xl overflow-hidden hover:border-purple-500/30 transition-all duration-500 ${
+                className={`group card-glass-hover ${
                   index % 2 === 0 ? 'fade-in-left' : 'fade-in-right'
                 }`}
                 style={{ animationDelay: `${index * 100}ms` }}
@@ -520,14 +522,14 @@ export default function PortfolioPage() {
                   </div>
 
                   <div className="md:col-span-2 flex flex-col justify-center space-y-4">
-                    <div className="inline-flex items-center gap-2 text-sm font-medium" style={{ color: "#8f1efb" }}>
-                      <span className="w-2 h-2 rounded-full" style={{ backgroundColor: "#8f1efb" }}></span>
+                    <div className="inline-flex items-center gap-2 text-sm font-medium text-brand-purple">
+                      <span className="w-2 h-2 rounded-full bg-[var(--brand-purple)]"></span>
                       {project.category}
                     </div>
 
                     <h3 className="text-2xl font-bold text-balance">{project.title}</h3>
 
-                    <p className="text-balance leading-relaxed" style={{ color: "#20221e" }}>
+                    <p className="text-balance leading-relaxed text-brand-gray-dark">
                       {project.description}
                     </p>
 
@@ -535,8 +537,7 @@ export default function PortfolioPage() {
                       {project.tags.map((tag) => (
                         <span
                           key={tag}
-                          className="px-3 py-1 rounded-full text-xs font-medium bg-white/80 backdrop-blur-sm"
-                          style={{ color: "#8f1efb", border: "1px solid #d2cbdb" }}
+                          className="badge-outline"
                         >
                           {tag}
                         </span>
@@ -546,13 +547,13 @@ export default function PortfolioPage() {
                     {project.link ? (
                       <Link
                         href={project.link}
-                        className="mt-4 inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-purple-500 to-blue-500 text-white font-medium hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300 w-fit group cursor-pointer"
+                        className="mt-4 btn-primary inline-flex items-center gap-2 w-fit group"
                       >
                         View case study
                         <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                       </Link>
                     ) : (
-                      <button className="mt-4 inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-purple-500 to-blue-500 text-white font-medium hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300 w-fit group cursor-pointer">
+                      <button className="mt-4 btn-primary inline-flex items-center gap-2 w-fit group">
                         View case study
                         <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                       </button>
@@ -592,7 +593,7 @@ export default function PortfolioPage() {
                     <button
                       key={index}
                       onClick={() => openLightbox(index)}
-                      className="group backdrop-blur-xl bg-card/40 border border-white/10 rounded-2xl overflow-hidden hover:border-purple-500/30 transition-all duration-500 w-[400px] flex-shrink-0 cursor-pointer"
+                      className="group card-glass-hover w-[400px] flex-shrink-0 cursor-pointer"
                     >
                       <div className="relative w-full aspect-[4/3]">
                         <Image
@@ -613,15 +614,16 @@ export default function PortfolioPage() {
           </div>
         </section>
 
+        {/* Case Studies Section */}
         <section data-section="Case Studies" className="container mx-auto px-6 py-12 scroll-mt-32">
-          <h2 className="text-4xl font-bold mb-8 bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
+          <h2 className="text-4xl font-bold mb-8 gradient-text">
             Case Studies
           </h2>
           <div className="space-y-16">
             {caseStudyProjects.map((project, index) => (
               <div
                 key={project.id}
-                className={`group backdrop-blur-xl bg-card/40 border border-white/10 rounded-3xl overflow-hidden hover:border-purple-500/30 transition-all duration-500 ${
+                className={`group card-glass-hover ${
                   index % 2 === 0 ? 'fade-in-left' : 'fade-in-right'
                 }`}
                 style={{ animationDelay: `${index * 100}ms` }}
@@ -637,14 +639,14 @@ export default function PortfolioPage() {
                   </div>
 
                   <div className="md:col-span-2 flex flex-col justify-center space-y-4">
-                    <div className="inline-flex items-center gap-2 text-sm font-medium" style={{ color: "#8f1efb" }}>
-                      <span className="w-2 h-2 rounded-full" style={{ backgroundColor: "#8f1efb" }}></span>
+                    <div className="inline-flex items-center gap-2 text-sm font-medium text-brand-purple">
+                      <span className="w-2 h-2 rounded-full bg-[var(--brand-purple)]"></span>
                       {project.category}
                     </div>
 
                     <h3 className="text-2xl font-bold text-balance">{project.title}</h3>
 
-                    <p className="text-balance leading-relaxed" style={{ color: "#20221e" }}>
+                    <p className="text-balance leading-relaxed text-brand-gray-dark">
                       {project.description}
                     </p>
 
@@ -652,8 +654,7 @@ export default function PortfolioPage() {
                       {project.tags.map((tag) => (
                         <span
                           key={tag}
-                          className="px-3 py-1 rounded-full text-xs font-medium bg-white/80 backdrop-blur-sm"
-                          style={{ color: "#8f1efb", border: "1px solid #d2cbdb" }}
+                          className="badge-outline"
                         >
                           {tag}
                         </span>
@@ -663,13 +664,13 @@ export default function PortfolioPage() {
                     {project.link ? (
                       <Link
                         href={project.link}
-                        className="mt-4 inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-purple-500 to-blue-500 text-white font-medium hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300 w-fit group cursor-pointer"
+                        className="mt-4 btn-primary inline-flex items-center gap-2 w-fit group"
                       >
                         View case study
                         <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                       </Link>
                     ) : (
-                      <button className="mt-4 inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-purple-500 to-blue-500 text-white font-medium hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300 w-fit group cursor-pointer">
+                      <button className="mt-4 btn-primary inline-flex items-center gap-2 w-fit group">
                         View case study
                         <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                       </button>
@@ -681,17 +682,18 @@ export default function PortfolioPage() {
           </div>
         </section>
 
+        {/* Visual Design Section */}
         <section data-section="Visual Design" className="container mx-auto px-6 py-12 scroll-mt-32">
-          <h2 className="text-4xl font-bold mb-8 bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
+          <h2 className="text-4xl font-bold mb-8 gradient-text">
             Visual Design
           </h2>
           
           {/* Work samples with Visual Design category */}
           <div className="space-y-16 mb-16">
-            {workSamples.filter(p => p.categories.includes("Visual Design")).map((project, index) => (
+            {visualDesignProjects.map((project, index) => (
               <div
                 key={project.id}
-                className={`group backdrop-blur-xl bg-card/40 border border-white/10 rounded-3xl overflow-hidden hover:border-purple-500/30 transition-all duration-500 ${
+                className={`group card-glass-hover ${
                   index % 2 === 0 ? 'fade-in-left' : 'fade-in-right'
                 }`}
                 style={{ animationDelay: `${index * 100}ms` }}
@@ -707,14 +709,14 @@ export default function PortfolioPage() {
                   </div>
 
                   <div className="md:col-span-2 flex flex-col justify-center space-y-4">
-                    <div className="inline-flex items-center gap-2 text-sm font-medium" style={{ color: "#8f1efb" }}>
-                      <span className="w-2 h-2 rounded-full" style={{ backgroundColor: "#8f1efb" }}></span>
+                    <div className="inline-flex items-center gap-2 text-sm font-medium text-brand-purple">
+                      <span className="w-2 h-2 rounded-full bg-[var(--brand-purple)]"></span>
                       {project.category}
                     </div>
 
                     <h3 className="text-2xl font-bold text-balance">{project.title}</h3>
 
-                    <p className="text-balance leading-relaxed" style={{ color: "#20221e" }}>
+                    <p className="text-balance leading-relaxed text-brand-gray-dark">
                       {project.description}
                     </p>
 
@@ -722,8 +724,7 @@ export default function PortfolioPage() {
                       {project.tags.map((tag) => (
                         <span
                           key={tag}
-                          className="px-3 py-1 rounded-full text-xs font-medium bg-white/80 backdrop-blur-sm"
-                          style={{ color: "#8f1efb", border: "1px solid #d2cbdb" }}
+                          className="badge-outline"
                         >
                           {tag}
                         </span>
@@ -768,7 +769,7 @@ export default function PortfolioPage() {
                     <button
                       key={index}
                       onClick={() => openLightbox(index)}
-                      className="group backdrop-blur-xl bg-card/40 border border-white/10 rounded-2xl overflow-hidden hover:border-purple-500/30 transition-all duration-500 w-[400px] flex-shrink-0 cursor-pointer"
+                      className="group card-glass-hover w-[400px] flex-shrink-0 cursor-pointer"
                     >
                       <div className="relative w-full aspect-[4/3]">
                         <Image
@@ -789,12 +790,13 @@ export default function PortfolioPage() {
           </div>
         </section>
 
+        {/* Writing Section */}
         <section data-section="Writing" className="container mx-auto px-6 py-16 scroll-mt-32 fade-in-up">
-          <h2 className="text-4xl font-bold mb-12 text-center bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
+          <h2 className="text-4xl font-bold mb-12 text-center gradient-text">
             Writing
           </h2>
 
-          <div className="max-w-3xl mx-auto backdrop-blur-xl bg-card/40 border border-white/10 rounded-3xl p-8">
+          <div className="max-w-3xl mx-auto card-glass">
             <ul className="space-y-6">
               {writingLinks.map((article, index) => (
                 <li key={index}>
@@ -802,7 +804,7 @@ export default function PortfolioPage() {
                     href={article.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-start gap-3 text-purple-500 hover:text-purple-600 transition-colors group cursor-pointer text-lg"
+                    className="flex items-start gap-3 text-brand-purple hover:opacity-80 transition-colors group cursor-pointer text-lg"
                   >
                     <ArrowUpRight className="w-5 h-5 mt-1 flex-shrink-0 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                     <span className="text-balance font-medium">{article.title}</span>
@@ -815,14 +817,14 @@ export default function PortfolioPage() {
 
         {/* CTA */}
         <section className="container mx-auto px-6 py-16 fade-in-scale">
-          <div className="backdrop-blur-xl bg-gradient-to-br from-purple-500/10 to-blue-500/10 border border-white/10 rounded-3xl p-12 text-center">
+          <div className="backdrop-blur-xl gradient-bg-purple-blue border border-white/10 rounded-3xl p-12 text-center">
             <h2 className="text-3xl font-bold mb-4">Ready to work together?</h2>
             <p className="text-muted-foreground mb-8 max-w-xl mx-auto text-balance">
               I'm always open to discussing product design work or partnership opportunities.
             </p>
             <a
               href="mailto:hello@andigalpern.com"
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-gradient-to-r from-purple-500 to-blue-500 text-white font-medium hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300 cursor-pointer"
+              className="btn-primary inline-flex items-center gap-2"
             >
               Get in touch
               <ArrowUpRight className="w-5 h-5" />
