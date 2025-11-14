@@ -2,7 +2,7 @@
 
 import Image from "next/image"
 import Link from "next/link"
-import { ArrowUpRight } from "lucide-react"
+import { ArrowUpRight } from 'lucide-react'
 import { useState } from "react"
 
 export default function PortfolioPage() {
@@ -15,7 +15,7 @@ export default function PortfolioPage() {
       id: 1,
       title: "Buddies Scuba Dive App Test",
       category: "Product Design",
-      categories: ["Product Design"], // Added categories array for filtering
+      categories: ["Product Design"],
       description:
         "Mobile app design for a social scuba diving platform featuring dive logging, location discovery, and community features.",
       image: "/images/scuba-app-blue.png",
@@ -25,27 +25,28 @@ export default function PortfolioPage() {
       id: 2,
       title: "Zapier e-book template design",
       category: "Content Design",
-      categories: ["Visual Design"], // Categorized as Visual Design
+      categories: ["Visual Design"],
       description:
         "Comprehensive ebook template design for Zapier showcasing workflow automation features, user testimonials, and key product benefits.",
-      image: "/images/zapier-ebook-3d.jpg",
+      image: "/images/ebook.png",
       tags: ["Editorial", "Template", "Marketing"],
     },
     {
       id: 3,
-      title: "Growing the sales pipeline by 340%",
+      title: "Growing the sales pipeline from $2.2 million to $9.7 million at Informatica",
       category: "Informatica",
-      categories: ["Growth Strategy", "Case Studies"], // Multiple categories
+      categories: ["Growth Strategy", "Case Studies"],
       description:
         "Conversational chatbot interface design to improve lead qualification and sales pipeline conversion through personalized user interactions.",
       image: "/images/sales-pipeline-3d.png",
       tags: ["Chatbot", "Conversion", "B2B"],
+      link: "/informatica-chatbot-case-study",
     },
     {
       id: 4,
       title: "Informatica Web Promo Optimization",
       category: "Informatica",
-      categories: ["Growth Strategy"], // Categorized as Growth Strategy
+      categories: ["Growth Strategy"],
       description:
         "Ran experimental A/B tests on different component placements on informatica.com to see which promo spot performed the best.",
       image: "/images/web-promo-optimization-v2.png",
@@ -53,19 +54,20 @@ export default function PortfolioPage() {
     },
     {
       id: 5,
-      title: "Adobe Growth",
+      title: "Scaling Activation Globally for Adobe Creative Cloud",
       category: "Adobe",
-      categories: ["Growth Strategy", "Case Studies"], // Multiple categories
+      categories: ["Growth Strategy", "Case Studies"],
       description:
         "Multi-channel activation strategy and trial-to-paid funnel optimization across 7 global markets for Adobe Creative Cloud.",
       image: "/adobe-creative-cloud-dashboard-interface.jpg",
       tags: ["Growth", "Strategy", "Global"],
+      link: "/adobe-growth-case-study",
     },
     {
       id: 6,
       title: "Adobe 3D HelpX Visual Designs",
       category: "Adobe",
-      categories: ["Visual Design"], // Categorized as Visual Design
+      categories: ["Visual Design"],
       description:
         "Interactive 3D blueprint-style interface design for Adobe HelpX tutorial platform with component-based learning modules.",
       image: "/images/adobe-helpx-3d.png",
@@ -75,7 +77,7 @@ export default function PortfolioPage() {
       id: 7,
       title: "Moving to the top of page 1 on google search",
       category: "Informatica",
-      categories: ["Growth Strategy", "Case Studies"], // Multiple categories
+      categories: ["Growth Strategy", "Case Studies"],
       description:
         "Visual data flow infographic explaining Extract, Transform, Load processes for enterprise data integration solutions.",
       image: "/images/seo-ranking.png",
@@ -87,33 +89,33 @@ export default function PortfolioPage() {
     {
       title: "Miami MusicTech 2025 logo design",
       image: "/images/miami-musictech-logo.png",
-      categories: ["Visual Design"], // Added categories
+      categories: ["Visual Design"],
     },
     {
       title: "StarGreetz ads for Disney",
       image: "/images/stargreetz-disney-ads-v2.jpg",
-      categories: ["Visual Design"], // Added categories
+      categories: ["Visual Design"],
     },
     {
       title: "Smyle music app, product design",
       image: "/modern-music-app.png",
-      categories: ["Product Design"], // Added categories
+      categories: ["Product Design"],
     },
     {
       title: "CloudMart infographic",
       image: "/cloud-marketplace-infographic.jpg",
-      categories: ["Visual Design"], // Added categories
+      categories: ["Visual Design"],
     },
     {
       title: "Founders Network, event branding advertisement",
       image: "/founders-friday-event.jpg",
-      categories: ["Visual Design"], // Added categories
+      categories: ["Visual Design"],
     },
     { title: "Team Sports branding", image: "/team-sports-logo.jpg", categories: ["Visual Design"] },
     {
       title: "Sundance Catalogue Packaging Design",
       image: "/sundance-packaging.jpg",
-      categories: ["Visual Design"], // Added categories
+      categories: ["Visual Design"],
     },
   ]
 
@@ -121,7 +123,7 @@ export default function PortfolioPage() {
     {
       title: "Lead Gen Strategies using New Veritas ebook",
       url: "http://www.slideshare.net/cwebber23/lead-gen-strategies-using-new-veritas-ebook-073114",
-      categories: ["Writing"], // Added categories
+      categories: ["Writing"],
     },
     {
       title: "Crossing the Product Experience Design Chasm",
@@ -293,9 +295,9 @@ export default function PortfolioPage() {
                         ))}
                       </div>
 
-                      {project.id === 5 ? (
+                      {project.link ? (
                         <Link
-                          href="/adobe-growth-case-study"
+                          href={project.link}
                           className="mt-4 inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-purple-500 to-blue-500 text-white font-medium hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300 w-fit group"
                         >
                           View case study

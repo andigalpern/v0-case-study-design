@@ -8,13 +8,13 @@ export default function HomePage() {
   const featuredWorks = [
     {
       id: 1,
-      title: "Creating the sales pipeline by 340%",
+      title: "Growing the sales pipeline from $2.2 million to $9.7 million at Informatica",
       category: "Informatica",
       description:
         "Conversational chatbot interface design to improve lead qualification and sales pipeline conversion through personalized user interactions.",
       image: "/images/sales-pipeline-3d.png",
       tags: ["Chatbot", "Conversion", "B2B"],
-      link: "#",
+      link: "/informatica-chatbot-case-study",
     },
     {
       id: 2,

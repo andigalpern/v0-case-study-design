@@ -1,6 +1,6 @@
 "use client"
 import Link from "next/link"
-import { ArrowLeft, ArrowUpRight, CheckCircle2, TrendingUp, Users, Globe, Target } from "lucide-react"
+import { ArrowLeft, ArrowUpRight, CheckCircle2, TrendingUp, Users, Globe, Target } from 'lucide-react'
 
 export default function AdobeGrowthCaseStudy() {
   return (
@@ -445,6 +445,78 @@ export default function AdobeGrowthCaseStudy() {
                   This project helped shape me into a product designer who blends growth thinking, behavior design, and
                   operational strategy — especially in fast-moving global contexts.
                 </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Browse Other Work */}
+        <section className="py-20 bg-gradient-to-br from-purple-50 via-blue-50 to-pink-50">
+          <div className="container mx-auto px-6">
+            <div className="max-w-5xl mx-auto">
+              <h2 className="text-4xl md:text-5xl font-black mb-4 text-center" style={{ color: "#20221e" }}>
+                Browse Other Work
+              </h2>
+              <p className="text-lg text-center text-gray-700 mb-12 max-w-2xl mx-auto">
+                Explore more case studies and featured projects
+              </p>
+
+              <div className="grid md:grid-cols-2 gap-6">
+                {/* Informatica Chatbot */}
+                <Link
+                  href="/informatica-chatbot-case-study"
+                  className="group backdrop-blur-xl bg-white/60 border-2 border-white/40 rounded-3xl overflow-hidden hover:border-purple-500/50 transition-all duration-300 hover:scale-[1.02] shadow-xl"
+                >
+                  <div className="relative aspect-video bg-gradient-to-br from-blue-100 to-purple-100">
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <div className="text-6xl">💬</div>
+                    </div>
+                  </div>
+                  <div className="p-6">
+                    <div className="inline-flex items-center gap-2 text-sm font-bold text-purple-600 mb-3">
+                      <span className="w-2 h-2 rounded-full bg-purple-600"></span>
+                      Growth Strategy • Case Study
+                    </div>
+                    <h3 className="text-2xl font-black mb-2" style={{ color: "#20221e" }}>
+                      Informatica Chatbot
+                    </h3>
+                    <p className="text-base text-gray-700 mb-4">
+                      Growing sales pipeline by 340% through AI-driven conversational design
+                    </p>
+                    <div className="inline-flex items-center gap-2 text-purple-600 font-semibold group-hover:gap-3 transition-all">
+                      View case study
+                      <ArrowUpRight className="w-5 h-5" />
+                    </div>
+                  </div>
+                </Link>
+
+                {/* Back to Portfolio */}
+                <Link
+                  href="/portfolio"
+                  className="group backdrop-blur-xl bg-white/60 border-2 border-white/40 rounded-3xl overflow-hidden hover:border-blue-500/50 transition-all duration-300 hover:scale-[1.02] shadow-xl"
+                >
+                  <div className="relative aspect-video bg-gradient-to-br from-purple-100 to-blue-100">
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <div className="text-6xl">🎨</div>
+                    </div>
+                  </div>
+                  <div className="p-6">
+                    <div className="inline-flex items-center gap-2 text-sm font-bold text-blue-600 mb-3">
+                      <span className="w-2 h-2 rounded-full bg-blue-600"></span>
+                      All Work
+                    </div>
+                    <h3 className="text-2xl font-black mb-2" style={{ color: "#20221e" }}>
+                      View Full Portfolio
+                    </h3>
+                    <p className="text-base text-gray-700 mb-4">
+                      Explore all projects, design work, and case studies
+                    </p>
+                    <div className="inline-flex items-center gap-2 text-blue-600 font-semibold group-hover:gap-3 transition-all">
+                      See all work
+                      <ArrowUpRight className="w-5 h-5" />
+                    </div>
+                  </div>
+                </Link>
               </div>
             </div>
           </div>
