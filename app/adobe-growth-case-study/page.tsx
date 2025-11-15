@@ -20,7 +20,7 @@ export default function AdobeGrowthCaseStudy() {
           <div className="container mx-auto px-6 py-6">
             <nav className="flex items-center justify-between">
               <Link
-                href="/home"
+                href="/"
                 className="text-2xl font-bold bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent"
               >
                 andi galpern
@@ -32,7 +32,7 @@ export default function AdobeGrowthCaseStudy() {
                 >
                   Portfolio
                 </Link>
-                <Link href="/home" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">
+                <Link href="/" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">
                   About
                 </Link>
                 <a
@@ -446,6 +446,22 @@ export default function AdobeGrowthCaseStudy() {
                   operational strategy — especially in fast-moving global contexts.
                 </p>
               </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Closing Statement */}
+        <section className="py-20 relative overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-br from-gray-900 to-gray-800"></div>
+          <div className="container mx-auto px-6 relative z-10">
+            <div className="max-w-4xl mx-auto text-center">
+              <Globe className="w-20 h-20 mx-auto mb-8 text-white" />
+              <h2 className="text-3xl md:text-5xl font-black mb-8 text-white leading-tight">
+                This case study proves something critical:
+              </h2>
+              <p className="text-xl md:text-2xl mb-12 max-w-2xl mx-auto text-balance text-white/90 leading-relaxed font-semibold">
+                Global growth at scale requires both strategic design and operational excellence—not just one or the other.
+              </p>
             </div>
           </div>
         </section>

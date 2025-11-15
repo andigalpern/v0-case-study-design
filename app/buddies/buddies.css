@@ -1,0 +1,57 @@
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.5s ease-out;
+}
+
+/* Added iPhone frame constraints with bottom navigation positioning */
+.buddies-phone-frame {
+  width: 100%;
+  max-width: 428px;
+  height: 100vh;
+  max-height: 926px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  border-radius: 0;
+  margin: 0 auto;
+}
+
+@media (min-width: 428px) {
+  .buddies-phone-frame {
+    border-radius: 40px;
+  }
+}
+
+.buddies-phone-frame > * {
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+/* Bottom navigation constrained to phone frame width */
+.buddies-bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 428px;
+  z-index: 50;
+}
+
+@media (min-width: 428px) {
+  .buddies-bottom-nav {
+    border-bottom-left-radius: 40px;
+    border-bottom-right-radius: 40px;
+  }
+}

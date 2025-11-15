@@ -89,6 +89,7 @@ export default function PortfolioPage() {
         "Mobile app design for a social scuba diving platform featuring dive logging, location discovery, and community features.",
       image: "/images/scuba-app-blue.png",
       tags: ["Mobile", "UI/UX", "Social"],
+      link: "/buddies",
     },
     {
       id: 2,
@@ -151,6 +152,7 @@ export default function PortfolioPage() {
         "Visual data flow infographic explaining Extract, Transform, Load processes for enterprise data integration solutions.",
       image: "/images/seo-ranking.png",
       tags: ["Infographic", "Data Viz", "Technical"],
+      link: "/informatica-etl-seo-case-study",
     },
   ]
 
@@ -366,7 +368,7 @@ export default function PortfolioPage() {
           <div className="container mx-auto px-6 py-6">
             <nav className="flex items-center justify-between">
               <Link
-                href="/home"
+                href="/"
                 className="text-3xl font-bold bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent"
               >
                 andi galpern
@@ -376,7 +378,7 @@ export default function PortfolioPage() {
                   Portfolio
                 </Link>
                 <Link
-                  href="/home"
+                  href="/"
                   className="text-lg font-medium text-muted-foreground hover:text-foreground transition-colors"
                 >
                   About

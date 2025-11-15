@@ -2,28 +2,32 @@
 
 import Image from "next/image"
 import Link from "next/link"
-import { ArrowUpRight, Sparkles, Code2, Zap, Cpu } from 'lucide-react'
+import { ArrowUpRight, Sparkles, Code2, Zap, Cpu, TrendingUp, Users } from 'lucide-react'
 
 export default function HomePage() {
   const featuredWorks = [
     {
       id: 1,
-      title: "Growing the sales pipeline from $2.2 million to $9.7 million at Informatica",
+      title: "Growing the sales pipeline from $2.2M to $9.7M at Informatica",
       category: "Informatica",
+      logo: "/informatica-lightbg-logo.svg",
+      metric: "341% Pipeline Growth",
       description:
         "Conversational chatbot interface design to improve lead qualification and sales pipeline conversion through personalized user interactions.",
       image: "/images/sales-pipeline-3d.png",
-      tags: ["Chatbot", "Conversion", "B2B"],
+      tags: ["AI/ML", "Conversion", "B2B SaaS"],
       link: "/informatica-chatbot-case-study",
     },
     {
       id: 2,
       title: "Scaling Activation Globally for Adobe Creative Cloud",
       category: "Adobe",
+      logo: "/adobe-logo.svg",
+      metric: "7 Global Markets",
       description:
         "Multi-channel activation strategy and trial-to-paid funnel optimization across 7 global markets for Adobe Creative Cloud.",
       image: "/adobe-creative-cloud-dashboard-interface.jpg",
-      tags: ["Growth", "Strategy", "Global"],
+      tags: ["Growth Strategy", "Global Scale", "B2C"],
       link: "/adobe-growth-case-study",
     },
     {
@@ -39,17 +43,19 @@ export default function HomePage() {
     {
       id: 4,
       title: "Adobe HelpX: 3D Interface Design",
-      category: "Product Design",
+      category: "Adobe",
+      logo: "/adobe-logo.svg",
       description:
         "Interactive 3D blueprint-style interface design for Adobe HelpX tutorial platform with component-based learning modules.",
       image: "/images/adobe-helpx-3d.png",
-      tags: ["3D", "Education", "UI Components"],
+      tags: ["3D Design", "Education", "UI Components"],
       link: "#",
     },
     {
       id: 5,
       title: "Zapier e-book template",
       category: "Content Design",
+      logo: "/zapier-logo.png",
       description:
         "Comprehensive ebook template design for Zapier showcasing workflow automation features, user testimonials, and key product benefits.",
       image: "/images/ebook.png",
@@ -72,39 +78,38 @@ export default function HomePage() {
     <div className="min-h-screen relative">
       {/* Gradient orbs background */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-20 -left-40 w-96 h-96 gradient-bg-purple-blue rounded-full blur-3xl" />
-        <div className="absolute top-1/3 -right-40 w-[600px] h-[600px] gradient-bg-purple-blue rounded-full blur-3xl" />
-        <div className="absolute bottom-20 left-1/4 w-96 h-96 gradient-bg-purple-blue rounded-full blur-3xl" />
+        <div className="absolute top-20 -left-40 w-96 h-96 gradient-bg-purple-blue rounded-full blur-3xl opacity-30" />
+        <div className="absolute top-1/3 -right-40 w-[600px] h-[600px] gradient-bg-purple-blue rounded-full blur-3xl opacity-20" />
+        <div className="absolute bottom-20 left-1/4 w-96 h-96 gradient-bg-purple-blue rounded-full blur-3xl opacity-25" />
       </div>
 
       <div className="relative z-10">
         {/* Header */}
-        <header className="header border-b border-white/10 backdrop-blur-xl bg-background/30">
+        <header className="header border-b border-white/10 backdrop-blur-xl bg-background/30 sticky top-0 z-50">
           <div className="container mx-auto px-6 py-6">
             <nav className="flex items-center justify-between">
-              {/* Increased name size from text-2xl to text-3xl */}
               <Link
                 href="/"
-                className="text-3xl font-bold bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent"
+                className="text-3xl font-bold bg-gradient-to-r from-purple-600 to-blue-500 bg-clip-text text-transparent hover:from-purple-500 hover:to-blue-400 transition-all"
               >
                 andi galpern
               </Link>
               <div className="flex gap-8 items-center">
                 <Link
                   href="/portfolio"
-                  className="text-lg font-medium text-muted-foreground hover:text-foreground transition-colors"
+                  className="text-lg font-medium text-muted-foreground hover:text-foreground transition-colors cursor-pointer"
                 >
                   Portfolio
                 </Link>
                 <Link
-                  href="/home"
-                  className="text-lg font-medium text-muted-foreground hover:text-foreground transition-colors"
+                  href="/"
+                  className="text-lg font-medium text-muted-foreground hover:text-foreground transition-colors cursor-pointer"
                 >
                   About
                 </Link>
                 <a
                   href="mailto:andi@andixd.com"
-                  className="px-6 py-2 rounded-lg bg-gradient-to-r from-purple-500 to-blue-500 text-white text-lg font-medium hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300 cursor-pointer"
+                  className="px-6 py-2 rounded-lg bg-gradient-to-r from-purple-600 to-blue-600 text-white text-lg font-medium hover:shadow-lg hover:shadow-purple-500/30 hover:scale-105 transition-all duration-300 cursor-pointer"
                 >
                   Contact
                 </a>
@@ -114,47 +119,72 @@ export default function HomePage() {
         </header>
 
         {/* Hero Section */}
-        <section className="container mx-auto px-6 py-20">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            {/* Left - Text Content */}
-            <div>
-              <h1 className="text-5xl md:text-6xl font-bold mb-6 text-balance text-brand-gray-dark">
-                Hi there! I'm Andi.
-              </h1>
-              <div className="space-y-4 text-lg leading-relaxed text-brand-gray-dark">
-                <p>
-                  I'm a Product Designer who lives at the intersection of Growth, AI, and human-centered design. For
-                  more than 14 years, I've helped companies of every size—from global teams at Adobe and Informatica to
-                  scrappy, fast-moving startups—turn complex problems into clear, effective digital experiences that
-                  actually drive results. My work blends design, growth strategy, and marketing to increase leads, boost
-                  revenue, and build products people genuinely want to use.
-                </p>
-                <p>
-                  I'm also a Women Techmakers Ambassador for Google, where I mentor people in tech and help them grow
-                  their careers. I've attended Google I/O every year since 2015, which keeps me plugged into the latest
-                  AI and product innovations. And as the founder of Cascade SF, I've spent years building communities,
-                  hosting events, and championing professional growth across the design and tech world.
-                </p>
+        <section className="container mx-auto px-6 pt-24 pb-32">
+          <div className="max-w-6xl mx-auto">
+            {/* Positioning Badge */}
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-purple-500/10 border border-purple-500/20 backdrop-blur-sm mb-8 animate-fade-in">
+              <TrendingUp className="w-4 h-4 text-purple-600" />
+              <span className="text-sm font-semibold text-purple-700">Growth Design Strategy • AI Product Design</span>
+            </div>
+
+            {/* Main Headline */}
+            <h1 className="text-6xl md:text-7xl lg:text-8xl font-black mb-8 text-balance leading-[0.95] tracking-tight">
+              <span className="text-brand-gray-dark">I design products</span>
+              <br />
+              <span className="bg-gradient-to-r from-purple-600 via-blue-600 to-purple-600 bg-clip-text text-transparent animate-gradient">
+                that drive growth
+              </span>
+            </h1>
+
+            {/* Subheadline with metrics */}
+            <div className="grid md:grid-cols-3 gap-8 mb-12 max-w-4xl">
+              <div className="space-y-2">
+                <div className="text-5xl font-bold text-purple-600">14+</div>
+                <div className="text-lg text-brand-gray-dark font-medium">Years Experience</div>
+              </div>
+              <div className="space-y-2">
+                <div className="text-5xl font-bold text-purple-600">341%</div>
+                <div className="text-lg text-brand-gray-dark font-medium">Pipeline Growth</div>
+              </div>
+              <div className="space-y-2">
+                <div className="text-5xl font-bold text-purple-600">$7.5M</div>
+                <div className="text-lg text-brand-gray-dark font-medium">Revenue Impact</div>
               </div>
             </div>
 
-            {/* Right - Photo */}
-            <div className="relative">
-              <div className="relative aspect-square rounded-3xl overflow-hidden card-glass bg-card/40 border border-white/10">
-                <Image src="/images/image.png" alt="Andi Galpern" fill className="object-cover" />
-              </div>
+            <p className="text-2xl leading-relaxed text-brand-gray-dark mb-12 max-w-3xl">
+              Senior Product Designer specializing in <strong className="text-purple-700">AI-powered products</strong> and <strong className="text-purple-700">growth design strategy</strong>. I've helped companies like Adobe, Informatica, and Cisco turn complex problems into revenue-driving experiences.
+            </p>
+
+            {/* CTA Buttons */}
+            <div className="flex gap-4 items-center">
+              <Link
+                href="/portfolio"
+                className="px-8 py-4 rounded-xl bg-gradient-to-r from-purple-600 to-blue-600 text-white text-lg font-semibold hover:shadow-2xl hover:shadow-purple-500/40 hover:scale-105 transition-all duration-300 cursor-pointer inline-flex items-center gap-2"
+              >
+                View Case Studies
+                <ArrowUpRight className="w-5 h-5" />
+              </Link>
+              <a
+                href="mailto:andi@andixd.com"
+                className="px-8 py-4 rounded-xl border-2 border-purple-600/30 text-purple-700 text-lg font-semibold hover:bg-purple-50 hover:border-purple-600/50 transition-all duration-300 cursor-pointer"
+              >
+                Let's Talk
+              </a>
             </div>
           </div>
         </section>
 
         {/* Companies I've Designed For */}
-        <section className="container mx-auto px-6 py-12">
-          <p className="text-center text-sm text-muted-foreground mb-8">Companies I've designed for include:</p>
-          <div className="flex flex-wrap justify-center items-center gap-16">
+        <section className="container mx-auto px-6 py-16 border-y border-white/10 bg-white/40 backdrop-blur-sm">
+          <p className="text-center text-sm uppercase tracking-wider text-muted-foreground font-semibold mb-10">
+            Trusted by industry leaders
+          </p>
+          <div className="flex flex-wrap justify-center items-center gap-16 max-w-6xl mx-auto">
             {companies.map((company) => (
               <div
                 key={company.name}
-                className="flex items-center justify-center opacity-70 hover:opacity-100 transition-opacity"
+                className="flex items-center justify-center opacity-60 hover:opacity-100 transition-all duration-300 hover:scale-110"
               >
                 <div className="relative h-16 w-40">
                   <Image src={company.logo || "/placeholder.svg"} alt={`${company.name} logo`} fill className="object-contain" />
@@ -165,38 +195,64 @@ export default function HomePage() {
         </section>
 
         {/* Featured Works */}
-        <section className="container mx-auto px-6 py-16">
-          <h2 className="text-4xl font-bold mb-12 text-center text-brand-gray-dark">
-            Featured Works
-          </h2>
+        <section className="container mx-auto px-6 py-24">
+          <div className="text-center mb-16">
+            <h2 className="text-5xl md:text-6xl font-black mb-6 text-brand-gray-dark">
+              Featured Work
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+              Case studies showcasing measurable impact through strategic design
+            </p>
+          </div>
 
-          <div className="space-y-12">
-            {featuredWorks.map((project) => (
+          <div className="space-y-16 max-w-7xl mx-auto">
+            {featuredWorks.map((project, index) => (
               <div
                 key={project.id}
-                className="group card-glass-hover backdrop-blur-xl bg-card/40 border border-white/10 rounded-3xl overflow-hidden hover:border-purple-500/30 transition-all duration-500"
+                className="group card-glass-hover backdrop-blur-xl bg-card/40 border border-white/10 rounded-3xl overflow-hidden hover:border-purple-500/40 hover:shadow-2xl hover:shadow-purple-500/20 transition-all duration-500"
               >
-                <div className="grid md:grid-cols-5 gap-8 p-8">
+                <div className="grid md:grid-cols-5 gap-8 p-10">
                   {/* Image */}
-                  <div className="md:col-span-3 relative aspect-video rounded-2xl overflow-hidden bg-black/20">
+                  <div className="md:col-span-3 relative aspect-[16/10] rounded-2xl overflow-hidden bg-gradient-to-br from-purple-100 to-blue-100">
                     <Image
                       src={project.image || "/placeholder.svg"}
                       alt={project.title}
                       fill
                       className="object-cover group-hover:scale-105 transition-transform duration-700"
                     />
+                    {/* Metric Overlay */}
+                    {project.metric && (
+                      <div className="absolute top-6 left-6 px-4 py-2 rounded-full bg-white/95 backdrop-blur-sm border border-purple-200 shadow-lg">
+                        <div className="flex items-center gap-2">
+                          <TrendingUp className="w-4 h-4 text-purple-600" />
+                          <span className="text-sm font-bold text-purple-700">{project.metric}</span>
+                        </div>
+                      </div>
+                    )}
                   </div>
 
                   {/* Content */}
-                  <div className="md:col-span-2 flex flex-col justify-center space-y-4">
-                    <div className="inline-flex items-center gap-2 text-sm font-medium text-brand-purple">
-                      <span className="w-2 h-2 rounded-full bg-[var(--brand-purple)]"></span>
-                      {project.category}
-                    </div>
+                  <div className="md:col-span-2 flex flex-col justify-center space-y-5">
+                    {project.logo ? (
+                      <div className="inline-flex items-center gap-2 h-7 w-auto">
+                        <Image 
+                          src={project.logo || "/placeholder.svg"}
+                          alt={`${project.category} logo`}
+                          width={project.logo === "/informatica-lightbg-logo.svg" ? 180 : 140}
+                          height={project.logo === "/informatica-lightbg-logo.svg" ? 36 : 28}
+                          className="object-contain object-left"
+                        />
+                      </div>
+                    ) : (
+                      <div className="inline-flex items-center gap-2 text-sm font-semibold text-purple-600">
+                        <span className="w-2 h-2 rounded-full bg-purple-600"></span>
+                        {project.category}
+                      </div>
+                    )}
 
-                    <h3 className="text-2xl font-bold text-balance">{project.title}</h3>
+                    <h3 className="text-3xl font-black text-balance leading-tight text-brand-gray-dark group-hover:text-purple-700 transition-colors">{project.title}</h3>
 
-                    <p className="text-balance leading-relaxed text-brand-gray-dark">
+                    <p className="text-balance leading-relaxed text-brand-gray-dark text-lg">
                       {project.description}
                     </p>
 
@@ -204,7 +260,7 @@ export default function HomePage() {
                       {project.tags.map((tag) => (
                         <span
                           key={tag}
-                          className="badge-outline px-3 py-1 rounded-full text-xs font-medium bg-white/80 backdrop-blur-sm"
+                          className="px-4 py-2 rounded-full text-sm font-medium bg-purple-50 text-purple-700 border border-purple-200"
                         >
                           {tag}
                         </span>
@@ -213,10 +269,10 @@ export default function HomePage() {
 
                     <Link
                       href={project.link}
-                      className="mt-4 btn-primary inline-flex items-center gap-2 w-fit group"
+                      className="mt-4 btn-primary inline-flex items-center gap-2 w-fit group/link cursor-pointer"
                     >
                       View case study
-                      <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                      <ArrowUpRight className="w-5 h-5 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition-transform" />
                     </Link>
                   </div>
                 </div>
@@ -224,51 +280,60 @@ export default function HomePage() {
             ))}
           </div>
 
-          <div className="text-center mt-12">
+          <div className="text-center mt-16">
             <Link
               href="/portfolio"
-              className="btn-primary inline-flex items-center gap-2"
+              className="px-8 py-4 rounded-xl bg-gradient-to-r from-purple-600 to-blue-600 text-white text-lg font-semibold hover:shadow-2xl hover:shadow-purple-500/40 hover:scale-105 transition-all duration-300 cursor-pointer inline-flex items-center gap-2"
             >
-              View all work
+              View All Work
               <ArrowUpRight className="w-5 h-5" />
             </Link>
           </div>
         </section>
 
         {/* My Skills */}
-        <section className="container mx-auto px-6 py-16">
-          <h2 className="text-4xl font-bold mb-12 text-center text-brand-gray-dark">
-            My Skills
-          </h2>
+        <section className="container mx-auto px-6 py-24 bg-gradient-to-b from-transparent via-purple-50/30 to-transparent">
+          <div className="text-center mb-16">
+            <h2 className="text-5xl md:text-6xl font-black mb-6 text-brand-gray-dark">
+              What I Bring to the Table
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+              A unique blend of design craft, growth strategy, and technical fluency
+            </p>
+          </div>
 
-          <div className="relative max-w-5xl mx-auto">
-            {/* Large purple blob background */}
-            <div className="absolute inset-0 gradient-bg-purple-blue rounded-full blur-3xl -z-10" />
-
-            <div className="grid md:grid-cols-2 gap-6">
+          <div className="max-w-6xl mx-auto">
+            <div className="grid md:grid-cols-2 gap-8">
               {[
                 {
-                  title: "Product Design with a Growth Mindset",
-                  description: "I design with a focus on user engagement and business outcomes. I use data and user research to inform my design decisions, and I'm always looking for ways to improve the user experience and drive growth."
+                  title: "Growth-Driven Product Design",
+                  description: "I don't just make things look good—I design with metrics in mind. Every interface decision is informed by conversion data, user behavior analytics, and A/B testing results. My designs consistently improve key metrics like activation, retention, and revenue.",
+                  icon: <TrendingUp className="w-6 h-6" />
                 },
                 {
-                  title: "Marketing Design",
-                  description: "Creating compelling visual narratives for campaigns, landing pages, and content that converts. Expert in A/B testing and data-driven design optimization."
+                  title: "AI Product Design",
+                  description: "Deep experience designing conversational AI interfaces, recommendation systems, and ML-powered features. I understand how to make complex AI capabilities feel natural and build user trust in intelligent systems.",
+                  icon: <Cpu className="w-6 h-6" />
                 },
                 {
-                  title: "Content Strategy",
-                  description: "Developing comprehensive content strategies that align with business goals, audience needs, and SEO best practices. From concept to execution."
+                  title: "Full-Funnel Thinking",
+                  description: "From awareness to advocacy, I design the complete customer journey. Expert in landing page optimization, onboarding flows, email campaigns, and in-product growth loops that drive sustainable business growth.",
+                  icon: <Zap className="w-6 h-6" />
                 },
                 {
-                  title: "Product Management",
-                  description: "Leading cross-functional teams through the entire product lifecycle, from ideation to launch. Skilled in roadmap planning, prioritization, and stakeholder management."
+                  title: "Cross-Functional Leadership",
+                  description: "Skilled at leading product initiatives across design, engineering, marketing, and sales. I speak the language of business stakeholders while maintaining design excellence and user advocacy.",
+                  icon: <Users className="w-6 h-6" />
                 }
               ].map((skill, index) => (
-                <div key={index} className="card-stat backdrop-blur-xl bg-white/60 border border-white/40 rounded-3xl p-8">
-                  <h3 className="text-2xl font-bold mb-4 text-brand-purple">
+                <div key={index} className="group card-glass-hover backdrop-blur-xl bg-white/70 border border-purple-200/60 rounded-3xl p-8 hover:border-purple-400 hover:shadow-xl transition-all duration-300">
+                  <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-purple-500 to-blue-500 flex items-center justify-center mb-6 text-white group-hover:scale-110 transition-transform">
+                    {skill.icon}
+                  </div>
+                  <h3 className="text-2xl font-bold mb-4 text-brand-gray-dark group-hover:text-purple-700 transition-colors">
                     {skill.title}
                   </h3>
-                  <p className="leading-relaxed text-brand-gray-dark">
+                  <p className="leading-relaxed text-brand-gray-dark text-lg">
                     {skill.description}
                   </p>
                 </div>
