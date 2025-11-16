@@ -58,6 +58,78 @@ export default function AboutPage() {
           </div>
         </header>
 
+        <section className="container mx-auto px-6 py-12 md:py-16">
+          <div className="max-w-7xl mx-auto">
+            {/* Grid collage */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 mb-8">
+              {/* Top row - 4 images */}
+              <div className="aspect-square overflow-hidden rounded-2xl">
+                <img 
+                  src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/andi-mic-iZmPhtAnxVGlmBhhyHsBQGPmKwWLG1.jpeg"
+                  alt="Content creation with professional microphone"
+                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                />
+              </div>
+              <div className="aspect-square overflow-hidden rounded-2xl">
+                <img 
+                  src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/11148231_975715692461234_3073802920970337615_o-paL0DQChYsJjQx7T02lkX94kFatyfT.jpg"
+                  alt="Facilitating design community workshop"
+                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                />
+              </div>
+              <div className="aspect-square overflow-hidden rounded-2xl">
+                <img 
+                  src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/ag-cascade2-ITlSDhqik6gVc9ghQvNrgSguxD5WT8.jpeg"
+                  alt="Speaking at tech event"
+                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                />
+              </div>
+              <div className="aspect-square overflow-hidden rounded-2xl">
+                <img 
+                  src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/andi-adobemax-kJI0YYY1YA1KKj18vwFkRi4Gb2Hf4l.jpeg"
+                  alt="Fun moment at Adobe MAX conference"
+                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                />
+              </div>
+              
+              {/* Bottom row - Large image spanning 2 cols + 2 smaller images */}
+              <div className="col-span-2 aspect-[2/1] overflow-hidden rounded-2xl">
+                <img 
+                  src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/ag-womentechmakers-MUl7NbeHX6jiV4mtWxN6aV3rSSScCb.webp"
+                  alt="Women Techmakers community event - large group photo"
+                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                />
+              </div>
+              <div className="aspect-square overflow-hidden rounded-2xl">
+                <img 
+                  src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/ag-adobe-B5F9vz0kyC7kPHsDKqr0nPsZE3hoWt.jpeg"
+                  alt="Speaking at Adobe event"
+                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                />
+              </div>
+              <div className="aspect-square overflow-hidden rounded-2xl">
+                <img 
+                  src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/156851649_3660412907418762_3061724796239971294_n-HXFHRuJFwE6ub4ThMkZDu8XwagP94B.jpg"
+                  alt="Creating content in home studio setup"
+                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                />
+              </div>
+            </div>
+
+            {/* Caption text */}
+            <div className="max-w-4xl mx-auto text-center space-y-4">
+              <h2 className="text-3xl md:text-4xl font-bold text-brand-gray-dark">
+                Community Builder. Speaker. Mentor.
+              </h2>
+              <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
+                From founding Cascade SF's 10,000+ member design community to serving as a Women Techmakers Ambassador for Google, 
+                I've spent over a decade bringing people together, growing the tech community, and helping designers level up their careers.
+              </p>
+            </div>
+          </div>
+        </section>
+        {/* </CHANGE> */}
+
         {/* Hero Section */}
         <section className="container mx-auto px-6 py-20 md:py-32">
           <div className="max-w-4xl mx-auto">
