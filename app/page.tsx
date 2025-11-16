@@ -16,7 +16,10 @@ export default function HomePage() {
 
   const scrollToContact = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault()
-    document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })
+    const contactSection = document.getElementById('contact')
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: 'smooth', block: 'center' })
+    }
   }
 
   const featuredWorks = [
@@ -515,28 +518,39 @@ export default function HomePage() {
         </section>
 
         {/* Let's Grow Together CTA */}
-        <section className="container mx-auto px-6 py-16">
+        <section id="contact" className="container mx-auto px-6 py-16">
           <div className="backdrop-blur-xl gradient-bg-purple-blue border border-white/10 rounded-3xl p-12 text-center">
             <h2 className="text-3xl font-bold mb-4 text-brand-gray-dark">
               Let's grow together
             </h2>
+            <div className="mb-6 space-y-2">
+              <p className="text-xl font-semibold text-brand-gray-dark">Andi Galpern</p>
+              <p className="text-lg text-brand-gray-dark">
+                <a 
+                  href="mailto:andi@andixd.com"
+                  className="text-purple-700 hover:text-purple-800 underline underline-offset-2"
+                >
+                  andi@andixd.com
+                </a>
+              </p>
+              <p className="text-base text-muted-foreground font-medium">Available for full-time and consulting work</p>
+            </div>
             <p className="text-muted-foreground mb-8 max-w-xl mx-auto text-balance text-lg">
               I'm always open to discussing product design work, partnership opportunities, or just grabbing a virtual
               coffee to talk shop.
             </p>
             <a
-              href="#contact"
-              onClick={scrollToContact}
+              href="mailto:andi@andixd.com"
               className="btn-primary inline-flex items-center gap-2"
             >
-              Schedule a conversation
+              E-mail andi@andixd.com
               <ArrowUpRight className="w-5 h-5" />
             </a>
           </div>
         </section>
 
         {/* Footer */}
-        <footer className="header border-t border-white/10 backdrop-blur-xl bg-background/30" id="contact">
+        <footer className="header border-t border-white/10 backdrop-blur-xl bg-background/30">
           <div className="container mx-auto px-6 py-8">
             <div className="flex flex-col md:flex-row justify-between items-center gap-4">
               <p className="text-sm text-muted-foreground">© 2025 Andi Galpern. All rights reserved.</p>
