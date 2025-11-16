@@ -56,7 +56,7 @@ export default function HomePage() {
         "Interactive 3D blueprint-style interface design for Adobe HelpX tutorial platform with component-based learning modules.",
       image: "/images/adobe-helpx-3d.png",
       tags: ["3D Design", "Education", "UI Components"],
-      link: "#",
+      link: "/adobe-substance-3d", // Updated link to new Substance 3D page
     },
   ]
 
@@ -343,7 +343,7 @@ export default function HomePage() {
                       href={project.link}
                       className="mt-4 btn-primary inline-flex items-center gap-2 w-fit group/link cursor-pointer"
                     >
-                      View case study
+                      {project.id === 4 ? "View project" : "View case study"}
                       <ArrowUpRight className="w-5 h-5 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition-transform" />
                     </Link>
                   </div>
