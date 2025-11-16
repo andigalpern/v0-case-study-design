@@ -1,11 +1,12 @@
 'use client'
 
 import { useState } from 'react'
+import { usePathname } from 'next/navigation'
 import Link from 'next/link'
 import { Heart, MessageCircle, MapPin, MoreVertical, MessageSquare, Home, Star, Camera, User } from 'lucide-react'
 
 export default function BuddiesApp() {
-  const [activeTab, setActiveTab] = useState('home')
+  const pathname = usePathname()
   const [likedPosts, setLikedPosts] = useState<Set<number>>(new Set())
 
   const toggleLike = (postId: number) => {
@@ -45,8 +46,8 @@ export default function BuddiesApp() {
 
   return (
     <div className="relative min-h-screen bg-gradient-to-b from-[#1b6ea1] to-[#2d9ccc] pb-20">
-      {/* Header */}
-      <header className="sticky top-0 z-50 bg-[#1b6ea1] px-6 py-4 flex items-center justify-between">
+      {/* App Header */}
+      <header className="bg-[#1b6ea1] px-6 py-4 flex items-center justify-between">
         <div className="flex items-center gap-2">
           <div className="w-8 h-8 text-[#ff6b6b]">
             <svg viewBox="0 0 24 24" fill="currentColor">
@@ -137,31 +138,27 @@ export default function BuddiesApp() {
         <div className="flex items-center justify-around max-w-md mx-auto">
           <Link 
             href="/buddies" 
-            className={`p-3 rounded-xl transition-all ${activeTab === 'home' ? 'text-[#1b6ea1]' : 'text-gray-400 hover:text-gray-600'}`}
-            onClick={() => setActiveTab('home')}
+            className={`p-3 rounded-xl transition-all ${pathname === '/buddies' ? 'text-[#1b6ea1]' : 'text-gray-400 hover:text-gray-600'}`}
           >
-            <Home className="w-7 h-7" fill={activeTab === 'home' ? 'currentColor' : 'none'} />
+            <Home className="w-7 h-7" fill={pathname === '/buddies' ? 'currentColor' : 'none'} />
           </Link>
           <Link 
             href="/buddies/search" 
-            className={`p-3 rounded-xl transition-all ${activeTab === 'search' ? 'text-[#1b6ea1]' : 'text-gray-400 hover:text-gray-600'}`}
-            onClick={() => setActiveTab('search')}
+            className={`p-3 rounded-xl transition-all ${pathname === '/buddies/search' ? 'text-[#1b6ea1]' : 'text-gray-400 hover:text-gray-600'}`}
           >
-            <Star className="w-7 h-7" fill={activeTab === 'search' ? 'currentColor' : 'none'} />
+            <Star className="w-7 h-7" fill={pathname === '/buddies/search' ? 'currentColor' : 'none'} />
           </Link>
           <Link 
             href="/buddies/camera" 
-            className={`p-3 rounded-xl transition-all ${activeTab === 'camera' ? 'text-[#1b6ea1]' : 'text-gray-400 hover:text-gray-600'}`}
-            onClick={() => setActiveTab('camera')}
+            className={`p-3 rounded-xl transition-all ${pathname === '/buddies/camera' ? 'text-[#1b6ea1]' : 'text-gray-400 hover:text-gray-600'}`}
           >
             <Camera className="w-7 h-7" />
           </Link>
           <Link 
             href="/buddies/profile/me" 
-            className={`p-3 rounded-xl transition-all ${activeTab === 'profile' ? 'text-[#1b6ea1]' : 'text-gray-400 hover:text-gray-600'}`}
-            onClick={() => setActiveTab('profile')}
+            className={`p-3 rounded-xl transition-all ${pathname === '/buddies/profile/me' ? 'text-[#1b6ea1]' : 'text-gray-400 hover:text-gray-600'}`}
           >
-            <User className="w-7 h-7" fill={activeTab === 'profile' ? 'currentColor' : 'none'} />
+            <User className="w-7 h-7" fill={pathname === '/buddies/profile/me' ? 'currentColor' : 'none'} />
           </Link>
         </div>
       </nav>

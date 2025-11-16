@@ -1,11 +1,12 @@
 'use client'
 
 import { useState } from 'react'
+import { usePathname } from 'next/navigation'
 import Link from 'next/link'
 import { ArrowLeft, Radio, Calendar, Users, Home, Star, Camera, User, MessageSquare, CheckCircle, Shield } from 'lucide-react'
 
 export default function LocationDetail() {
-  const [activeTab, setActiveTab] = useState('search')
+  const pathname = usePathname()
   const [broadcasting, setBroadcasting] = useState(false)
 
   const interestedDivers = [
@@ -121,35 +122,31 @@ export default function LocationDetail() {
       </main>
 
       {/* Bottom Navigation */}
-      <nav className="buddies-bottom-nav fixed bottom-0 left-0 right-0 bg-white/90 backdrop-blur-md border-t border-gray-200 px-6 py-3">
+      <nav className="buddies-bottom-nav bg-white/90 backdrop-blur-md border-t border-gray-200 px-6 py-3">
         <div className="flex items-center justify-around max-w-md mx-auto">
           <Link 
             href="/buddies" 
-            className={`p-3 rounded-xl transition-all ${activeTab === 'home' ? 'text-[#1b6ea1]' : 'text-gray-400 hover:text-gray-600'}`}
-            onClick={() => setActiveTab('home')}
+            className={`p-3 rounded-xl transition-all ${pathname === '/buddies' ? 'text-[#1b6ea1]' : 'text-gray-400 hover:text-gray-600'}`}
           >
-            <Home className="w-7 h-7" fill={activeTab === 'home' ? 'currentColor' : 'none'} />
+            <Home className="w-7 h-7" fill={pathname === '/buddies' ? 'currentColor' : 'none'} />
           </Link>
           <Link 
             href="/buddies/search" 
-            className={`p-3 rounded-xl transition-all ${activeTab === 'search' ? 'text-[#1b6ea1]' : 'text-gray-400 hover:text-gray-600'}`}
-            onClick={() => setActiveTab('search')}
+            className={`p-3 rounded-xl transition-all ${pathname === '/buddies/search' ? 'text-[#1b6ea1]' : 'text-gray-400 hover:text-gray-600'}`}
           >
-            <Star className="w-7 h-7" fill={activeTab === 'search' ? 'currentColor' : 'none'} />
+            <Star className="w-7 h-7" fill={pathname === '/buddies/search' ? 'currentColor' : 'none'} />
           </Link>
           <Link 
             href="/buddies/camera" 
-            className={`p-3 rounded-xl transition-all ${activeTab === 'camera' ? 'text-[#1b6ea1]' : 'text-gray-400 hover:text-gray-600'}`}
-            onClick={() => setActiveTab('camera')}
+            className={`p-3 rounded-xl transition-all ${pathname === '/buddies/camera' ? 'text-[#1b6ea1]' : 'text-gray-400 hover:text-gray-600'}`}
           >
             <Camera className="w-7 h-7" />
           </Link>
           <Link 
             href="/buddies/profile/me" 
-            className={`p-3 rounded-xl transition-all ${activeTab === 'profile' ? 'text-[#1b6ea1]' : 'text-gray-400 hover:text-gray-600'}`}
-            onClick={() => setActiveTab('profile')}
+            className={`p-3 rounded-xl transition-all ${pathname === '/buddies/profile/me' ? 'text-[#1b6ea1]' : 'text-gray-400 hover:text-gray-600'}`}
           >
-            <User className="w-7 h-7" fill={activeTab === 'profile' ? 'currentColor' : 'none'} />
+            <User className="w-7 h-7" fill={pathname === '/buddies/profile/me' ? 'currentColor' : 'none'} />
           </Link>
         </div>
       </nav>

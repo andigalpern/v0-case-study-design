@@ -21,23 +21,23 @@ export default function InformaticaChatbotCaseStudy() {
             <nav className="flex items-center justify-between">
               <Link
                 href="/"
-                className="text-2xl font-bold bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent"
+                className="text-3xl font-bold bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent cursor-pointer"
               >
                 andi galpern
               </Link>
               <div className="flex gap-8 items-center">
                 <Link
                   href="/portfolio"
-                  className="text-sm font-semibold text-gray-900 hover:text-purple-600 transition-colors"
+                  className="text-lg font-medium text-gray-900 hover:text-purple-600 transition-colors cursor-pointer"
                 >
                   Portfolio
                 </Link>
-                <Link href="/" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">
+                <Link href="/about" className="text-lg font-medium text-gray-600 hover:text-gray-900 transition-colors cursor-pointer">
                   About
                 </Link>
                 <a
                   href="mailto:andi@andixd.com"
-                  className="px-6 py-2.5 rounded-xl bg-gradient-to-r from-purple-600 to-blue-600 text-white text-sm font-semibold hover:shadow-xl hover:shadow-purple-500/30 transition-all duration-300 hover:scale-105"
+                  className="px-6 py-2 rounded-lg bg-gradient-to-r from-purple-600 to-blue-600 text-white text-lg font-medium hover:shadow-xl hover:shadow-purple-500/30 transition-all duration-300 hover:scale-105 cursor-pointer"
                 >
                   Contact
                 </a>

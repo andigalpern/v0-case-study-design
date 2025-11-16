@@ -3,21 +3,18 @@
 import Image from "next/image"
 import Link from "next/link"
 import { ArrowUpRight, Sparkles, Code2, Zap, Cpu, TrendingUp, Users } from 'lucide-react'
+import { useEffect, useState } from 'react'
 
 export default function HomePage() {
+  const [scrollY, setScrollY] = useState(0)
+
+  useEffect(() => {
+    const handleScroll = () => setScrollY(window.scrollY)
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
   const featuredWorks = [
-    {
-      id: 1,
-      title: "Growing the sales pipeline from $2.2M to $9.7M at Informatica",
-      category: "Informatica",
-      logo: "/informatica-lightbg-logo.svg",
-      metric: "341% Pipeline Growth",
-      description:
-        "Conversational chatbot interface design to improve lead qualification and sales pipeline conversion through personalized user interactions.",
-      image: "/images/sales-pipeline-3d.png",
-      tags: ["AI/ML", "Conversion", "B2B SaaS"],
-      link: "/informatica-chatbot-case-study",
-    },
     {
       id: 2,
       title: "Scaling Activation Globally for Adobe Creative Cloud",
@@ -31,14 +28,16 @@ export default function HomePage() {
       link: "/adobe-growth-case-study",
     },
     {
-      id: 3,
-      title: "Scuba Diving App Design Test",
-      category: "Product Design",
+      id: 1,
+      title: "Growing the sales pipeline from $2.2M to $9.7M at Informatica",
+      category: "Informatica",
+      logo: "/informatica-lightbg-logo.svg",
+      metric: "341% Pipeline Growth",
       description:
-        "Mobile app design for a social scuba diving platform featuring dive logging, location discovery, and community features.",
-      image: "/images/scuba-app-blue.png",
-      tags: ["Mobile", "UI/UX", "Social"],
-      link: "#",
+        "Conversational chatbot interface design to improve lead qualification and sales pipeline conversion through personalized user interactions.",
+      image: "/images/sales-pipeline-3d.png",
+      tags: ["AI/ML", "Conversion", "B2B SaaS"],
+      link: "/informatica-chatbot-case-study",
     },
     {
       id: 4,
@@ -49,17 +48,6 @@ export default function HomePage() {
         "Interactive 3D blueprint-style interface design for Adobe HelpX tutorial platform with component-based learning modules.",
       image: "/images/adobe-helpx-3d.png",
       tags: ["3D Design", "Education", "UI Components"],
-      link: "#",
-    },
-    {
-      id: 5,
-      title: "Zapier e-book template",
-      category: "Content Design",
-      logo: "/zapier-logo.png",
-      description:
-        "Comprehensive ebook template design for Zapier showcasing workflow automation features, user testimonials, and key product benefits.",
-      image: "/images/ebook.png",
-      tags: ["Editorial", "Template", "Marketing"],
       link: "#",
     },
   ]
@@ -83,6 +71,79 @@ export default function HomePage() {
         <div className="absolute bottom-20 left-1/4 w-96 h-96 gradient-bg-purple-blue rounded-full blur-3xl opacity-25" />
       </div>
 
+      {/* Floating geometric shapes animation */}
+      <div className="fixed inset-0 overflow-hidden pointer-events-none opacity-20">
+        {/* Hero section - very far away shapes */}
+        <div 
+          className="absolute top-10 left-10 w-16 h-16 border border-purple-500/20 rounded-full"
+          style={{ transform: `translateY(${scrollY * 0.05}px)` }}
+        />
+        <div 
+          className="absolute top-32 right-10 w-12 h-12 border border-blue-500/15"
+          style={{ transform: `translateY(${scrollY * -0.06}px) rotate(${scrollY * 0.02}deg)` }}
+        />
+        <div 
+          className="absolute top-20 right-1/3 w-20 h-20 border border-purple-500/15 rounded-xl rotate-12"
+          style={{ transform: `translateY(${scrollY * 0.04}px) rotate(12deg)` }}
+        />
+        <div 
+          className="absolute top-48 left-1/4 w-14 h-14 border border-blue-500/20 rounded-lg rotate-45"
+          style={{ transform: `translateY(${scrollY * -0.07}px) rotate(45deg)` }}
+        />
+        
+        {/* Original hero shapes - closer */}
+        <div 
+          className="absolute top-40 left-20 w-32 h-32 border-2 border-purple-500/30 rounded-2xl rotate-45"
+          style={{ transform: `translateY(${scrollY * 0.1}px) rotate(45deg)` }}
+        />
+        <div 
+          className="absolute top-60 right-40 w-24 h-24 border-2 border-blue-500/30 rounded-full"
+          style={{ transform: `translateY(${scrollY * -0.15}px)` }}
+        />
+        
+        {/* Mid-page shapes */}
+        <div 
+          className="absolute top-[800px] left-10 w-28 h-28 border-2 border-purple-500/25 rounded-full"
+          style={{ transform: `translateY(${scrollY * 0.09}px)` }}
+        />
+        <div 
+          className="absolute top-[1000px] right-32 w-36 h-36 border border-blue-500/20 rounded-3xl rotate-12"
+          style={{ transform: `translateY(${scrollY * -0.11}px) rotate(12deg)` }}
+        />
+        <div 
+          className="absolute top-[1200px] left-1/4 w-20 h-20 border-2 border-purple-500/30"
+          style={{ transform: `translateY(${scrollY * 0.13}px) rotate(${scrollY * 0.04}deg)` }}
+        />
+        
+        {/* Lower section shapes */}
+        <div 
+          className="absolute top-[1600px] right-20 w-32 h-32 border-2 border-blue-500/25 rounded-2xl"
+          style={{ transform: `translateY(${scrollY * -0.1}px) rotate(${scrollY * -0.03}deg)` }}
+        />
+        <div 
+          className="absolute top-[1800px] left-40 w-24 h-24 border border-purple-500/20 rounded-lg rotate-45"
+          style={{ transform: `translateY(${scrollY * 0.12}px) rotate(45deg)` }}
+        />
+        <div 
+          className="absolute top-[2000px] right-1/3 w-28 h-28 border-2 border-blue-500/30 rounded-full"
+          style={{ transform: `translateY(${scrollY * -0.08}px)` }}
+        />
+        
+        {/* Bottom shapes */}
+        <div 
+          className="absolute bottom-40 right-20 w-40 h-40 border-2 border-purple-500/20"
+          style={{ transform: `translateY(${scrollY * 0.08}px) rotate(${scrollY * 0.05}deg)` }}
+        />
+        <div 
+          className="absolute bottom-60 left-1/3 w-28 h-28 border border-purple-500/30 rounded-xl rotate-12"
+          style={{ transform: `translateY(${scrollY * -0.12}px) rotate(12deg)` }}
+        />
+        <div 
+          className="absolute bottom-[800px] left-16 w-22 h-22 border border-purple-500/20 rounded-full"
+          style={{ transform: `translateY(${scrollY * 0.1}px)` }}
+        />
+      </div>
+
       <div className="relative z-10">
         {/* Header */}
         <header className="header border-b border-white/10 backdrop-blur-xl bg-background/30 sticky top-0 z-50">
@@ -90,7 +151,7 @@ export default function HomePage() {
             <nav className="flex items-center justify-between">
               <Link
                 href="/"
-                className="text-3xl font-bold bg-gradient-to-r from-purple-600 to-blue-500 bg-clip-text text-transparent hover:from-purple-500 hover:to-blue-400 transition-all"
+                className="text-3xl font-bold bg-gradient-to-r from-purple-600 to-blue-500 bg-clip-text text-transparent hover:from-purple-500 hover:to-blue-400 transition-all cursor-pointer"
               >
                 andi galpern
               </Link>
@@ -102,7 +163,7 @@ export default function HomePage() {
                   Portfolio
                 </Link>
                 <Link
-                  href="/"
+                  href="/about"
                   className="text-lg font-medium text-muted-foreground hover:text-foreground transition-colors cursor-pointer"
                 >
                   About
@@ -197,10 +258,10 @@ export default function HomePage() {
         {/* Featured Works */}
         <section className="container mx-auto px-6 py-24">
           <div className="text-center mb-16">
-            <h2 className="text-5xl md:text-6xl font-black mb-6 text-brand-gray-dark">
+            <h2 className="text-5xl md:text-6xl font-black mb-6 text-brand-gray-dark animate-fade-in">
               Featured Work
             </h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto animate-fade-in" style={{ animationDelay: '0.1s' }}>
               Case studies showcasing measurable impact through strategic design
             </p>
           </div>
@@ -209,7 +270,8 @@ export default function HomePage() {
             {featuredWorks.map((project, index) => (
               <div
                 key={project.id}
-                className="group card-glass-hover backdrop-blur-xl bg-card/40 border border-white/10 rounded-3xl overflow-hidden hover:border-purple-500/40 hover:shadow-2xl hover:shadow-purple-500/20 transition-all duration-500"
+                className="group card-glass-hover backdrop-blur-xl bg-card/40 border border-white/10 rounded-3xl overflow-hidden hover:border-purple-500/40 hover:shadow-2xl hover:shadow-purple-500/20 transition-all duration-500 animate-fade-in-up"
+                style={{ animationDelay: `${index * 0.1}s` }}
               >
                 <div className="grid md:grid-cols-5 gap-8 p-10">
                   {/* Image */}
@@ -294,10 +356,10 @@ export default function HomePage() {
         {/* My Skills */}
         <section className="container mx-auto px-6 py-24 bg-gradient-to-b from-transparent via-purple-50/30 to-transparent">
           <div className="text-center mb-16">
-            <h2 className="text-5xl md:text-6xl font-black mb-6 text-brand-gray-dark">
+            <h2 className="text-5xl md:text-6xl font-black mb-6 text-brand-gray-dark animate-fade-in">
               What I Bring to the Table
             </h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto animate-fade-in" style={{ animationDelay: '0.1s' }}>
               A unique blend of design craft, growth strategy, and technical fluency
             </p>
           </div>
@@ -326,8 +388,12 @@ export default function HomePage() {
                   icon: <Users className="w-6 h-6" />
                 }
               ].map((skill, index) => (
-                <div key={index} className="group card-glass-hover backdrop-blur-xl bg-white/70 border border-purple-200/60 rounded-3xl p-8 hover:border-purple-400 hover:shadow-xl transition-all duration-300">
-                  <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-purple-500 to-blue-500 flex items-center justify-center mb-6 text-white group-hover:scale-110 transition-transform">
+                <div 
+                  key={index} 
+                  className="group card-glass-hover backdrop-blur-xl bg-white/70 border border-purple-200/60 rounded-3xl p-8 hover:border-purple-400 hover:shadow-xl transition-all duration-300 animate-fade-in-up"
+                  style={{ animationDelay: `${index * 0.1}s` }}
+                >
+                  <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-purple-500 to-blue-500 flex items-center justify-center mb-6 text-white group-hover:scale-110 group-hover:rotate-3 transition-all">
                     {skill.icon}
                   </div>
                   <h3 className="text-2xl font-bold mb-4 text-brand-gray-dark group-hover:text-purple-700 transition-colors">

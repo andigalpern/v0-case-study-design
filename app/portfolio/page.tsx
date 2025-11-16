@@ -81,25 +81,15 @@ export default function PortfolioPage() {
 
   const workSamples = [
     {
-      id: 1,
-      title: "Buddies Scuba Dive App Test",
-      category: "Product Design",
-      categories: ["Product Design"],
+      id: 5,
+      title: "Scaling Activation Globally for Adobe Creative Cloud",
+      category: "Adobe",
+      categories: ["Growth Strategy", "Case Studies"],
       description:
-        "Mobile app design for a social scuba diving platform featuring dive logging, location discovery, and community features.",
-      image: "/images/scuba-app-blue.png",
-      tags: ["Mobile", "UI/UX", "Social"],
-      link: "/buddies",
-    },
-    {
-      id: 2,
-      title: "Zapier e-book template design",
-      category: "Content Design",
-      categories: ["Visual Design"],
-      description:
-        "Comprehensive ebook template design for Zapier showcasing workflow automation features, user testimonials, and key product benefits.",
-      image: "/images/ebook.png",
-      tags: ["Editorial", "Template", "Marketing"],
+        "Multi-channel activation strategy and trial-to-paid funnel optimization across 7 global markets for Adobe Creative Cloud.",
+      image: "/adobe-creative-cloud-dashboard-interface.jpg",
+      tags: ["Growth", "Strategy", "Global"],
+      link: "/adobe-growth-case-study",
     },
     {
       id: 3,
@@ -113,6 +103,28 @@ export default function PortfolioPage() {
       link: "/informatica-chatbot-case-study",
     },
     {
+      id: 7,
+      title: "Moving to the top of page 1 on google search",
+      category: "Informatica",
+      categories: ["Growth Strategy", "Case Studies"],
+      description:
+        "Visual data flow infographic explaining Extract, Transform, Load processes for enterprise data integration solutions.",
+      image: "/images/seo-ranking.png",
+      tags: ["Infographic", "Data Viz", "Technical"],
+      link: "/informatica-etl-seo-case-study",
+    },
+    {
+      id: 2,
+      title: "Zapier e-book template design",
+      category: "Content Design",
+      categories: ["Visual Design"],
+      description:
+        "Comprehensive ebook template design for Zapier showcasing workflow automation features, user testimonials, and key product benefits.",
+      image: "/images/ebook.png",
+      tags: ["Editorial", "Template", "Marketing"],
+      link: "/buddies",
+    },
+    {
       id: 4,
       title: "Informatica Web Promo Optimization",
       category: "Informatica",
@@ -121,17 +133,7 @@ export default function PortfolioPage() {
         "Ran experimental A/B tests on different component placements on informatica.com to see which promo spot performed the best.",
       image: "/images/web-promo-optimization-v2.png",
       tags: ["Web Design", "Optimization", "B2B"],
-    },
-    {
-      id: 5,
-      title: "Scaling Activation Globally for Adobe Creative Cloud",
-      category: "Adobe",
-      categories: ["Growth Strategy", "Case Studies"],
-      description:
-        "Multi-channel activation strategy and trial-to-paid funnel optimization across 7 global markets for Adobe Creative Cloud.",
-      image: "/adobe-creative-cloud-dashboard-interface.jpg",
-      tags: ["Growth", "Strategy", "Global"],
-      link: "/adobe-growth-case-study",
+      link: "/informatica-web-promo-case-study",
     },
     {
       id: 6,
@@ -142,17 +144,6 @@ export default function PortfolioPage() {
         "Interactive 3D blueprint-style interface design for Adobe HelpX tutorial platform with component-based learning modules.",
       image: "/images/adobe-helpx-3d.png",
       tags: ["3D", "Education", "UI Components"],
-    },
-    {
-      id: 7,
-      title: "Moving to the top of page 1 on google search",
-      category: "Informatica",
-      categories: ["Growth Strategy", "Case Studies"],
-      description:
-        "Visual data flow infographic explaining Extract, Transform, Load processes for enterprise data integration solutions.",
-      image: "/images/seo-ranking.png",
-      tags: ["Infographic", "Data Viz", "Technical"],
-      link: "/informatica-etl-seo-case-study",
     },
   ]
 
@@ -369,17 +360,17 @@ export default function PortfolioPage() {
             <nav className="flex items-center justify-between">
               <Link
                 href="/"
-                className="text-3xl font-bold bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent"
+                className="text-3xl font-bold bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent cursor-pointer"
               >
                 andi galpern
               </Link>
               <div className="flex gap-8 items-center">
-                <Link href="/portfolio" className="text-lg font-medium text-foreground">
+                <Link href="/portfolio" className="text-lg font-medium text-foreground cursor-pointer">
                   Portfolio
                 </Link>
                 <Link
-                  href="/"
-                  className="text-lg font-medium text-muted-foreground hover:text-foreground transition-colors"
+                  href="/about"
+                  className="text-lg font-medium text-muted-foreground hover:text-foreground transition-colors cursor-pointer"
                 >
                   About
                 </Link>
