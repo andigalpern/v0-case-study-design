@@ -65,7 +65,6 @@ export default function HomePage() {
     { name: "Adobe", logo: "/adobe-logo.svg" },
     { name: "Informatica", logo: "/informatica-logo.svg" },
     { name: "Smule", logo: "/smule-logo.png" },
-    { name: "Cisco", logo: "/cisco-logo.svg" },
     { name: "Patreon", logo: "/patreon-logo.svg" },
     { name: "Zapier", logo: "/zapier-logo.png" },
     { name: "Guitar Center", logo: "/guitar-center-logo.svg" },
@@ -224,7 +223,7 @@ export default function HomePage() {
             </div>
 
             <p className="text-2xl leading-relaxed text-brand-gray-dark mb-12 max-w-3xl">
-              Senior Product Designer specializing in <strong className="text-purple-700">AI-powered products</strong> and <strong className="text-purple-700">growth design strategy</strong>. I've helped companies like Adobe, Informatica, and Cisco turn complex problems into revenue-driving experiences.
+              Senior Product Designer specializing in <strong className="text-purple-700">AI-powered products</strong> and <strong className="text-purple-700">growth design strategy</strong>. I've helped companies like Adobe and Informatica turn complex problems into revenue-driving experiences.
             </p>
 
             {/* CTA Buttons */}
@@ -439,16 +438,7 @@ export default function HomePage() {
                   </h2>
                   <div className="space-y-4 text-lg leading-relaxed">
                     <p className="white">
-                      This entire portfolio was built using{" "}
-                      <a
-                        href="https://v0.dev"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-blue-200 hover:text-blue-100 underline underline-offset-2 font-medium"
-                      >
-                        v0 by Vercel
-                      </a>
-                      {" "}— an AI-powered design and development tool that turns natural language into production-ready code.
+                      This entire portfolio was built using an AI-powered design and development tool that turns natural language into production-ready code.
                     </p>
                     <p className="white">
                       I curated the content, wrote case studies, art directed the visual design, selected color schemes, and directed layouts. Then I let AI handle the implementation — React components, Next.js routing, responsive layouts, and glassmorphic styling.
