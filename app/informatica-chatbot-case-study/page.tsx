@@ -206,6 +206,24 @@ export default function InformaticaChatbotCaseStudy() {
                   </div>
                 ))}
               </div>
+
+              <div className="mt-16">
+                <h3 className="text-2xl md:text-3xl font-black mb-6 text-center" style={{ color: "#20221e" }}>
+                  Pricing Bot Example
+                </h3>
+                <div className="flex justify-center">
+                  <div className="max-w-md">
+                    <img
+                      src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/pricingbot-b2x-p-500-vlRH68XLS3Cb8glRDS39DcKQegmerU.png"
+                      alt="Informatica Pricing Bot interface showing conversation flow with options for Talk with sales, Pricing question, Quick product demo, Schedule meeting, and Something else"
+                      className="w-full h-auto rounded-2xl shadow-2xl"
+                    />
+                  </div>
+                </div>
+                <p className="text-center text-base text-gray-700 mt-6 max-w-2xl mx-auto">
+                  The redesigned bot offered clear, intent-driven options that helped visitors quickly connect with the right resources—driving higher conversion rates and better qualified leads.
+                </p>
+              </div>
             </div>
           </div>
         </section>

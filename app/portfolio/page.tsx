@@ -131,7 +131,7 @@ export default function PortfolioPage() {
         "Comprehensive ebook template design for Zapier showcasing workflow automation features, user testimonials, and key product benefits.",
       image: "/images/ebook.png",
       tags: ["Editorial", "Template", "Marketing"],
-      link: "/buddies",
+      link: "/zapier-ebook-case-study",
     },
     {
       id: 4,
@@ -153,6 +153,7 @@ export default function PortfolioPage() {
         "Interactive 3D blueprint-style interface design for Adobe HelpX tutorial platform with component-based learning modules.",
       image: "/images/adobe-helpx-3d.png",
       tags: ["3D", "Education", "UI Components"],
+      link: "/adobe-substance-3d",
     },
   ]
 
@@ -484,12 +485,12 @@ export default function PortfolioPage() {
                         href={project.link}
                         className="mt-4 btn-primary inline-flex items-center gap-2 w-fit group"
                       >
-                        View case study
+                        {project.categories.includes("Visual Design") ? "View project" : "View case study"}
                         <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                       </Link>
                     ) : (
                       <button className="mt-4 btn-primary inline-flex items-center gap-2 w-fit group">
-                        View case study
+                        {project.categories.includes("Visual Design") ? "View project" : "View case study"}
                         <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                       </button>
                     )}
@@ -552,12 +553,12 @@ export default function PortfolioPage() {
                         href={project.link}
                         className="mt-4 btn-primary inline-flex items-center gap-2 w-fit group"
                       >
-                        View case study
+                        {project.categories.includes("Visual Design") ? "View project" : "View case study"}
                         <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                       </Link>
                     ) : (
                       <button className="mt-4 btn-primary inline-flex items-center gap-2 w-fit group">
-                        View case study
+                        {project.categories.includes("Visual Design") ? "View project" : "View case study"}
                         <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                       </button>
                     )}
@@ -669,12 +670,12 @@ export default function PortfolioPage() {
                         href={project.link}
                         className="mt-4 btn-primary inline-flex items-center gap-2 w-fit group"
                       >
-                        View case study
+                        {project.categories.includes("Visual Design") ? "View project" : "View case study"}
                         <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                       </Link>
                     ) : (
                       <button className="mt-4 btn-primary inline-flex items-center gap-2 w-fit group">
-                        View case study
+                        {project.categories.includes("Visual Design") ? "View project" : "View case study"}
                         <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                       </button>
                     )}
@@ -733,6 +734,21 @@ export default function PortfolioPage() {
                         </span>
                       ))}
                     </div>
+
+                    {project.link ? (
+                      <Link
+                        href={project.link}
+                        className="mt-4 btn-primary inline-flex items-center gap-2 w-fit group"
+                      >
+                        {project.categories.includes("Visual Design") ? "View project" : "View case study"}
+                        <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                      </Link>
+                    ) : (
+                      <button className="mt-4 btn-primary inline-flex items-center gap-2 w-fit group">
+                        {project.categories.includes("Visual Design") ? "View project" : "View case study"}
+                        <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                      </button>
+                    )}
                   </div>
                 </div>
               </div>
