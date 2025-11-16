@@ -4,6 +4,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { ArrowUpRight, Sparkles, Code2, Zap, Cpu, TrendingUp, Users } from 'lucide-react'
 import { useEffect, useState } from 'react'
+import { ContactSection } from '@/components/contact-section'
 
 export default function HomePage() {
   const [scrollY, setScrollY] = useState(0)
@@ -518,36 +519,7 @@ export default function HomePage() {
         </section>
 
         {/* Let's Grow Together CTA */}
-        <section id="contact" className="container mx-auto px-6 py-16">
-          <div className="backdrop-blur-xl gradient-bg-purple-blue border border-white/10 rounded-3xl p-12 text-center">
-            <h2 className="text-3xl font-bold mb-4 text-brand-gray-dark">
-              Let's grow together
-            </h2>
-            <div className="mb-6 space-y-2">
-              <p className="text-xl font-semibold text-brand-gray-dark">Andi Galpern</p>
-              <p className="text-lg text-brand-gray-dark">
-                <a 
-                  href="mailto:andi@andixd.com"
-                  className="text-purple-700 hover:text-purple-800 underline underline-offset-2"
-                >
-                  andi@andixd.com
-                </a>
-              </p>
-              <p className="text-base text-muted-foreground font-medium">Available for full-time and consulting work</p>
-            </div>
-            <p className="text-muted-foreground mb-8 max-w-xl mx-auto text-balance text-lg">
-              I'm always open to discussing product design work, partnership opportunities, or just grabbing a virtual
-              coffee to talk shop.
-            </p>
-            <a
-              href="mailto:andi@andixd.com"
-              className="btn-primary inline-flex items-center gap-2"
-            >
-              E-mail andi@andixd.com
-              <ArrowUpRight className="w-5 h-5" />
-            </a>
-          </div>
-        </section>
+        <ContactSection />
 
         {/* Footer */}
         <footer className="header border-t border-white/10 backdrop-blur-xl bg-background/30">

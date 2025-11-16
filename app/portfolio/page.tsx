@@ -4,6 +4,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { ArrowUpRight, ChevronLeft, ChevronRight, X } from 'lucide-react'
 import { useState, useRef, useEffect } from "react"
+import { ContactSection } from '@/components/contact-section'
 
 export default function PortfolioPage() {
   const [activeFilter, setActiveFilter] = useState<string>("All")
@@ -77,6 +78,14 @@ export default function PortfolioPage() {
       })
     }
     setActiveFilter(category)
+  }
+
+  const scrollToContact = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault()
+    const contactSection = document.getElementById('contact')
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: 'smooth', block: 'center' })
+    }
   }
 
   const workSamples = [
@@ -375,7 +384,8 @@ export default function PortfolioPage() {
                   About
                 </Link>
                 <a
-                  href="mailto:andi@andixd.com"
+                  href="#contact"
+                  onClick={scrollToContact}
                   className="px-6 py-2 rounded-lg bg-gradient-to-r from-purple-500 to-blue-500 text-white text-lg font-medium hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300 cursor-pointer"
                 >
                   Contact
@@ -808,22 +818,7 @@ export default function PortfolioPage() {
           </div>
         </section>
 
-        {/* CTA */}
-        <section className="container mx-auto px-6 py-16 fade-in-scale">
-          <div className="backdrop-blur-xl gradient-bg-purple-blue border border-white/10 rounded-3xl p-12 text-center">
-            <h2 className="text-3xl font-bold mb-4">Ready to work together?</h2>
-            <p className="text-muted-foreground mb-8 max-w-xl mx-auto text-balance">
-              I'm always open to discussing product design work or partnership opportunities.
-            </p>
-            <a
-              href="mailto:hello@andigalpern.com"
-              className="btn-primary inline-flex items-center gap-2"
-            >
-              Get in touch
-              <ArrowUpRight className="w-5 h-5" />
-            </a>
-          </div>
-        </section>
+        <ContactSection />
 
         {/* Footer */}
         <footer className="border-t border-white/10 backdrop-blur-xl bg-background/30">

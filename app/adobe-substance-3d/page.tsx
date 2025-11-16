@@ -1,9 +1,20 @@
+"use client"
+
 import Image from "next/image"
 import Link from "next/link"
 import { ArrowLeft, ArrowUpRight, ExternalLink } from 'lucide-react'
 import { ImageGalleryCarousel } from "@/components/image-gallery-carousel"
+import { ContactSection } from "@/components/contact-section"
 
 export default function AdobeSubstance3DPage() {
+  const scrollToContact = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault()
+    const contactSection = document.getElementById('contact')
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: 'smooth', block: 'center' })
+    }
+  }
+
   const galleryImages = [
     {
       src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/stager-lighting-500x268%402x-pydc9EpTZKD4KTGPlpWctJbcq35Tlw.png",
@@ -133,7 +144,8 @@ export default function AdobeSubstance3DPage() {
                 About
               </Link>
               <a
-                href="mailto:andi@andixd.com"
+                href="#contact"
+                onClick={scrollToContact}
                 className="px-6 py-2 rounded-lg bg-gradient-to-r from-purple-600 to-blue-600 text-white text-lg font-medium hover:shadow-lg hover:shadow-purple-500/30 hover:scale-105 transition-all duration-300 cursor-pointer"
               >
                 Contact
@@ -359,6 +371,8 @@ export default function AdobeSubstance3DPage() {
           </div>
         </div>
       </section>
+
+      <ContactSection />
 
       {/* Footer */}
       <footer className="header border-t border-white/10 backdrop-blur-xl bg-background/30 mt-0">

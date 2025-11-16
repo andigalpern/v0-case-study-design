@@ -2,8 +2,17 @@
 
 import Link from "next/link"
 import { ArrowUpRight, Briefcase, GraduationCap, Heart, Lightbulb, Users } from 'lucide-react'
+import { ContactSection } from '@/components/contact-section'
 
 export default function AboutPage() {
+  const scrollToContact = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault()
+    const contactSection = document.getElementById('contact')
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: 'smooth', block: 'center' })
+    }
+  }
+
   return (
     <div className="min-h-screen relative">
       {/* Gradient orbs background */}
@@ -38,7 +47,8 @@ export default function AboutPage() {
                   About
                 </Link>
                 <a
-                  href="mailto:andi@andixd.com"
+                  href="#contact"
+                  onClick={scrollToContact}
                   className="px-6 py-2 rounded-lg bg-gradient-to-r from-purple-600 to-blue-600 text-white text-lg font-medium hover:shadow-lg hover:shadow-purple-500/30 hover:scale-105 transition-all duration-300 cursor-pointer"
                 >
                   Contact
@@ -317,32 +327,7 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* CTA */}
-        <section className="container mx-auto px-6 py-16">
-          <div className="backdrop-blur-xl gradient-bg-purple-blue border border-white/10 rounded-3xl p-12 text-center">
-            <h2 className="text-4xl font-black mb-6 text-brand-gray-dark">
-              Let's create something impactful together
-            </h2>
-            <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto text-balance">
-              I'm always interested in discussing growth design challenges, AI product opportunities, or just talking shop about what makes great product experiences tick.
-            </p>
-            <div className="flex gap-4 justify-center flex-wrap">
-              <a
-                href="mailto:andi@andixd.com"
-                className="btn-primary inline-flex items-center gap-2"
-              >
-                Send me an email
-                <ArrowUpRight className="w-5 h-5" />
-              </a>
-              <Link
-                href="/portfolio"
-                className="px-8 py-4 rounded-xl border-2 border-purple-600/30 text-purple-700 text-lg font-semibold hover:bg-purple-50 hover:border-purple-600/50 transition-all duration-300 cursor-pointer"
-              >
-                View my work
-              </Link>
-            </div>
-          </div>
-        </section>
+        <ContactSection />
 
         {/* Footer */}
         <footer className="border-t border-white/10 backdrop-blur-xl bg-background/30">
