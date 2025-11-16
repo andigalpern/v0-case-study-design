@@ -4,6 +4,7 @@ import { Analytics } from '@vercel/analytics/next'
 import Script from 'next/script'
 import './globals.css'
 import { ScrollToTop } from '@/components/scroll-to-top'
+import { ContactForm } from '@/components/contact-form'
 
 const _geist = Geist({ subsets: ["latin"] });
 const _geistMono = Geist_Mono({ subsets: ["latin"] });
@@ -55,6 +56,7 @@ export default function RootLayout({
       <body className={`font-sans antialiased`}>
         <ScrollToTop />
         {children}
+        <ContactForm />
         <Analytics />
       </body>
     </html>

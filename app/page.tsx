@@ -14,6 +14,11 @@ export default function HomePage() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
+  const scrollToContact = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault()
+    document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })
+  }
+
   const featuredWorks = [
     {
       id: 2,
@@ -121,8 +126,8 @@ export default function HomePage() {
           style={{ transform: `translateY(${scrollY * -0.1}px) rotate(${scrollY * -0.03}deg)` }}
         />
         <div 
-          className="absolute top-[1800px] left-40 w-24 h-24 border border-purple-500/20 rounded-lg rotate-45"
-          style={{ transform: `translateY(${scrollY * 0.12}px) rotate(45deg)` }}
+          className="absolute top-[1800px] left-1/3 w-28 h-28 border border-purple-500/20 rounded-xl rotate-12"
+          style={{ transform: `translateY(${scrollY * 0.12}px) rotate(12deg)` }}
         />
         <div 
           className="absolute top-[2000px] right-1/3 w-28 h-28 border-2 border-blue-500/30 rounded-full"
@@ -169,7 +174,8 @@ export default function HomePage() {
                   About
                 </Link>
                 <a
-                  href="mailto:andi@andixd.com"
+                  href="#contact"
+                  onClick={scrollToContact}
                   className="px-6 py-2 rounded-lg bg-gradient-to-r from-purple-600 to-blue-600 text-white text-lg font-medium hover:shadow-lg hover:shadow-purple-500/30 hover:scale-105 transition-all duration-300 cursor-pointer"
                 >
                   Contact
@@ -227,7 +233,8 @@ export default function HomePage() {
                 <ArrowUpRight className="w-5 h-5" />
               </Link>
               <a
-                href="mailto:andi@andixd.com"
+                href="#contact"
+                onClick={scrollToContact}
                 className="px-8 py-4 rounded-xl border-2 border-purple-600/30 text-purple-700 text-lg font-semibold hover:bg-purple-50 hover:border-purple-600/50 transition-all duration-300 cursor-pointer"
               >
                 Let's Talk
@@ -518,7 +525,8 @@ export default function HomePage() {
               coffee to talk shop.
             </p>
             <a
-              href="mailto:andi@andixd.com"
+              href="#contact"
+              onClick={scrollToContact}
               className="btn-primary inline-flex items-center gap-2"
             >
               Schedule a conversation
@@ -528,7 +536,7 @@ export default function HomePage() {
         </section>
 
         {/* Footer */}
-        <footer className="header border-t border-white/10 backdrop-blur-xl bg-background/30">
+        <footer className="header border-t border-white/10 backdrop-blur-xl bg-background/30" id="contact">
           <div className="container mx-auto px-6 py-8">
             <div className="flex flex-col md:flex-row justify-between items-center gap-4">
               <p className="text-sm text-muted-foreground">© 2025 Andi Galpern. All rights reserved.</p>
