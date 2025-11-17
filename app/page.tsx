@@ -2,7 +2,7 @@
 
 import Image from "next/image"
 import Link from "next/link"
-import { ArrowUpRight, Sparkles, Code2, Zap, Cpu, TrendingUp, Users, Bot, Rocket, BarChart } from 'lucide-react'
+import { ArrowUpRight, Sparkles, Code2, Zap, Cpu, TrendingUp, Users, Bot, Rocket, BarChart, Download } from 'lucide-react'
 import { useEffect, useState, useRef } from 'react'
 import { ContactSection } from '@/components/contact-section'
 import { Header } from '@/components/header'
@@ -156,7 +156,6 @@ export default function HomePage() {
                 </span>
               </div>
 
-              {/* Dynamic headline with staggered reveal */}
               <h1 className="reveal-on-scroll mb-12">
                 <span className="block text-7xl md:text-8xl lg:text-9xl font-black leading-[0.9] tracking-tighter mb-4" style={{ color: '#20221e' }}>
                   I design
@@ -172,17 +171,23 @@ export default function HomePage() {
                   </span>
                 </span>
                 <span className="block text-7xl md:text-8xl lg:text-9xl font-black leading-[0.9] tracking-tighter" style={{ color: '#20221e' }}>
-                  products that
+                  product experiences
                 </span>
                 <span className="block text-7xl md:text-8xl lg:text-9xl font-black leading-[0.9] tracking-tighter mt-4">
                   <span className="relative inline-block">
                     <span className="absolute inset-0 bg-gradient-to-r from-pink-500 via-purple-600 to-blue-500 bg-clip-text text-transparent blur-sm" />
                     <span className="relative bg-gradient-to-r from-pink-500 via-purple-600 to-blue-500 bg-clip-text text-transparent">
-                      drive growth
+                      that drive growth
                     </span>
                   </span>
                 </span>
               </h1>
+
+              <div className="reveal-on-scroll mb-6">
+                <p className="text-xs uppercase tracking-[0.3em] text-purple-600 font-bold">
+                  Impact at a Glance
+                </p>
+              </div>
 
               {/* Metrics bar with animated counters */}
               <div className="reveal-on-scroll grid grid-cols-3 gap-6 mb-12 max-w-4xl">
@@ -192,42 +197,55 @@ export default function HomePage() {
                   { value: "$7.5M", label: "Revenue Impact", icon: BarChart }
                 ].map((metric, i) => (
                   <div key={i} 
-                       className="group relative bg-white/40 backdrop-blur-md border border-white/20 rounded-2xl p-6 hover:bg-white/60 hover:border-purple-500/30 hover:shadow-xl hover:shadow-purple-500/10 transition-all duration-500"
+                       className="group relative bg-white/40 backdrop-blur-md border border-white/20 rounded-2xl p-6 hover:bg-white/60 hover:border-purple-500/30 hover:shadow-xl hover:shadow-purple-500/10 transition-all duration-500 hover:-translate-y-1"
                        style={{ animationDelay: `${i * 100}ms` }}>
                     <metric.icon className="w-5 h-5 text-purple-600 mb-3 group-hover:scale-110 transition-transform" />
-                    <div className="text-4xl font-black text-purple-600 mb-1">{metric.value}</div>
+                    <div className="text-4xl font-black text-purple-600 mb-1 tabular-nums">{metric.value}</div>
                     <div className="text-sm font-medium text-gray-600">{metric.label}</div>
                   </div>
                 ))}
               </div>
 
-              {/* Refined description */}
-              <p className="reveal-on-scroll text-2xl leading-relaxed mb-12 max-w-3xl" style={{ color: '#20221e' }}>
-                Senior Product Designer specializing in <strong className="font-bold text-purple-700">AI-powered products</strong> and{' '}
-                <strong className="font-bold text-purple-700">growth design strategy</strong>. I help companies like Adobe and Informatica turn complex problems into revenue-driving experiences.
+              <p className="reveal-on-scroll text-2xl leading-relaxed mb-12 max-w-4xl" style={{ color: '#20221e' }}>
+                Senior Product Designer blending <strong className="font-bold text-purple-700">AI</strong>,{' '}
+                <strong className="font-bold text-purple-700">experimentation</strong>, and{' '}
+                <strong className="font-bold text-purple-700">growth strategy</strong> to transform complex product challenges into measurable revenue outcomes.
               </p>
 
-              {/* CTA with enhanced interaction */}
-              <div className="reveal-on-scroll flex gap-4 items-center">
-                <Link
-                  href="/portfolio"
-                  className="group relative px-8 py-4 rounded-2xl overflow-hidden"
-                >
-                  <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-blue-500 transition-transform group-hover:scale-105" />
-                  <div className="absolute inset-0 bg-gradient-to-r from-purple-500 to-blue-400 opacity-0 group-hover:opacity-100 transition-opacity" />
-                  <span className="relative flex items-center gap-2 text-white font-bold text-lg">
-                    View Case Studies
-                    <ArrowUpRight className="w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-                  </span>
-                </Link>
-                <a
-                  href="#contact"
-                  onClick={scrollToContact}
-                  className="px-8 py-4 rounded-2xl bg-white/40 backdrop-blur-md border border-white/20 font-bold text-lg hover:bg-white/60 hover:border-purple-500/30 hover:shadow-lg transition-all duration-300"
-                  style={{ color: '#20221e' }}
-                >
-                  Let's Talk
-                </a>
+              <div className="reveal-on-scroll flex flex-col gap-4">
+                <div className="flex gap-4 items-center">
+                  <Link
+                    href="/portfolio"
+                    className="group relative px-8 py-4 rounded-2xl overflow-hidden"
+                  >
+                    <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-blue-500 transition-transform group-hover:scale-105" />
+                    <div className="absolute inset-0 bg-gradient-to-r from-purple-500 to-blue-400 opacity-0 group-hover:opacity-100 transition-opacity" />
+                    <span className="relative flex items-center gap-2 text-white font-bold text-lg">
+                      View Case Studies
+                      <ArrowUpRight className="w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                    </span>
+                  </Link>
+                  <a
+                    href="#contact"
+                    onClick={scrollToContact}
+                    className="px-8 py-4 rounded-2xl bg-white/40 backdrop-blur-md border border-white/20 font-bold text-lg hover:bg-white/60 hover:border-purple-500/30 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300"
+                    style={{ color: '#20221e' }}
+                  >
+                    Let's Talk
+                  </a>
+                </div>
+                
+                <div>
+                  <a
+                    href="/resume.pdf"
+                    download
+                    className="inline-flex items-center gap-2 text-gray-600 hover:text-purple-700 font-semibold transition-colors group"
+                  >
+                    <Download className="w-4 h-4 group-hover:translate-y-0.5 transition-transform" />
+                    Download Resume
+                    <ArrowUpRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" />
+                  </a>
+                </div>
               </div>
             </div>
           </div>
@@ -265,7 +283,6 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* Featured Works */}
         <section className="py-32">
           <div className="container mx-auto px-6">
             <div className="text-center mb-20 reveal-on-scroll">
@@ -274,7 +291,7 @@ export default function HomePage() {
                 <span className="text-sm font-bold text-purple-700">Featured Work</span>
               </div>
               <h2 className="text-6xl md:text-7xl font-black mb-6" style={{ color: '#20221e' }}>
-                Case Studies
+                Growth Case Studies
               </h2>
               <p className="text-xl text-gray-600 max-w-2xl mx-auto">
                 Strategic design solutions that deliver measurable business impact
@@ -291,17 +308,17 @@ export default function HomePage() {
                     <div className={`grid md:grid-cols-2 gap-16 items-center ${index % 2 === 1 ? 'md:grid-flow-dense' : ''}`}>
                       {/* Image */}
                       <div className={`relative ${index % 2 === 1 ? 'md:col-start-2' : ''}`}>
-                        <div className="absolute inset-0 bg-gradient-to-br from-purple-500/20 to-blue-500/20 rounded-3xl blur-2xl group-hover:blur-3xl transition-all" />
-                        <div className="relative aspect-[4/3] rounded-3xl overflow-hidden bg-gradient-to-br from-purple-50 to-blue-50 border border-white/20">
+                        <div className="absolute inset-0 bg-gradient-to-br from-purple-500/20 to-blue-500/20 rounded-3xl blur-2xl group-hover:blur-3xl group-hover:scale-105 transition-all duration-700" />
+                        <div className="relative aspect-[4/3] rounded-3xl overflow-hidden bg-gradient-to-br from-purple-50 to-blue-50 border border-white/20 group-hover:border-purple-300/50 group-hover:shadow-2xl group-hover:shadow-purple-500/20 group-hover:-translate-y-2 transition-all duration-700">
                           <Image
                             src={project.image || "/placeholder.svg"}
                             alt={project.title}
                             fill
-                            className="object-cover group-hover:scale-105 transition-transform duration-700"
+                            className="object-cover group-hover:scale-110 transition-transform duration-1000"
                           />
                           {/* Metric badge */}
                           {project.metric && (
-                            <div className="absolute top-6 left-6 px-4 py-2 rounded-full bg-white/95 backdrop-blur-sm border border-purple-200 shadow-xl">
+                            <div className="absolute top-6 left-6 px-4 py-2 rounded-full bg-white/95 backdrop-blur-sm border border-purple-200 shadow-xl group-hover:scale-110 transition-transform">
                               <div className="flex items-center gap-2">
                                 <TrendingUp className="w-4 h-4 text-purple-600" />
                                 <span className="text-sm font-black text-purple-700">{project.metric}</span>
@@ -325,7 +342,7 @@ export default function HomePage() {
                           </div>
                         )}
 
-                        <h3 className="text-4xl font-black text-balance leading-tight group-hover:bg-gradient-to-r group-hover:from-purple-700 group-hover:to-blue-600 group-hover:bg-clip-text group-hover:text-transparent transition-all" style={{ color: '#20221e' }}>
+                        <h3 className="text-4xl md:text-5xl font-black text-balance leading-tight group-hover:bg-gradient-to-r group-hover:from-purple-700 group-hover:to-blue-600 group-hover:bg-clip-text group-hover:text-transparent transition-all duration-500" style={{ color: '#20221e' }}>
                           {project.title}
                         </h3>
 
@@ -337,7 +354,7 @@ export default function HomePage() {
                           {project.tags.map((tag) => (
                             <span
                               key={tag}
-                              className="px-4 py-2 rounded-full text-sm font-semibold bg-white/60 backdrop-blur-sm border border-white/20 text-purple-700"
+                              className="px-4 py-2 rounded-full text-sm font-semibold bg-white/60 backdrop-blur-sm border border-white/20 text-purple-700 group-hover:bg-purple-50 group-hover:border-purple-200 transition-colors"
                             >
                               {tag}
                             </span>
@@ -367,7 +384,6 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* My Skills */}
         <section className="py-32 relative">
           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-purple-50/30 to-transparent" />
           <div className="relative container mx-auto px-6">
@@ -409,15 +425,15 @@ export default function HomePage() {
               ].map((skill, index) => (
                 <div 
                   key={index} 
-                  className="reveal-on-scroll group relative bg-white/60 backdrop-blur-md border border-white/20 rounded-3xl p-8 hover:bg-white/80 hover:border-purple-500/30 hover:shadow-2xl hover:shadow-purple-500/10 transition-all duration-500"
+                  className="reveal-on-scroll group relative bg-white/60 backdrop-blur-md border border-white/20 rounded-3xl p-8 hover:bg-white/80 hover:border-purple-500/30 hover:shadow-2xl hover:shadow-purple-500/10 hover:-translate-y-2 transition-all duration-500 cursor-default"
                   style={{ animationDelay: `${index * 100}ms` }}
                 >
-                  <div className="absolute top-8 right-8 opacity-5 group-hover:opacity-10 transition-opacity">
+                  <div className="absolute top-8 right-8 opacity-5 group-hover:opacity-10 group-hover:scale-110 transition-all duration-500">
                     <div className="w-32 h-32 text-purple-600">
                       {skill.icon}
                     </div>
                   </div>
-                  <div className="relative w-14 h-14 rounded-2xl bg-gradient-to-br from-purple-500 to-blue-500 flex items-center justify-center mb-6 text-white group-hover:scale-110 group-hover:rotate-3 transition-all shadow-lg">
+                  <div className="relative w-14 h-14 rounded-2xl bg-gradient-to-br from-purple-500 to-blue-500 flex items-center justify-center mb-6 text-white group-hover:scale-110 group-hover:rotate-6 transition-all shadow-lg">
                     {skill.icon}
                   </div>
                   <h3 className="text-2xl font-black mb-4 group-hover:text-purple-700 transition-colors" style={{ color: '#20221e' }}>
@@ -432,10 +448,9 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* Built with AI Section */}
         <section className="py-32 reveal-on-scroll">
           <div className="container mx-auto px-6">
-            <div className="relative overflow-hidden rounded-[3rem] bg-gradient-to-br from-purple-600 via-blue-600 to-purple-700 border border-purple-400/30">
+            <div className="relative overflow-hidden rounded-[3rem] bg-gradient-to-br from-purple-600 via-blue-600 to-purple-700 border border-purple-400/30 hover:shadow-2xl hover:shadow-purple-500/20 transition-shadow duration-700">
               <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-10" />
               
               <div className="relative z-10 p-16 md:p-20">
@@ -451,7 +466,7 @@ export default function HomePage() {
                     </h2>
                     <div className="space-y-4 text-lg leading-relaxed">
                       <p className="text-white/90">
-                        This entire portfolio was built using an AI-powered design and development tool that turns natural language into production-ready code.
+                        This portfolio was built using an AI-powered design and development workflow that turns natural language into production-ready code.
                       </p>
                       <p className="text-white/90">
                         I curated the content, art directed the visual design, and directed layouts. Then I let AI handle the implementation.
@@ -468,7 +483,7 @@ export default function HomePage() {
                       { icon: Zap, title: "Built in Hours", desc: "From concept to deployed site in a fraction of the time" },
                       { icon: Cpu, title: "AI-Assisted Iteration", desc: "Rapid prototyping through conversational prompts" }
                     ].map((item, i) => (
-                      <div key={i} className="bg-white/15 border border-white/30 backdrop-blur-md rounded-2xl p-6 hover:bg-white/20 transition-all">
+                      <div key={i} className="bg-white/15 border border-white/30 backdrop-blur-md rounded-2xl p-6 hover:bg-white/25 hover:scale-105 transition-all duration-300">
                         <div className="flex items-start gap-4">
                           <div className="w-12 h-12 rounded-xl bg-white/20 flex items-center justify-center flex-shrink-0">
                             <item.icon className="w-6 h-6 text-white" />
@@ -487,8 +502,16 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* Let's Grow Together CTA */}
-        <ContactSection />
+        <section className="py-32 reveal-on-scroll" id="contact">
+          <div className="container mx-auto px-6">
+            <div className="text-center mb-12">
+              <p className="text-2xl font-semibold text-gray-600 mb-4">
+                Ready to accelerate your AI product roadmap?
+              </p>
+            </div>
+            <ContactSection />
+          </div>
+        </section>
 
         {/* Footer */}
         <footer className="border-t border-white/10 bg-white/40 backdrop-blur-xl">
@@ -497,11 +520,11 @@ export default function HomePage() {
               <p className="text-sm text-gray-600">© 2025 Andi Galpern. All rights reserved.</p>
               <div className="flex gap-6">
                 <a href="https://linkedin.com/in/andigalpern" target="_blank" rel="noopener noreferrer" 
-                   className="text-sm text-gray-600 hover:text-gray-900 transition-colors">
+                   className="text-sm text-gray-600 hover:text-purple-700 transition-colors">
                   LinkedIn
                 </a>
                 <a href="mailto:andi@andixd.com" 
-                   className="text-sm text-gray-600 hover:text-gray-900 transition-colors">
+                   className="text-sm text-gray-600 hover:text-purple-700 transition-colors">
                   Email
                 </a>
               </div>
