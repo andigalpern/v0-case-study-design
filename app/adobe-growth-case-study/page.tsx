@@ -180,7 +180,7 @@ export default function AdobeGrowthCaseStudy() {
           <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
             {[
               { icon: Globe, number: "8", label: "Global Markets", color: "from-purple-600 to-purple-400" },
-              { icon: Users, number: "64", label: "Tutorial Pages Built", color: "from-blue-600 to-blue-400" },
+              { icon: Users, number: "128", label: "Tutorial Pages Built", color: "from-blue-600 to-blue-400" },
               { icon: TrendingUp, number: "100K+", label: "Users Impacted", color: "from-pink-600 to-pink-400" },
             ].map((stat, index) => (
               <div
@@ -855,7 +855,7 @@ export default function AdobeGrowthCaseStudy() {
           <div className="container mx-auto px-6">
             <div className="max-w-4xl mx-auto">
               <div className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-gradient-to-r from-pink-600 to-purple-600 text-white mb-8 shadow-lg">
-                <span className="text-2xl font-black">10</span>
+                <span className="text-2xl font-black">05</span>
                 <span className="text-base font-bold">Key Learnings</span>
               </div>
 
