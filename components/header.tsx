@@ -51,6 +51,16 @@ export function Header() {
           
           <div className="flex gap-1 items-center bg-white/40 backdrop-blur-md rounded-full p-1 border border-white/20">
             <Link 
+              href="/portfolio" 
+              className={`px-4 py-2 rounded-full text-sm font-semibold transition-all duration-300 ${
+                isActive('/portfolio') || pathname.includes('case-study') || pathname.includes('substance')
+                  ? 'bg-white text-gray-900 shadow-sm'
+                  : 'text-gray-600 hover:text-gray-900 hover:bg-white/60'
+              }`}
+            >
+              Work
+            </Link>
+            <Link 
               href="/process" 
               className={`px-4 py-2 rounded-full text-sm font-semibold transition-all duration-300 ${
                 isActive('/process')
@@ -59,16 +69,6 @@ export function Header() {
               }`}
             >
               Process
-            </Link>
-            <Link 
-              href="/portfolio" 
-              className={`px-4 py-2 rounded-full text-sm font-semibold transition-all duration-300 ${
-                isActive('/portfolio') || pathname.includes('case-study') || pathname.includes('substance')
-                  ? 'bg-white text-gray-900 shadow-sm'
-                  : 'text-gray-600 hover:text-gray-900 hover:bg-white/60'
-              }`}
-            >
-              Portfolio
             </Link>
             <Link 
               href="/about" 

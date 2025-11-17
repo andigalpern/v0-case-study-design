@@ -234,18 +234,6 @@ export default function HomePage() {
                     Let's Talk
                   </a>
                 </div>
-                
-                <div>
-                  <a
-                    href="/resume.pdf"
-                    download
-                    className="inline-flex items-center gap-2 text-gray-600 hover:text-purple-700 font-semibold transition-colors group"
-                  >
-                    <Download className="w-4 h-4 group-hover:translate-y-0.5 transition-transform" />
-                    Download Resume
-                    <ArrowUpRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" />
-                  </a>
-                </div>
               </div>
             </div>
           </div>
