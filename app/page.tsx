@@ -64,6 +64,7 @@ export default function HomePage() {
   const companies = [
     { name: "Adobe", logo: "/adobe-logo.svg" },
     { name: "Informatica", logo: "/informatica-logo.svg" },
+    { name: "Cisco", logo: "/cisco-logo.svg" },
     { name: "Smule", logo: "/smule-logo.png" },
     { name: "Patreon", logo: "/patreon-logo.svg" },
     { name: "Zapier", logo: "/zapier-logo.png" },
@@ -133,7 +134,7 @@ export default function HomePage() {
           style={{ transform: `translateY(${scrollY * 0.12}px) rotate(12deg)` }}
         />
         <div 
-          className="absolute top-[2000px] right-1/3 w-28 h-28 border-2 border-blue-500/30 rounded-full"
+          className="absolute top-[2000px] right-1/3 w-28 h-28 border-2 border-purple-500/30 rounded-full"
           style={{ transform: `translateY(${scrollY * -0.08}px)` }}
         />
         
@@ -143,7 +144,7 @@ export default function HomePage() {
           style={{ transform: `translateY(${scrollY * 0.08}px) rotate(${scrollY * 0.05}deg)` }}
         />
         <div 
-          className="absolute bottom-60 left-1/3 w-28 h-28 border border-purple-500/30 rounded-xl rotate-12"
+          className="absolute bottom-60 left-1/3 w-28 h-28 border border-purple-500/20 rounded-xl rotate-12"
           style={{ transform: `translateY(${scrollY * -0.12}px) rotate(12deg)` }}
         />
         <div 
@@ -205,10 +206,12 @@ export default function HomePage() {
 
             {/* Main Headline */}
             <h1 className="text-6xl md:text-7xl lg:text-8xl font-black mb-8 text-balance leading-[0.95] tracking-tight">
-              <span className="text-brand-gray-dark">I design products</span>
+              <span className="text-brand-gray-dark">I design AI-powered</span>
+              <br />
+              <span className="text-brand-gray-dark">products that drive</span>
               <br />
               <span className="bg-gradient-to-r from-purple-600 via-blue-600 to-purple-600 bg-clip-text text-transparent animate-gradient">
-                that drive growth
+                growth
               </span>
             </h1>
 
@@ -216,7 +219,7 @@ export default function HomePage() {
             <div className="grid md:grid-cols-3 gap-8 mb-12 max-w-4xl">
               <div className="space-y-2">
                 <div className="text-5xl font-bold text-purple-600">14+</div>
-                <div className="text-lg text-brand-gray-dark font-medium">Years Experience</div>
+                <div className="text-lg text-brand-gray-dark font-medium">Years</div>
               </div>
               <div className="space-y-2">
                 <div className="text-5xl font-bold text-purple-600">341%</div>
@@ -261,7 +264,7 @@ export default function HomePage() {
             {companies.map((company) => (
               <div
                 key={company.name}
-                className="flex items-center justify-center opacity-60 hover:opacity-100 transition-all duration-300 hover:scale-110"
+                className="flex items-center justify-center opacity-100 hover:opacity-80 transition-all duration-300 hover:scale-110"
               >
                 <div className="relative h-16 w-40">
                   <Image src={company.logo || "/placeholder.svg"} alt={`${company.name} logo`} fill className="object-contain" />
