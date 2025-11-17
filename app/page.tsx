@@ -2,17 +2,47 @@
 
 import Image from "next/image"
 import Link from "next/link"
-import { ArrowUpRight, Sparkles, Code2, Zap, Cpu, TrendingUp, Users } from 'lucide-react'
-import { useEffect, useState } from 'react'
+import { ArrowUpRight, Sparkles, Code2, Zap, Cpu, TrendingUp, Users, Bot, Rocket, BarChart } from 'lucide-react'
+import { useEffect, useState, useRef } from 'react'
 import { ContactSection } from '@/components/contact-section'
+import { Header } from '@/components/header'
 
 export default function HomePage() {
   const [scrollY, setScrollY] = useState(0)
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
+  const heroRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     const handleScroll = () => setScrollY(window.scrollY)
+    const handleMouseMove = (e: MouseEvent) => {
+      setMousePosition({
+        x: (e.clientX / window.innerWidth) * 20 - 10,
+        y: (e.clientY / window.innerHeight) * 20 - 10
+      })
+    }
+    
     window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
+    window.addEventListener('mousemove', handleMouseMove)
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+      window.removeEventListener('mousemove', handleMouseMove)
+    }
+  }, [])
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('reveal-active')
+          }
+        })
+      },
+      { threshold: 0.1, rootMargin: '-50px' }
+    )
+
+    document.querySelectorAll('.reveal-on-scroll').forEach((el) => observer.observe(el))
+    return () => observer.disconnect()
   }, [])
 
   const scrollToContact = (e: React.MouseEvent<HTMLAnchorElement>) => {
@@ -30,8 +60,7 @@ export default function HomePage() {
       category: "Adobe",
       logo: "/adobe-logo.svg",
       metric: "7 Global Markets",
-      description:
-        "Multi-channel activation strategy and trial-to-paid funnel optimization across 7 global markets for Adobe Creative Cloud.",
+      description: "Multi-channel activation strategy and trial-to-paid funnel optimization across 7 global markets.",
       image: "/adobe-creative-cloud-dashboard-interface.jpg",
       tags: ["Growth Strategy", "Global Scale", "B2C"],
       link: "/adobe-growth-case-study",
@@ -42,8 +71,7 @@ export default function HomePage() {
       category: "Informatica",
       logo: "/informatica-lightbg-logo.svg",
       metric: "341% Pipeline Growth",
-      description:
-        "Conversational chatbot interface design to improve lead qualification and sales pipeline conversion through personalized user interactions.",
+      description: "Conversational chatbot interface design to improve lead qualification and sales pipeline conversion.",
       image: "/images/sales-pipeline-3d.png",
       tags: ["AI/ML", "Conversion", "B2B SaaS"],
       link: "/informatica-chatbot-case-study",
@@ -53,11 +81,10 @@ export default function HomePage() {
       title: "Adobe HelpX: 3D Interface Design",
       category: "Adobe",
       logo: "/adobe-logo.svg",
-      description:
-        "Interactive 3D blueprint-style interface design for Adobe HelpX tutorial platform with component-based learning modules.",
+      description: "Interactive 3D blueprint-style interface design for Adobe HelpX tutorial platform.",
       image: "/images/adobe-helpx-3d.png",
       tags: ["3D Design", "Education", "UI Components"],
-      link: "/adobe-substance-3d", // Updated link to new Substance 3D page
+      link: "/adobe-substance-3d",
     },
   ]
 
@@ -72,353 +99,331 @@ export default function HomePage() {
   ]
 
   return (
-    <div className="min-h-screen relative">
+    <div className="min-h-screen relative overflow-hidden">
       {/* Gradient orbs background */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-20 -left-40 w-96 h-96 gradient-bg-purple-blue rounded-full blur-3xl opacity-30" />
-        <div className="absolute top-1/3 -right-40 w-[600px] h-[600px] gradient-bg-purple-blue rounded-full blur-3xl opacity-20" />
-        <div className="absolute bottom-20 left-1/4 w-96 h-96 gradient-bg-purple-blue rounded-full blur-3xl opacity-25" />
+        <div 
+          className="absolute top-20 -left-40 w-[800px] h-[800px] rounded-full blur-3xl opacity-20 transition-transform duration-1000"
+          style={{
+            background: 'radial-gradient(circle, rgba(168,85,247,0.4) 0%, rgba(59,130,246,0.2) 50%, transparent 100%)',
+            transform: `translate(${mousePosition.x}px, ${mousePosition.y}px)`
+          }}
+        />
+        <div 
+          className="absolute top-1/3 -right-40 w-[1000px] h-[1000px] rounded-full blur-3xl opacity-15 transition-transform duration-1000"
+          style={{
+            background: 'radial-gradient(circle, rgba(59,130,246,0.3) 0%, rgba(168,85,247,0.2) 50%, transparent 100%)',
+            transform: `translate(${-mousePosition.x}px, ${-mousePosition.y}px)`
+          }}
+        />
+        <div 
+          className="absolute bottom-20 left-1/4 w-[600px] h-[600px] rounded-full blur-3xl opacity-10"
+          style={{
+            background: 'radial-gradient(circle, rgba(236,72,153,0.3) 0%, rgba(168,85,247,0.15) 50%, transparent 100%)',
+          }}
+        />
       </div>
 
       {/* Floating geometric shapes animation */}
-      <div className="fixed inset-0 overflow-hidden pointer-events-none opacity-20">
-        {/* Hero section - very far away shapes */}
-        <div 
-          className="absolute top-10 left-10 w-16 h-16 border border-purple-500/20 rounded-full"
-          style={{ transform: `translateY(${scrollY * 0.05}px)` }}
-        />
-        <div 
-          className="absolute top-32 right-10 w-12 h-12 border border-blue-500/15"
-          style={{ transform: `translateY(${scrollY * -0.06}px) rotate(${scrollY * 0.02}deg)` }}
-        />
-        <div 
-          className="absolute top-20 right-1/3 w-20 h-20 border border-purple-500/15 rounded-xl rotate-12"
-          style={{ transform: `translateY(${scrollY * 0.04}px) rotate(12deg)` }}
-        />
-        <div 
-          className="absolute top-48 left-1/4 w-14 h-14 border border-blue-500/20 rounded-lg rotate-45"
-          style={{ transform: `translateY(${scrollY * -0.07}px) rotate(45deg)` }}
-        />
-        
-        {/* Original hero shapes - closer */}
-        <div 
-          className="absolute top-40 left-20 w-32 h-32 border-2 border-purple-500/30 rounded-2xl rotate-45"
-          style={{ transform: `translateY(${scrollY * 0.1}px) rotate(45deg)` }}
-        />
-        <div 
-          className="absolute top-60 right-40 w-24 h-24 border-2 border-blue-500/30 rounded-full"
-          style={{ transform: `translateY(${scrollY * -0.15}px)` }}
-        />
-        
-        {/* Mid-page shapes */}
-        <div 
-          className="absolute top-[800px] left-10 w-28 h-28 border-2 border-purple-500/25 rounded-full"
-          style={{ transform: `translateY(${scrollY * 0.09}px)` }}
-        />
-        <div 
-          className="absolute top-[1000px] right-32 w-36 h-36 border border-blue-500/20 rounded-3xl rotate-12"
-          style={{ transform: `translateY(${scrollY * -0.11}px) rotate(12deg)` }}
-        />
-        <div 
-          className="absolute top-[1200px] left-1/4 w-20 h-20 border-2 border-purple-500/30"
-          style={{ transform: `translateY(${scrollY * 0.13}px) rotate(${scrollY * 0.04}deg)` }}
-        />
-        
-        {/* Lower section shapes */}
-        <div 
-          className="absolute top-[1600px] right-20 w-32 h-32 border-2 border-blue-500/25 rounded-2xl"
-          style={{ transform: `translateY(${scrollY * -0.1}px) rotate(${scrollY * -0.03}deg)` }}
-        />
-        <div 
-          className="absolute top-[1800px] left-1/3 w-28 h-28 border border-purple-500/20 rounded-xl rotate-12"
-          style={{ transform: `translateY(${scrollY * 0.12}px) rotate(12deg)` }}
-        />
-        <div 
-          className="absolute top-[2000px] right-1/3 w-28 h-28 border-2 border-purple-500/30 rounded-full"
-          style={{ transform: `translateY(${scrollY * -0.08}px)` }}
-        />
-        
-        {/* Bottom shapes */}
-        <div 
-          className="absolute bottom-40 right-20 w-40 h-40 border-2 border-purple-500/20"
-          style={{ transform: `translateY(${scrollY * 0.08}px) rotate(${scrollY * 0.05}deg)` }}
-        />
-        <div 
-          className="absolute bottom-60 left-1/3 w-28 h-28 border border-purple-500/20 rounded-xl rotate-12"
-          style={{ transform: `translateY(${scrollY * -0.12}px) rotate(12deg)` }}
-        />
-        <div 
-          className="absolute bottom-[800px] left-16 w-22 h-22 border border-purple-500/20 rounded-full"
-          style={{ transform: `translateY(${scrollY * 0.1}px)` }}
-        />
+      <div className="fixed inset-0 overflow-hidden pointer-events-none opacity-[0.03]">
+        <svg className="w-full h-full" style={{ transform: `translateY(${scrollY * 0.3}px)` }}>
+          <defs>
+            <pattern id="grid" width="80" height="80" patternUnits="userSpaceOnUse">
+              <path d="M 80 0 L 0 0 0 80" fill="none" stroke="currentColor" strokeWidth="1"/>
+            </pattern>
+          </defs>
+          <rect width="100%" height="100%" fill="url(#grid)" />
+        </svg>
       </div>
 
       <div className="relative z-10">
-        {/* Header */}
-        <header className="header border-b border-white/10 backdrop-blur-xl bg-background/30 sticky top-0 z-50">
-          <div className="container mx-auto px-6 py-6">
-            <nav className="flex items-center justify-between">
-              <Link
-                href="/"
-                className="text-3xl font-bold bg-gradient-to-r from-purple-600 to-blue-500 bg-clip-text text-transparent hover:from-purple-500 hover:to-blue-400 transition-all cursor-pointer"
-              >
-                andi galpern
-              </Link>
-              <div className="flex gap-8 items-center">
-                <Link
-                  href="/process"
-                  className="text-lg font-medium text-muted-foreground hover:text-foreground transition-colors cursor-pointer"
-                >
-                  Process
-                </Link>
+        <Header />
+        
+        {/* Hero Section */}
+        <section ref={heroRef} className="relative pt-32 pb-20 min-h-screen flex items-center">
+          <div className="container mx-auto px-6">
+            <div className="max-w-6xl mx-auto">
+              {/* Badge with micro-interaction */}
+              <div className="reveal-on-scroll inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-purple-500/10 to-blue-500/10 border border-purple-500/20 backdrop-blur-sm mb-8 group hover:scale-105 transition-transform cursor-default">
+                <div className="relative">
+                  <Bot className="w-4 h-4 text-purple-600" />
+                  <div className="absolute inset-0 animate-ping">
+                    <Bot className="w-4 h-4 text-purple-400 opacity-75" />
+                  </div>
+                </div>
+                <span className="text-sm font-bold bg-gradient-to-r from-purple-700 to-blue-600 bg-clip-text text-transparent">
+                  AI Product Design × Growth Strategy
+                </span>
+              </div>
+
+              {/* Dynamic headline with staggered reveal */}
+              <h1 className="reveal-on-scroll mb-12">
+                <span className="block text-7xl md:text-8xl lg:text-9xl font-black leading-[0.9] tracking-tighter mb-4" style={{ color: '#20221e' }}>
+                  I design
+                </span>
+                <span className="block text-7xl md:text-8xl lg:text-9xl font-black leading-[0.9] tracking-tighter mb-4">
+                  <span className="relative inline-block">
+                    <span className="absolute inset-0 bg-gradient-to-r from-purple-600 via-blue-600 to-purple-600 bg-clip-text text-transparent blur-sm animate-gradient" style={{ backgroundSize: '200% auto' }}>
+                      AI-powered
+                    </span>
+                    <span className="relative bg-gradient-to-r from-purple-600 via-blue-600 to-purple-600 bg-clip-text text-transparent animate-gradient" style={{ backgroundSize: '200% auto' }}>
+                      AI-powered
+                    </span>
+                  </span>
+                </span>
+                <span className="block text-7xl md:text-8xl lg:text-9xl font-black leading-[0.9] tracking-tighter" style={{ color: '#20221e' }}>
+                  products that
+                </span>
+                <span className="block text-7xl md:text-8xl lg:text-9xl font-black leading-[0.9] tracking-tighter mt-4">
+                  <span className="relative inline-block">
+                    <span className="absolute inset-0 bg-gradient-to-r from-pink-500 via-purple-600 to-blue-500 bg-clip-text text-transparent blur-sm" />
+                    <span className="relative bg-gradient-to-r from-pink-500 via-purple-600 to-blue-500 bg-clip-text text-transparent">
+                      drive growth
+                    </span>
+                  </span>
+                </span>
+              </h1>
+
+              {/* Metrics bar with animated counters */}
+              <div className="reveal-on-scroll grid grid-cols-3 gap-6 mb-12 max-w-4xl">
+                {[
+                  { value: "14+", label: "Years", icon: Rocket },
+                  { value: "341%", label: "Pipeline Growth", icon: TrendingUp },
+                  { value: "$7.5M", label: "Revenue Impact", icon: BarChart }
+                ].map((metric, i) => (
+                  <div key={i} 
+                       className="group relative bg-white/40 backdrop-blur-md border border-white/20 rounded-2xl p-6 hover:bg-white/60 hover:border-purple-500/30 hover:shadow-xl hover:shadow-purple-500/10 transition-all duration-500"
+                       style={{ animationDelay: `${i * 100}ms` }}>
+                    <metric.icon className="w-5 h-5 text-purple-600 mb-3 group-hover:scale-110 transition-transform" />
+                    <div className="text-4xl font-black text-purple-600 mb-1">{metric.value}</div>
+                    <div className="text-sm font-medium text-gray-600">{metric.label}</div>
+                  </div>
+                ))}
+              </div>
+
+              {/* Refined description */}
+              <p className="reveal-on-scroll text-2xl leading-relaxed mb-12 max-w-3xl" style={{ color: '#20221e' }}>
+                Senior Product Designer specializing in <strong className="font-bold text-purple-700">AI-powered products</strong> and{' '}
+                <strong className="font-bold text-purple-700">growth design strategy</strong>. I help companies like Adobe and Informatica turn complex problems into revenue-driving experiences.
+              </p>
+
+              {/* CTA with enhanced interaction */}
+              <div className="reveal-on-scroll flex gap-4 items-center">
                 <Link
                   href="/portfolio"
-                  className="text-lg font-medium text-muted-foreground hover:text-foreground transition-colors cursor-pointer"
+                  className="group relative px-8 py-4 rounded-2xl overflow-hidden"
                 >
-                  Portfolio
-                </Link>
-                <Link
-                  href="/about"
-                  className="text-lg font-medium text-muted-foreground hover:text-foreground transition-colors cursor-pointer"
-                >
-                  About
+                  <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-blue-500 transition-transform group-hover:scale-105" />
+                  <div className="absolute inset-0 bg-gradient-to-r from-purple-500 to-blue-400 opacity-0 group-hover:opacity-100 transition-opacity" />
+                  <span className="relative flex items-center gap-2 text-white font-bold text-lg">
+                    View Case Studies
+                    <ArrowUpRight className="w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                  </span>
                 </Link>
                 <a
                   href="#contact"
                   onClick={scrollToContact}
-                  className="px-6 py-2 rounded-lg bg-gradient-to-r from-purple-600 to-blue-600 text-white text-lg font-medium hover:shadow-lg hover:shadow-purple-500/30 hover:scale-105 transition-all duration-300 cursor-pointer"
+                  className="px-8 py-4 rounded-2xl bg-white/40 backdrop-blur-md border border-white/20 font-bold text-lg hover:bg-white/60 hover:border-purple-500/30 hover:shadow-lg transition-all duration-300"
+                  style={{ color: '#20221e' }}
                 >
-                  Contact
+                  Let's Talk
                 </a>
               </div>
-            </nav>
+            </div>
           </div>
-        </header>
 
-        {/* Hero Section */}
-        <section className="container mx-auto px-6 pt-24 pb-32">
-          <div className="max-w-6xl mx-auto">
-            {/* Positioning Badge */}
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-purple-500/10 border border-purple-500/20 backdrop-blur-sm mb-8 animate-fade-in">
-              <TrendingUp className="w-4 h-4 text-purple-600" />
-              <span className="text-sm font-semibold text-purple-700">Growth Design Strategy • AI Product Design</span>
-            </div>
-
-            {/* Main Headline */}
-            <h1 className="text-6xl md:text-7xl lg:text-8xl font-black mb-8 text-balance leading-[0.95] tracking-tight">
-              <span className="text-brand-gray-dark">I design AI-powered</span>
-              <br />
-              <span className="text-brand-gray-dark">products that drive</span>
-              <br />
-              <span className="bg-gradient-to-r from-purple-600 via-blue-600 to-purple-600 bg-clip-text text-transparent animate-gradient">
-                growth
-              </span>
-            </h1>
-
-            {/* Subheadline with metrics */}
-            <div className="grid md:grid-cols-3 gap-8 mb-12 max-w-4xl">
-              <div className="space-y-2">
-                <div className="text-5xl font-bold text-purple-600">14+</div>
-                <div className="text-lg text-brand-gray-dark font-medium">Years</div>
-              </div>
-              <div className="space-y-2">
-                <div className="text-5xl font-bold text-purple-600">341%</div>
-                <div className="text-lg text-brand-gray-dark font-medium">Pipeline Growth</div>
-              </div>
-              <div className="space-y-2">
-                <div className="text-5xl font-bold text-purple-600">$7.5M</div>
-                <div className="text-lg text-brand-gray-dark font-medium">Revenue Impact</div>
-              </div>
-            </div>
-
-            <p className="text-2xl leading-relaxed text-brand-gray-dark mb-12 max-w-3xl">
-              Senior Product Designer specializing in <strong className="text-purple-700">AI-powered products</strong> and <strong className="text-purple-700">growth design strategy</strong>. I've helped companies like Adobe and Informatica turn complex problems into revenue-driving experiences.
-            </p>
-
-            {/* CTA Buttons */}
-            <div className="flex gap-4 items-center">
-              <Link
-                href="/portfolio"
-                className="px-8 py-4 rounded-xl bg-gradient-to-r from-purple-600 to-blue-500 text-white text-lg font-semibold hover:shadow-2xl hover:shadow-purple-500/40 hover:scale-105 transition-all duration-300 cursor-pointer inline-flex items-center gap-2"
-              >
-                View Case Studies
-                <ArrowUpRight className="w-5 h-5" />
-              </Link>
-              <a
-                href="#contact"
-                onClick={scrollToContact}
-                className="px-8 py-4 rounded-xl border-2 border-purple-600/30 text-purple-700 text-lg font-semibold hover:bg-purple-50 hover:border-purple-600/50 transition-all duration-300 cursor-pointer"
-              >
-                Let's Talk
-              </a>
+          {/* Scroll indicator */}
+          <div className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-60 animate-bounce">
+            <span className="text-xs font-medium text-gray-600">Scroll to explore</span>
+            <div className="w-6 h-10 border-2 border-gray-600/30 rounded-full flex items-start justify-center p-2">
+              <div className="w-1 h-2 bg-gray-600/50 rounded-full" />
             </div>
           </div>
         </section>
 
         {/* Companies I've Designed For */}
-        <section className="container mx-auto px-6 py-16 border-y border-white/10 bg-white/40 backdrop-blur-sm">
-          <p className="text-center text-sm uppercase tracking-wider text-muted-foreground font-semibold mb-10">
-            Trusted by industry leaders
-          </p>
-          <div className="flex flex-wrap justify-center items-center gap-16 max-w-6xl mx-auto">
-            {companies.map((company) => (
-              <div
-                key={company.name}
-                className="flex items-center justify-center opacity-100 hover:opacity-80 transition-all duration-300 hover:scale-110"
-              >
-                <div className="relative h-16 w-40">
-                  <Image src={company.logo || "/placeholder.svg"} alt={`${company.name} logo`} fill className="object-contain" />
+        <section className="reveal-on-scroll py-16 border-y border-white/10 relative">
+          <div className="absolute inset-0 bg-gradient-to-b from-white/60 to-white/40 backdrop-blur-sm" />
+          <div className="relative container mx-auto px-6">
+            <p className="text-center text-xs uppercase tracking-[0.3em] text-gray-600 font-bold mb-12">
+              Trusted by Industry Leaders
+            </p>
+            <div className="flex flex-wrap justify-center items-center gap-12 max-w-6xl mx-auto">
+              {companies.map((company, i) => (
+                <div
+                  key={company.name}
+                  className="group relative flex items-center justify-center transition-all duration-500 hover:scale-110"
+                  style={{ animationDelay: `${i * 50}ms` }}
+                >
+                  <div className="absolute inset-0 bg-gradient-to-r from-purple-500/0 to-blue-500/0 group-hover:from-purple-500/10 group-hover:to-blue-500/10 rounded-xl blur-xl transition-all" />
+                  <div className="relative h-12 w-32 opacity-60 group-hover:opacity-100 transition-opacity">
+                    <Image src={company.logo || "/placeholder.svg"} alt={`${company.name} logo`} fill className="object-contain" />
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </section>
 
         {/* Featured Works */}
-        <section className="container mx-auto px-6 py-24">
-          <div className="text-center mb-16">
-            <h2 className="text-5xl md:text-6xl font-black mb-6 text-brand-gray-dark animate-fade-in">
-              Featured Work
-            </h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto animate-fade-in" style={{ animationDelay: '0.1s' }}>
-              Case studies showcasing measurable impact through strategic design
-            </p>
-          </div>
+        <section className="py-32">
+          <div className="container mx-auto px-6">
+            <div className="text-center mb-20 reveal-on-scroll">
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-purple-50 border border-purple-200 mb-6">
+                <Sparkles className="w-4 h-4 text-purple-600" />
+                <span className="text-sm font-bold text-purple-700">Featured Work</span>
+              </div>
+              <h2 className="text-6xl md:text-7xl font-black mb-6" style={{ color: '#20221e' }}>
+                Case Studies
+              </h2>
+              <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+                Strategic design solutions that deliver measurable business impact
+              </p>
+            </div>
 
-          <div className="space-y-16 max-w-7xl mx-auto">
-            {featuredWorks.map((project, index) => (
-              <div
-                key={project.id}
-                className="group card-glass-hover backdrop-blur-xl bg-card/40 border border-white/10 rounded-3xl overflow-hidden hover:border-purple-500/40 hover:shadow-2xl hover:shadow-purple-500/20 transition-all duration-500 animate-fade-in-up"
-                style={{ animationDelay: `${index * 0.1}s` }}
-              >
-                <div className="grid md:grid-cols-5 gap-8 p-10">
-                  {/* Image */}
-                  <div className="md:col-span-3 relative aspect-[16/10] rounded-2xl overflow-hidden bg-gradient-to-br from-purple-100 to-blue-100">
-                    <Image
-                      src={project.image || "/placeholder.svg"}
-                      alt={project.title}
-                      fill
-                      className="object-cover group-hover:scale-105 transition-transform duration-700"
-                    />
-                    {/* Metric Overlay */}
-                    {project.metric && (
-                      <div className="absolute top-6 left-6 px-4 py-2 rounded-full bg-white/95 backdrop-blur-sm border border-purple-200 shadow-lg">
-                        <div className="flex items-center gap-2">
-                          <TrendingUp className="w-4 h-4 text-purple-600" />
-                          <span className="text-sm font-bold text-purple-700">{project.metric}</span>
+            <div className="space-y-32 max-w-7xl mx-auto">
+              {featuredWorks.map((project, index) => (
+                <div
+                  key={project.id}
+                  className="reveal-on-scroll group"
+                >
+                  <Link href={project.link} className="block">
+                    <div className={`grid md:grid-cols-2 gap-16 items-center ${index % 2 === 1 ? 'md:grid-flow-dense' : ''}`}>
+                      {/* Image */}
+                      <div className={`relative ${index % 2 === 1 ? 'md:col-start-2' : ''}`}>
+                        <div className="absolute inset-0 bg-gradient-to-br from-purple-500/20 to-blue-500/20 rounded-3xl blur-2xl group-hover:blur-3xl transition-all" />
+                        <div className="relative aspect-[4/3] rounded-3xl overflow-hidden bg-gradient-to-br from-purple-50 to-blue-50 border border-white/20">
+                          <Image
+                            src={project.image || "/placeholder.svg"}
+                            alt={project.title}
+                            fill
+                            className="object-cover group-hover:scale-105 transition-transform duration-700"
+                          />
+                          {/* Metric badge */}
+                          {project.metric && (
+                            <div className="absolute top-6 left-6 px-4 py-2 rounded-full bg-white/95 backdrop-blur-sm border border-purple-200 shadow-xl">
+                              <div className="flex items-center gap-2">
+                                <TrendingUp className="w-4 h-4 text-purple-600" />
+                                <span className="text-sm font-black text-purple-700">{project.metric}</span>
+                              </div>
+                            </div>
+                          )}
                         </div>
                       </div>
-                    )}
-                  </div>
 
-                  {/* Content */}
-                  <div className="md:col-span-2 flex flex-col justify-center space-y-5">
-                    {project.logo ? (
-                      <div className="inline-flex items-center gap-2 h-7 w-auto">
-                        <Image 
-                          src={project.logo || "/placeholder.svg"}
-                          alt={`${project.category} logo`}
-                          width={project.logo === "/informatica-lightbg-logo.svg" ? 180 : 140}
-                          height={project.logo === "/informatica-lightbg-logo.svg" ? 36 : 28}
-                          className="object-contain object-left"
-                        />
+                      {/* Content */}
+                      <div className={`space-y-6 ${index % 2 === 1 ? 'md:col-start-1 md:row-start-1' : ''}`}>
+                        {project.logo && (
+                          <div className="h-8">
+                            <Image 
+                              src={project.logo || "/placeholder.svg"}
+                              alt={`${project.category} logo`}
+                              width={project.logo === "/informatica-lightbg-logo.svg" ? 180 : 140}
+                              height={36}
+                              className="object-contain object-left opacity-60 group-hover:opacity-100 transition-opacity"
+                            />
+                          </div>
+                        )}
+
+                        <h3 className="text-4xl font-black text-balance leading-tight group-hover:bg-gradient-to-r group-hover:from-purple-700 group-hover:to-blue-600 group-hover:bg-clip-text group-hover:text-transparent transition-all" style={{ color: '#20221e' }}>
+                          {project.title}
+                        </h3>
+
+                        <p className="text-xl leading-relaxed text-gray-600">
+                          {project.description}
+                        </p>
+
+                        <div className="flex flex-wrap gap-2">
+                          {project.tags.map((tag) => (
+                            <span
+                              key={tag}
+                              className="px-4 py-2 rounded-full text-sm font-semibold bg-white/60 backdrop-blur-sm border border-white/20 text-purple-700"
+                            >
+                              {tag}
+                            </span>
+                          ))}
+                        </div>
+
+                        <div className="inline-flex items-center gap-2 text-purple-700 font-bold group-hover:gap-3 transition-all">
+                          {project.id === 4 ? "View project" : "View case study"}
+                          <ArrowUpRight className="w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                        </div>
                       </div>
-                    ) : (
-                      <div className="inline-flex items-center gap-2 text-sm font-semibold text-purple-600">
-                        <span className="w-2 h-2 rounded-full bg-purple-600"></span>
-                        {project.category}
-                      </div>
-                    )}
-
-                    <h3 className="text-3xl font-black text-balance leading-tight text-brand-gray-dark group-hover:text-purple-700 transition-colors">{project.title}</h3>
-
-                    <p className="text-balance leading-relaxed text-brand-gray-dark text-lg">
-                      {project.description}
-                    </p>
-
-                    <div className="flex flex-wrap gap-2">
-                      {project.tags.map((tag) => (
-                        <span
-                          key={tag}
-                          className="px-4 py-2 rounded-full text-sm font-medium bg-purple-50 text-purple-700 border border-purple-200"
-                        >
-                          {tag}
-                        </span>
-                      ))}
                     </div>
-
-                    <Link
-                      href={project.link}
-                      className="mt-4 btn-primary inline-flex items-center gap-2 w-fit group/link cursor-pointer"
-                    >
-                      {project.id === 4 ? "View project" : "View case study"}
-                      <ArrowUpRight className="w-5 h-5 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition-transform" />
-                    </Link>
-                  </div>
+                  </Link>
                 </div>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
 
-          <div className="text-center mt-16">
-            <Link
-              href="/portfolio"
-              className="px-8 py-4 rounded-xl bg-gradient-to-r from-purple-600 to-blue-600 text-white text-lg font-semibold hover:shadow-2xl hover:shadow-purple-500/40 hover:scale-105 transition-all duration-300 cursor-pointer inline-flex items-center gap-2"
-            >
-              View All Work
-              <ArrowUpRight className="w-5 h-5" />
-            </Link>
+            <div className="text-center mt-20 reveal-on-scroll">
+              <Link
+                href="/portfolio"
+                className="inline-flex items-center gap-2 px-8 py-4 rounded-2xl bg-gradient-to-r from-purple-600 to-blue-600 text-white text-lg font-bold hover:shadow-2xl hover:shadow-purple-500/40 hover:scale-105 transition-all duration-300"
+              >
+                View All Work
+                <ArrowUpRight className="w-5 h-5" />
+              </Link>
+            </div>
           </div>
         </section>
 
         {/* My Skills */}
-        <section className="container mx-auto px-6 py-24 bg-gradient-to-b from-transparent via-purple-50/30 to-transparent">
-          <div className="text-center mb-16">
-            <h2 className="text-5xl md:text-6xl font-black mb-6 text-brand-gray-dark animate-fade-in">
-              What I Bring to the Table
-            </h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto animate-fade-in" style={{ animationDelay: '0.1s' }}>
-              A unique blend of design craft, growth strategy, and technical fluency
-            </p>
-          </div>
+        <section className="py-32 relative">
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-purple-50/30 to-transparent" />
+          <div className="relative container mx-auto px-6">
+            <div className="text-center mb-20 reveal-on-scroll">
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-purple-50 border border-purple-200 mb-6">
+                <Cpu className="w-4 h-4 text-purple-600" />
+                <span className="text-sm font-bold text-purple-700">What I Bring</span>
+              </div>
+              <h2 className="text-6xl md:text-7xl font-black mb-6" style={{ color: '#20221e' }}>
+                Expertise
+              </h2>
+              <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+                A unique blend of design craft, growth strategy, and technical fluency
+              </p>
+            </div>
 
-          <div className="max-w-6xl mx-auto">
-            <div className="grid md:grid-cols-2 gap-8">
+            <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-6">
               {[
                 {
                   title: "Growth-Driven Product Design",
-                  description: "I don't just make things look good—I design with metrics in mind. Every interface decision is informed by conversion data, user behavior analytics, and A/B testing results. My designs consistently improve key metrics like activation, retention, and revenue.",
+                  description: "Every interface decision is informed by conversion data, user behavior analytics, and A/B testing results. My designs consistently improve key metrics like activation, retention, and revenue.",
                   icon: <TrendingUp className="w-6 h-6" />
                 },
                 {
                   title: "AI Product Design",
-                  description: "Deep experience designing conversational AI interfaces, recommendation systems, and ML-powered features. I understand how to make complex AI capabilities feel natural and build user trust in intelligent systems.",
+                  description: "Deep experience designing conversational AI interfaces, recommendation systems, and ML-powered features. I understand how to make complex AI capabilities feel natural and build user trust.",
                   icon: <Cpu className="w-6 h-6" />
                 },
                 {
                   title: "Full-Funnel Thinking",
-                  description: "From awareness to advocacy, I design the complete customer journey. Expert in landing page optimization, onboarding flows, email campaigns, and in-product growth loops that drive sustainable business growth.",
+                  description: "From awareness to advocacy, I design the complete customer journey. Expert in landing page optimization, onboarding flows, email campaigns, and in-product growth loops.",
                   icon: <Zap className="w-6 h-6" />
                 },
                 {
                   title: "Cross-Functional Leadership",
-                  description: "Skilled at leading product initiatives across design, engineering, marketing, and sales. I speak the language of business stakeholders while maintaining design excellence and user advocacy.",
+                  description: "Skilled at leading product initiatives across design, engineering, marketing, and sales. I speak the language of business stakeholders while maintaining design excellence.",
                   icon: <Users className="w-6 h-6" />
                 }
               ].map((skill, index) => (
                 <div 
                   key={index} 
-                  className="group card-glass-hover backdrop-blur-xl bg-white/70 border border-purple-200/60 rounded-3xl p-8 hover:border-purple-400 hover:shadow-xl transition-all duration-300 animate-fade-in-up"
-                  style={{ animationDelay: `${index * 0.1}s` }}
+                  className="reveal-on-scroll group relative bg-white/60 backdrop-blur-md border border-white/20 rounded-3xl p-8 hover:bg-white/80 hover:border-purple-500/30 hover:shadow-2xl hover:shadow-purple-500/10 transition-all duration-500"
+                  style={{ animationDelay: `${index * 100}ms` }}
                 >
-                  <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-purple-500 to-blue-500 flex items-center justify-center mb-6 text-white group-hover:scale-110 group-hover:rotate-3 transition-all">
+                  <div className="absolute top-8 right-8 opacity-5 group-hover:opacity-10 transition-opacity">
+                    <div className="w-32 h-32 text-purple-600">
+                      {skill.icon}
+                    </div>
+                  </div>
+                  <div className="relative w-14 h-14 rounded-2xl bg-gradient-to-br from-purple-500 to-blue-500 flex items-center justify-center mb-6 text-white group-hover:scale-110 group-hover:rotate-3 transition-all shadow-lg">
                     {skill.icon}
                   </div>
-                  <h3 className="text-2xl font-bold mb-4 text-brand-gray-dark group-hover:text-purple-700 transition-colors">
+                  <h3 className="text-2xl font-black mb-4 group-hover:text-purple-700 transition-colors" style={{ color: '#20221e' }}>
                     {skill.title}
                   </h3>
-                  <p className="leading-relaxed text-brand-gray-dark text-lg">
+                  <p className="text-lg leading-relaxed text-gray-600">
                     {skill.description}
                   </p>
                 </div>
@@ -427,89 +432,54 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* Built with v0 Section */}
-        <section className="container mx-auto px-6 py-24">
-          <div className="relative overflow-hidden rounded-[2.5rem] gradient-section-purple border border-purple-500/30">
-            
-            <div className="relative z-10 p-12 md:p-16">
-              {/* Badge */}
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/20 border border-white/40 backdrop-blur-sm mb-8">
-                <Sparkles className="w-4 h-4 text-white" />
-                <span className="text-sm font-medium text-white">AI-Powered Development</span>
-              </div>
-
-              {/* Main Content */}
-              <div className="grid md:grid-cols-2 gap-12 items-center">
-                {/* Left - Text */}
-                <div>
-                  <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">
-                    Vibe Coded with AI
-                  </h2>
-                  <div className="space-y-4 text-lg leading-relaxed">
-                    <p className="white">
-                      This entire portfolio was built using an AI-powered design and development tool that turns natural language into production-ready code.
-                    </p>
-                    <p className="white">
-                      I curated the content, wrote case studies, art directed the visual design, selected color schemes, and directed layouts. Then I let AI handle the implementation — React components, Next.js routing, responsive layouts, and glassmorphic styling.
-                    </p>
-                    <p className="text-blue-200 font-medium">
-                      This is the future of product development: strategic thinking + creative direction + AI execution.
-                    </p>
-                  </div>
+        {/* Built with AI Section */}
+        <section className="py-32 reveal-on-scroll">
+          <div className="container mx-auto px-6">
+            <div className="relative overflow-hidden rounded-[3rem] bg-gradient-to-br from-purple-600 via-blue-600 to-purple-700 border border-purple-400/30">
+              <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-10" />
+              
+              <div className="relative z-10 p-16 md:p-20">
+                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/20 border border-white/40 backdrop-blur-sm mb-8">
+                  <Sparkles className="w-4 h-4 text-white" />
+                  <span className="text-sm font-bold text-white">AI-Powered Development</span>
                 </div>
 
-                {/* Right - Tech Stack Cards */}
-                <div className="space-y-4">
-                  {/* Tech Stack Card */}
-                  <div className="bg-white/15 border border-white/30 rounded-2xl p-6">
-                    <div className="flex items-start gap-4">
-                      <div className="w-10 h-10 rounded-lg bg-white/20 flex items-center justify-center flex-shrink-0">
-                        <Code2 className="w-5 h-5 text-white" />
-                      </div>
-                      <div>
-                        <h3 className="text-lg font-bold text-white mb-2">Tech Stack</h3>
-                        <div className="flex flex-wrap gap-2">
-                          {["React", "Next.js", "TypeScript", "Tailwind CSS", "Node.js"].map((tech) => (
-                            <span
-                              key={tech}
-                              className="px-3 py-1 rounded-lg bg-white/20 text-xs font-medium text-white border border-white/30"
-                            >
-                              {tech}
-                            </span>
-                          ))}
+                <div className="grid md:grid-cols-2 gap-16 items-center">
+                  <div>
+                    <h2 className="text-5xl md:text-6xl font-black mb-6 text-white">
+                      Built with AI
+                    </h2>
+                    <div className="space-y-4 text-lg leading-relaxed">
+                      <p className="text-white/90">
+                        This entire portfolio was built using an AI-powered design and development tool that turns natural language into production-ready code.
+                      </p>
+                      <p className="text-white/90">
+                        I curated the content, art directed the visual design, and directed layouts. Then I let AI handle the implementation.
+                      </p>
+                      <p className="text-white font-semibold">
+                        This is the future: strategic thinking + creative direction + AI execution.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="space-y-4">
+                    {[
+                      { icon: Code2, title: "Tech Stack", desc: "React, Next.js, TypeScript, Tailwind CSS" },
+                      { icon: Zap, title: "Built in Hours", desc: "From concept to deployed site in a fraction of the time" },
+                      { icon: Cpu, title: "AI-Assisted Iteration", desc: "Rapid prototyping through conversational prompts" }
+                    ].map((item, i) => (
+                      <div key={i} className="bg-white/15 border border-white/30 backdrop-blur-md rounded-2xl p-6 hover:bg-white/20 transition-all">
+                        <div className="flex items-start gap-4">
+                          <div className="w-12 h-12 rounded-xl bg-white/20 flex items-center justify-center flex-shrink-0">
+                            <item.icon className="w-6 h-6 text-white" />
+                          </div>
+                          <div>
+                            <h3 className="text-lg font-bold text-white mb-1">{item.title}</h3>
+                            <p className="text-sm text-white/80">{item.desc}</p>
+                          </div>
                         </div>
                       </div>
-                    </div>
-                  </div>
-
-                  {/* Speed Card */}
-                  <div className="bg-white/15 border border-white/30 rounded-2xl p-6">
-                    <div className="flex items-start gap-4">
-                      <div className="w-10 h-10 rounded-lg bg-white/20 flex items-center justify-center flex-shrink-0">
-                        <Zap className="w-5 h-5 text-white" />
-                      </div>
-                      <div>
-                        <h3 className="text-lg font-bold text-white mb-2">Built in Hours, Not Days</h3>
-                        <p className="text-sm text-white/80 leading-relaxed">
-                          From concept to deployed site in a fraction of the time traditional development would take.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* AI-Powered Card */}
-                  <div className="bg-white/15 border border-white/30 rounded-2xl p-6">
-                    <div className="flex items-start gap-4">
-                      <div className="w-10 h-10 rounded-lg bg-white/20 flex items-center justify-center flex-shrink-0">
-                        <Cpu className="w-5 h-5 text-white" />
-                      </div>
-                      <div>
-                        <h3 className="text-lg font-bold text-white mb-2">AI-Assisted Iteration</h3>
-                        <p className="text-sm text-white/80 leading-relaxed">
-                          Rapid prototyping and refinement through conversational prompts and real-time previews.
-                        </p>
-                      </div>
-                    </div>
+                    ))}
                   </div>
                 </div>
               </div>
@@ -521,23 +491,17 @@ export default function HomePage() {
         <ContactSection />
 
         {/* Footer */}
-        <footer className="header border-t border-white/10 backdrop-blur-xl bg-background/30">
+        <footer className="border-t border-white/10 bg-white/40 backdrop-blur-xl">
           <div className="container mx-auto px-6 py-8">
             <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-              <p className="text-sm text-muted-foreground">© 2025 Andi Galpern. All rights reserved.</p>
+              <p className="text-sm text-gray-600">© 2025 Andi Galpern. All rights reserved.</p>
               <div className="flex gap-6">
-                <a
-                  href="https://linkedin.com/in/andigalpern"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-                >
+                <a href="https://linkedin.com/in/andigalpern" target="_blank" rel="noopener noreferrer" 
+                   className="text-sm text-gray-600 hover:text-gray-900 transition-colors">
                   LinkedIn
                 </a>
-                <a
-                  href="mailto:andi@andixd.com"
-                  className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-                >
+                <a href="mailto:andi@andixd.com" 
+                   className="text-sm text-gray-600 hover:text-gray-900 transition-colors">
                   Email
                 </a>
               </div>

@@ -5,6 +5,7 @@ import Link from "next/link"
 import { ArrowUpRight, ChevronLeft, ChevronRight, X } from 'lucide-react'
 import { useState, useRef, useEffect } from "react"
 import { ContactSection } from '@/components/contact-section'
+import { Header } from '@/components/header'
 
 export default function PortfolioPage() {
   const [activeFilter, setActiveFilter] = useState<string>("All")
@@ -364,40 +365,10 @@ export default function PortfolioPage() {
       </div>
 
       <div className="relative z-10">
-        {/* Header */}
-        <header className="border-b border-white/10 backdrop-blur-xl bg-background/30">
-          <div className="container mx-auto px-6 py-6">
-            <nav className="flex items-center justify-between">
-              <Link
-                href="/"
-                className="text-3xl font-bold bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent cursor-pointer"
-              >
-                andi galpern
-              </Link>
-              <div className="flex gap-8 items-center">
-                <Link href="/portfolio" className="text-lg font-medium text-foreground cursor-pointer">
-                  Portfolio
-                </Link>
-                <Link
-                  href="/about"
-                  className="text-lg font-medium text-muted-foreground hover:text-foreground transition-colors cursor-pointer"
-                >
-                  About
-                </Link>
-                <a
-                  href="#contact"
-                  onClick={scrollToContact}
-                  className="px-6 py-2 rounded-lg bg-gradient-to-r from-purple-500 to-blue-500 text-white text-lg font-medium hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300 cursor-pointer"
-                >
-                  Contact
-                </a>
-              </div>
-            </nav>
-          </div>
-        </header>
+        <Header />
 
         {/* Hero */}
-        <section className="container mx-auto px-6 py-16 fade-in-up">
+        <section className="container mx-auto px-6 py-32 fade-in-up">
           <div className="max-w-3xl">
             <h1 className="text-5xl md:text-6xl font-bold mb-6 text-balance text-brand-gray-dark">
               Work Samples

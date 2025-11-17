@@ -4,6 +4,7 @@ import Link from "next/link"
 import Image from "next/image"
 import { ArrowLeft, Sparkles, Target, LineChart, Rocket, Repeat, TestTube, Zap } from 'lucide-react'
 import { useEffect, useState } from 'react'
+import { Header } from '@/components/header'
 
 export default function ProcessPage() {
   const [scrollY, setScrollY] = useState(0)
@@ -135,29 +136,11 @@ export default function ProcessPage() {
       </div>
 
       <div className="relative z-10">
-        {/* Header */}
-        <header className="header-case-study sticky top-0 z-50">
-          <div className="container mx-auto px-6 py-6">
-            <nav className="flex items-center justify-between">
-              <Link
-                href="/"
-                className="text-3xl font-bold bg-gradient-to-r from-purple-600 to-blue-500 bg-clip-text text-transparent hover:from-purple-500 hover:to-blue-400 transition-all"
-              >
-                andi galpern
-              </Link>
-              <Link
-                href="/"
-                className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors font-medium"
-              >
-                <ArrowLeft className="w-4 h-4" />
-                Back to Home
-              </Link>
-            </nav>
-          </div>
-        </header>
+        <Header />
+        {/* </CHANGE> */}
 
         {/* Hero Section */}
-        <section className="container mx-auto px-6 pt-20 pb-16">
+        <section className="container mx-auto px-6 pt-32 pb-16">
           <div className="max-w-5xl mx-auto text-center">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-purple-600 to-blue-600 text-white mb-8 shadow-lg">
               <Sparkles className="w-4 h-4" />

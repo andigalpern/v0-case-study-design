@@ -156,6 +156,20 @@
 }
 
 @layer components {
+  /* Removed .nav-pill class that was using custom utilities */
+  
+  .reveal-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  }
+  
+  .reveal-on-scroll.reveal-active {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  /* </CHANGE> */
+  
   .btn-primary {
     padding: 0.75rem 1.5rem;
     border-radius: 0.75rem;
@@ -340,18 +354,6 @@
     scrollbar-width: none;
   }
   
-  .text-brand-purple {
-    color: var(--brand-purple);
-  }
-  
-  .text-brand-gray-dark {
-    color: var(--brand-gray-dark);
-  }
-  
-  .text-brand-gray-medium {
-    color: var(--brand-gray-medium);
-  }
-  
   p.white {
     color: #ffffff !important;
   }
@@ -401,7 +403,6 @@
   }
 }
 
-/* Adding new keyframe animations for homepage elements */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -449,7 +450,6 @@
   background-size: 200% auto;
   animation: gradient 3s linear infinite;
 }
-/* </CHANGE> */
 
 .fade-in-up,
 .fade-in-left,

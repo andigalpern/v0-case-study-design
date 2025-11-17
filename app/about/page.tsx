@@ -3,6 +3,7 @@
 import Link from "next/link"
 import { ArrowUpRight, Briefcase, GraduationCap, Heart, Lightbulb, Users } from 'lucide-react'
 import { ContactSection } from '@/components/contact-section'
+import { Header } from '@/components/header'
 
 export default function AboutPage() {
   const scrollToContact = (e: React.MouseEvent<HTMLAnchorElement>) => {
@@ -23,40 +24,8 @@ export default function AboutPage() {
       </div>
 
       <div className="relative z-10">
-        {/* Header */}
-        <header className="border-b border-white/10 backdrop-blur-xl bg-background/30">
-          <div className="container mx-auto px-6 py-6">
-            <nav className="flex items-center justify-between">
-              <Link
-                href="/"
-                className="text-3xl font-bold bg-gradient-to-r from-purple-600 to-blue-500 bg-clip-text text-transparent hover:from-purple-500 hover:to-blue-400 transition-all cursor-pointer"
-              >
-                andi galpern
-              </Link>
-              <div className="flex gap-8 items-center">
-                <Link
-                  href="/portfolio"
-                  className="text-lg font-medium text-muted-foreground hover:text-foreground transition-colors cursor-pointer"
-                >
-                  Portfolio
-                </Link>
-                <Link
-                  href="/about"
-                  className="text-lg font-medium text-foreground cursor-pointer"
-                >
-                  About
-                </Link>
-                <a
-                  href="#contact"
-                  onClick={scrollToContact}
-                  className="px-6 py-2 rounded-lg bg-gradient-to-r from-purple-600 to-blue-600 text-white text-lg font-medium hover:shadow-lg hover:shadow-purple-500/30 hover:scale-105 transition-all duration-300 cursor-pointer"
-                >
-                  Contact
-                </a>
-              </div>
-            </nav>
-          </div>
-        </header>
+        <Header />
+        {/* </CHANGE> */}
 
         <section className="container mx-auto px-6 py-12 md:py-16">
           <div className="max-w-7xl mx-auto">
