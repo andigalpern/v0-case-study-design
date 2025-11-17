@@ -113,37 +113,38 @@ export default function AdobeGrowthCaseStudy() {
       <div className="relative z-10">
         {/* Header */}
         <header className="border-b border-white/20 backdrop-blur-xl bg-white/40">
-          <div className="container mx-auto px-6 py-6">
-            <nav className="flex items-center justify-between">
+          <div className="container mx-auto px-4 sm:px-6 py-4 sm:py-6">
+            <nav className="flex flex-wrap items-center justify-between gap-4">
               <Link
                 href="/"
-                className="text-3xl font-bold bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent cursor-pointer"
+                className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent cursor-pointer"
               >
                 andi galpern
               </Link>
-              <div className="flex gap-8 items-center">
+              <div className="flex gap-4 sm:gap-8 items-center">
                 <Link
                   href="/portfolio"
-                  className="text-lg font-medium text-gray-900 hover:text-purple-600 transition-colors cursor-pointer"
+                  className="text-base sm:text-lg font-medium text-gray-900 hover:text-purple-600 transition-colors cursor-pointer"
                 >
                   Portfolio
                 </Link>
-                <Link href="/about" className="text-lg font-medium text-gray-600 hover:text-gray-900 transition-colors cursor-pointer">
+                <Link href="/about" className="text-base sm:text-lg font-medium text-gray-600 hover:text-gray-900 transition-colors cursor-pointer">
                   About
                 </Link>
                 <a
                   href="mailto:andi@andixd.com"
-                  className="px-6 py-2 rounded-lg bg-gradient-to-r from-purple-600 to-blue-600 text-white text-lg font-medium hover:shadow-xl hover:shadow-purple-500/30 transition-all duration-300 hover:scale-105 cursor-pointer"
+                  className="px-4 sm:px-6 py-2 rounded-lg bg-gradient-to-r from-purple-600 to-blue-600 text-white text-sm sm:text-lg font-medium hover:shadow-xl hover:shadow-purple-500/30 transition-all duration-300 hover:scale-105 cursor-pointer"
                 >
                   Contact
                 </a>
               </div>
             </nav>
           </div>
+          {/* </CHANGE> */}
         </header>
 
         {/* Back button */}
-        <div className="container mx-auto px-6 py-8">
+        <div className="container mx-auto px-4 sm:px-6 py-6 sm:py-8">
           <Link
             href="/portfolio"
             className="inline-flex items-center gap-2 text-sm font-semibold text-purple-600 hover:text-purple-700 transition-colors group"
@@ -152,32 +153,34 @@ export default function AdobeGrowthCaseStudy() {
             Back to Portfolio
           </Link>
         </div>
+        {/* </CHANGE> */}
 
         {/* Hero - Full width impact */}
-        <section className="container mx-auto px-6 py-16 md:py-24">
+        <section className="container mx-auto px-4 sm:px-6 py-12 sm:py-16 md:py-24">
           <div className="max-w-5xl mx-auto text-center">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-purple-600 to-blue-600 text-white text-sm font-bold mb-8 shadow-lg">
+            <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-2 rounded-full bg-gradient-to-r from-purple-600 to-blue-600 text-white text-xs sm:text-sm font-bold mb-6 sm:mb-8 shadow-lg">
               Growth Strategy • Case Study
             </div>
             <h1
-              className="text-5xl md:text-6xl font-black mb-6 text-balance leading-tight"
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black mb-4 sm:mb-6 text-balance leading-tight"
               style={{ color: "#20221e" }}
             >
               Adobe Creative Cloud
             </h1>
-            <p className="text-xl md:text-2xl font-bold mb-6 text-balance bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
+            <p className="text-lg sm:text-xl md:text-2xl font-bold mb-4 sm:mb-6 text-balance bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
               Scaling Activation Globally for Adobe Creative Cloud
             </p>
-            <p className="text-lg md:text-xl leading-relaxed text-balance max-w-3xl mx-auto text-gray-700">
+            <p className="text-base sm:text-lg md:text-xl leading-relaxed text-balance max-w-3xl mx-auto text-gray-700">
               Multi-channel activation strategy across 8 markets, improving feature usage and conversion through
               personalized educational content
             </p>
           </div>
         </section>
+        {/* </CHANGE> */}
 
         {/* Stats Hero - Big Numbers */}
-        <section className="container mx-auto px-6 py-16">
-          <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+        <section className="container mx-auto px-4 sm:px-6 py-12 sm:py-16">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 max-w-5xl mx-auto">
             {[
               { icon: Globe, number: "8", label: "Global Markets", color: "from-purple-600 to-purple-400" },
               { icon: Users, number: "128", label: "Tutorial Pages Built", color: "from-blue-600 to-blue-400" },
@@ -200,11 +203,12 @@ export default function AdobeGrowthCaseStudy() {
             ))}
           </div>
         </section>
+        {/* </CHANGE> */}
 
         {/* Section 01 - The Challenge */}
-        <section className="py-20 relative overflow-hidden">
+        <section className="py-16 sm:py-20 relative overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-br from-purple-600 to-blue-600"></div>
-          <div className="container mx-auto px-6 relative z-10">
+          <div className="container mx-auto px-4 sm:px-6 relative z-10">
             <div className="max-w-4xl mx-auto">
               <div className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-white/20 backdrop-blur-xl border-2 border-white/30 mb-8">
                 <span className="text-2xl font-black text-white">01</span>
@@ -230,10 +234,11 @@ export default function AdobeGrowthCaseStudy() {
             </div>
           </div>
         </section>
+        {/* </CHANGE> */}
 
         {/* Section 02 - My Role */}
-        <section className="py-20">
-          <div className="container mx-auto px-6">
+        <section className="py-16 sm:py-20">
+          <div className="container mx-auto px-4 sm:px-6">
             <div className="max-w-4xl mx-auto">
               <div className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 text-white mb-8 shadow-lg">
                 <span className="text-2xl font-black">02</span>
@@ -248,7 +253,7 @@ export default function AdobeGrowthCaseStudy() {
                 6-month project as part of Adobe's Product Growth team, in collaboration with the Localization team
               </p>
 
-              <div className="grid md:grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {[
                   "Experiment design and multi-touchpoint content strategy",
                   "Persona development and user journey mapping with team",
@@ -271,10 +276,11 @@ export default function AdobeGrowthCaseStudy() {
             </div>
           </div>
         </section>
+        {/* </CHANGE> */}
 
         {/* Section 03 - The Approach */}
-        <section className="py-20 bg-gradient-to-br from-blue-100 via-purple-100 to-pink-100">
-          <div className="container mx-auto px-6">
+        <section className="py-16 sm:py-20 bg-gradient-to-br from-blue-100 via-purple-100 to-pink-100">
+          <div className="container mx-auto px-4 sm:px-6">
             <div className="max-w-4xl mx-auto">
               <div className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-gradient-to-r from-purple-600 to-blue-600 text-white mb-8 shadow-lg">
                 <span className="text-2xl font-black">03</span>
@@ -472,9 +478,9 @@ export default function AdobeGrowthCaseStudy() {
         </section>
 
         {/* Section 04 - The Results */}
-        <section className="py-20 relative overflow-hidden">
+        <section className="py-16 sm:py-20 relative overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-br from-purple-50 via-blue-50 to-pink-50"></div>
-          <div className="container mx-auto px-6 relative z-10">
+          <div className="container mx-auto px-4 sm:px-6 relative z-10">
             <div className="max-w-4xl mx-auto">
               <div className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-gradient-to-r from-purple-600 to-blue-600 text-white mb-8 shadow-lg">
                 <span className="text-2xl font-black">04</span>
@@ -505,23 +511,25 @@ export default function AdobeGrowthCaseStudy() {
             </div>
           </div>
         </section>
+        {/* </CHANGE> */}
 
         {/* Section 05 - Email Designs Gallery */}
-        <section className="py-20 bg-gradient-to-br from-purple-100 via-blue-100 to-pink-100">
-          <div className="container mx-auto px-6">
-            <div className="max-w-4xl mx-auto text-center mb-12">
-              <h3 className="text-2xl md:text-3xl font-black mb-4" style={{ color: "#20221e" }}>
+        <section className="py-16 sm:py-20 bg-gradient-to-br from-purple-100 via-blue-100 to-pink-100">
+          <div className="container mx-auto px-4 sm:px-6">
+            <div className="max-w-4xl mx-auto text-center mb-8 sm:mb-12">
+              <h3 className="text-xl sm:text-2xl md:text-3xl font-black mb-3 sm:mb-4" style={{ color: "#20221e" }}>
                 Tutorial Pages Designed & Built
               </h3>
-              <h4 className="text-xl md:text-2xl font-bold text-gray-700">
+              <h4 className="text-lg sm:text-xl md:text-2xl font-bold text-gray-700">
                 E-mail Designs
               </h4>
             </div>
 
-            <div className="max-w-6xl mx-auto flex justify-center">
-              <div className="flex gap-8 items-start">
-                <div className="flex-shrink-0 w-[600px]">
-                  <div className="backdrop-blur-xl bg-white/70 border-2 border-white/50 rounded-3xl p-6 shadow-xl">
+            <div className="max-w-6xl mx-auto">
+              <div className="flex flex-col lg:flex-row gap-6 lg:gap-8 items-start">
+                {/* Main display */}
+                <div className="w-full lg:flex-shrink-0 lg:w-[600px]">
+                  <div className="backdrop-blur-xl bg-white/70 border-2 border-white/50 rounded-3xl p-4 sm:p-6 shadow-xl">
                     <div className="relative overflow-hidden rounded-2xl bg-white shadow-lg">
                       <img
                         src={emailImages[selectedEmail].url || "/placeholder.svg"}
@@ -530,22 +538,23 @@ export default function AdobeGrowthCaseStudy() {
                       />
                     </div>
                     <div className="mt-4 text-center">
-                      <span className="inline-block px-4 py-2 rounded-full bg-gradient-to-r from-purple-600 to-blue-600 text-white text-sm font-bold">
+                      <span className="inline-block px-3 sm:px-4 py-2 rounded-full bg-gradient-to-r from-purple-600 to-blue-600 text-white text-xs sm:text-sm font-bold">
                         {emailImages[selectedEmail].day}
                       </span>
-                      <p className="text-base font-semibold text-gray-800 mt-2">
+                      <p className="text-sm sm:text-base font-semibold text-gray-800 mt-2">
                         {emailImages[selectedEmail].title}
                       </p>
                     </div>
                   </div>
                 </div>
 
-                <div className="flex flex-col gap-5">
+                {/* Thumbnails */}
+                <div className="flex flex-row lg:flex-col gap-3 sm:gap-5 overflow-x-auto lg:overflow-visible w-full lg:w-auto pb-2 lg:pb-0">
                   {emailImages.map((email, index) => (
                     <button
                       key={index}
                       onClick={() => setSelectedEmail(index)}
-                      className={`relative w-[133px] h-[97px] rounded-xl overflow-hidden transition-all duration-300 ${
+                      className={`relative flex-shrink-0 w-[100px] sm:w-[133px] h-[73px] sm:h-[97px] rounded-xl overflow-hidden transition-all duration-300 ${
                         selectedEmail === index
                           ? 'ring-4 ring-purple-600 scale-105 shadow-xl'
                           : 'ring-2 ring-white/40 hover:ring-purple-400 hover:scale-105 shadow-lg'
@@ -556,7 +565,7 @@ export default function AdobeGrowthCaseStudy() {
                         alt={`${email.day} thumbnail`}
                         className="w-full h-full object-cover"
                       />
-                      <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-2">
+                      <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-1.5 sm:p-2">
                         <span className="text-white text-xs font-bold">{email.day}</span>
                       </div>
                     </button>
@@ -566,24 +575,25 @@ export default function AdobeGrowthCaseStudy() {
             </div>
           </div>
         </section>
+        {/* </CHANGE> */}
 
         {/* Section 06 - Creative Cloud Desktop App Touts */}
-        <section className="py-20 bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50">
-          <div className="container mx-auto px-6">
-            <div className="max-w-4xl mx-auto text-center mb-12">
-              <h4 className="text-xl md:text-2xl font-bold text-gray-700">
+        <section className="py-16 sm:py-20 bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50">
+          <div className="container mx-auto px-4 sm:px-6">
+            <div className="max-w-4xl mx-auto text-center mb-8 sm:mb-12">
+              <h4 className="text-lg sm:text-xl md:text-2xl font-bold text-gray-700">
                 Creative Cloud Desktop App Touts
               </h4>
-              <p className="text-base text-gray-600 mt-3">
+              <p className="text-sm sm:text-base text-gray-600 mt-2 sm:mt-3">
                 In-app promotional content designed to drive tutorial engagement
               </p>
             </div>
 
             <div className="max-w-5xl mx-auto">
-              <div className="backdrop-blur-xl bg-white/70 border-2 border-white/50 rounded-3xl p-8 shadow-xl">
-                <div className="flex gap-6 items-center">
-                  {/* Main display - larger */}
-                  <div className="flex-1">
+              <div className="backdrop-blur-xl bg-white/70 border-2 border-white/50 rounded-3xl p-4 sm:p-8 shadow-xl">
+                <div className="flex flex-col lg:flex-row gap-4 lg:gap-6 items-center">
+                  {/* Main display */}
+                  <div className="w-full lg:flex-1">
                     <div className="relative overflow-hidden rounded-2xl bg-white shadow-lg">
                       <img
                         src={toutImages[selectedTout].url || "/placeholder.svg"}
@@ -592,22 +602,22 @@ export default function AdobeGrowthCaseStudy() {
                       />
                     </div>
                     <div className="mt-4 text-center">
-                      <span className="inline-block px-4 py-2 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 text-white text-sm font-bold">
+                      <span className="inline-block px-3 sm:px-4 py-2 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 text-white text-xs sm:text-sm font-bold">
                         {toutImages[selectedTout].day}
                       </span>
-                      <p className="text-base font-semibold text-gray-800 mt-2">
+                      <p className="text-sm sm:text-base font-semibold text-gray-800 mt-2">
                         {toutImages[selectedTout].title}
                       </p>
                     </div>
                   </div>
 
-                  {/* Thumbnails on the right */}
-                  <div className="flex flex-col gap-3">
+                  {/* Thumbnails */}
+                  <div className="flex flex-row lg:flex-col gap-2 sm:gap-3 overflow-x-auto lg:overflow-visible w-full lg:w-auto pb-2 lg:pb-0">
                     {toutImages.map((tout, index) => (
                       <button
                         key={index}
                         onClick={() => setSelectedTout(index)}
-                        className={`relative w-[120px] h-[70px] rounded-lg overflow-hidden transition-all duration-300 ${
+                        className={`relative flex-shrink-0 w-[90px] sm:w-[120px] h-[52px] sm:h-[70px] rounded-lg overflow-hidden transition-all duration-300 ${
                           selectedTout === index
                             ? 'ring-4 ring-blue-600 scale-105 shadow-xl'
                             : 'ring-2 ring-white/40 hover:ring-blue-400 hover:scale-105 shadow-md'
@@ -618,7 +628,7 @@ export default function AdobeGrowthCaseStudy() {
                           alt={`${tout.day} thumbnail`}
                           className="w-full h-full object-cover"
                         />
-                        <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-1.5">
+                        <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-1 sm:p-1.5">
                           <span className="text-white text-xs font-bold">{tout.day}</span>
                         </div>
                       </button>
@@ -629,21 +639,22 @@ export default function AdobeGrowthCaseStudy() {
             </div>
           </div>
         </section>
+        {/* </CHANGE> */}
 
         {/* Section 07 - Copywriting */}
-        <section className="py-20 bg-white">
-          <div className="container mx-auto px-6">
+        <section className="py-16 sm:py-20 bg-white">
+          <div className="container mx-auto px-4 sm:px-6">
             <div className="max-w-5xl mx-auto">
-              <div className="text-center mb-12">
-                <h3 className="text-3xl md:text-4xl font-black mb-4" style={{ color: "#20221e" }}>
+              <div className="text-center mb-8 sm:mb-12">
+                <h3 className="text-2xl sm:text-3xl md:text-4xl font-black mb-3 sm:mb-4" style={{ color: "#20221e" }}>
                   Copywriting
                 </h3>
-                <p className="text-lg text-gray-700 max-w-2xl mx-auto">
+                <p className="text-base sm:text-lg text-gray-700 max-w-2xl mx-auto">
                   Conversion-focused copy crafted for emails, notifications, landing pages, and in-app promotions
                 </p>
               </div>
 
-              <div className="backdrop-blur-xl bg-white/70 border-2 border-white/40 rounded-3xl p-8 shadow-xl">
+              <div className="backdrop-blur-xl bg-white/70 border-2 border-white/40 rounded-3xl p-4 sm:p-8 shadow-xl">
                 <div className="relative overflow-hidden rounded-2xl bg-white shadow-lg">
                   <img
                     src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202025-11-15%20at%2020.08.02-5bx7KuE2XUy26LAzNcAP2N3hebZo4d.png"
@@ -651,8 +662,8 @@ export default function AdobeGrowthCaseStudy() {
                     className="w-full h-auto"
                   />
                 </div>
-                <div className="mt-6 text-center">
-                  <p className="text-base font-semibold text-gray-800">
+                <div className="mt-4 sm:mt-6 text-center">
+                  <p className="text-sm sm:text-base font-semibold text-gray-800">
                     Multi-channel messaging strategy across toast notifications, panel notifications, and email campaigns
                   </p>
                 </div>
@@ -660,21 +671,22 @@ export default function AdobeGrowthCaseStudy() {
             </div>
           </div>
         </section>
+        {/* </CHANGE> */}
 
         {/* Section 08 - UX Process & Wireframing */}
-        <section className="py-20 bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50">
-          <div className="container mx-auto px-6">
+        <section className="py-16 sm:py-20 bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50">
+          <div className="container mx-auto px-4 sm:px-6">
             <div className="max-w-5xl mx-auto">
-              <div className="text-center mb-12">
-                <h3 className="text-3xl md:text-4xl font-black mb-4" style={{ color: "#20221e" }}>
+              <div className="text-center mb-8 sm:mb-12">
+                <h3 className="text-2xl sm:text-3xl md:text-4xl font-black mb-3 sm:mb-4" style={{ color: "#20221e" }}>
                   UX Process & Wireframing
                 </h3>
-                <p className="text-lg text-gray-700 max-w-3xl mx-auto">
+                <p className="text-base sm:text-lg text-gray-700 max-w-3xl mx-auto">
                   Whiteboarding sessions and wireframe iterations that shaped the tutorial experience architecture
                 </p>
               </div>
 
-              <div className="grid md:grid-cols-3 gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
                 {/* Whiteboard Sketches */}
                 <div className="backdrop-blur-xl bg-white/70 border-2 border-white/40 rounded-2xl p-6 hover:scale-105 transition-transform duration-200 shadow-xl">
                   <div className="relative overflow-hidden rounded-xl bg-white shadow-lg mb-4">
@@ -734,24 +746,25 @@ export default function AdobeGrowthCaseStudy() {
               </div>
 
               {/* Process Summary */}
-              <div className="mt-8 backdrop-blur-xl bg-gradient-to-br from-purple-600/20 to-blue-600/20 border-2 border-purple-600/30 rounded-3xl p-10 shadow-xl">
-                <p className="text-lg md:text-xl leading-relaxed font-semibold text-center" style={{ color: "#20221e" }}>
+              <div className="mt-6 sm:mt-8 backdrop-blur-xl bg-gradient-to-br from-purple-600/20 to-blue-600/20 border-2 border-purple-600/30 rounded-3xl p-6 sm:p-10 shadow-xl">
+                <p className="text-base sm:text-lg md:text-xl leading-relaxed font-semibold text-center" style={{ color: "#20221e" }}>
                   These wireframes informed the entire information architecture—from persona-based navigation to the progressive tutorial experience that guided users toward their first meaningful success.
                 </p>
               </div>
             </div>
           </div>
         </section>
+        {/* </CHANGE> */}
 
         {/* Section 09 - Localization */}
-        <section className="py-20 bg-gradient-to-br from-purple-50 via-blue-50 to-pink-50">
-          <div className="container mx-auto px-6">
+        <section className="py-16 sm:py-20 bg-gradient-to-br from-purple-50 via-blue-50 to-pink-50">
+          <div className="container mx-auto px-4 sm:px-6">
             <div className="max-w-5xl mx-auto">
-              <div className="text-center mb-12">
-                <h3 className="text-3xl md:text-4xl font-black mb-4" style={{ color: "#20221e" }}>
+              <div className="text-center mb-8 sm:mb-12">
+                <h3 className="text-2xl sm:text-3xl md:text-4xl font-black mb-3 sm:mb-4" style={{ color: "#20221e" }}>
                   Localization
                 </h3>
-                <p className="text-lg text-gray-700 max-w-3xl mx-auto">
+                <p className="text-base sm:text-lg text-gray-700 max-w-3xl mx-auto">
                   After achieving a 22% lift proving our hypothesis increased trial engagements, I was placed in charge of building and managing the entire localization process
                 </p>
               </div>
@@ -800,16 +813,16 @@ export default function AdobeGrowthCaseStudy() {
                 </div>
               </div>
 
-              <div className="backdrop-blur-xl bg-white/70 border-2 border-white/40 rounded-3xl p-8 mb-8 shadow-xl">
-                <h4 className="text-xl font-black mb-6 text-center" style={{ color: "#20221e" }}>
+              <div className="backdrop-blur-xl bg-white/70 border-2 border-white/40 rounded-3xl p-4 sm:p-8 mb-6 sm:mb-8 shadow-xl">
+                <h4 className="text-lg sm:text-xl font-black mb-4 sm:mb-6 text-center" style={{ color: "#20221e" }}>
                   Quality Assurance Process
                 </h4>
-                <p className="text-base text-gray-700 mb-6 text-center">
+                <p className="text-sm sm:text-base text-gray-700 mb-4 sm:mb-6 text-center">
                   I developed a rigorous QA workflow with native language speakers at Adobe to verify translation accuracy and cultural appropriateness before deployment
                 </p>
                 
-                <div className="flex gap-6 justify-center items-start">
-                  <div className="flex-1 max-w-md">
+                <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-start">
+                  <div className="w-full sm:flex-1 sm:max-w-md">
                     <div className="relative overflow-hidden rounded-xl bg-white shadow-lg">
                       <img
                         src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-rTUJmkzkqOcVCruUhKKLlneZJ9rtc3.png"
@@ -824,7 +837,7 @@ export default function AdobeGrowthCaseStudy() {
                     </div>
                   </div>
 
-                  <div className="flex-1 max-w-md">
+                  <div className="w-full sm:flex-1 sm:max-w-md">
                     <div className="relative overflow-hidden rounded-xl bg-white shadow-lg">
                       <img
                         src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-mxDEFaCInCWg6IXlc1dTGzjocNk6iB.png"
@@ -841,18 +854,19 @@ export default function AdobeGrowthCaseStudy() {
                 </div>
               </div>
 
-              <div className="mt-8 backdrop-blur-xl bg-gradient-to-br from-blue-600/20 to-purple-600/20 border-2 border-blue-600/30 rounded-3xl p-10 shadow-xl">
-                <p className="text-lg md:text-xl leading-relaxed font-semibold text-center" style={{ color: "#20221e" }}>
+              <div className="mt-6 sm:mt-8 backdrop-blur-xl bg-gradient-to-br from-blue-600/20 to-purple-600/20 border-2 border-blue-600/30 rounded-3xl p-6 sm:p-10 shadow-xl">
+                <p className="text-base sm:text-lg md:text-xl leading-relaxed font-semibold text-center" style={{ color: "#20221e" }}>
                   This was a huge project that required operational excellence to maintain quality at scale. Due to the varying character widths across languages—for example, Korean characters are much wider than English—I had to manually reformat tutorials, adjusting spacing and alignment to maintain visual consistency across all touchpoints.
                 </p>
               </div>
             </div>
           </div>
         </section>
+        {/* </CHANGE> */}
 
         {/* Section 10 - Key Learnings */}
-        <section className="py-20">
-          <div className="container mx-auto px-6">
+        <section className="py-16 sm:py-20">
+          <div className="container mx-auto px-4 sm:px-6">
             <div className="max-w-4xl mx-auto">
               <div className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-gradient-to-r from-pink-600 to-purple-600 text-white mb-8 shadow-lg">
                 <span className="text-2xl font-black">05</span>
@@ -924,35 +938,37 @@ export default function AdobeGrowthCaseStudy() {
             </div>
           </div>
         </section>
+        {/* </CHANGE> */}
 
         {/* Closing Statement */}
-        <section className="py-20 relative overflow-hidden">
+        <section className="py-16 sm:py-20 relative overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-br from-gray-900 to-gray-800"></div>
-          <div className="container mx-auto px-6 relative z-10">
+          <div className="container mx-auto px-4 sm:px-6 relative z-10">
             <div className="max-w-4xl mx-auto text-center">
-              <Globe className="w-20 h-20 mx-auto mb-8 text-white" />
-              <h2 className="text-3xl md:text-5xl font-black mb-8 text-white leading-tight">
+              <Globe className="w-16 h-16 sm:w-20 sm:h-20 mx-auto mb-6 sm:mb-8 text-white" />
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black mb-6 sm:mb-8 text-white leading-tight">
                 This case study proves something critical:
               </h2>
-              <p className="text-xl md:text-2xl mb-12 max-w-2xl mx-auto text-balance text-white/90 leading-relaxed font-semibold">
+              <p className="text-lg sm:text-xl md:text-2xl mb-8 sm:mb-12 max-w-2xl mx-auto text-balance text-white/90 leading-relaxed font-semibold">
                 Global growth at scale requires both strategic design and operational excellence—not just one or the other.
               </p>
             </div>
           </div>
         </section>
+        {/* </CHANGE> */}
 
         {/* Browse Other Work */}
-        <section className="py-20 bg-gradient-to-br from-purple-50 via-blue-50 to-pink-50">
-          <div className="container mx-auto px-6">
+        <section className="py-16 sm:py-20 bg-gradient-to-br from-purple-50 via-blue-50 to-pink-50">
+          <div className="container mx-auto px-4 sm:px-6">
             <div className="max-w-5xl mx-auto">
-              <h2 className="text-4xl md:text-5xl font-black mb-4 text-center" style={{ color: "#20221e" }}>
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-black mb-3 sm:mb-4 text-center" style={{ color: "#20221e" }}>
                 Browse Other Work
               </h2>
-              <p className="text-lg text-center text-gray-700 mb-12 max-w-2xl mx-auto">
+              <p className="text-base sm:text-lg text-center text-gray-700 mb-8 sm:mb-12 max-w-2xl mx-auto">
                 Explore more case studies and featured projects
               </p>
 
-              <div className="grid md:grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
                 {/* Informatica Chatbot */}
                 <Link
                   href="/informatica-chatbot-case-study"
@@ -1012,42 +1028,44 @@ export default function AdobeGrowthCaseStudy() {
             </div>
           </div>
         </section>
+        {/* </CHANGE> */}
 
         {/* CTA */}
-        <section className="py-20 relative overflow-hidden">
+        <section className="py-16 sm:py-20 relative overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-br from-gray-900 to-gray-800"></div>
-          <div className="container mx-auto px-6 relative z-10">
+          <div className="container mx-auto px-4 sm:px-6 relative z-10">
             <div className="max-w-4xl mx-auto text-center">
-              <Target className="w-20 h-20 mx-auto mb-8 text-white" />
-              <h2 className="text-3xl md:text-4xl font-black mb-6 text-white leading-tight">
+              <Target className="w-16 h-16 sm:w-20 sm:h-20 mx-auto mb-6 sm:mb-8 text-white" />
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-black mb-4 sm:mb-6 text-white leading-tight">
                 Looking for a Product Designer who drives measurable growth?
               </h2>
-              <p className="text-base md:text-lg mb-10 max-w-2xl mx-auto text-balance text-white/90 leading-relaxed">
+              <p className="text-sm sm:text-base md:text-lg mb-8 sm:mb-10 max-w-2xl mx-auto text-balance text-white/90 leading-relaxed">
                 If you need someone who can turn activation challenges into measurable results at international scale,
                 let's talk.
               </p>
               <a
                 href="mailto:andi@andixd.com"
-                className="inline-flex items-center gap-3 px-10 py-5 rounded-2xl bg-gradient-to-r from-purple-600 to-blue-600 text-white text-base font-bold hover:shadow-2xl hover:shadow-purple-500/50 transition-all duration-300 hover:scale-105"
+                className="inline-flex items-center gap-2 sm:gap-3 px-8 sm:px-10 py-4 sm:py-5 rounded-2xl bg-gradient-to-r from-purple-600 to-blue-600 text-white text-sm sm:text-base font-bold hover:shadow-2xl hover:shadow-purple-500/50 transition-all duration-300 hover:scale-105"
               >
                 📩 andi@andixd.com
-                <ArrowUpRight className="w-6 h-6" />
+                <ArrowUpRight className="w-5 h-5 sm:w-6 sm:h-6" />
               </a>
             </div>
           </div>
         </section>
+        {/* </CHANGE> */}
 
         {/* Footer */}
         <footer className="border-t border-white/20 backdrop-blur-xl bg-white/40">
-          <div className="container mx-auto px-6 py-10">
+          <div className="container mx-auto px-4 sm:px-6 py-8 sm:py-10">
             <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-              <p className="text-sm font-semibold text-gray-700">© 2025 Andi Galpern. All rights reserved.</p>
-              <div className="flex gap-8">
+              <p className="text-xs sm:text-sm font-semibold text-gray-700">© 2025 Andi Galpern. All rights reserved.</p>
+              <div className="flex gap-6 sm:gap-8">
                 <a
                   href="https://linkedin.com/in/andigalpern"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-sm font-semibold text-gray-700 hover:text-purple-600 transition-colors"
+                  className="text-xs sm:text-sm font-semibold text-gray-700 hover:text-purple-600 transition-colors"
                 >
                   LinkedIn
                 </a>
@@ -1055,13 +1073,13 @@ export default function AdobeGrowthCaseStudy() {
                   href="https://dribbble.com/andigalpern"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-sm font-semibold text-gray-700 hover:text-purple-600 transition-colors"
+                  className="text-xs sm:text-sm font-semibold text-gray-700 hover:text-purple-600 transition-colors"
                 >
                   Dribbble
                 </a>
                 <a
                   href="mailto:andi@andixd.com"
-                  className="text-sm font-semibold text-gray-700 hover:text-purple-600 transition-colors"
+                  className="text-xs sm:text-sm font-semibold text-gray-700 hover:text-purple-600 transition-colors"
                 >
                   Email
                 </a>
@@ -1069,6 +1087,7 @@ export default function AdobeGrowthCaseStudy() {
             </div>
           </div>
         </footer>
+        {/* </CHANGE> */}
       </div>
     </div>
   )
