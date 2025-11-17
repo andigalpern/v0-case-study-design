@@ -165,6 +165,12 @@ export default function HomePage() {
               </Link>
               <div className="flex gap-8 items-center">
                 <Link
+                  href="/process"
+                  className="text-lg font-medium text-muted-foreground hover:text-foreground transition-colors cursor-pointer"
+                >
+                  Process
+                </Link>
+                <Link
                   href="/portfolio"
                   className="text-lg font-medium text-muted-foreground hover:text-foreground transition-colors cursor-pointer"
                 >
@@ -230,7 +236,7 @@ export default function HomePage() {
             <div className="flex gap-4 items-center">
               <Link
                 href="/portfolio"
-                className="px-8 py-4 rounded-xl bg-gradient-to-r from-purple-600 to-blue-600 text-white text-lg font-semibold hover:shadow-2xl hover:shadow-purple-500/40 hover:scale-105 transition-all duration-300 cursor-pointer inline-flex items-center gap-2"
+                className="px-8 py-4 rounded-xl bg-gradient-to-r from-purple-600 to-blue-500 text-white text-lg font-semibold hover:shadow-2xl hover:shadow-purple-500/40 hover:scale-105 transition-all duration-300 cursor-pointer inline-flex items-center gap-2"
               >
                 View Case Studies
                 <ArrowUpRight className="w-5 h-5" />

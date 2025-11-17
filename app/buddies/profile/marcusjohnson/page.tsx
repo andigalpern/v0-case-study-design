@@ -3,19 +3,19 @@
 import { useState } from 'react'
 import { usePathname } from 'next/navigation'
 import Link from 'next/link'
-import { ArrowLeft, Home, Star, Camera, User, MessageSquare, CheckCircle, Shield } from 'lucide-react'
+import { ArrowLeft, Home, Star, Camera, User, MessageSquare, CheckCircle } from 'lucide-react'
 
-export default function ProfilePage() {
+export default function MarcusJohnsonProfile() {
   const pathname = usePathname()
   const [isFollowing, setIsFollowing] = useState(false)
 
   const divePhotos = [
     {
-      location: 'Key Largo, FL',
+      location: 'Tampa Bay, FL',
       image: '/underwater-sea-turtle.png'
     },
     {
-      location: 'Monterey Bay, CA',
+      location: 'Key West, FL',
       image: '/jellyfish-underwater.jpg'
     }
   ]
@@ -25,7 +25,7 @@ export default function ProfilePage() {
       {/* Header */}
       <header className="sticky top-0 z-50 bg-[#012137] px-6 py-4 flex items-center justify-between">
         <Link 
-          href="/buddies/search"
+          href="/buddies"
           className="text-white hover:scale-110 transition-transform"
         >
           <ArrowLeft className="w-6 h-6" />
@@ -49,15 +49,15 @@ export default function ProfilePage() {
           <div className="flex flex-col items-center text-center space-y-4">
             <div className="w-40 h-40 rounded-full bg-gradient-to-br from-blue-400 to-cyan-400 overflow-hidden">
               <img 
-                src="/male-diver-smiling-beach.jpg"
-                alt="Diego Marrero"
+                src="/male-diver-with-gear.jpg"
+                alt="Marcus Johnson"
                 className="w-full h-full object-cover"
               />
             </div>
             <div>
-              <h1 className="text-3xl font-bold text-gray-900">Diego Marrero</h1>
-              <p className="text-xl text-gray-600">@diegomarrero</p>
-              <p className="text-gray-500 mt-1">Coral Gables, FL</p>
+              <h1 className="text-3xl font-bold text-gray-900">Marcus Johnson</h1>
+              <p className="text-xl text-gray-600">@marcusjohnson</p>
+              <p className="text-gray-500 mt-1">Tampa, FL</p>
             </div>
             
             <div className="flex gap-3 w-full max-w-xs">
@@ -97,7 +97,7 @@ export default function ProfilePage() {
           <div className="mt-8 space-y-3">
             <h2 className="text-xl font-bold text-gray-900">Bio</h2>
             <p className="text-gray-700 leading-relaxed">
-              Avid diver originally from Cuba. I love underwater photography and exploring new dive spots.
+              Experienced diver and PADI instructor. I love teaching others about the underwater world and exploring new dive sites. Always safety-first and looking for responsible dive buddies.
             </p>
           </div>
 
@@ -106,12 +106,12 @@ export default function ProfilePage() {
             <h2 className="text-xl font-bold text-gray-900">Recent Dives</h2>
             <div className="space-y-2 text-gray-700">
               <div>
-                <p className="font-medium">Channel Islands, CA</p>
-                <p className="text-sm text-gray-500">45d ago</p>
+                <p className="font-medium">Key Biscayne, FL</p>
+                <p className="text-sm text-gray-500">2d ago</p>
               </div>
               <div>
-                <p className="font-medium">La Jolla Cove, CA</p>
-                <p className="text-sm text-gray-500">50d ago</p>
+                <p className="font-medium">Dry Tortugas, FL</p>
+                <p className="text-sm text-gray-500">1w ago</p>
               </div>
             </div>
           </div>
@@ -125,12 +125,12 @@ export default function ProfilePage() {
             ))}
           </div>
           <p className="text-gray-800 leading-relaxed mb-4">
-            Diego is the kind of dive buddy you want every time — always on time, totally reliable, and safety-focused. On our last dive, he captured the most incredible shots of rare sea life. Can't wait to dive with him again!
+            Marcus is an excellent dive buddy and instructor. His experience really shows and he made me feel safe throughout the entire dive. Highly recommend diving with him!
           </p>
           <div className="flex items-center gap-3 text-gray-600">
             <MessageSquare className="w-5 h-5" />
             <div>
-              <p className="font-semibold text-gray-900">Marcus Johnson</p>
+              <p className="font-semibold text-gray-900">Diego Marrero</p>
               <p className="text-sm">Aug. 3, 2025</p>
             </div>
           </div>
@@ -161,54 +161,52 @@ export default function ProfilePage() {
       </main>
 
       {/* Bottom Navigation */}
-      <div className="fixed bottom-4 left-1/2 -translate-x-1/2 w-full max-w-md z-50">
-        <nav className="bg-white/95 backdrop-blur-xl border-t border-gray-200 shadow-2xl">
-          <div className="px-8 py-4">
-            <div className="flex items-center justify-around">
-              <Link 
-                href="/buddies" 
-                className={`p-3 transition-all duration-300 ${
-                  pathname === '/buddies' 
-                    ? 'text-[#018AE6] bg-blue-50 scale-110' 
-                    : 'text-gray-400 hover:text-gray-600 hover:bg-gray-50'
-                }`}
-              >
-                <Home className="w-7 h-7" fill={pathname === '/buddies' ? 'currentColor' : 'none'} />
-              </Link>
-              <Link 
-                href="/buddies/search" 
-                className={`p-3 transition-all duration-300 ${
-                  pathname === '/buddies/search' 
-                    ? 'text-[#018AE6] bg-blue-50 scale-110' 
-                    : 'text-gray-400 hover:text-gray-600 hover:bg-gray-50'
-                }`}
-              >
-                <Star className="w-7 h-7" fill={pathname === '/buddies/search' ? 'currentColor' : 'none'} />
-              </Link>
-              <Link 
-                href="/buddies/gallery" 
-                className={`p-3 transition-all duration-300 ${
-                  pathname === '/buddies/gallery' 
-                    ? 'text-[#018AE6] bg-blue-50 scale-110' 
-                    : 'text-gray-400 hover:text-gray-600 hover:bg-gray-50'
-                }`}
-              >
-                <Camera className="w-7 h-7" />
-              </Link>
-              <Link 
-                href="/buddies/profile/me" 
-                className={`p-3 transition-all duration-300 ${
-                  pathname === '/buddies/profile/me' 
-                    ? 'text-[#018AE6] bg-blue-50 scale-110' 
-                    : 'text-gray-400 hover:text-gray-600 hover:bg-gray-50'
-                }`}
-              >
-                <User className="w-7 h-7" fill={pathname === '/buddies/profile/me' ? 'currentColor' : 'none'} />
-              </Link>
-            </div>
+      <nav className="fixed bottom-0 left-0 right-0 w-full bg-white/95 backdrop-blur-xl border-t border-gray-200 shadow-2xl z-50">
+        <div className="px-8 py-4 max-w-4xl mx-auto">
+          <div className="flex items-center justify-around">
+            <Link 
+              href="/buddies" 
+              className={`p-3 rounded-2xl transition-all duration-300 ${
+                pathname === '/buddies' 
+                  ? 'text-[#018AE6] bg-blue-50 scale-110' 
+                  : 'text-gray-400 hover:text-gray-600 hover:bg-gray-50'
+              }`}
+            >
+              <Home className="w-7 h-7" fill={pathname === '/buddies' ? 'currentColor' : 'none'} />
+            </Link>
+            <Link 
+              href="/buddies/search" 
+              className={`p-3 rounded-2xl transition-all duration-300 ${
+                pathname === '/buddies/search' 
+                  ? 'text-[#018AE6] bg-blue-50 scale-110' 
+                  : 'text-gray-400 hover:text-gray-600 hover:bg-gray-50'
+              }`}
+            >
+              <Star className="w-7 h-7" fill={pathname === '/buddies/search' ? 'currentColor' : 'none'} />
+            </Link>
+            <Link 
+              href="/buddies/camera" 
+              className={`p-3 rounded-2xl transition-all duration-300 ${
+                pathname === '/buddies/camera' 
+                  ? 'text-[#018AE6] bg-blue-50 scale-110' 
+                  : 'text-gray-400 hover:text-gray-600 hover:bg-gray-50'
+              }`}
+            >
+              <Camera className="w-7 h-7" />
+            </Link>
+            <Link 
+              href="/buddies/profile/me" 
+              className={`p-3 rounded-2xl transition-all duration-300 ${
+                pathname === '/buddies/profile/me' 
+                  ? 'text-[#018AE6] bg-blue-50 scale-110' 
+                  : 'text-gray-400 hover:text-gray-600 hover:bg-gray-50'
+              }`}
+            >
+              <User className="w-7 h-7" fill={pathname === '/buddies/profile/me' ? 'currentColor' : 'none'} />
+            </Link>
           </div>
-        </nav>
-      </div>
+        </div>
+      </nav>
     </div>
   )
 }
