@@ -354,7 +354,7 @@ export default function PortfolioPage() {
               Work Samples
             </h1>
             <p className="text-xl text-balance text-brand-gray-dark">
-              View recent work samples in product design, content strategy, and marketing. Want to see more projects?{" "}
+              View recent work samples in product design, content strategy, growth design, and user acquisition. Want to see more projects?{" "}
               <a href="mailto:andi@andixd.com" className="text-brand-purple hover:opacity-80 underline cursor-pointer">
                 E-mail me at andi@andixd.com
               </a>

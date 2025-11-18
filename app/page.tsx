@@ -197,7 +197,7 @@ export default function HomePage() {
                   { value: "$7.5M", label: "Revenue Impact", icon: BarChart }
                 ].map((metric, i) => (
                   <div key={i} 
-                       className="group relative bg-white/40 backdrop-blur-md border border-white/20 rounded-2xl p-6 hover:bg-white/60 hover:border-purple-500/30 hover:shadow-xl hover:shadow-purple-500/10 transition-all duration-500 hover:-translate-y-1"
+                       className="group relative bg-white/40 backdrop-blur-md border border-white/20 rounded-2xl p-6 hover:bg-white/60 hover:border-purple-500/30 hover:shadow-xl hover:shadow-purple-500/10 hover:-translate-y-1 transition-all duration-500" 
                        style={{ animationDelay: `${i * 100}ms` }}>
                     <metric.icon className="w-5 h-5 text-purple-600 mb-3 group-hover:scale-110 transition-transform" />
                     <div className="text-4xl font-black text-purple-600 mb-1 tabular-nums">{metric.value}</div>
@@ -207,9 +207,9 @@ export default function HomePage() {
               </div>
 
               <p className="reveal-on-scroll text-2xl leading-relaxed mb-12 max-w-4xl" style={{ color: '#20221e' }}>
-                Senior Product Designer blending <strong className="font-bold text-purple-700">AI</strong>,{' '}
-                <strong className="font-bold text-purple-700">experimentation</strong>, and{' '}
-                <strong className="font-bold text-purple-700">growth strategy</strong> to transform complex product challenges into measurable revenue outcomes.
+                Senior Product & Content Designer blending <strong className="font-bold text-purple-700">AI</strong>,{' '}
+                <strong className="font-bold text-purple-700">content strategy</strong>, and{' '}
+                <strong className="font-bold text-purple-700">growth design</strong> to transform complex product challenges into measurable revenue outcomes through user acquisition and activation.
               </p>
 
               <div className="reveal-on-scroll flex flex-col gap-4">
@@ -391,23 +391,23 @@ export default function HomePage() {
             <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-6">
               {[
                 {
-                  title: "Growth-Driven Product Design",
-                  description: "Every interface decision is informed by conversion data, user behavior analytics, and A/B testing results. My designs consistently improve key metrics like activation, retention, and revenue.",
+                  title: "Growth-Driven Product & Content Design",
+                  description: "Every interface and content decision is informed by conversion data, user behavior analytics, and A/B testing results. My designs and messaging consistently improve key metrics like activation, retention, and revenue.",
                   icon: <TrendingUp className="w-6 h-6" />
                 },
                 {
                   title: "AI Product Design",
-                  description: "Deep experience designing conversational AI interfaces, recommendation systems, and ML-powered features. I understand how to make complex AI capabilities feel natural and build user trust.",
+                  description: "Deep experience designing conversational AI interfaces, recommendation systems, and ML-powered features. I understand how to make complex AI capabilities feel natural and build user trust through clear content and intuitive flows.",
                   icon: <Cpu className="w-6 h-6" />
                 },
                 {
-                  title: "Full-Funnel Thinking",
-                  description: "From awareness to advocacy, I design the complete customer journey. Expert in landing page optimization, onboarding flows, email campaigns, and in-product growth loops.",
+                  title: "Content Strategy for User Acquisition",
+                  description: "Expert in creating compelling product narratives, onboarding content, and activation messaging. From landing page copy to in-product tutorials, I craft content that converts prospects into engaged users.",
                   icon: <Zap className="w-6 h-6" />
                 },
                 {
                   title: "Cross-Functional Leadership",
-                  description: "Skilled at leading product initiatives across design, engineering, marketing, and sales. I speak the language of business stakeholders while maintaining design excellence.",
+                  description: "Skilled at leading product initiatives across design, engineering, marketing, content, and sales. I speak the language of business stakeholders while maintaining design and editorial excellence.",
                   icon: <Users className="w-6 h-6" />
                 }
               ].map((skill, index) => (
@@ -432,60 +432,6 @@ export default function HomePage() {
                   </p>
                 </div>
               ))}
-            </div>
-          </div>
-        </section>
-
-        <section className="py-32 reveal-on-scroll">
-          <div className="container mx-auto px-6">
-            <div className="relative overflow-hidden rounded-[3rem] bg-gradient-to-br from-purple-600 via-blue-600 to-purple-700 border border-purple-400/30 hover:shadow-2xl hover:shadow-purple-500/20 transition-shadow duration-700">
-              <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-10" />
-              
-              <div className="relative z-10 p-16 md:p-20">
-                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/20 border border-white/40 backdrop-blur-sm mb-8">
-                  <Sparkles className="w-4 h-4 text-white" />
-                  <span className="text-sm font-bold text-white">AI-Powered Development</span>
-                </div>
-
-                <div className="grid md:grid-cols-2 gap-16 items-center">
-                  <div>
-                    <h2 className="text-5xl md:text-6xl font-black mb-6 text-white">
-                      Built with AI
-                    </h2>
-                    <div className="space-y-4 text-lg leading-relaxed">
-                      <p className="text-white/90">
-                        This portfolio was built using an AI-powered design and development workflow that turns natural language into production-ready code.
-                      </p>
-                      <p className="text-white/90">
-                        I curated the content, art directed the visual design, and directed layouts. Then I let AI handle the implementation.
-                      </p>
-                      <p className="text-white font-semibold">
-                        This is the future: strategic thinking + creative direction + AI execution.
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="space-y-4">
-                    {[
-                      { icon: Code2, title: "Tech Stack", desc: "React, Next.js, TypeScript, Tailwind CSS" },
-                      { icon: Zap, title: "Built in Hours", desc: "From concept to deployed site in a fraction of the time" },
-                      { icon: Cpu, title: "AI-Assisted Iteration", desc: "Rapid prototyping through conversational prompts" }
-                    ].map((item, i) => (
-                      <div key={i} className="bg-white/15 border border-white/30 backdrop-blur-md rounded-2xl p-6 hover:bg-white/25 hover:scale-105 transition-all duration-300">
-                        <div className="flex items-start gap-4">
-                          <div className="w-12 h-12 rounded-xl bg-white/20 flex items-center justify-center flex-shrink-0">
-                            <item.icon className="w-6 h-6 text-white" />
-                          </div>
-                          <div>
-                            <h3 className="text-lg font-bold text-white mb-1">{item.title}</h3>
-                            <p className="text-sm text-white/80">{item.desc}</p>
-                          </div>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
         </section>
