@@ -199,67 +199,62 @@ export default function PortfolioPage() {
   const writingLinks = [
     {
       title: "Adobe.com: Designing for Accessible Experiences at Scale",
-      url: "https://xd.adobe.com/ideas/perspectives/leadership-insights/accessibility-design-scale/",
+      url: "https://xd.adobe.com/ideas/principles/web-design/accessibility-design-at-scale/",
       categories: ["Writing"],
     },
     {
       title: "Meet the Experience Design Team Behind Adobe XD CC",
-      url: "https://xd.adobe.com/ideas/perspectives/profiles-interviews/meet-experience-design-team-behind-adobe-xd/",
+      url: "https://zight.com/blog/adobexd-cc-experience-design/",
       categories: ["Writing"],
     },
     {
       title: "User Research At LinkedIn With Sunny Patel",
-      url: "https://xd.adobe.com/ideas/perspectives/profiles-interviews/user-research-linkedin-sunny-patel/",
+      url: "https://zight.com/blog/user-research-at-linkedin-sunny-patel/",
       categories: ["Writing"],
     },
     {
       title: "How to Design a User-Friendly SaaS Pricing Page with Examples",
-      url: "https://xd.adobe.com/ideas/process/information-architecture/saas-pricing-page-design-examples/",
+      url: "https://www.getcloudapp.com/blog/saas-pricing-page-design",
       categories: ["Writing"],
     },
     {
       title: "7 Presentation Design Tips To Wow Your Audience",
-      url: "https://xd.adobe.com/ideas/process/ui-design/7-presentation-design-tips/",
+      url: "https://www.getcloudapp.com/blog/7-presentation-design-tips-to-wow-your-audience",
       categories: ["Writing"],
     },
     {
       title: "How to Create a Case Study for your UX and Product Design Portfolio",
-      url: "https://xd.adobe.com/ideas/career-tips/ux-design-portfolio-case-study/",
+      url: "https://www.getcloudapp.com/blog/how-to-create-a-case-study-for-your-ux-and-product-design-portfolio",
       categories: ["Writing"],
     },
     {
       title: "Scaling Design Patterns at Eventbrite",
-      url: "https://xd.adobe.com/ideas/perspectives/profiles-interviews/scaling-design-patterns-eventbrite/",
+      url: "https://www.getcloudapp.com/blog/design-patterns-eventbrite",
       categories: ["Writing"],
     },
     {
       title: "How to Convince your Boss to Pay for a Conference",
-      url: "https://xd.adobe.com/ideas/career-tips/convince-boss-pay-conference/",
+      url: "https://www.getcloudapp.com/blog/convince-your-boss-to-pay-for-a-conference",
       categories: ["Writing"],
     },
     {
       title: "The Best Sketch Plugins for Product Designers in 2018",
-      url: "https://xd.adobe.com/ideas/process/ui-design/best-sketch-plugins-product-designers/",
+      url: "https://www.getcloudapp.com/blog/sketch-plugins",
       categories: ["Writing"],
     },
     {
       title: "Meet Khoi Vinh, Principal Designer at Adobe",
-      url: "https://xd.adobe.com/ideas/perspectives/profiles-interviews/meet-khoi-vinh-principal-designer-adobe/",
+      url: "https://www.getcloudapp.com/blog/khoi-vinh",
       categories: ["Writing"],
     },
     {
       title: "Market Research vs. User Research",
-      url: "https://xd.adobe.com/ideas/process/user-research/market-research-vs-user-research/",
+      url: "https://www.getcloudapp.com/blog/market-research-vs-user-research",
       categories: ["Writing"],
     },
     {
       title: "Shopify blog: Essential App Marketing: 11 Ways to Successfully Promote Your App",
-      url: "https://www.shopify.com/partners/blog/app-marketing",
-      categories: ["Writing"],
-    },
-    {
-      title: "productdesign.tips: What is Product Design?",
-      url: "https://productdesign.tips/what-is-product-design/",
+      url: "https://www.shopify.com/partners/blog/how-to-market-an-app",
       categories: ["Writing"],
     },
   ]
