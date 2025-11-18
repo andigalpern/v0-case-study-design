@@ -2,7 +2,7 @@
 
 import Image from "next/image"
 import Link from "next/link"
-import { ArrowUpRight, ChevronLeft, ChevronRight, X } from 'lucide-react'
+import { ArrowUpRight, ChevronLeft, ChevronRight, X, FileText, Lightbulb, Users, TrendingUp, Presentation, BookOpen, Layers, DollarSign, Zap, MessageSquare, BarChart3, Rocket } from 'lucide-react'
 import { useState, useRef, useEffect } from "react"
 import { ContactSection } from '@/components/contact-section'
 import { Header } from '@/components/header'
@@ -228,23 +228,8 @@ export default function PortfolioPage() {
       categories: ["Writing"],
     },
     {
-      title: "Scaling Design Patterns at Eventbrite",
-      url: "https://www.getcloudapp.com/blog/design-patterns-eventbrite",
-      categories: ["Writing"],
-    },
-    {
-      title: "How to Convince your Boss to Pay for a Conference",
-      url: "https://www.getcloudapp.com/blog/convince-your-boss-to-pay-for-a-conference",
-      categories: ["Writing"],
-    },
-    {
       title: "The Best Sketch Plugins for Product Designers in 2018",
       url: "https://www.getcloudapp.com/blog/sketch-plugins",
-      categories: ["Writing"],
-    },
-    {
-      title: "Meet Khoi Vinh, Principal Designer at Adobe",
-      url: "https://www.getcloudapp.com/blog/khoi-vinh",
       categories: ["Writing"],
     },
     {
@@ -776,27 +761,60 @@ export default function PortfolioPage() {
         </section>
 
         {/* Writing Section */}
-        <section data-section="Writing" className="container mx-auto px-6 py-16 scroll-mt-32 fade-in-up">
-          <h2 className="text-3xl font-bold mb-12 text-center gradient-text">
-            Writing
-          </h2>
+        <section data-section="Writing" className="container mx-auto px-4 sm:px-6 py-16 scroll-mt-32 fade-in-up">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl sm:text-4xl font-bold mb-4 gradient-text">
+              Featured Writing
+            </h2>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto text-balance">
+              Insights on design systems, product strategy, user research, and building better products
+            </p>
+          </div>
 
-          <div className="max-w-3xl mx-auto card-glass">
-            <ul className="space-y-6">
-              {writingLinks.map((article, index) => (
-                <li key={index}>
-                  <a
-                    href={article.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-start gap-3 text-brand-purple hover:opacity-80 transition-colors group cursor-pointer text-lg"
-                  >
-                    <ArrowUpRight className="w-5 h-5 mt-1 flex-shrink-0 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-                    <span className="text-balance font-medium">{article.title}</span>
-                  </a>
-                </li>
-              ))}
-            </ul>
+          <div className="max-w-5xl mx-auto grid sm:grid-cols-2 gap-4">
+            {writingLinks.map((article, index) => {
+              // Assign icons based on article topic
+              const getIcon = (title: string) => {
+                if (title.toLowerCase().includes('accessibility')) return <Users className="w-5 h-5" />
+                if (title.toLowerCase().includes('adobe xd') || title.toLowerCase().includes('experience design')) return <Layers className="w-5 h-5" />
+                if (title.toLowerCase().includes('research')) return <MessageSquare className="w-5 h-5" />
+                if (title.toLowerCase().includes('pricing')) return <DollarSign className="w-5 h-5" />
+                if (title.toLowerCase().includes('presentation')) return <Presentation className="w-5 h-5" />
+                if (title.toLowerCase().includes('case study') || title.toLowerCase().includes('portfolio')) return <BookOpen className="w-5 h-5" />
+                if (title.toLowerCase().includes('design patterns') || title.toLowerCase().includes('scaling')) return <Layers className="w-5 h-5" />
+                if (title.toLowerCase().includes('conference') || title.toLowerCase().includes('convince')) return <Lightbulb className="w-5 h-5" />
+                if (title.toLowerCase().includes('plugins') || title.toLowerCase().includes('sketch')) return <Zap className="w-5 h-5" />
+                if (title.toLowerCase().includes('khoi vinh') || title.toLowerCase().includes('meet')) return <Users className="w-5 h-5" />
+                if (title.toLowerCase().includes('marketing') || title.toLowerCase().includes('promote')) return <TrendingUp className="w-5 h-5" />
+                return <FileText className="w-5 h-5" />
+              }
+
+              return (
+                <a
+                  key={index}
+                  href={article.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group card-glass-hover p-6 flex items-start gap-4 cursor-pointer transition-all duration-300"
+                >
+                  {/* Icon container */}
+                  <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500/10 to-blue-500/10 border border-purple-500/20 flex items-center justify-center text-brand-purple group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-purple-500/20 transition-all duration-300">
+                    {getIcon(article.title)}
+                  </div>
+
+                  {/* Content */}
+                  <div className="flex-1 min-w-0">
+                    <h3 className="text-base font-semibold text-balance mb-2 group-hover:text-brand-purple transition-colors line-clamp-2">
+                      {article.title}
+                    </h3>
+                    <div className="flex items-center gap-2 text-sm text-gray-500">
+                      <span>Read article</span>
+                      <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                    </div>
+                  </div>
+                </a>
+              )
+            })}
           </div>
         </section>
 
