@@ -130,6 +130,17 @@ export default function PortfolioPage() {
       link: "/smule-case-study",
     },
     {
+      id: 9,
+      title: "CarXPlore Automotive Content Platform",
+      category: "Site Impact",
+      categories: ["Product Design", "Case Studies"],
+      description:
+        "Editorial content hub and SEO-optimized automotive resource platform with strategic content architecture and affiliate monetization.",
+      image: "/images/carxplore-homepage.png",
+      tags: ["Editorial", "SEO", "Content"],
+      link: "/carxplore-case-study",
+    },
+    {
       id: 3,
       title: "Growing the sales pipeline from $2.2 million to $9.7 million at Informatica",
       category: "Informatica",
