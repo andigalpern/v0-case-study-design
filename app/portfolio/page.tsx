@@ -141,6 +141,17 @@ export default function PortfolioPage() {
       link: "/carxplore-case-study",
     },
     {
+      id: 10,
+      title: "Travel Club Editorial Travel Platform",
+      category: "Site Impact",
+      categories: ["Product Design", "Case Studies"],
+      description:
+        "WordPress-powered travel content platform combining curated editorial content with structured vacation packages, designed to inspire wanderlust through engaging storytelling.",
+      image: "/images/travel-club-homepage.jpg",
+      tags: ["WordPress", "Editorial", "Travel"],
+      link: "/travel-club-case-study",
+    },
+    {
       id: 3,
       title: "Growing the sales pipeline from $2.2 million to $9.7 million at Informatica",
       category: "Informatica",
