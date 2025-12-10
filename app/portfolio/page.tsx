@@ -1,11 +1,28 @@
 "use client"
 
+import type React from "react"
+
 import Image from "next/image"
 import Link from "next/link"
-import { ArrowUpRight, ChevronLeft, ChevronRight, X, FileText, Lightbulb, Users, TrendingUp, Presentation, BookOpen, Layers, DollarSign, Zap, MessageSquare, BarChart3, Rocket } from 'lucide-react'
+import {
+  ArrowUpRight,
+  ChevronLeft,
+  ChevronRight,
+  X,
+  FileText,
+  Lightbulb,
+  Users,
+  TrendingUp,
+  Presentation,
+  BookOpen,
+  Layers,
+  DollarSign,
+  Zap,
+  MessageSquare,
+} from "lucide-react"
 import { useState, useRef, useEffect } from "react"
-import { ContactSection } from '@/components/contact-section'
-import { Header } from '@/components/header'
+import { ContactSection } from "@/components/contact-section"
+import { Header } from "@/components/header"
 
 export default function PortfolioPage() {
   const [activeFilter, setActiveFilter] = useState<string>("All")
@@ -18,19 +35,19 @@ export default function PortfolioPage() {
   useEffect(() => {
     const observerOptions = {
       threshold: 0.1,
-      rootMargin: '0px 0px -100px 0px'
+      rootMargin: "0px 0px -100px 0px",
     }
 
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          entry.target.classList.add('animate-in')
+          entry.target.classList.add("animate-in")
         }
       })
     }, observerOptions)
 
     // Observe all animatable elements
-    const elements = document.querySelectorAll('.fade-in-up, .fade-in-left, .fade-in-right, .fade-in-scale')
+    const elements = document.querySelectorAll(".fade-in-up, .fade-in-left, .fade-in-right, .fade-in-scale")
     elements.forEach((el) => observer.observe(el))
 
     return () => observer.disconnect()
@@ -39,13 +56,13 @@ export default function PortfolioPage() {
   useEffect(() => {
     const sectionObserverOptions = {
       threshold: 0.3,
-      rootMargin: '-100px 0px -50% 0px'
+      rootMargin: "-100px 0px -50% 0px",
     }
 
     const sectionObserver = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          const sectionId = entry.target.getAttribute('data-section')
+          const sectionId = entry.target.getAttribute("data-section")
           if (sectionId) {
             setActiveSection(sectionId)
           }
@@ -53,7 +70,7 @@ export default function PortfolioPage() {
       })
     }, sectionObserverOptions)
 
-    const sections = document.querySelectorAll('[data-section]')
+    const sections = document.querySelectorAll("[data-section]")
     sections.forEach((section) => sectionObserver.observe(section))
 
     return () => sectionObserver.disconnect()
@@ -63,10 +80,10 @@ export default function PortfolioPage() {
 
   const scrollToSection = (category: string) => {
     if (category === "All") {
-      window.scrollTo({ top: 0, behavior: 'smooth' })
+      window.scrollTo({ top: 0, behavior: "smooth" })
       return
     }
-    
+
     const section = document.querySelector(`[data-section="${category}"]`)
     if (section) {
       const offset = 120 // Account for sticky header
@@ -75,7 +92,7 @@ export default function PortfolioPage() {
 
       window.scrollTo({
         top: offsetPosition,
-        behavior: 'smooth'
+        behavior: "smooth",
       })
     }
     setActiveFilter(category)
@@ -83,9 +100,9 @@ export default function PortfolioPage() {
 
   const scrollToContact = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault()
-    const contactSection = document.getElementById('contact')
+    const contactSection = document.getElementById("contact")
     if (contactSection) {
-      contactSection.scrollIntoView({ behavior: 'smooth', block: 'center' })
+      contactSection.scrollIntoView({ behavior: "smooth", block: "center" })
     }
   }
 
@@ -100,6 +117,17 @@ export default function PortfolioPage() {
       image: "/adobe-creative-cloud-dashboard-interface.jpg",
       tags: ["Growth", "Strategy", "Global"],
       link: "/adobe-growth-case-study",
+    },
+    {
+      id: 8,
+      title: "Smule Social Music Network Redesign",
+      category: "Smule",
+      categories: ["Product Design", "Case Studies"],
+      description:
+        "Responsive web platform redesign for a global karaoke community with millions of users, focusing on social engagement and content discovery.",
+      image: "/smule-desktop-player.png",
+      tags: ["Social", "Responsive", "Music"],
+      link: "/smule-case-study",
     },
     {
       id: 3,
@@ -253,20 +281,20 @@ export default function PortfolioPage() {
   const filteredWritingLinks =
     activeFilter === "All" ? writingLinks : writingLinks.filter((item) => item.categories.includes(activeFilter))
 
-  const growthStrategyProjects = workSamples.filter(p => p.categories.includes("Growth Strategy"))
-  const productDesignProjects = workSamples.filter(p => p.categories.includes("Product Design"))
-  const caseStudyProjects = workSamples.filter(p => p.categories.includes("Case Studies"))
-  const visualDesignProjects = workSamples.filter(p => p.categories.includes("Visual Design"))
+  const growthStrategyProjects = workSamples.filter((p) => p.categories.includes("Growth Strategy"))
+  const productDesignProjects = workSamples.filter((p) => p.categories.includes("Product Design"))
+  const caseStudyProjects = workSamples.filter((p) => p.categories.includes("Case Studies"))
+  const visualDesignProjects = workSamples.filter((p) => p.categories.includes("Visual Design"))
 
   const scrollLeft = () => {
     if (scrollContainerRef.current) {
-      scrollContainerRef.current.scrollBy({ left: -420, behavior: 'smooth' })
+      scrollContainerRef.current.scrollBy({ left: -420, behavior: "smooth" })
     }
   }
 
   const scrollRight = () => {
     if (scrollContainerRef.current) {
-      scrollContainerRef.current.scrollBy({ left: 420, behavior: 'smooth' })
+      scrollContainerRef.current.scrollBy({ left: 420, behavior: "smooth" })
     }
   }
 
@@ -319,19 +347,19 @@ export default function PortfolioPage() {
     if (!lightboxOpen) return
 
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'ArrowLeft') {
+      if (e.key === "ArrowLeft") {
         prevImage()
-      } else if (e.key === 'ArrowRight') {
+      } else if (e.key === "ArrowRight") {
         nextImage()
-      } else if (e.key === 'Escape') {
+      } else if (e.key === "Escape") {
         closeLightbox()
       }
     }
 
-    window.addEventListener('keydown', handleKeyDown)
+    window.addEventListener("keydown", handleKeyDown)
 
     return () => {
-      window.removeEventListener('keydown', handleKeyDown)
+      window.removeEventListener("keydown", handleKeyDown)
     }
   }, [lightboxOpen, currentImageIndex, filteredMoreDesignWork.length])
 
@@ -350,11 +378,10 @@ export default function PortfolioPage() {
         {/* Hero */}
         <section className="container mx-auto px-6 py-32 fade-in-up">
           <div className="max-w-3xl">
-            <h1 className="text-5xl md:text-6xl font-bold mb-6 text-balance text-brand-gray-dark">
-              Work Samples
-            </h1>
+            <h1 className="text-5xl md:text-6xl font-bold mb-6 text-balance text-brand-gray-dark">Work Samples</h1>
             <p className="text-xl text-balance text-brand-gray-dark">
-              View recent work samples in product design, content strategy, growth design, and user acquisition. Want to see more projects?{" "}
+              View recent work samples in product design, content strategy, growth design, and user acquisition. Want to
+              see more projects?{" "}
               <a href="mailto:andi@andixd.com" className="text-brand-purple hover:opacity-80 underline cursor-pointer">
                 E-mail me at andi@andixd.com
               </a>
@@ -386,16 +413,12 @@ export default function PortfolioPage() {
 
         {/* Growth Strategy Section */}
         <section data-section="Growth Strategy" className="container mx-auto px-6 py-12 scroll-mt-32">
-          <h2 className="text-4xl font-bold mb-8 gradient-text">
-            Growth Strategy
-          </h2>
+          <h2 className="text-4xl font-bold mb-8 gradient-text">Growth Strategy</h2>
           <div className="space-y-16">
             {growthStrategyProjects.map((project, index) => (
               <div
                 key={project.id}
-                className={`group card-glass-hover ${
-                  index % 2 === 0 ? 'fade-in-left' : 'fade-in-right'
-                }`}
+                className={`group card-glass-hover ${index % 2 === 0 ? "fade-in-left" : "fade-in-right"}`}
                 style={{ animationDelay: `${index * 100}ms` }}
               >
                 <div className="grid md:grid-cols-5 gap-8 p-8">
@@ -416,26 +439,18 @@ export default function PortfolioPage() {
 
                     <h3 className="text-2xl font-bold text-balance">{project.title}</h3>
 
-                    <p className="text-balance leading-relaxed text-brand-gray-dark">
-                      {project.description}
-                    </p>
+                    <p className="text-balance leading-relaxed text-brand-gray-dark">{project.description}</p>
 
                     <div className="flex flex-wrap gap-2">
                       {project.tags.map((tag) => (
-                        <span
-                          key={tag}
-                          className="badge-outline"
-                        >
+                        <span key={tag} className="badge-outline">
                           {tag}
                         </span>
                       ))}
                     </div>
 
                     {project.link ? (
-                      <Link
-                        href={project.link}
-                        className="mt-4 btn-primary inline-flex items-center gap-2 w-fit group"
-                      >
+                      <Link href={project.link} className="mt-4 btn-primary inline-flex items-center gap-2 w-fit group">
                         {project.categories.includes("Visual Design") ? "View project" : "View case study"}
                         <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                       </Link>
@@ -454,16 +469,12 @@ export default function PortfolioPage() {
 
         {/* Product Design Section */}
         <section data-section="Product Design" className="container mx-auto px-6 py-12 scroll-mt-32">
-          <h2 className="text-4xl font-bold mb-8 gradient-text">
-            Product Design
-          </h2>
+          <h2 className="text-4xl font-bold mb-8 gradient-text">Product Design</h2>
           <div className="space-y-16">
             {productDesignProjects.map((project, index) => (
               <div
                 key={project.id}
-                className={`group card-glass-hover ${
-                  index % 2 === 0 ? 'fade-in-left' : 'fade-in-right'
-                }`}
+                className={`group card-glass-hover ${index % 2 === 0 ? "fade-in-left" : "fade-in-right"}`}
                 style={{ animationDelay: `${index * 100}ms` }}
               >
                 <div className="grid md:grid-cols-5 gap-8 p-8">
@@ -484,26 +495,18 @@ export default function PortfolioPage() {
 
                     <h3 className="text-2xl font-bold text-balance">{project.title}</h3>
 
-                    <p className="text-balance leading-relaxed text-brand-gray-dark">
-                      {project.description}
-                    </p>
+                    <p className="text-balance leading-relaxed text-brand-gray-dark">{project.description}</p>
 
                     <div className="flex flex-wrap gap-2">
                       {project.tags.map((tag) => (
-                        <span
-                          key={tag}
-                          className="badge-outline"
-                        >
+                        <span key={tag} className="badge-outline">
                           {tag}
                         </span>
                       ))}
                     </div>
 
                     {project.link ? (
-                      <Link
-                        href={project.link}
-                        className="mt-4 btn-primary inline-flex items-center gap-2 w-fit group"
-                      >
+                      <Link href={project.link} className="mt-4 btn-primary inline-flex items-center gap-2 w-fit group">
                         {project.categories.includes("Visual Design") ? "View project" : "View case study"}
                         <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                       </Link>
@@ -537,32 +540,34 @@ export default function PortfolioPage() {
               <ChevronRight className="w-6 h-6" />
             </button>
 
-            <div 
+            <div
               className="relative px-14"
               onMouseEnter={() => setIsHovering(true)}
               onMouseLeave={() => setIsHovering(false)}
             >
               <div ref={scrollContainerRef} className="overflow-x-auto scrollbar-hide pb-4">
                 <div className="flex gap-6 min-w-max">
-                  {moreDesignWork.filter(d => d.categories.includes("Product Design")).map((item, index) => (
-                    <button
-                      key={index}
-                      onClick={() => openLightbox(index)}
-                      className="group card-glass-hover w-[400px] flex-shrink-0 cursor-pointer"
-                    >
-                      <div className="relative w-full aspect-[4/3]">
-                        <Image
-                          src={item.image || "/placeholder.svg"}
-                          alt={item.title}
-                          fill
-                          className="object-cover group-hover:scale-105 transition-transform duration-700"
-                        />
-                      </div>
-                      <div className="p-6">
-                        <p className="text-sm font-medium text-balance">{item.title}</p>
-                      </div>
-                    </button>
-                  ))}
+                  {moreDesignWork
+                    .filter((d) => d.categories.includes("Product Design"))
+                    .map((item, index) => (
+                      <button
+                        key={index}
+                        onClick={() => openLightbox(index)}
+                        className="group card-glass-hover w-[400px] flex-shrink-0 cursor-pointer"
+                      >
+                        <div className="relative w-full aspect-[4/3]">
+                          <Image
+                            src={item.image || "/placeholder.svg"}
+                            alt={item.title}
+                            fill
+                            className="object-cover group-hover:scale-105 transition-transform duration-700"
+                          />
+                        </div>
+                        <div className="p-6">
+                          <p className="text-sm font-medium text-balance">{item.title}</p>
+                        </div>
+                      </button>
+                    ))}
                 </div>
               </div>
             </div>
@@ -571,16 +576,12 @@ export default function PortfolioPage() {
 
         {/* Case Studies Section */}
         <section data-section="Case Studies" className="container mx-auto px-6 py-12 scroll-mt-32">
-          <h2 className="text-4xl font-bold mb-8 gradient-text">
-            Case Studies
-          </h2>
+          <h2 className="text-4xl font-bold mb-8 gradient-text">Case Studies</h2>
           <div className="space-y-16">
             {caseStudyProjects.map((project, index) => (
               <div
                 key={project.id}
-                className={`group card-glass-hover ${
-                  index % 2 === 0 ? 'fade-in-left' : 'fade-in-right'
-                }`}
+                className={`group card-glass-hover ${index % 2 === 0 ? "fade-in-left" : "fade-in-right"}`}
                 style={{ animationDelay: `${index * 100}ms` }}
               >
                 <div className="grid md:grid-cols-5 gap-8 p-8">
@@ -601,26 +602,18 @@ export default function PortfolioPage() {
 
                     <h3 className="text-2xl font-bold text-balance">{project.title}</h3>
 
-                    <p className="text-balance leading-relaxed text-brand-gray-dark">
-                      {project.description}
-                    </p>
+                    <p className="text-balance leading-relaxed text-brand-gray-dark">{project.description}</p>
 
                     <div className="flex flex-wrap gap-2">
                       {project.tags.map((tag) => (
-                        <span
-                          key={tag}
-                          className="badge-outline"
-                        >
+                        <span key={tag} className="badge-outline">
                           {tag}
                         </span>
                       ))}
                     </div>
 
                     {project.link ? (
-                      <Link
-                        href={project.link}
-                        className="mt-4 btn-primary inline-flex items-center gap-2 w-fit group"
-                      >
+                      <Link href={project.link} className="mt-4 btn-primary inline-flex items-center gap-2 w-fit group">
                         {project.categories.includes("Visual Design") ? "View project" : "View case study"}
                         <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                       </Link>
@@ -639,18 +632,14 @@ export default function PortfolioPage() {
 
         {/* Visual Design Section */}
         <section data-section="Visual Design" className="container mx-auto px-6 py-12 scroll-mt-32">
-          <h2 className="text-4xl font-bold mb-8 gradient-text">
-            Visual Design
-          </h2>
-          
+          <h2 className="text-4xl font-bold mb-8 gradient-text">Visual Design</h2>
+
           {/* Work samples with Visual Design category */}
           <div className="space-y-16 mb-16">
             {visualDesignProjects.map((project, index) => (
               <div
                 key={project.id}
-                className={`group card-glass-hover ${
-                  index % 2 === 0 ? 'fade-in-left' : 'fade-in-right'
-                }`}
+                className={`group card-glass-hover ${index % 2 === 0 ? "fade-in-left" : "fade-in-right"}`}
                 style={{ animationDelay: `${index * 100}ms` }}
               >
                 <div className="grid md:grid-cols-5 gap-8 p-8">
@@ -671,26 +660,18 @@ export default function PortfolioPage() {
 
                     <h3 className="text-2xl font-bold text-balance">{project.title}</h3>
 
-                    <p className="text-balance leading-relaxed text-brand-gray-dark">
-                      {project.description}
-                    </p>
+                    <p className="text-balance leading-relaxed text-brand-gray-dark">{project.description}</p>
 
                     <div className="flex flex-wrap gap-2">
                       {project.tags.map((tag) => (
-                        <span
-                          key={tag}
-                          className="badge-outline"
-                        >
+                        <span key={tag} className="badge-outline">
                           {tag}
                         </span>
                       ))}
                     </div>
 
                     {project.link ? (
-                      <Link
-                        href={project.link}
-                        className="mt-4 btn-primary inline-flex items-center gap-2 w-fit group"
-                      >
+                      <Link href={project.link} className="mt-4 btn-primary inline-flex items-center gap-2 w-fit group">
                         {project.categories.includes("Visual Design") ? "View project" : "View case study"}
                         <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                       </Link>
@@ -728,32 +709,34 @@ export default function PortfolioPage() {
               <ChevronRight className="w-6 h-6" />
             </button>
 
-            <div 
+            <div
               className="relative px-14"
               onMouseEnter={() => setIsHovering(true)}
               onMouseLeave={() => setIsHovering(false)}
             >
               <div ref={scrollContainerRef} className="overflow-x-auto scrollbar-hide pb-4">
                 <div className="flex gap-6 min-w-max">
-                  {moreDesignWork.filter(d => d.categories.includes("Visual Design")).map((item, index) => (
-                    <button
-                      key={index}
-                      onClick={() => openLightbox(index)}
-                      className="group card-glass-hover w-[400px] flex-shrink-0 cursor-pointer"
-                    >
-                      <div className="relative w-full aspect-[4/3]">
-                        <Image
-                          src={item.image || "/placeholder.svg"}
-                          alt={item.title}
-                          fill
-                          className="object-cover group-hover:scale-105 transition-transform duration-700"
-                        />
-                      </div>
-                      <div className="p-6">
-                        <p className="text-sm font-medium text-balance">{item.title}</p>
-                      </div>
-                    </button>
-                  ))}
+                  {moreDesignWork
+                    .filter((d) => d.categories.includes("Visual Design"))
+                    .map((item, index) => (
+                      <button
+                        key={index}
+                        onClick={() => openLightbox(index)}
+                        className="group card-glass-hover w-[400px] flex-shrink-0 cursor-pointer"
+                      >
+                        <div className="relative w-full aspect-[4/3]">
+                          <Image
+                            src={item.image || "/placeholder.svg"}
+                            alt={item.title}
+                            fill
+                            className="object-cover group-hover:scale-105 transition-transform duration-700"
+                          />
+                        </div>
+                        <div className="p-6">
+                          <p className="text-sm font-medium text-balance">{item.title}</p>
+                        </div>
+                      </button>
+                    ))}
                 </div>
               </div>
             </div>
@@ -763,9 +746,7 @@ export default function PortfolioPage() {
         {/* Writing Section */}
         <section data-section="Writing" className="container mx-auto px-4 sm:px-6 py-16 scroll-mt-32 fade-in-up">
           <div className="text-center mb-12">
-            <h2 className="text-3xl sm:text-4xl font-bold mb-4 gradient-text">
-              Featured Writing
-            </h2>
+            <h2 className="text-3xl sm:text-4xl font-bold mb-4 gradient-text">Featured Writing</h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto text-balance">
               Insights on design systems, product strategy, user research, and building better products
             </p>
@@ -775,17 +756,24 @@ export default function PortfolioPage() {
             {writingLinks.map((article, index) => {
               // Assign icons based on article topic
               const getIcon = (title: string) => {
-                if (title.toLowerCase().includes('accessibility')) return <Users className="w-5 h-5" />
-                if (title.toLowerCase().includes('adobe xd') || title.toLowerCase().includes('experience design')) return <Layers className="w-5 h-5" />
-                if (title.toLowerCase().includes('research')) return <MessageSquare className="w-5 h-5" />
-                if (title.toLowerCase().includes('pricing')) return <DollarSign className="w-5 h-5" />
-                if (title.toLowerCase().includes('presentation')) return <Presentation className="w-5 h-5" />
-                if (title.toLowerCase().includes('case study') || title.toLowerCase().includes('portfolio')) return <BookOpen className="w-5 h-5" />
-                if (title.toLowerCase().includes('design patterns') || title.toLowerCase().includes('scaling')) return <Layers className="w-5 h-5" />
-                if (title.toLowerCase().includes('conference') || title.toLowerCase().includes('convince')) return <Lightbulb className="w-5 h-5" />
-                if (title.toLowerCase().includes('plugins') || title.toLowerCase().includes('sketch')) return <Zap className="w-5 h-5" />
-                if (title.toLowerCase().includes('khoi vinh') || title.toLowerCase().includes('meet')) return <Users className="w-5 h-5" />
-                if (title.toLowerCase().includes('marketing') || title.toLowerCase().includes('promote')) return <TrendingUp className="w-5 h-5" />
+                if (title.toLowerCase().includes("accessibility")) return <Users className="w-5 h-5" />
+                if (title.toLowerCase().includes("adobe xd") || title.toLowerCase().includes("experience design"))
+                  return <Layers className="w-5 h-5" />
+                if (title.toLowerCase().includes("research")) return <MessageSquare className="w-5 h-5" />
+                if (title.toLowerCase().includes("pricing")) return <DollarSign className="w-5 h-5" />
+                if (title.toLowerCase().includes("presentation")) return <Presentation className="w-5 h-5" />
+                if (title.toLowerCase().includes("case study") || title.toLowerCase().includes("portfolio"))
+                  return <BookOpen className="w-5 h-5" />
+                if (title.toLowerCase().includes("design patterns") || title.toLowerCase().includes("scaling"))
+                  return <Layers className="w-5 h-5" />
+                if (title.toLowerCase().includes("conference") || title.toLowerCase().includes("convince"))
+                  return <Lightbulb className="w-5 h-5" />
+                if (title.toLowerCase().includes("plugins") || title.toLowerCase().includes("sketch"))
+                  return <Zap className="w-5 h-5" />
+                if (title.toLowerCase().includes("khoi vinh") || title.toLowerCase().includes("meet"))
+                  return <Users className="w-5 h-5" />
+                if (title.toLowerCase().includes("marketing") || title.toLowerCase().includes("promote"))
+                  return <TrendingUp className="w-5 h-5" />
                 return <FileText className="w-5 h-5" />
               }
 
