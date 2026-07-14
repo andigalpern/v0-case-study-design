@@ -526,10 +526,10 @@ export default function AdobeGrowthCaseStudy() {
             </div>
 
             <div className="max-w-6xl mx-auto">
-              <div className="flex flex-col lg:flex-row gap-6 lg:gap-8 items-start">
+              <div className="flex flex-col lg:flex-row gap-6 lg:gap-8 items-center lg:justify-center">
                 {/* Main display */}
                 <div className="w-full lg:flex-shrink-0 lg:w-[600px]">
-                  <div className="backdrop-blur-xl bg-white/70 border-2 border-white/50 rounded-3xl p-4 sm:p-6 shadow-xl">
+                  <div className="p-0 sm:p-2">
                     <div className="relative overflow-hidden rounded-2xl bg-white shadow-lg">
                       <img
                         src={emailImages[selectedEmail].url || "/placeholder.svg"}
