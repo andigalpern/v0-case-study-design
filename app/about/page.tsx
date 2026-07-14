@@ -109,16 +109,15 @@ export default function AboutPage() {
 
             <div className="space-y-6 text-xl leading-relaxed text-brand-gray-dark">
               <p>
-                I'm a Growth Strategist who lives at the intersection of Growth, AI, and data-driven experimentation.
+                I'm a Growth Strategist who lives at the intersection of experimentation, AI, and product strategy.
                 For more than 14 years, I've helped companies of every size—from global teams at Adobe and Informatica
                 to scrappy, fast-moving startups—turn complex problems into measurable acquisition, activation, and
                 revenue growth.
               </p>
 
               <p>
-                My work blends growth strategy, content strategy, experimentation, and marketing to increase leads,
-                boost conversions, and build funnels people genuinely move through. I connect the messaging, data, and
-                product experience that makes offerings instantly understandable and irresistible.
+                My work blends growth strategy, experimentation, and data-driven product decisions to increase leads,
+                boost conversions, and drive revenue — using design and content as the execution layer.
               </p>
 
               <p>
@@ -144,7 +143,7 @@ export default function AboutPage() {
               {[
                 {
                   company: "Consultant",
-                  role: "Senior Growth Strategist, Marketing Strategy, & Live Events",
+                  role: "Growth Strategist, Marketing & Product Consulting",
                   period: "Apr 2008 – Present (alongside fulltime roles)",
                   location: "Remote",
                   achievements: [
@@ -179,7 +178,7 @@ export default function AboutPage() {
                 },
                 {
                   company: "Adobe",
-                  role: "Growth Strategist & Technical Content Writer",
+                  role: "Growth Strategist & Product Designer",
                   period: "Apr 2019 – Jul 2021",
                   location: "San Francisco, CA",
                   achievements: [

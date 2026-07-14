@@ -152,32 +152,32 @@ export default function HomePage() {
                   </div>
                 </div>
                 <span className="text-sm font-bold bg-gradient-to-r from-purple-700 to-blue-600 bg-clip-text text-transparent">
-                  AI Product Design × Growth Strategy
+                  Growth Strategy × Experimentation × AI Products
                 </span>
               </div>
 
               <h1 className="reveal-on-scroll mb-12">
                 <span className="block text-7xl md:text-8xl lg:text-9xl font-black leading-[0.9] tracking-tighter mb-4" style={{ color: '#20221e' }}>
-                  I design
+                  I build
                 </span>
                 <span className="block text-7xl md:text-8xl lg:text-9xl font-black leading-[0.9] tracking-tighter mb-4">
                   <span className="relative inline-block">
                     <span className="absolute inset-0 bg-gradient-to-r from-purple-600 via-blue-600 to-purple-600 bg-clip-text text-transparent blur-sm animate-gradient" style={{ backgroundSize: '200% auto' }}>
-                      AI-powered
+                      growth strategy
                     </span>
                     <span className="relative bg-gradient-to-r from-purple-600 via-blue-600 to-purple-600 bg-clip-text text-transparent animate-gradient" style={{ backgroundSize: '200% auto' }}>
-                      AI-powered
+                      growth strategy
                     </span>
                   </span>
                 </span>
                 <span className="block text-7xl md:text-8xl lg:text-9xl font-black leading-[0.9] tracking-tighter" style={{ color: '#20221e' }}>
-                  product experiences
+                  for AI-powered
                 </span>
                 <span className="block text-7xl md:text-8xl lg:text-9xl font-black leading-[0.9] tracking-tighter mt-4">
                   <span className="relative inline-block">
                     <span className="absolute inset-0 bg-gradient-to-r from-pink-500 via-purple-600 to-blue-500 bg-clip-text text-transparent blur-sm" />
                     <span className="relative bg-gradient-to-r from-pink-500 via-purple-600 to-blue-500 bg-clip-text text-transparent">
-                      that drive growth
+                      products
                     </span>
                   </span>
                 </span>
@@ -207,9 +207,9 @@ export default function HomePage() {
               </div>
 
               <p className="reveal-on-scroll text-2xl leading-relaxed mb-12 max-w-4xl" style={{ color: '#20221e' }}>
-                Senior Growth Strategist blending <strong className="font-bold text-purple-700">AI</strong>,{' '}
-                <strong className="font-bold text-purple-700">content strategy</strong>, and{' '}
-                <strong className="font-bold text-purple-700">experimentation</strong> to transform complex product challenges into measurable revenue outcomes through user acquisition, activation, and conversion.
+                Growth Strategist with <strong className="font-bold text-purple-700">14+ years</strong> driving{' '}
+                <strong className="font-bold text-purple-700">user acquisition</strong>,{' '}
+                <strong className="font-bold text-purple-700">activation</strong>, and revenue through experimentation, funnel optimization, and data-driven product strategy.
               </p>
 
               <div className="reveal-on-scroll flex flex-col gap-4">
@@ -391,19 +391,19 @@ export default function HomePage() {
             <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-6">
               {[
                 {
-                  title: "Growth-Driven Product & Content Design",
-                  description: "Every interface and content decision is informed by conversion data, user behavior analytics, and A/B testing results. My designs and messaging consistently improve key metrics like activation, retention, and revenue.",
+                  title: "Growth Strategy & Experimentation",
+                  description: "I drive growth through A/B testing, funnel analysis, and behavioral data — using product and content decisions as execution, not the starting point.",
                   icon: <TrendingUp className="w-6 h-6" />
                 },
                 {
-                  title: "AI Product Design",
-                  description: "Deep experience designing conversational AI interfaces, recommendation systems, and ML-powered features. I understand how to make complex AI capabilities feel natural and build user trust through clear content and intuitive flows.",
-                  icon: <Cpu className="w-6 h-6" />
+                  title: "Full-Funnel Strategy",
+                  description: "From acquisition to activation to retention, I build the strategy behind landing pages, onboarding, and lifecycle messaging that convert prospects into engaged users.",
+                  icon: <Zap className="w-6 h-6" />
                 },
                 {
-                  title: "Content Strategy for User Acquisition",
-                  description: "Expert in creating compelling product narratives, onboarding content, and activation messaging. From landing page copy to in-product tutorials, I craft content that converts prospects into engaged users.",
-                  icon: <Zap className="w-6 h-6" />
+                  title: "AI & Conversational Product Strategy",
+                  description: "Deep experience building growth strategy for conversational AI interfaces, recommendation systems, and ML-powered features — driving adoption and trust at scale.",
+                  icon: <Cpu className="w-6 h-6" />
                 },
                 {
                   title: "Cross-Functional Leadership",
@@ -440,7 +440,7 @@ export default function HomePage() {
           <div className="container mx-auto px-6">
             <div className="text-center mb-12">
               <p className="text-2xl font-semibold text-gray-600 mb-4">
-                Ready to accelerate your AI product roadmap?
+                Ready to build your growth strategy?
               </p>
             </div>
             <ContactSection />
