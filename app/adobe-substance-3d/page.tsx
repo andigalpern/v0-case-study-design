@@ -378,7 +378,7 @@ export default function AdobeSubstance3DPage() {
       <footer className="header border-t border-white/10 backdrop-blur-xl bg-background/30 mt-0">
         <div className="container mx-auto px-6 py-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-sm text-muted-foreground">© 2025 Andi Galpern. All rights reserved.</p>
+            <p className="text-sm text-muted-foreground">© 2026 Andi Galpern. All rights reserved.</p>
             <div className="flex gap-6">
               <a
                 href="https://linkedin.com/in/andigalpern"

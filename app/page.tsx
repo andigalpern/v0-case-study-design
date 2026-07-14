@@ -451,7 +451,7 @@ export default function HomePage() {
         <footer className="border-t border-white/10 bg-white/40 backdrop-blur-xl">
           <div className="container mx-auto px-6 py-8">
             <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-              <p className="text-sm text-gray-600">© 2025 Andi Galpern. All rights reserved.</p>
+              <p className="text-sm text-gray-600">© 2026 Andi Galpern. All rights reserved.</p>
               <div className="flex gap-6">
                 <a href="https://linkedin.com/in/andigalpern" target="_blank" rel="noopener noreferrer" 
                    className="text-sm text-gray-600 hover:text-purple-700 transition-colors">

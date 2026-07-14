@@ -1059,7 +1059,7 @@ export default function AdobeGrowthCaseStudy() {
         <footer className="border-t border-white/20 backdrop-blur-xl bg-white/40">
           <div className="container mx-auto px-4 sm:px-6 py-8 sm:py-10">
             <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-              <p className="text-xs sm:text-sm font-semibold text-gray-700">© 2025 Andi Galpern. All rights reserved.</p>
+              <p className="text-xs sm:text-sm font-semibold text-gray-700">© 2026 Andi Galpern. All rights reserved.</p>
               <div className="flex gap-6 sm:gap-8">
                 <a
                   href="https://linkedin.com/in/andigalpern"
