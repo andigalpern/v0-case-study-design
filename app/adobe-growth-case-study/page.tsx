@@ -590,7 +590,7 @@ export default function AdobeGrowthCaseStudy() {
             </div>
 
             <div className="max-w-5xl mx-auto">
-              <div className="backdrop-blur-xl bg-white/70 border-2 border-white/50 rounded-3xl p-4 sm:p-8 shadow-xl">
+              <div className="p-0 sm:p-2">
                 <div className="flex flex-col lg:flex-row gap-4 lg:gap-6 items-center">
                   {/* Main display */}
                   <div className="w-full lg:flex-1">
