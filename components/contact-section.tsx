@@ -20,8 +20,8 @@ export function ContactSection() {
           <p className="text-base text-muted-foreground font-semibold">Available for full-time and consulting work</p>
         </div>
         <p className="text-muted-foreground mb-8 max-w-2xl mx-auto text-balance text-lg leading-relaxed">
-          I'm always open to discussing product design work, partnership opportunities, or just grabbing a virtual
-          coffee to talk shop.
+          I'm always open to discussing growth strategy, experimentation roadmaps, partnership opportunities, or just
+          grabbing a virtual coffee to talk shop.
         </p>
         <a
           href="mailto:andi@andixd.com"

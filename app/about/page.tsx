@@ -93,7 +93,7 @@ export default function AboutPage() {
               <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
                 From founding Cascade SF's 10,000+ member design community to serving as a Women Techmakers Ambassador
                 for Google, I've spent over a decade bringing people together, growing the tech community, and helping
-                designers level up their careers.
+                people in tech level up their careers.
               </p>
             </div>
           </div>
@@ -109,16 +109,15 @@ export default function AboutPage() {
 
             <div className="space-y-6 text-xl leading-relaxed text-brand-gray-dark">
               <p>
-                I'm a Product & Content Designer who lives at the intersection of Growth, AI, and human-centered design.
+                I'm a Growth Strategist who lives at the intersection of experimentation, AI, and product strategy.
                 For more than 14 years, I've helped companies of every size—from global teams at Adobe and Informatica
-                to scrappy, fast-moving startups—turn complex problems into clear, effective digital experiences and
-                compelling product narratives that drive user acquisition and revenue growth.
+                to scrappy, fast-moving startups—turn complex problems into measurable acquisition, activation, and
+                revenue growth.
               </p>
 
               <p>
-                My work blends product design, content strategy, growth tactics, and marketing to increase leads, boost
-                conversions, and build experiences people genuinely want to use. I craft not just beautiful interfaces,
-                but the messaging and content that makes products instantly understandable and irresistible.
+                My work blends growth strategy, experimentation, and data-driven product decisions to increase leads,
+                boost conversions, and drive revenue — using design and content as the execution layer.
               </p>
 
               <p>
@@ -144,7 +143,7 @@ export default function AboutPage() {
               {[
                 {
                   company: "Consultant",
-                  role: "Senior Product Designer, Marketing Strategy, & Live Events",
+                  role: "Growth Strategist, Marketing & Product Consulting",
                   period: "Apr 2008 – Present (alongside fulltime roles)",
                   location: "Remote",
                   achievements: [
@@ -157,7 +156,7 @@ export default function AboutPage() {
                 },
                 {
                   company: "Site Impact",
-                  role: "Web Designer & Developer, UI/UX",
+                  role: "Growth Strategist & Web Developer, Conversion Optimization",
                   period: "Dec 2024 – August 2025",
                   location: "South Florida (Hybrid)",
                   achievements: [
@@ -179,7 +178,7 @@ export default function AboutPage() {
                 },
                 {
                   company: "Adobe",
-                  role: "Growth Product Designer & Technical Content Writer",
+                  role: "Growth Strategist & Product Designer",
                   period: "Apr 2019 – Jul 2021",
                   location: "San Francisco, CA",
                   achievements: [
@@ -203,13 +202,13 @@ export default function AboutPage() {
                 },
                 {
                   company: "Earlier Roles",
-                  role: "Product/Marketing Design",
+                  role: "Growth & Marketing",
                   period: "2007 – 2012",
                   location: "Various",
                   achievements: [
-                    "Doximity, 2011-2012, Product Designer",
-                    "IAC, 2010-2011, Lead Marketing Designer",
-                    "Zimmerman Advertising, 2007-2008, Graphic Designer",
+                    "Doximity, 2011-2012, Growth Strategist",
+                    "IAC, 2010-2011, Lead Marketing Strategist",
+                    "Zimmerman Advertising, 2007-2008, Marketing Strategist",
                   ],
                 },
               ].map((job, index) => (
@@ -261,10 +260,10 @@ export default function AboutPage() {
                 </p>
 
                 <p>
-                  Through Cascade SF and the Design Career Network, I created spaces where designers, developers, and
+                  Through Cascade SF and the Design Career Network, I created spaces where marketers, developers, and
                   product professionals could learn, connect, and grow together. I organized workshops, panel
-                  discussions, portfolio reviews, and networking events that brought together everyone from junior
-                  designers to senior leaders at top tech companies.
+                  discussions, portfolio reviews, and networking events that brought together everyone from early-career
+                  talent to senior leaders at top tech companies.
                 </p>
 
                 <ul className="space-y-3">
@@ -389,7 +388,7 @@ export default function AboutPage() {
         <footer className="border-t border-white/10 backdrop-blur-xl bg-background/30">
           <div className="container mx-auto px-6 py-8">
             <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-              <p className="text-sm text-muted-foreground">© 2025 Andi Galpern. All rights reserved.</p>
+              <p className="text-sm text-muted-foreground">© 2026 Andi Galpern. All rights reserved.</p>
               <div className="flex gap-6">
                 <a
                   href="https://linkedin.com/in/andigalpern"

@@ -246,7 +246,7 @@ export default function AdobeGrowthCaseStudy() {
               </div>
 
               <h2 className="text-4xl md:text-5xl font-black mb-6 leading-tight" style={{ color: "#20221e" }}>
-                Product Designer for Growth, Content Strategist & Product Manager
+                Growth Strategist, Content Strategist & Product Manager
               </h2>
 
               <p className="text-xl font-bold mb-12 text-gray-700">
@@ -526,10 +526,10 @@ export default function AdobeGrowthCaseStudy() {
             </div>
 
             <div className="max-w-6xl mx-auto">
-              <div className="flex flex-col lg:flex-row gap-6 lg:gap-8 items-start">
+              <div className="flex flex-col lg:flex-row gap-6 lg:gap-8 items-center lg:justify-center">
                 {/* Main display */}
                 <div className="w-full lg:flex-shrink-0 lg:w-[600px]">
-                  <div className="backdrop-blur-xl bg-white/70 border-2 border-white/50 rounded-3xl p-4 sm:p-6 shadow-xl">
+                  <div className="p-0 sm:p-2">
                     <div className="relative overflow-hidden rounded-2xl bg-white shadow-lg">
                       <img
                         src={emailImages[selectedEmail].url || "/placeholder.svg"}
@@ -590,7 +590,7 @@ export default function AdobeGrowthCaseStudy() {
             </div>
 
             <div className="max-w-5xl mx-auto">
-              <div className="backdrop-blur-xl bg-white/70 border-2 border-white/50 rounded-3xl p-4 sm:p-8 shadow-xl">
+              <div className="p-0 sm:p-2">
                 <div className="flex flex-col lg:flex-row gap-4 lg:gap-6 items-center">
                   {/* Main display */}
                   <div className="w-full lg:flex-1">
@@ -931,8 +931,8 @@ export default function AdobeGrowthCaseStudy() {
                   className="text-lg md:text-xl leading-relaxed font-semibold italic text-center"
                   style={{ color: "#20221e" }}
                 >
-                  This project helped shape me into a product designer who blends growth thinking, behavior design, and
-                  operational strategy — especially in fast-moving global contexts.
+                This project helped shape me into a growth strategist who blends experimentation, behavior design, and
+                operational strategy — especially in fast-moving global contexts.
                 </p>
               </div>
             </div>
@@ -1037,7 +1037,7 @@ export default function AdobeGrowthCaseStudy() {
             <div className="max-w-4xl mx-auto text-center">
               <Target className="w-16 h-16 sm:w-20 sm:h-20 mx-auto mb-6 sm:mb-8 text-white" />
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-black mb-4 sm:mb-6 text-white leading-tight">
-                Looking for a Product Designer who drives measurable growth?
+                Looking for a Growth Strategist who drives measurable growth?
               </h2>
               <p className="text-sm sm:text-base md:text-lg mb-8 sm:mb-10 max-w-2xl mx-auto text-balance text-white/90 leading-relaxed">
                 If you need someone who can turn activation challenges into measurable results at international scale,
@@ -1059,7 +1059,7 @@ export default function AdobeGrowthCaseStudy() {
         <footer className="border-t border-white/20 backdrop-blur-xl bg-white/40">
           <div className="container mx-auto px-4 sm:px-6 py-8 sm:py-10">
             <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-              <p className="text-xs sm:text-sm font-semibold text-gray-700">© 2025 Andi Galpern. All rights reserved.</p>
+              <p className="text-xs sm:text-sm font-semibold text-gray-700">© 2026 Andi Galpern. All rights reserved.</p>
               <div className="flex gap-6 sm:gap-8">
                 <a
                   href="https://linkedin.com/in/andigalpern"

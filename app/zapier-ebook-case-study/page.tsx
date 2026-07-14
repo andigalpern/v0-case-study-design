@@ -191,7 +191,7 @@ export default function ZapierEbookCaseStudy() {
               </div>
 
               <h2 className="text-4xl md:text-5xl font-black mb-12 leading-tight" style={{ color: "#20221e" }}>
-                Editorial Designer & Template Architect
+Content Strategist & Template Architect
               </h2>
 
               <div className="backdrop-blur-xl bg-white/70 border-2 border-white/50 rounded-3xl p-10 mb-10 shadow-xl">
@@ -532,7 +532,7 @@ export default function ZapierEbookCaseStudy() {
         <footer className="border-t border-white/20 backdrop-blur-xl bg-white/40">
           <div className="container mx-auto px-6 py-10">
             <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-              <p className="text-sm font-semibold text-gray-700">© 2025 Andi Galpern. All rights reserved.</p>
+              <p className="text-sm font-semibold text-gray-700">© 2026 Andi Galpern. All rights reserved.</p>
               <div className="flex gap-8">
                 <a
                   href="https://linkedin.com/in/andigalpern"
