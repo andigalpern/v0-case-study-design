@@ -9,8 +9,8 @@ const _geist = Geist({ subsets: ["latin"] });
 const _geistMono = Geist_Mono({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: 'Andi Galpern, Growth Strategist and AI Product Designer',
-  description: 'Growth Strategist and AI Product Designer with expertise in conversational AI, design systems, and community building',
+  title: 'Andi Galpern, Growth Strategist',
+  description: 'Growth Strategist with expertise in AI-driven acquisition, activation, conversion optimization, and community building',
   generator: 'v0.app',
   icons: {
     icon: '/favicon.png',

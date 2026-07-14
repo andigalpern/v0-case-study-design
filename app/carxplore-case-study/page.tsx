@@ -48,7 +48,7 @@ export default function CarXploreCaseStudy() {
                 </div>
                 <div className="px-4 py-2 rounded-lg bg-white border border-gray-200">
                   <div className="text-sm text-gray-500">Role</div>
-                  <div className="font-semibold text-gray-900">Product & Content Designer</div>
+                  <div className="font-semibold text-gray-900">Growth & Content Strategist</div>
                 </div>
               </div>
             </div>
@@ -137,7 +137,7 @@ export default function CarXploreCaseStudy() {
           <div className="inline-block px-3 py-1 rounded-full bg-blue-100 text-blue-700 text-xs font-semibold mb-4">
             02 — My Role
           </div>
-          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-12">Product & Content Design Leadership</h2>
+          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-12">Growth & Content Strategy Leadership</h2>
 
           <div className="grid md:grid-cols-3 gap-6 mb-16">
             <div className="p-6 rounded-xl bg-white border border-gray-200 hover:shadow-lg transition-shadow">

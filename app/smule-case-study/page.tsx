@@ -101,7 +101,7 @@ export default function SmuleCaseStudy() {
 
             <div>
               <h2 className="text-sm font-semibold text-[#0088ce] uppercase tracking-wide mb-4">My Role</h2>
-              <h3 className="text-3xl font-bold text-gray-900 mb-6">Product & Content Designer</h3>
+              <h3 className="text-3xl font-bold text-gray-900 mb-6">Growth & Content Strategist</h3>
               <div className="space-y-4 text-gray-600">
                 <p>
                   As part of the design team, I led the responsive web interface redesign, focusing on creating a

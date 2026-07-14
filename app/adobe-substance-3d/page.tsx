@@ -189,7 +189,7 @@ export default function AdobeSubstance3DPage() {
           <div className="flex flex-wrap gap-6 mb-8 text-lg">
             <div>
               <span className="text-muted-foreground">Role:</span>
-              <span className="ml-2 font-semibold text-brand-gray-dark">Visual Designer</span>
+              <span className="ml-2 font-semibold text-brand-gray-dark">Content Strategist</span>
             </div>
             <div>
               <span className="text-muted-foreground">Platform:</span>

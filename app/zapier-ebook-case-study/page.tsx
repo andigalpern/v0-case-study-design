@@ -191,7 +191,7 @@ export default function ZapierEbookCaseStudy() {
               </div>
 
               <h2 className="text-4xl md:text-5xl font-black mb-12 leading-tight" style={{ color: "#20221e" }}>
-                Editorial Designer & Template Architect
+Content Strategist & Template Architect
               </h2>
 
               <div className="backdrop-blur-xl bg-white/70 border-2 border-white/50 rounded-3xl p-10 mb-10 shadow-xl">

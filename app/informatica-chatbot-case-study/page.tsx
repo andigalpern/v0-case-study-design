@@ -623,7 +623,7 @@ export default function InformaticaChatbotCaseStudy() {
                 Need someone who can transform AI touchpoints into revenue drivers?
               </h2>
               <p className="text-base md:text-lg mb-10 max-w-2xl mx-auto text-balance text-white/90 leading-relaxed">
-                If you're looking for a product designer who understands how to blend AI, UX, and growth strategy to drive measurable business outcomes, let's talk.
+                If you're looking for a growth strategist who understands how to blend AI, UX, and experimentation to drive measurable business outcomes, let's talk.
               </p>
               <a
                 href="mailto:andi@andixd.com"

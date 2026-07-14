@@ -48,8 +48,8 @@ export default function TravelClubCaseStudy() {
             trustworthy—not like another affiliate-driven content farm.
           </p>
           <p className="text-lg text-muted-foreground text-pretty">
-            As the designer and WordPress developer, I built a dual-purpose platform: an editorial blog for practical
-            travel advice and a structured vacation packages section for curated travel experiences.
+            As the growth strategist and WordPress developer, I built a dual-purpose platform: an editorial blog for
+            practical travel advice and a structured vacation packages section for curated travel experiences.
           </p>
         </section>
 

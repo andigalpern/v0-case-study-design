@@ -246,7 +246,7 @@ export default function AdobeGrowthCaseStudy() {
               </div>
 
               <h2 className="text-4xl md:text-5xl font-black mb-6 leading-tight" style={{ color: "#20221e" }}>
-                Product Designer for Growth, Content Strategist & Product Manager
+                Growth Strategist, Content Strategist & Product Manager
               </h2>
 
               <p className="text-xl font-bold mb-12 text-gray-700">
@@ -931,8 +931,8 @@ export default function AdobeGrowthCaseStudy() {
                   className="text-lg md:text-xl leading-relaxed font-semibold italic text-center"
                   style={{ color: "#20221e" }}
                 >
-                  This project helped shape me into a product designer who blends growth thinking, behavior design, and
-                  operational strategy — especially in fast-moving global contexts.
+                This project helped shape me into a growth strategist who blends experimentation, behavior design, and
+                operational strategy — especially in fast-moving global contexts.
                 </p>
               </div>
             </div>
@@ -1037,7 +1037,7 @@ export default function AdobeGrowthCaseStudy() {
             <div className="max-w-4xl mx-auto text-center">
               <Target className="w-16 h-16 sm:w-20 sm:h-20 mx-auto mb-6 sm:mb-8 text-white" />
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-black mb-4 sm:mb-6 text-white leading-tight">
-                Looking for a Product Designer who drives measurable growth?
+                Looking for a Growth Strategist who drives measurable growth?
               </h2>
               <p className="text-sm sm:text-base md:text-lg mb-8 sm:mb-10 max-w-2xl mx-auto text-balance text-white/90 leading-relaxed">
                 If you need someone who can turn activation challenges into measurable results at international scale,

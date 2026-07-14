@@ -207,9 +207,9 @@ export default function HomePage() {
               </div>
 
               <p className="reveal-on-scroll text-2xl leading-relaxed mb-12 max-w-4xl" style={{ color: '#20221e' }}>
-                Senior Product & Content Designer blending <strong className="font-bold text-purple-700">AI</strong>,{' '}
+                Senior Growth Strategist blending <strong className="font-bold text-purple-700">AI</strong>,{' '}
                 <strong className="font-bold text-purple-700">content strategy</strong>, and{' '}
-                <strong className="font-bold text-purple-700">growth design</strong> to transform complex product challenges into measurable revenue outcomes through user acquisition and activation.
+                <strong className="font-bold text-purple-700">experimentation</strong> to transform complex product challenges into measurable revenue outcomes through user acquisition, activation, and conversion.
               </p>
 
               <div className="reveal-on-scroll flex flex-col gap-4">
