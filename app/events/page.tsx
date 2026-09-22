@@ -1,5 +1,3 @@
-"use client"
-
 import { SiteNav } from "@/components/events/site-nav"
 import { Hero } from "@/components/events/hero"
 import { StatsBar } from "@/components/events/stats-bar"
