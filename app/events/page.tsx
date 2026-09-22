@@ -5,6 +5,7 @@ import { Hero } from "@/components/events/hero"
 import { StatsBar } from "@/components/events/stats-bar"
 import { Lifecycle } from "@/components/events/lifecycle"
 import { CaseStudies } from "@/components/events/case-studies"
+import { VirtualEvents } from "@/components/events/virtual-events"
 import { CascadeSF } from "@/components/events/cascade-sf"
 import { OnStage } from "@/components/events/on-stage"
 import { AlsoSection } from "@/components/events/also-section"
@@ -22,6 +23,7 @@ export default function EventsPage() {
         <StatsBar />
         <Lifecycle />
         <CaseStudies />
+        <VirtualEvents />
         <CascadeSF />
         <OnStage />
         <AlsoSection />

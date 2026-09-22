@@ -70,21 +70,30 @@ export const events = {
   caseStudies: [
     {
       title: "Designing with AI",
-      image: "/events/gallery-crowd.png",
-      imageAlt: "A full evening conference audience watching a speaker under warm stage lighting",
+      image: "/events/designing-with-ai.jpg",
+      imageAlt: "A group of designers and technologists gathered together at a Cascade SF Designing with AI event",
       story:
         "A three-night, after-work conference on design, AI, and technology — produced years before generative AI went mainstream. It sold out all three nights.",
       metrics: ["3 nights", "~300 attendees / night", "Sold out"],
     },
     {
-      title: "Mentor Night at Adobe SF",
-      image: "/events/gallery-mentor.png",
-      imageAlt: "Professionals talking in small groups at round tables during a mentorship event",
+      title: "Mentor Night at Adobe HQ",
+      image: "/events/mentor-night.jpg",
+      imageAlt: "A large seated audience of designers watching a talk at Mentor Night, hosted at Adobe's headquarters",
       story:
-        "A large-scale mentorship event at Adobe's San Francisco headquarters, pairing seasoned mentors with designers looking to grow.",
+        "A large-scale mentorship event at Adobe's headquarters, pairing seasoned mentors with designers looking to grow.",
       metrics: ["~45 mentors", "~220 attendees"],
     },
   ],
+
+  // ---- 4b. Virtual events ----
+  virtual: {
+    title: "Virtual events",
+    copy: "When the world moved online, I rebuilt the whole production stack from home — lighting, audio, streaming, and run-of-show — and kept the community connected. I produced live talks, panels, and workshops for thousands of remote attendees without missing a beat.",
+    image: "/events/virtual-events.jpg",
+    imageAlt: "Andi Galpern giving two thumbs up at her home broadcast studio with a ring light, video lights, mic, and laptop",
+    highlights: ["Live-streamed talks & panels", "Remote speaker coaching", "Interactive online workshops"],
+  },
 
   // ---- 5. Cascade SF ----
   cascade: {
