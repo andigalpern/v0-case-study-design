@@ -79,7 +79,7 @@ export const events = {
     {
       title: "Mentor Night at Adobe HQ",
       image: "/events/mentor-night.jpg",
-      imageAlt: "A large seated audience of designers watching a talk at Mentor Night, hosted at Adobe's headquarters",
+      imageAlt: "A large group of mentors and designers posing together for a photo at Mentor Night, hosted at Adobe's headquarters",
       story:
         "A large-scale mentorship event at Adobe's headquarters, pairing seasoned mentors with designers looking to grow.",
       metrics: ["~45 mentors", "~220 attendees"],
