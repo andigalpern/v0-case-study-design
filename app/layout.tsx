@@ -24,7 +24,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <head>
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-3LVZ0KXEHJ"
@@ -40,6 +40,9 @@ export default function RootLayout({
         </Script>
       </head>
       <body className={`font-sans antialiased`}>
+        <noscript>
+          <style>{`.reveal-on-scroll{opacity:1 !important;transform:none !important}`}</style>
+        </noscript>
         <ScrollToTop />
         {children}
         <Analytics />

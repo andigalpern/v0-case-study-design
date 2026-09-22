@@ -1,0 +1,168 @@
+/* Scoped to the /events landing page, matched to the andixd.com brand:
+   light background, bold sans display type, and the signature purple to blue gradient. */
+
+.events-root {
+  --accent: #8f1efb;
+  --accent-2: #3b82f6;
+  --accent-contrast: #ffffff;
+  --paper: #ffffff;
+  --paper-2: #f5f2fd;
+  --ink: #20221e;
+  background-color: var(--paper);
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+}
+
+.dark .events-root {
+  --accent: #a855f7;
+  --accent-2: #60a5fa;
+  --accent-contrast: #ffffff;
+  --paper: #0b0b12;
+  --paper-2: #15141f;
+  --ink: #f4f2fb;
+}
+
+/* Typography — bold sans display matching andixd.com headings */
+.font-display {
+  font-family: "Geist", "Geist Fallback", system-ui, -apple-system, sans-serif;
+  letter-spacing: -0.02em;
+}
+
+.events-root h1.font-display,
+.events-root h2.font-display,
+.events-root h3.font-display {
+  font-weight: 800;
+}
+
+/* Signature purple to blue gradient helpers */
+.bg-accent-gradient {
+  background-image: linear-gradient(to right, var(--accent), var(--accent-2));
+}
+.text-gradient {
+  background-image: linear-gradient(to right, var(--accent), var(--accent-2));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.shadow-accent {
+  box-shadow: 0 12px 30px -10px color-mix(in srgb, var(--accent) 45%, transparent);
+}
+
+/* Color helpers driven by the flipping --ink / --paper / --accent tokens */
+.text-ink {
+  color: var(--ink);
+}
+.text-muted-ink {
+  color: color-mix(in srgb, var(--ink) 60%, transparent);
+}
+.text-faint-ink {
+  color: color-mix(in srgb, var(--ink) 42%, transparent);
+}
+.text-accent {
+  color: var(--accent);
+}
+.bg-paper {
+  background-color: var(--paper);
+}
+.bg-paper-2 {
+  background-color: var(--paper-2);
+}
+.bg-accent {
+  background-color: var(--accent);
+}
+.bg-card-ink {
+  background-color: color-mix(in srgb, var(--ink) 3.5%, transparent);
+}
+.bg-ink {
+  background-color: var(--ink);
+}
+.text-on-ink {
+  color: var(--paper);
+}
+.text-on-ink-muted {
+  color: color-mix(in srgb, var(--paper) 66%, transparent);
+}
+.border-on-ink {
+  border-color: color-mix(in srgb, var(--paper) 18%, transparent);
+}
+.accent-contrast {
+  color: var(--accent-contrast);
+}
+.border-ink {
+  border-color: color-mix(in srgb, var(--ink) 14%, transparent);
+}
+.border-ink-strong {
+  border-color: color-mix(in srgb, var(--ink) 30%, transparent);
+}
+.border-accent {
+  border-color: var(--accent);
+}
+.divide-ink > * + * {
+  border-color: color-mix(in srgb, var(--ink) 14%, transparent);
+}
+.ring-accent {
+  --tw-ring-color: var(--accent);
+}
+
+.hover-accent:hover {
+  color: var(--accent);
+}
+.hover-border-accent:hover {
+  border-color: var(--accent);
+}
+
+/* Selection */
+.events-root ::selection {
+  background: var(--accent);
+  color: var(--accent-contrast);
+}
+
+/* Masonry gallery via CSS columns */
+.masonry {
+  column-count: 1;
+  column-gap: 1rem;
+}
+@media (min-width: 640px) {
+  .masonry {
+    column-count: 2;
+  }
+}
+@media (min-width: 1024px) {
+  .masonry {
+    column-count: 3;
+  }
+}
+.masonry > * {
+  break-inside: avoid;
+  margin-bottom: 1rem;
+}
+
+/* Scroll reveal (respects reduced motion) */
+.evt-reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+.evt-reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .evt-reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+.events-root {
+  scroll-behavior: smooth;
+}
+@media (prefers-reduced-motion: reduce) {
+  .events-root {
+    scroll-behavior: auto;
+  }
+}
