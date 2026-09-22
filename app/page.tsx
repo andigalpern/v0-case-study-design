@@ -158,26 +158,26 @@ export default function HomePage() {
 
               <h1 className="reveal-on-scroll mb-12">
                 <span className="block text-7xl md:text-8xl lg:text-9xl font-black leading-[0.9] tracking-tighter mb-4" style={{ color: '#20221e' }}>
-                  I build
+                  I grow
                 </span>
                 <span className="block text-7xl md:text-8xl lg:text-9xl font-black leading-[0.9] tracking-tighter mb-4">
                   <span className="relative inline-block">
                     <span className="absolute inset-0 bg-gradient-to-r from-purple-600 via-blue-600 to-purple-600 bg-clip-text text-transparent blur-sm animate-gradient" style={{ backgroundSize: '200% auto' }}>
-                      growth strategy
+                      products,
                     </span>
                     <span className="relative bg-gradient-to-r from-purple-600 via-blue-600 to-purple-600 bg-clip-text text-transparent animate-gradient" style={{ backgroundSize: '200% auto' }}>
-                      growth strategy
+                      products,
                     </span>
                   </span>
                 </span>
                 <span className="block text-7xl md:text-8xl lg:text-9xl font-black leading-[0.9] tracking-tighter" style={{ color: '#20221e' }}>
-                  for AI-powered
+                  pipelines,
                 </span>
                 <span className="block text-7xl md:text-8xl lg:text-9xl font-black leading-[0.9] tracking-tighter mt-4">
                   <span className="relative inline-block">
                     <span className="absolute inset-0 bg-gradient-to-r from-pink-500 via-purple-600 to-blue-500 bg-clip-text text-transparent blur-sm" />
                     <span className="relative bg-gradient-to-r from-pink-500 via-purple-600 to-blue-500 bg-clip-text text-transparent">
-                      products
+                      and communities
                     </span>
                   </span>
                 </span>
