@@ -71,7 +71,7 @@ export const events = {
     {
       title: "Designing with AI",
       image: "/events/designing-with-ai.jpg",
-      imageAlt: "A group of designers and technologists gathered together at a Cascade SF Designing with AI event",
+      imageAlt: "Panelists on stage in front of a Cascade SF backdrop reading Designing the future together, with a host presenting to the audience",
       story:
         "A three-night, after-work conference on design, AI, and technology — produced years before generative AI went mainstream. It sold out all three nights.",
       metrics: ["3 nights", "~300 attendees / night", "Sold out"],
