@@ -142,11 +142,43 @@ export const events = {
     { src: "/events/photo-candid-carry.jpg", alt: "A playful candid of an attendee carrying Andi Galpern in a loft event venue", tall: true },
   ],
 
-  // ---- 9. Testimonials (placeholder — fill in later) ----
+  // ---- 9. Testimonials ----
   testimonials: [
-    { quote: "[TESTIMONIAL]", name: "[Name]", title: "[Title]", company: "[Company]" },
-    { quote: "[TESTIMONIAL]", name: "[Name]", title: "[Title]", company: "[Company]" },
-    { quote: "[TESTIMONIAL]", name: "[Name]", title: "[Title]", company: "[Company]" },
+    {
+      quote:
+        "UXNight is by far the best event I had a chance to speak at. Well organised (up to every single, tiny, detail), extremely professional and super-successful in gathering large crowd of super-smart designers.",
+      name: "Marcin Treder",
+      title: "Director of User Experience",
+      company: "Google Play",
+    },
+    {
+      quote:
+        "Not only is Andi able to logistically pull off sell-out-sized events, but she also does a fantastic job at curating, shaping and honing the content itself.",
+      name: "Nicholas Cottrell",
+      title: "Principal Operator",
+      company: "3DMATH",
+    },
+    {
+      quote:
+        "She went above and beyond by jumping in and helping me not just with the flow and content of the presentation, but with the visual design of the slides. The finished product was significantly better than it would have been without her.",
+      name: "Jane Davis",
+      title: "Senior Product Manager",
+      company: "Salesforce",
+    },
+    {
+      quote:
+        "Andi's Cascade events are an essential portion of any designer's calendar who hopes to keep up with local trends and network with the best collection of talent in the bay.",
+      name: "Jamie Martin",
+      title: "Head of Design",
+      company: "Reka AI",
+    },
+    {
+      quote:
+        "I am impressed how she was able to build CASCADE SF from zero to one of the most engaged entrepreneurial groups in SF/Bay Area… I also recommend Andi as a business partner without any reservation.",
+      name: "Vasil Azarov",
+      title: "Founder",
+      company: "Growth Blazers",
+    },
   ],
 
   // ---- 10. Closing CTA ----
