@@ -46,12 +46,18 @@ export function OnStage() {
           </Reveal>
           <Reveal delay={100}>
             <h3 className="text-xs font-semibold uppercase tracking-[0.22em] text-accent">{onStage.partnersLabel}</h3>
-            <ul className="mt-5 flex flex-wrap gap-2.5">
-              {onStage.partners.map((partner) => (
-                <li key={partner} className={chipClass}>
-                  {partner}
-                </li>
-              ))}
+            <ul className="mt-5 flex flex-wrap items-center gap-2.5">
+              {onStage.partners.map((partner) =>
+                partner === "and more" ? (
+                  <li key={partner} className="text-sm italic text-muted-ink">
+                    &amp; more
+                  </li>
+                ) : (
+                  <li key={partner} className={chipClass}>
+                    {partner}
+                  </li>
+                ),
+              )}
             </ul>
           </Reveal>
         </div>

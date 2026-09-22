@@ -166,7 +166,7 @@ export const events = {
     companies: ["Google", "Apple", "Amazon", "Salesforce", "YouTube", "Workday", "Chase", "Cisco"],
     speakers: ["Alan Cooper", "Daniel Burka", "Mark Otto", "Julia Melton", "Josh Constine", "Eva Galperin"],
     partnersLabel: "Partners & sponsors",
-    partners: ["Adobe", "Microsoft Reactor", "InVision", "WalkMe", "Proto.io"],
+    partners: ["Google", "Adobe", "Intuit", "Microsoft Reactor", "InVision", "WalkMe", "Proto.io", "and more"],
   },
 
   // ---- 7. Also ----
