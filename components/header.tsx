@@ -63,6 +63,16 @@ export function Header() {
               Work
             </Link>
             <Link
+              href="/events"
+              className={`px-4 py-2 rounded-full text-sm font-semibold transition-all duration-300 ${
+                isActive("/events")
+                  ? "bg-white text-gray-900 shadow-sm"
+                  : "text-gray-600 hover:text-gray-900 hover:bg-white/60"
+              }`}
+            >
+              Events
+            </Link>
+            <Link
               href="/process"
               className={`px-4 py-2 rounded-full text-sm font-semibold transition-all duration-300 ${
                 isActive("/process")
