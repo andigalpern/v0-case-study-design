@@ -4,6 +4,7 @@ import { SiteNav } from "@/components/events/site-nav"
 import { Hero } from "@/components/events/hero"
 import { StatsBar } from "@/components/events/stats-bar"
 import { Lifecycle } from "@/components/events/lifecycle"
+import { Crew } from "@/components/events/crew"
 import { CaseStudies } from "@/components/events/case-studies"
 import { VirtualEvents } from "@/components/events/virtual-events"
 import { CascadeSF } from "@/components/events/cascade-sf"
@@ -22,6 +23,7 @@ export default function EventsPage() {
         <Hero />
         <StatsBar />
         <Lifecycle />
+        <Crew />
         <CaseStudies />
         <VirtualEvents />
         <CascadeSF />
