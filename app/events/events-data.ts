@@ -33,7 +33,7 @@ export const events = {
   // ---- 2. Stats ----
   stats: [
     { value: 15, suffix: "", label: "Years running" },
-    { value: 170, suffix: "+", label: "Events produced" },
+    { value: 200, suffix: "+", label: "Events produced" },
     { value: 10, suffix: "", label: "Multi-day conferences built from the ground up" },
     { value: 10000, suffix: "+", label: "Community members" },
     { value: 15900, suffix: "+", label: "Tickets sold" },
@@ -105,7 +105,7 @@ export const events = {
     period: "2011 – present",
     copy: "I founded Cascade SF in 2011 and grew it into a community of more than 10,000 designers and technology professionals. Our multi-night series — including UX of VR, Growth Design, Data & Design, and Design + AI — consistently drew the biggest crowds. Our current programming focuses on how designers use AI and how product teams design agentic experiences.",
     image: "/events/andi-uxnight.jpg",
-    imageAlt: "Andi Galpern speaking on stage at UX Night, a Cascade SF event, in front of a packed crowd",
+    imageAlt: "Andi Galpern speaking on stage at UXNight, a Cascade SF event, in front of a packed crowd",
     series: ["UX of VR", "Growth Design", "Data & Design", "Design + AI"],
     beat: {
       title: "The Beat",
@@ -138,7 +138,7 @@ export const events = {
     { src: "/events/gallery-panel.png", alt: "Four speakers on stage during a panel discussion holding microphones", tall: true },
     { src: "/events/gallery-mentor.png", alt: "Small groups of professionals talking at round tables during a mentorship event", tall: false },
     { src: "/events/andi-google-io.jpg", alt: "Andi Galpern at Google I/O beside a giant Android mascot statue", tall: true },
-    { src: "/events/andi-uxnight.jpg", alt: "Andi Galpern speaking on stage at UX Night, a Cascade SF event", tall: false },
+    { src: "/events/andi-uxnight.jpg", alt: "Andi Galpern speaking on stage at UXNight, a Cascade SF event", tall: false },
     { src: "/events/gallery-registration.png", alt: "Event registration desk with name badges and lanyards laid out", tall: true },
     { src: "/events/gallery-networking.png", alt: "Evening networking reception with attendees holding drinks", tall: false },
     { src: "/events/gallery-keynote.png", alt: "Packed keynote room seen from the back facing a bright stage", tall: true },

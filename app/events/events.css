@@ -1,29 +1,51 @@
-/* Editorial theme scoped to the /events landing page.
-   Neutral paper/ink palette with a single vivid vermilion accent, plus dark mode. */
+/* Scoped to the /events landing page, matched to the andixd.com brand:
+   light background, bold sans display type, and the signature purple to blue gradient. */
 
 .events-root {
-  --accent: #e8452a;
+  --accent: #8f1efb;
+  --accent-2: #3b82f6;
   --accent-contrast: #ffffff;
-  --paper: #faf8f4;
-  --paper-2: #f2efe8;
-  --ink: #1a1a18;
+  --paper: #ffffff;
+  --paper-2: #f5f2fd;
+  --ink: #20221e;
   background-color: var(--paper);
   color: var(--ink);
   -webkit-font-smoothing: antialiased;
 }
 
 .dark .events-root {
-  --accent: #ff5a3c;
-  --accent-contrast: #14110f;
-  --paper: #0d0d0c;
-  --paper-2: #161513;
-  --ink: #f4f2ec;
+  --accent: #a855f7;
+  --accent-2: #60a5fa;
+  --accent-contrast: #ffffff;
+  --paper: #0b0b12;
+  --paper-2: #15141f;
+  --ink: #f4f2fb;
 }
 
-/* Typography */
+/* Typography — bold sans display matching andixd.com headings */
 .font-display {
-  font-family: var(--font-fraunces), Georgia, "Times New Roman", serif;
-  font-optical-sizing: auto;
+  font-family: "Geist", "Geist Fallback", system-ui, -apple-system, sans-serif;
+  letter-spacing: -0.02em;
+}
+
+.events-root h1.font-display,
+.events-root h2.font-display,
+.events-root h3.font-display {
+  font-weight: 800;
+}
+
+/* Signature purple to blue gradient helpers */
+.bg-accent-gradient {
+  background-image: linear-gradient(to right, var(--accent), var(--accent-2));
+}
+.text-gradient {
+  background-image: linear-gradient(to right, var(--accent), var(--accent-2));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.shadow-accent {
+  box-shadow: 0 12px 30px -10px color-mix(in srgb, var(--accent) 45%, transparent);
 }
 
 /* Color helpers driven by the flipping --ink / --paper / --accent tokens */

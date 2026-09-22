@@ -16,7 +16,7 @@ export function Hero() {
           <Reveal delay={80}>
             <h1 className="font-display mt-6 text-[2.7rem] font-semibold leading-[1.03] tracking-tight text-ink text-balance sm:text-6xl lg:text-7xl">
               I build events people{" "}
-              <span className="italic text-accent">actually show up for.</span>
+              <span className="text-gradient">actually show up for.</span>
             </h1>
           </Reveal>
           <Reveal delay={160}>
@@ -38,7 +38,7 @@ export function Hero() {
 
         <div className="lg:col-span-5">
           <Reveal delay={200} className="relative">
-            <div className="absolute -bottom-4 -right-4 h-40 w-40 bg-accent/90 sm:h-52 sm:w-52" aria-hidden="true" />
+            <div className="absolute -bottom-4 -right-4 h-40 w-40 rounded-2xl bg-accent-gradient sm:h-52 sm:w-52" aria-hidden="true" />
             <div className="relative aspect-[4/5] overflow-hidden rounded-2xl border border-ink bg-paper-2">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img

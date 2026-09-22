@@ -30,7 +30,7 @@ export function Lifecycle() {
               delay={i * 90}
               className="group flex h-full flex-col rounded-2xl border border-ink bg-card-ink p-6 transition-colors duration-300 hover-border-accent"
             >
-              <span className="font-display text-2xl font-semibold text-accent">{phase.phase}</span>
+                <span className="font-display text-2xl font-semibold text-gradient">{phase.phase}</span>
               <h3 className="font-display mt-3 text-xl font-semibold text-ink">{phase.title}</h3>
               <ul className="mt-5 flex flex-col gap-3 border-t border-ink pt-5">
                 {phase.items.map((item) => (

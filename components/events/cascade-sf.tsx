@@ -43,7 +43,7 @@ export function CascadeSF() {
           <div className="flex flex-col gap-6 lg:col-span-5">
             <Reveal delay={140} className="relative">
               <div
-                className="absolute -bottom-4 -left-4 h-28 w-28 bg-accent/90 sm:h-36 sm:w-36"
+                className="absolute -bottom-4 -left-4 h-28 w-28 rounded-2xl bg-accent-gradient sm:h-36 sm:w-36"
                 aria-hidden="true"
               />
               <figure className="relative overflow-hidden rounded-2xl border border-ink bg-paper-2">
@@ -55,12 +55,12 @@ export function CascadeSF() {
                     className="h-full w-full object-cover"
                     loading="lazy"
                   />
-                  <span className="absolute left-4 top-4 inline-flex items-center gap-1.5 rounded-full bg-accent accent-contrast px-3 py-1.5 text-xs font-bold uppercase tracking-wide">
-                    UX Night
+                  <span className="absolute left-4 top-4 inline-flex items-center gap-1.5 rounded-full bg-accent-gradient text-white px-3 py-1.5 text-xs font-bold uppercase tracking-wide">
+                    UXNight
                   </span>
                 </div>
                 <figcaption className="border-t border-ink px-4 py-3 text-sm text-muted-ink">
-                  On stage at UX Night, a Cascade SF event.
+                  On stage at UXNight, a Cascade SF event.
                 </figcaption>
               </figure>
             </Reveal>
@@ -72,7 +72,7 @@ export function CascadeSF() {
                 className="group flex flex-col justify-between gap-8 rounded-2xl border border-ink bg-paper p-8 transition-colors duration-300 hover-border-accent"
               >
                 <div>
-                  <span className="inline-flex h-11 w-11 items-center justify-center rounded-full bg-accent accent-contrast">
+                  <span className="inline-flex h-11 w-11 items-center justify-center rounded-full bg-accent-gradient text-white">
                     <BarChart3 className="h-5 w-5" />
                   </span>
                   <h3 className="font-display mt-6 text-2xl font-semibold text-ink">{cascade.beat.title}</h3>

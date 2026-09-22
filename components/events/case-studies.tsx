@@ -38,7 +38,7 @@ export function CaseStudies() {
                       loading="lazy"
                     />
                     {study.upcoming && (
-                      <span className="absolute left-4 top-4 inline-flex items-center gap-1.5 rounded-full bg-accent accent-contrast px-3 py-1.5 text-xs font-bold uppercase tracking-wide">
+                      <span className="absolute left-4 top-4 inline-flex items-center gap-1.5 rounded-full bg-accent-gradient text-white px-3 py-1.5 text-xs font-bold uppercase tracking-wide">
                         {"badge" in study ? study.badge : "Upcoming"}
                       </span>
                     )}

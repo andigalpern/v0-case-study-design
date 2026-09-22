@@ -47,7 +47,7 @@ export default function EventsLayout({
   children: React.ReactNode
 }) {
   return (
-    <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+    <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false} disableTransitionOnChange>
       <div className={`${fraunces.variable} events-root min-h-screen`}>
         <noscript>
           <style>{`.evt-reveal{opacity:1 !important;transform:none !important}`}</style>
