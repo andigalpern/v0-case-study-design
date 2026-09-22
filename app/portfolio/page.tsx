@@ -853,7 +853,7 @@ export default function PortfolioPage() {
                   Dribbble
                 </a>
                 <a
-                  href="mailto:hello@andigalpern.com"
+                  href="mailto:andi@andixd.com"
                   className="text-sm text-muted-foreground hover:text-foreground transition-colors"
                 >
                   Email
