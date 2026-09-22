@@ -10,7 +10,7 @@ export const events = {
   // ---- Links & contact (replace placeholders with real values) ----
   links: {
     site: "https://andixd.com",
-    email: "hello@andixd.com", // TODO: replace with your contact email
+    email: "andi@andixd.com",
     resume: "#resume", // TODO: replace with a link to your resume PDF
     linkedin: "https://www.linkedin.com/in/andigalpern", // TODO: confirm handle
     cascade: "https://cascadesf.com",
