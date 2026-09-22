@@ -41,14 +41,27 @@ export function CascadeSF() {
           </div>
 
           <div className="flex flex-col gap-6 lg:col-span-5">
-            <Reveal delay={140}>
-              <figure className="overflow-hidden rounded-2xl border border-ink">
-                <img
-                  src={cascade.image || "/placeholder.svg"}
-                  alt={cascade.imageAlt}
-                  className="aspect-[3/2] w-full object-cover"
-                  loading="lazy"
-                />
+            <Reveal delay={140} className="relative">
+              <div
+                className="absolute -bottom-4 -left-4 h-28 w-28 bg-accent/90 sm:h-36 sm:w-36"
+                aria-hidden="true"
+              />
+              <figure className="relative overflow-hidden rounded-2xl border border-ink bg-paper-2">
+                <div className="relative aspect-[3/2] overflow-hidden">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={cascade.image || "/placeholder.svg"}
+                    alt={cascade.imageAlt}
+                    className="h-full w-full object-cover"
+                    loading="lazy"
+                  />
+                  <span className="absolute left-4 top-4 inline-flex items-center gap-1.5 rounded-full bg-accent accent-contrast px-3 py-1.5 text-xs font-bold uppercase tracking-wide">
+                    UX Night
+                  </span>
+                </div>
+                <figcaption className="border-t border-ink px-4 py-3 text-sm text-muted-ink">
+                  On stage at UX Night, a Cascade SF event.
+                </figcaption>
               </figure>
             </Reveal>
             <Reveal delay={220}>
