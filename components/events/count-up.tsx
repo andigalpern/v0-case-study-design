@@ -12,7 +12,9 @@ export function CountUp({
   duration?: number
 }) {
   const ref = useRef<HTMLSpanElement | null>(null)
-  const [value, setValue] = useState(0)
+  // Default to the final value so the real number is present in the SSR HTML
+  // (and stays put if JS never runs). Animation is opted into on the client below.
+  const [value, setValue] = useState(end)
   const started = useRef(false)
 
   useEffect(() => {
@@ -22,13 +24,15 @@ export function CountUp({
     const prefersReduced =
       typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches
 
+    // Reduced motion: keep the final number, skip the count-up entirely.
+    if (prefersReduced) return
+
+    // JS is running and motion is allowed: reset to 0 and animate on scroll.
+    setValue(0)
+
     const run = () => {
       if (started.current) return
       started.current = true
-      if (prefersReduced) {
-        setValue(end)
-        return
-      }
       const start = performance.now()
       const tick = (now: number) => {
         const progress = Math.min((now - start) / duration, 1)

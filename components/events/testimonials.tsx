@@ -14,7 +14,7 @@ export function Testimonials() {
         </Reveal>
         <Reveal delay={80}>
           <h2 className="font-display mt-6 text-3xl font-semibold leading-tight tracking-tight text-ink text-balance sm:text-4xl lg:text-5xl">
-            What people say.
+            From the people I&apos;ve built these with.
           </h2>
         </Reveal>
 

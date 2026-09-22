@@ -22,7 +22,7 @@ export const events = {
     kicker: "Event & Field Marketing",
     headline: "I build events people actually show up for.",
     subhead:
-      "Andi Galpern has spent 15 years producing conferences, community events, and experiences for designers and technologists in San Francisco, from first idea to final load-out.",
+      "Andi Galpern has spent 15 years bringing speakers, partners, volunteers, and communities together to produce conferences and events for designers and technologists in San Francisco, from first idea to final load-out.",
     portrait: {
       src: "/events/andi-portrait.png",
       alt: "Portrait of Andi Galpern, event and field marketing leader, outdoors in front of greenery",
@@ -41,28 +41,51 @@ export const events = {
 
   // ---- 3. What I do (full lifecycle) ----
   lifecycle: {
-    intro: "I don't hand off pieces. I run the whole thing.",
+    heading: "Great events are a team sport.",
+    intro: "I lead every phase, and I never do it alone. Here's who's in the room at each step.",
     phases: [
       {
         phase: "01",
         title: "Strategy",
+        collab:
+          "With host companies and partners to shape the theme, audience, and goals, and with the community to choose topics people actually want.",
         items: ["Concept development", "Programming & topic curation", "Positioning & messaging"],
       },
       {
         phase: "02",
-        title: "Talent & partners",
+        title: "Speakers",
+        collab:
+          "1:1 with every speaker: shaping the story, tightening the flow, designing slides, and rehearsing until they're confident on stage.",
         items: ["Speaker & mentor recruiting", "Speaker coaching", "Sponsor & venue partnerships"],
       },
       {
         phase: "03",
         title: "Marketing",
+        collab:
+          "With partner marketing teams on co-promotion, plus email, social, and community channels to fill the room.",
         items: ["Email & social campaigns", "Promotional design", "Ticket pricing & registration"],
       },
       {
         phase: "04",
         title: "Production",
+        collab:
+          "With venue teams, caterers, AV crews, and volunteers to make the night run smoothly, from registration to the last goodbye.",
         items: ["Budgets", "Catering & AV", "Logistics, volunteers & onsite production"],
       },
+    ],
+  },
+
+  // ---- 3b. It takes a crew ----
+  crew: {
+    title: "It takes a crew.",
+    copy: "Every event is a small team working as one. Host companies open their doors, speakers bring their best thinking, and volunteers run registration, wrangle mics, and keep the energy up. My job is to make sure everyone knows the plan, has what they need, and feels like part of something worth showing up for.",
+    image: "/events/photo-networking-couches.jpg",
+    imageAlt: "Attendees networking on colorful couches with drinks at a packed Cascade SF reception",
+    // Optional stat chips — fill in a value to show a chip; leave value as "" to hide it.
+    stats: [
+      { value: "", label: "speakers coached" },
+      { value: "", label: "volunteers" },
+      { value: "", label: "host companies" },
     ],
   },
 
@@ -111,7 +134,7 @@ export const events = {
 
   // ---- 6. Speakers & partners ----
   onStage: {
-    heading: "Who's been on stage",
+    heading: "Who I've built events with.",
     blurb:
       "Senior designers and leaders from Google, Apple, Amazon, Salesforce, YouTube, Workday, Chase, and Cisco.",
     companies: ["Google", "Apple", "Amazon", "Salesforce", "YouTube", "Workday", "Chase", "Cisco"],
@@ -146,10 +169,10 @@ export const events = {
   testimonials: [
     {
       quote:
-        "UXNight is by far the best event I had a chance to speak at. Well organised (up to every single, tiny, detail), extremely professional and super-successful in gathering large crowd of super-smart designers.",
-      name: "Marcin Treder",
-      title: "Director of User Experience",
-      company: "Google Play",
+        "She went above and beyond by jumping in and helping me not just with the flow and content of the presentation, but with the visual design of the slides. The finished product was significantly better than it would have been without her.",
+      name: "Jane Davis",
+      title: "Senior Product Manager",
+      company: "Salesforce",
     },
     {
       quote:
@@ -160,10 +183,24 @@ export const events = {
     },
     {
       quote:
-        "She went above and beyond by jumping in and helping me not just with the flow and content of the presentation, but with the visual design of the slides. The finished product was significantly better than it would have been without her.",
-      name: "Jane Davis",
-      title: "Senior Product Manager",
-      company: "Salesforce",
+        "My company has sponsored several of her events, and she's been a pleasure to work with from start to finish. She's very responsive to one-off requests and goes out of her way to make sure your company gets the most out of being involved.",
+      name: "Amy Ziari",
+      title: "Senior Vice President",
+      company: "We. Communications",
+    },
+    {
+      quote:
+        "We've worked together at several Adobe events and Andi is always on top of things during the planning stages. When the day of the event arrives, I am always shocked at how smoothly everything runs.",
+      name: "Kelly McCathran",
+      title: "Staff Technical Writer",
+      company: "ServiceNow",
+    },
+    {
+      quote:
+        "UXNight is by far the best event I had a chance to speak at. Well organised (up to every single, tiny, detail), extremely professional and super-successful in gathering large crowd of super-smart designers.",
+      name: "Marcin Treder",
+      title: "Director of User Experience",
+      company: "Google Play",
     },
     {
       quote:
