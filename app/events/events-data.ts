@@ -133,7 +133,7 @@ export const events = {
     { src: "/events/photo-panel-wide.jpg", alt: "Four panelists on stage in front of an orange backdrop with a full audience seated at a Cascade SF event", tall: false },
     { src: "/events/photo-andi-stage.jpg", alt: "Andi Galpern on stage with a handheld microphone, gesturing mid-talk", tall: true },
     { src: "/events/photo-networking-couches.jpg", alt: "Attendees networking on colorful couches with drinks at a packed reception", tall: false },
-  { src: "/events/andi-uxnight.jpg", alt: "Andi Galpern speaking on stage at UXNight, a Cascade SF event", tall: false },
+  { src: "/events/cascade-panel-stools.jpg", alt: "Three panelists seated on stools while Andi Galpern holds a microphone with her arm raised in front of a blue Cascade SF lightning-bolt wall", tall: false },
     { src: "/events/photo-panel-andi.jpg", alt: "Andi Galpern laughing beside a co-panelist at the microphones during a panel discussion", tall: true },
     { src: "/events/photo-audience.jpg", alt: "Large audience seated with laptops open in an open loft event space", tall: false },
     { src: "/events/photo-conversation.jpg", alt: "Three attendees in conversation at an event in a brick-and-beam venue", tall: true },
