@@ -40,13 +40,23 @@ export function CascadeSF() {
             </Reveal>
           </div>
 
-          <div className="lg:col-span-5">
-            <Reveal delay={180}>
+          <div className="flex flex-col gap-6 lg:col-span-5">
+            <Reveal delay={140}>
+              <figure className="overflow-hidden rounded-2xl border border-ink">
+                <img
+                  src={cascade.image || "/placeholder.svg"}
+                  alt={cascade.imageAlt}
+                  className="aspect-[3/2] w-full object-cover"
+                  loading="lazy"
+                />
+              </figure>
+            </Reveal>
+            <Reveal delay={220}>
               <a
                 href={links.beat}
                 target="_blank"
                 rel="noreferrer"
-                className="group flex h-full flex-col justify-between gap-8 rounded-2xl border border-ink bg-paper p-8 transition-colors duration-300 hover-border-accent"
+                className="group flex flex-col justify-between gap-8 rounded-2xl border border-ink bg-paper p-8 transition-colors duration-300 hover-border-accent"
               >
                 <div>
                   <span className="inline-flex h-11 w-11 items-center justify-center rounded-full bg-accent accent-contrast">
