@@ -1,6 +1,6 @@
 import { ArrowUpRight, BarChart3 } from "lucide-react"
 import { events } from "@/app/events/events-data"
-import { Container, SectionLabel, btnSecondary, chipClass } from "./primitives"
+import { Container, SectionLabel, btnSecondary } from "./primitives"
 import { Reveal } from "./reveal"
 
 export function CascadeSF() {
@@ -24,15 +24,26 @@ export function CascadeSF() {
               <p className="mt-6 max-w-2xl text-lg leading-relaxed text-muted-ink">{cascade.copy}</p>
             </Reveal>
             <Reveal delay={200}>
-              <ul className="mt-7 flex flex-wrap gap-2.5">
-                {cascade.series.map((s) => (
-                  <li key={s} className={chipClass}>
-                    {s}
-                  </li>
-                ))}
-              </ul>
+              <div className="mt-8">
+                <h3 className="text-xs font-semibold uppercase tracking-[0.16em] text-accent">What we do</h3>
+                <div className="mt-4 grid gap-4 sm:grid-cols-3">
+                  {cascade.whatWeDo.map((item) => (
+                    <div key={item.title} className="rounded-2xl border border-ink bg-paper p-5">
+                      <h4 className="font-display text-base font-semibold leading-snug text-ink">{item.title}</h4>
+                      <p className="mt-2 text-sm leading-relaxed text-muted-ink">{item.copy}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
             </Reveal>
             <Reveal delay={260}>
+              <blockquote className="mt-10 border-l-4 border-accent pl-6">
+                <p className="font-display text-xl font-medium leading-relaxed text-ink text-balance sm:text-2xl">
+                  {`“${cascade.pullQuote}”`}
+                </p>
+              </blockquote>
+            </Reveal>
+            <Reveal delay={320}>
               <a href={links.cascade} target="_blank" rel="noreferrer" className={`${btnSecondary} mt-8`}>
                 Visit Cascade SF
                 <ArrowUpRight className="h-4 w-4" />

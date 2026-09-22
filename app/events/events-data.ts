@@ -120,16 +120,42 @@ export const events = {
 
   // ---- 5. Cascade SF ----
   cascade: {
-    title: "Founder, Cascade SF",
-    period: "2011 – present",
-    copy: "I founded Cascade SF in 2011 and grew it into a community of more than 10,000 designers and technology professionals. Our multi-night series — including UX of VR, Growth Design, Data & Design, and Design + AI — consistently drew the biggest crowds. Our current programming focuses on how designers use AI and how product teams design agentic experiences.",
-    image: "/events/andi-uxnight.jpg",
-    imageAlt: "Andi Galpern speaking on stage at UXNight, a Cascade SF event, in front of a packed crowd",
-    series: ["UX of VR", "Growth Design", "Data & Design", "Design + AI"],
-    beat: {
-      title: "The Beat",
-      copy: "Cascade SF's anonymous research survey on how designers really work.",
-    },
+  title: "Founder, Cascade SF",
+  period: "2011 – present",
+  copy: "Cascade SF is a San Francisco community for designers, product managers, and engineers who want to learn from each other, meet the people doing the work, and help each other grow. I started it in 2011 because I was looking for design events and couldn't find the ones I wanted, so I started building them. Fifteen years later, it's a community of more than 10,000 people.",
+  image: "/events/andi-uxnight.jpg",
+  imageAlt: "Andi Galpern speaking on stage at UXNight, a Cascade SF event, in front of a packed crowd",
+  whatWeDo: [
+  {
+  title: "Talks & panels (UXNight)",
+  copy: "After-work events where practitioners share what they're actually building, followed by time to meet the room.",
+  },
+  {
+  title: "Mentor Nights",
+  copy: "Designers bring their work and get 1:1 feedback from senior mentors, hosted at companies like Adobe and Microsoft Reactor.",
+  },
+  {
+  title: "Multi-night conferences",
+  copy: "Deep-dive series on emerging topics, including UX of VR, Growth Design, Data & Design, and Design + AI.",
+  },
+  ],
+  pullQuote:
+  "I used to only get big name speakers. Now I help designers, product managers, and people in tech tell their stories, so they can share their knowledge and we can create more people like them. It's about creating new leaders, and creating content the industry needs.",
+  beat: {
+  title: "The Beat",
+  copy: "Cascade SF's anonymous research survey on how designers really work.",
+  },
+  },
+
+  // ---- 5b. Podcast ----
+  podcast: {
+  heading: "Listen: how I design events so everybody wins.",
+  label: "Featured on the freeCodeCamp Podcast · Ep. 79",
+  copy: "I talked with freeCodeCamp about how Cascade SF started, what makes an event worth showing up for, and why great events are designed content-first.",
+  embedSrc:
+  "https://html5-player.libsyn.com/embed/episode/id/11152949/height/90/theme/custom/thumbnail/yes/direction/forward/render-playlist/no/custom-color/ffffff/",
+  linkLabel: "Listen on freeCodeCamp",
+  linkHref: "https://freecodecamp.libsyn.com/ep-79-how-to-design-tech-event-experiences-so-everybody-wins",
   },
 
   // ---- 6. Speakers & partners ----
