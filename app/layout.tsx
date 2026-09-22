@@ -40,6 +40,9 @@ export default function RootLayout({
         </Script>
       </head>
       <body className={`font-sans antialiased`}>
+        <noscript>
+          <style>{`.reveal-on-scroll{opacity:1 !important;transform:none !important}`}</style>
+        </noscript>
         <ScrollToTop />
         {children}
         <Analytics />
