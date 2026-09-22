@@ -1,11 +1,10 @@
-import { ArrowUpRight, Ticket } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { events } from "@/app/events/events-data"
-import { Container, SectionLabel, btnPrimary, chipClass } from "./primitives"
+import { Container, SectionLabel, chipClass } from "./primitives"
 import { Reveal } from "./reveal"
 
 export function CaseStudies() {
-  const { caseStudies, links } = events
+  const { caseStudies } = events
 
   return (
     <section id="work" className="scroll-mt-24 border-t border-ink py-20 md:py-28">
@@ -37,11 +36,6 @@ export function CaseStudies() {
                       className="h-full w-full object-cover"
                       loading="lazy"
                     />
-                    {study.upcoming && (
-                      <span className="absolute left-4 top-4 inline-flex items-center gap-1.5 rounded-full bg-accent-gradient text-white px-3 py-1.5 text-xs font-bold uppercase tracking-wide">
-                        {"badge" in study ? study.badge : "Upcoming"}
-                      </span>
-                    )}
                   </div>
                 </div>
 
@@ -57,13 +51,6 @@ export function CaseStudies() {
                       </li>
                     ))}
                   </ul>
-                  {study.upcoming && (
-                    <a href={links.tickets} className={cn(btnPrimary, "mt-7")}>
-                      <Ticket className="h-4 w-4" />
-                      Get tickets
-                      <ArrowUpRight className="h-4 w-4" />
-                    </a>
-                  )}
                 </div>
               </Reveal>
             )

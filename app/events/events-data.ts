@@ -15,7 +15,6 @@ export const events = {
     linkedin: "https://www.linkedin.com/in/andigalpern", // TODO: confirm handle
     cascade: "https://cascadesf.com",
     beat: "https://cascadesf.com/beat",
-    tickets: "#tickets", // TODO: replace with the Superhuman event ticket link
   },
 
   // ---- 1. Hero ----
@@ -76,7 +75,6 @@ export const events = {
       story:
         "A three-night, after-work conference on design, AI, and technology — produced years before generative AI went mainstream. It sold out all three nights.",
       metrics: ["3 nights", "~300 attendees / night", "Sold out"],
-      upcoming: false,
     },
     {
       title: "Mentor Night at Adobe SF",
@@ -85,17 +83,6 @@ export const events = {
       story:
         "A large-scale mentorship event at Adobe's San Francisco headquarters, pairing seasoned mentors with designers looking to grow.",
       metrics: ["~45 mentors", "~220 attendees"],
-      upcoming: false,
-    },
-    {
-      title: "Designing AI Tools with Superhuman",
-      image: "/events/gallery-networking.png",
-      imageAlt: "An evening networking reception in a warmly lit modern venue",
-      story:
-        "A partner event hosted at Superhuman featuring their head of AI and research team, exploring how modern product teams design with AI.",
-      metrics: ["December 2026", "Hosted at Superhuman", "With their AI research team"],
-      upcoming: true,
-      badge: "Upcoming",
     },
   ],
 
@@ -121,7 +108,7 @@ export const events = {
     companies: ["Google", "Apple", "Amazon", "Salesforce", "YouTube", "Workday", "Chase", "Cisco"],
     speakers: ["Alan Cooper", "Daniel Burka", "Mark Otto", "Julia Melton", "Josh Constine", "Eva Galperin"],
     partnersLabel: "Partners & sponsors",
-    partners: ["Adobe", "Microsoft Reactor", "Superhuman", "InVision", "WalkMe", "Proto.io"],
+    partners: ["Adobe", "Microsoft Reactor", "InVision", "WalkMe", "Proto.io"],
   },
 
   // ---- 7. Also ----
