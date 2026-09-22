@@ -152,7 +152,7 @@ export default function HomePage() {
                   </div>
                 </div>
                 <span className="text-sm font-bold bg-gradient-to-r from-purple-700 to-blue-600 bg-clip-text text-transparent">
-                  Growth Strategy × Experimentation × AI Products
+                  Growth Strategy × Community & Events × AI Products
                 </span>
               </div>
 
@@ -372,6 +372,77 @@ export default function HomePage() {
           </div>
         </section>
 
+        {/* Events & Community */}
+        <section className="py-32 relative">
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-blue-50/30 to-transparent" />
+          <div className="relative container mx-auto px-6">
+            <div className="max-w-6xl mx-auto">
+              <div className="text-center mb-16 reveal-on-scroll">
+                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-purple-50 border border-purple-200 mb-6">
+                  <Users className="w-4 h-4 text-purple-600" />
+                  <span className="text-sm font-bold text-purple-700">Events & Community</span>
+                </div>
+                <h2 className="text-6xl md:text-7xl font-black mb-6" style={{ color: '#20221e' }}>
+                  I grow communities, too.
+                </h2>
+                <p className="text-xl text-gray-600 max-w-3xl mx-auto text-balance leading-relaxed">
+                  The same skills that fill a funnel fill a room. In 2011 I founded Cascade SF, a San Francisco community for designers, product managers, and engineers. With speakers, partners, and volunteers, I&apos;ve produced 200+ events and 10 multi-day conferences, and built a community of 10,000+ people.
+                </p>
+              </div>
+
+              {/* Stat row */}
+              <div className="reveal-on-scroll grid grid-cols-1 sm:grid-cols-3 gap-6 mb-16">
+                {[
+                  { value: "200+", label: "Events produced", icon: Rocket },
+                  { value: "10,000+", label: "Community members", icon: Users },
+                  { value: "15,900+", label: "Tickets sold", icon: BarChart },
+                ].map((metric, i) => (
+                  <div key={i}
+                       className="group relative bg-white/40 backdrop-blur-md border border-white/20 rounded-2xl p-6 hover:bg-white/60 hover:border-purple-500/30 hover:shadow-xl hover:shadow-purple-500/10 hover:-translate-y-1 transition-all duration-500">
+                    <metric.icon className="w-5 h-5 text-purple-600 mb-3 group-hover:scale-110 transition-transform" />
+                    <div className="text-4xl font-black text-purple-600 mb-1 tabular-nums">{metric.value}</div>
+                    <div className="text-sm font-medium text-gray-600">{metric.label}</div>
+                  </div>
+                ))}
+              </div>
+
+              {/* Wide photo */}
+              <div className="reveal-on-scroll relative mb-10">
+                <div className="absolute inset-0 bg-gradient-to-br from-purple-500/20 to-blue-500/20 rounded-3xl blur-2xl" />
+                <div className="relative aspect-[16/9] rounded-3xl overflow-hidden border border-white/20 shadow-2xl shadow-purple-500/10">
+                  <Image
+                    src="/events/designing-with-ai.jpg"
+                    alt="A packed auditorium at Designing with AI, a sold-out three-night conference produced by Andi Galpern"
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+              </div>
+
+              {/* Pull quote */}
+              <blockquote className="reveal-on-scroll max-w-3xl mx-auto text-center mb-10">
+                <p className="text-2xl md:text-3xl font-bold leading-snug text-balance" style={{ color: '#20221e' }}>
+                  &ldquo;UXNight is by far the best event I had a chance to speak at.&rdquo;
+                </p>
+                <footer className="mt-4 text-base text-gray-600">
+                  <span className="font-semibold text-purple-700">Marcin Treder</span>, Director of User Experience, Google Play
+                </footer>
+              </blockquote>
+
+              {/* Primary button */}
+              <div className="reveal-on-scroll text-center">
+                <Link
+                  href="/events"
+                  className="inline-flex items-center gap-2 px-8 py-4 rounded-2xl bg-gradient-to-r from-purple-600 to-blue-600 text-white text-lg font-bold hover:shadow-2xl hover:shadow-purple-500/40 hover:scale-105 transition-all duration-300"
+                >
+                  See my events work
+                  <ArrowUpRight className="w-5 h-5" />
+                </Link>
+              </div>
+            </div>
+          </div>
+        </section>
+
         <section className="py-32 relative">
           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-purple-50/30 to-transparent" />
           <div className="relative container mx-auto px-6">
@@ -409,6 +480,11 @@ export default function HomePage() {
                   title: "Cross-Functional Leadership",
                   description: "Skilled at leading product initiatives across design, engineering, marketing, content, and sales. I speak the language of business stakeholders while maintaining design and editorial excellence.",
                   icon: <Users className="w-6 h-6" />
+                },
+                {
+                  title: "Community & Event Leadership",
+                  description: "I build communities people return to. I lead events from concept to load-out, coach speakers 1:1, and align partners, venues, and volunteers around one plan.",
+                  icon: <Rocket className="w-6 h-6" />
                 }
               ].map((skill, index) => (
                 <div 
