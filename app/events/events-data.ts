@@ -130,17 +130,17 @@ export const events = {
 
   // ---- 8. Gallery ----
   gallery: [
-    { src: "/events/gallery-crowd.png", alt: "Engaged audience seated at an evening technology and design conference", tall: false },
-    { src: "/events/gallery-panel.png", alt: "Four speakers on stage during a panel discussion holding microphones", tall: true },
-    { src: "/events/gallery-mentor.png", alt: "Small groups of professionals talking at round tables during a mentorship event", tall: false },
+    { src: "/events/photo-panel-wide.jpg", alt: "Four panelists on stage in front of an orange backdrop with a full audience seated at a Cascade SF event", tall: false },
+    { src: "/events/photo-andi-stage.jpg", alt: "Andi Galpern on stage with a handheld microphone, gesturing mid-talk", tall: true },
+    { src: "/events/photo-networking-couches.jpg", alt: "Attendees networking on colorful couches with drinks at a packed reception", tall: false },
     { src: "/events/andi-google-io.jpg", alt: "Andi Galpern at Google I/O beside a giant Android mascot statue", tall: true },
     { src: "/events/andi-uxnight.jpg", alt: "Andi Galpern speaking on stage at UXNight, a Cascade SF event", tall: false },
-    { src: "/events/gallery-registration.png", alt: "Event registration desk with name badges and lanyards laid out", tall: true },
-    { src: "/events/gallery-networking.png", alt: "Evening networking reception with attendees holding drinks", tall: false },
-    { src: "/events/gallery-keynote.png", alt: "Packed keynote room seen from the back facing a bright stage", tall: true },
-    { src: "/events/gallery-workshop.png", alt: "Hands-on design workshop with laptops and colorful sticky notes", tall: false },
-    { src: "/events/gallery-backstage.png", alt: "Organizers with headsets and clipboards coordinating backstage", tall: false },
-    { src: "/events/andi-portrait.png", alt: "Portrait of Andi Galpern outdoors in front of greenery", tall: true },
+    { src: "/events/photo-panel-andi.jpg", alt: "Andi Galpern laughing beside a co-panelist at the microphones during a panel discussion", tall: true },
+    { src: "/events/photo-audience.jpg", alt: "Large audience seated with laptops open in an open loft event space", tall: false },
+    { src: "/events/photo-conversation.jpg", alt: "Three attendees in conversation at an event in a brick-and-beam venue", tall: true },
+    { src: "/events/photo-catering.jpg", alt: "A caterer plating a buffet spread at a Cascade SF event", tall: false },
+    { src: "/events/photo-attendees-laptops.jpg", alt: "Attendees working on laptops in the audience during a talk", tall: false },
+    { src: "/events/photo-candid-carry.jpg", alt: "A playful candid of an attendee carrying Andi Galpern in a loft event venue", tall: true },
   ],
 
   // ---- 9. Testimonials (placeholder — fill in later) ----
