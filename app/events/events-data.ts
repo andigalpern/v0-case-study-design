@@ -79,8 +79,8 @@ export const events = {
   crew: {
     title: "It takes a crew.",
     copy: "Every event is a small team working as one. Host companies open their doors, speakers bring their best thinking, and volunteers run registration, wrangle mics, and keep the energy up. My job is to make sure everyone knows the plan, has what they need, and feels like part of something worth showing up for.",
-    image: "/events/photo-networking-couches.jpg",
-    imageAlt: "Attendees networking on colorful couches with drinks at a packed Cascade SF reception",
+  image: "/events/crew-audience.jpg",
+  imageAlt: "A packed, attentive audience wearing name tags seated in rows at a Cascade SF event in a modern loft space",
     // Optional stat chips — fill in a value to show a chip; leave value as "" to hide it.
     stats: [
       { value: "", label: "speakers coached" },
