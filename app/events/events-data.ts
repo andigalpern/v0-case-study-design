@@ -22,7 +22,7 @@ export const events = {
     kicker: "Event & Field Marketing",
     headline: "I build events people actually show up for.",
     subhead:
-      "Andi Galpern has spent 15 years bringing speakers, partners, volunteers, and communities together to produce conferences and events for designers and technologists in San Francisco, from first idea to final load-out.",
+      "Hi, I'm Andi Galpern! I'm the Founder of Cascade SF, a design and technology organization based in San Francisco. For the past 15 years, I've brought speakers, partners, volunteers, and communities together to produce conferences and events that connect designers and technologists. I love turning ideas into memorable experiences that spark conversations, build relationships, and inspire new possibilities.",
     portrait: {
       src: "/events/andi-portrait.png",
       alt: "Portrait of Andi Galpern, event and field marketing leader, outdoors in front of greenery",

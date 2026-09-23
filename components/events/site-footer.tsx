@@ -17,7 +17,7 @@ export function SiteFooter() {
       <Container className="flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-center">
         <div>
           <span className="font-display text-lg font-semibold tracking-tight text-ink">Andi Galpern</span>
-          <p className="mt-1 text-sm text-muted-ink">Event &amp; field marketing, San Francisco.</p>
+          <p className="mt-1 text-sm text-muted-ink">Event &amp; Field Marketing, San Francisco.</p>
         </div>
         <nav className="flex flex-wrap gap-x-6 gap-y-2">
           {footerLinks.map((link) => (
