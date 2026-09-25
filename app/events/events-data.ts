@@ -37,7 +37,6 @@ export const events = {
     { value: 10000, suffix: "+", label: "Community members" },
     { value: 15900, suffix: "+", label: "Tickets sold" },
   ] as const,
-  statsFootnote: "Community-funded through ticket sales, not sponsor-dependent.",
 
   // ---- 3. What I do (full lifecycle) ----
   lifecycle: {
@@ -97,7 +96,7 @@ export const events = {
       imageAlt: "A packed auditorium of hundreds of designers and technologists at a major tech company headquarters, facing a lit stage with panelists for Designing with AI",
       story:
         "A three-night, after-work conference on design, AI, and technology — produced years before generative AI went mainstream. It sold out all three nights.",
-      metrics: ["3 nights", "~300 attendees / night", "Sold out"],
+      metrics: ["3 nights", "~500 attendees / night", "Sold out"],
     },
     {
       title: "Mentor Night at Adobe HQ",
