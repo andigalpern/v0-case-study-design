@@ -24,9 +24,6 @@ export function StatsBar() {
             </Reveal>
           ))}
         </dl>
-        <Reveal>
-          <p className="mt-12 text-sm font-medium text-muted-ink">{statsFootnote}</p>
-        </Reveal>
       </Container>
     </section>
   )

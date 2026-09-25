@@ -37,7 +37,6 @@ export const events = {
     { value: 10000, suffix: "+", label: "Community members" },
     { value: 15900, suffix: "+", label: "Tickets sold" },
   ] as const,
-  statsFootnote: "Community-funded through ticket sales, not sponsor-dependent.",
 
   // ---- 3. What I do (full lifecycle) ----
   lifecycle: {
